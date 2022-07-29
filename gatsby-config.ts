@@ -1,3 +1,4 @@
+require('dotenv').config()
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
@@ -9,13 +10,16 @@ const config: GatsbyConfig = {
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
-  plugins: [{
-    resolve: 'gatsby-source-contentful',
-    options: {
-      "accessToken": "fQIkg6FXcnxiOnq9fWri77ElY7O1rCjdtOOp4HY3b-0",
-      "spaceId": "4ms0mtxbphlv"
-    }
-  }]
+  plugins: [
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        "accessToken": process.env.ACCESS_TOKEN,
+        "spaceId": process.env.SPACE_ID,
+      }
+    },
+    'gatsby-plugin-image',
+  ]
 };
 
 export default config;
