@@ -1,10 +1,10 @@
-require('dotenv').config()
+require("dotenv").config();
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `BFDI`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.yourdomain.tld`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -12,14 +12,14 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     {
-      resolve: 'gatsby-source-contentful',
+      resolve: "gatsby-source-contentful",
       options: {
-        "accessToken": process.env.ACCESS_TOKEN,
-        "spaceId": process.env.SPACE_ID,
-      }
+        accessToken: process.env.ACCESS_TOKEN,
+        spaceId: process.env.SPACE_ID,
+      },
     },
-    'gatsby-plugin-image',
-  ]
+    "gatsby-plugin-image",
+  ],
 };
 
 export default config;
