@@ -14,10 +14,11 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
-    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "test": "echo \"Error: no test specified\"",
+    "prepare": "husky install"
   },
   "dependencies": {
     "dotenv": "^16.0.1",
@@ -40,6 +41,7 @@
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "prettier": "^2.7.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "husky": "^8.0.0"
   }
 }

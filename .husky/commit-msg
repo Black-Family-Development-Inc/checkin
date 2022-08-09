@@ -1,0 +1,18 @@
+#!/bin/bash
+
+. "$(dirname "$0")/_/husky.sh"
+
+# This commit-msg hook ensures that each commit has the AZ card number attached
+# without commiters having to worry about it
+
+# Takes only consecutive digits from the current branch and trims it
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+CARD_NUM=$(echo $BRANCH | grep -oE '[0-9]{4,}' | head -1 | tr -d '[:space:]')
+
+# check if there is no card num already, and this isn't a merge commit
+if [ ! -z $CARD_NUM ]; then
+ # Combine with the previous message
+  MSG=$(cat $1)
+  echo "Commit Msg: $CARD_NUM $MSG"
+  echo "$CARD_NUM $MSG" > $1
+fi
