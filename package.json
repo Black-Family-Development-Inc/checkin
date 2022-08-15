@@ -24,6 +24,8 @@
     "dotenv": "^16.0.1",
     "gatsby": "^4.19.2",
     "gatsby-plugin-image": "^2.19.0",
+    "gatsby-plugin-manifest": "^4.20.0",
+    "gatsby-plugin-offline": "^5.20.0",
     "gatsby-plugin-sharp": "^4.19.0",
     "gatsby-source-contentful": "^7.17.0",
     "react": "^18.1.0",
@@ -40,8 +42,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "husky": "^8.0.0",
     "prettier": "^2.7.1",
-    "typescript": "^4.7.4",
-    "husky": "^8.0.0"
+    "typescript": "^4.7.4"
   }
 }
