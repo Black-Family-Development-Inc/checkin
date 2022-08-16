@@ -1,10 +1,10 @@
 import * as React from "react";
-import Footer from "../components/Footer/Footer";
+import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 
 const IndexPage = () => {
   return (
     <>
-      <Footer />
+      <DefaultLayout>"children" prop goes here</DefaultLayout>
     </>
   );
 };
