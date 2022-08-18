@@ -1,3 +1,4 @@
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Card,
@@ -7,22 +8,7 @@ import {
   Collapse,
   Typography,
 } from "@mui/material";
-import IconButton, { IconButtonProps } from "@mui/material/IconButton";
-import { styled } from "@mui/material/styles";
 import * as React from "react";
-
-interface IExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-}
-
-const ExpandMore = styled((props: IExpandMoreProps) => {
-  return <IconButton {...props} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
 
 export default function Accordion() {
   const [expanded, setExpanded] = React.useState(false);
@@ -43,14 +29,19 @@ export default function Accordion() {
         </Typography>
       </CardContent>
       <CardActions>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
+        {expanded ? (
+          <ExpandLessIcon
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          />
+        ) : (
+          <ExpandMoreIcon
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show less"
+          />
+        )}
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>

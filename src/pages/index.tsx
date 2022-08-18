@@ -1,14 +1,15 @@
 import * as React from "react";
 import Accordion from "../components/Accordion/Accordion";
 import Button from "../components/Button/Button";
-import Footer from "../components/Footer/Footer";
+import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 
 const IndexPage = () => {
   return (
     <>
-      <Button />
-      <Accordion />
-      <Footer />
+      <DefaultLayout>
+        <Button />
+        <Accordion />
+      </DefaultLayout>
     </>
   );
 };
