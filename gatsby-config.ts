@@ -12,13 +12,13 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     {
-      resolve: "gatsby-source-contentful",
+      resolve: `gatsby-source-contentful`,
       options: {
-        accessToken: process.env.ACCESS_TOKEN,
         spaceId: process.env.SPACE_ID,
+        accessToken: process.env.ACCESS_TOKEN,
       },
     },
-    "gatsby-plugin-image",
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -36,17 +36,17 @@ const config: GatsbyConfig = {
             src: `/favicons/icon.png`,
             sizes: `192x192`,
             type: `image/png`,
-            purpose: "maskable"
+            purpose: `maskable`,
           },
           {
             src: `/favicons/icon.png`,
             sizes: `512x512`,
-            type: `image/png`
-          }
-        ]
+            type: `image/png`,
+          },
+        ],
       },
     },
-    'gatsby-plugin-offline'
+    `gatsby-plugin-offline`,
   ],
 };
 
