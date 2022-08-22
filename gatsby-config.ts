@@ -1,6 +1,4 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+require("dotenv").config();
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
@@ -16,8 +14,8 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `${process.env.SPACE_ID}`,
-        accessToken: `${process.env.ACCESS_TOKEN}`,
+        spaceId: process.env.SPACE_ID,
+        accessToken: process.env.ACCESS_TOKEN,
       },
     },
     `gatsby-plugin-image`,
