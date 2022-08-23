@@ -12,13 +12,14 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
+    "clean": "gatsby clean && rm -Rf build/",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "test": "echo \"Error: no test specified\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "imageUpdate": "npm run clean && npm build && mv public/ build/ && touch build/env.js && imageUpdate"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -48,6 +49,7 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^8.0.0",
     "prettier": "^2.7.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "labs-cloud-node-deployment": "github:detroit-labs/labs-cloud-node-deployment#v1.2.8"
   }
 }
