@@ -1,0 +1,30 @@
+name: BFDI CI Dev
+env:
+  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  SPACE_ID: ${{ secrets.SPACE_ID }}
+  GCLOUD_SERVICE_AUTH: ${{ secrets.GCLOUD_SERVICE_AUTH }}
+  DEPLOYMENT_ENVIRONMENT: dev
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm run test
+      - name: Connect GKE
+        run: echo $GCLOUD_SERVICE_AUTH > file.json
+      - run: npm run imageUpdate
+        env:
+          GCLOUD_SERVICE_AUTH_FILE: file.json
+      - name: Disconnect GKE
+        run: rm -f file.json
+        if: always()
