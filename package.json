@@ -19,7 +19,7 @@
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "test": "echo \"Error: no test specified\"",
     "prepare": "husky install",
-    "imageUpdate": "npm run clean && npm build && mv public/ build/ && touch build/env.js && imageUpdate"
+    "imageUpdate": "npm run clean && npm run build && mv public/ build/ && touch build/env.js && imageUpdate"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -50,6 +50,6 @@
     "husky": "^8.0.0",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4",
-    "labs-cloud-node-deployment": "github:detroit-labs/labs-cloud-node-deployment#v1.2.8"
+    "@detroit-labs/labs-cloud-node-deployment": "detroit-labs/labs-cloud-node-deployment#v1.2.8"
   }
 }
