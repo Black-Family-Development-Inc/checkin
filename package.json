@@ -18,8 +18,7 @@
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "test": "echo \"Error: no test specified\"",
-    "prepare": "husky install",
-    "imageUpdate": "npm run clean && npm run build && mv public/ build/ && touch build/env.js && imageUpdate"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -49,7 +48,6 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^8.0.0",
     "prettier": "^2.7.1",
-    "typescript": "^4.7.4",
-    "@detroit-labs/labs-cloud-node-deployment": "detroit-labs/labs-cloud-node-deployment#v1.2.8"
+    "typescript": "^4.7.4"
   }
 }

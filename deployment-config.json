@@ -1,9 +1,0 @@
-{
-  "projectId": "bfdi-afac",
-  "deploymentName": "frontend",
-  "deploymentEnvironment": "${DEPLOYMENT_ENVIRONMENT}",
-  "namespace": "default",
-  "clusterName": "non-prod",
-  "authenticationFile": "${GCLOUD_SERVICE_AUTH_FILE}",
-  "deploymentZone": "us-central1-a"
-}
