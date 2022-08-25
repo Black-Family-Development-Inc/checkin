@@ -12,7 +12,7 @@
     "start": "gatsby develop -H 0.0.0.0",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean && rm -Rf build/",
+    "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "npm run format && eslint --fix \"src/**/*.{ts,tsx}\"",
