@@ -21,7 +21,7 @@ jobs:
       - run: npm run build --if-present
       - run: npm run test
       - name: Generate Container Name
-        run: |
+        run: |-
           echo "CONTAINER_NAME=gcr.io/$PROJECT_ID/$SERVICE" >> $GITHUB_ENV'
       - name: Build and Tag Container
         run: |-
