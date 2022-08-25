@@ -22,7 +22,7 @@ jobs:
       - run: npm run test
       - name: Generate Container Name
         run: |-
-          echo "CONTAINER_NAME=gcr.io/$PROJECT_ID/$SERVICE" >> $GITHUB_ENV'
+          echo "CONTAINER_NAME=gcr.io/$PROJECT_ID/$SERVICE" >> $GITHUB_ENV
       - name: Build and Tag Container
         run: |-
           docker build . -t $CONTAINER_NAME:${{ github.sha }}
