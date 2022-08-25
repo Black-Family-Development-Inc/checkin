@@ -1,0 +1,31 @@
+{
+  "title": "Sample Assessment",
+  "desciption": "Lorum Ipsom",
+  "code": "PHQ-9",
+  "assesstment": [
+    {
+      "heading": "OVER THE LAST TWO WEEKS, HOW OFTEN HAVE YOU BEEN BOTEHRED BY ANY OF THE FOLLOWING PROBLEMS:",
+      "questionType": "scale",
+      "questionAnswers": [
+        "Not at all",
+        "Several days",
+        "More than half the days",
+        "Nearly every day"
+      ],
+      "questions": [
+        "Little interest or pleasure in doing things?",
+        "Feeling down, depressed, irritable, or hopeless?",
+        "Trouble falling or staying asleep, or sleeping too much?",
+        "Feeling tired or having little energy?",
+        "Poor appetite, weight loss, or overeating?",
+        "Feeling bad about yourself, or that you are a failure or have let yourself or your family down?",
+        "Trouble concentrating on things, like school work, reading or watching television?",
+        "Moving or speaking so slowly that other people could have noticed? Or the opposite - being so fidgety or restless that you were moving around a lot more than usual?",
+        "Thoughts that you would be better off dead or of hurting yourself in some way?"
+      ],
+      "triggerQuestions": [
+        "Thoughts that you would be better off dead or of hurting yourself in some way?"
+      ]
+    }
+  ]
+}
