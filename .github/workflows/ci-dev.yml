@@ -7,6 +7,7 @@ env:
   DEPLOYMENT_ENVIRONMENT: dev
   CLUSTER_NAME: non-prod
   CLUSTER_ZONE: us-central1-a
+  SITE_NAME_DEV: ${{ secrets.SITE_NAME_DEV }}
 on:
   push:
     branches:
