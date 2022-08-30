@@ -4,7 +4,7 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `BFDI`,
-    siteUrl: process.env.SITE_NAME_DEV,
+    siteUrl: process.env.SITE_NAME,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
