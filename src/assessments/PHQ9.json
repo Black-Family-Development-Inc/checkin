@@ -83,7 +83,7 @@
       "triggerAnswer": "Nearly every day"
     },
     {
-      "text": "Thoughts that you would be better off dead or of hurting yourself in some way?",
+      "text": "In the past year have you felt depressed or sad most days, even if you felt okay sometimes?",
       "type": "binary",
       "triggerAnswer": null
     },
@@ -121,31 +121,31 @@
       "triggerAnswer": null
     }
   ],
-  "scoringSystem": [
+  "severityRubric": [
     {
       "severity": "None-Minimal",
-      "low": 0,
-      "high": 4
+      "min": 0,
+      "max": 4
     },
     {
       "severity": "Mild",
-      "low": 5,
-      "high": 9
+      "min": 5,
+      "max": 9
     },
     {
       "severity": "Moderate",
-      "low": 10,
-      "high": 14
+      "min": 10,
+      "max": 14
     },
     {
       "severity": "Moderately Severe",
-      "low": 15,
-      "high": 19
+      "min": 15,
+      "max": 19
     },
     {
       "severity": "Severe",
-      "low": 20,
-      "high": 27
+      "min": 20,
+      "max": 27
     }
   ]
 }
