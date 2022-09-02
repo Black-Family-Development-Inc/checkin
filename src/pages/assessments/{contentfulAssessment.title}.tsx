@@ -1,10 +1,12 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
+import AssessmentStepper from "../../components/AssessmentStepper/AssessmentStepper";
 
 const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
   const { contentfulAssessment: assessment } = data;
   return (
     <>
+      <AssessmentStepper />
       <p>Assessment ID: {assessment?.id}</p>
       <p>Assessment Title: {assessment?.title}</p>
       <p>Assessment "Questions":</p>
