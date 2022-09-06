@@ -7,6 +7,7 @@ env:
   DEPLOYMENT_ENVIRONMENT: staging
   CLUSTER_NAME: non-prod
   CLUSTER_ZONE: us-central1-a
+  SITE_NAME: ${{ secrets.SITE_NAME_STAGING }}
 on: workflow_dispatch
 jobs:
   build:

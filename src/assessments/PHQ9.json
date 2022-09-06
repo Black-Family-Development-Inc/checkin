@@ -1,0 +1,151 @@
+{
+  "title": "PHQ9",
+  "desciption": "Lorum Ipsom",
+  "code": "PHQ-9",
+  "headings": {
+    "scale": "Over the last 2 weeks, how often have you been bothered by any of the following problems:",
+    "binary": null
+  },
+  "answers": {
+    "scale": [
+      {
+        "text": "Not at all",
+        "score": 0
+      },
+      {
+        "text": "Several days",
+        "score": 1
+      },
+      {
+        "text": "More than half the days",
+        "score": 2
+      },
+      {
+        "text": "Nearly every day",
+        "score": 3
+      }
+    ],
+    "binary": [
+      {
+        "text": "Yes",
+        "score": 0
+      },
+      {
+        "text": "No",
+        "score": 0
+      }
+    ]
+  },
+  "questions": [
+    {
+      "text": "Little interest or pleasure in doing thing?",
+      "type": "scale",
+      "triggerAnswer": null
+    },
+    {
+      "text": "Feeling down, depressed, irritable, or hopeless?",
+      "type": "scale",
+      "triggerAnswer": null
+    },
+    {
+      "text": "Trouble falling or staying asleep, or sleeping too much?",
+      "type": "scale",
+      "triggerAnswer": null
+    },
+    {
+      "text": "Feeling tired or having little energy?",
+      "type": "scale",
+      "triggerAnswer": null
+    },
+    {
+      "text": "Poor appetite, weight loss, or overeating?",
+      "type": "scale",
+      "triggerAnswer": null
+    },
+    {
+      "text": "Feeling bad about yourself, or that you are a failure or have let yourself or your family down?",
+      "type": "scale",
+      "triggerAnswer": null
+    },
+    {
+      "text": "Trouble concentrating on things, like school work, reading or watching television?",
+      "type": "scale",
+      "triggerAnswer": null
+    },
+    {
+      "text": "Moving or speaking so slowly that other people could have noticed? Or the opposite - being so fidgety or restless that you were moving around a lot more than usual?",
+      "type": "scale",
+      "triggerAnswer": null
+    },
+    {
+      "text": "Thoughts that you would be better off dead or of hurting yourself in some way?",
+      "type": "scale",
+      "triggerAnswer": "Nearly every day"
+    },
+    {
+      "text": "In the past year have you felt depressed or sad most days, even if you felt okay sometimes?",
+      "type": "binary",
+      "triggerAnswer": null
+    },
+    {
+      "text": "If you are experiencing any of the problems on this form, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?",
+      "type": "custom",
+      "triggerAnswer": null,
+      "questions": [
+        {
+          "text": "Not difficult at all ",
+          "score": 0
+        },
+        {
+          "text": "Somewhat difficult",
+          "score": 0
+        },
+        {
+          "text": "Very difficult",
+          "score": 0
+        },
+        {
+          "text": "Extremely difficult",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "text": "Has there been a time in the past month when you have had serious thoughts about ending your life?",
+      "type": "binary",
+      "triggerAnswer": null
+    },
+    {
+      "text": "Have you EVER in your WHOLE LIFE, tried to kill yourself or made a suicide attempt?",
+      "type": "binary",
+      "triggerAnswer": null
+    }
+  ],
+  "severityRubric": [
+    {
+      "severity": "None-Minimal",
+      "min": 0,
+      "max": 4
+    },
+    {
+      "severity": "Mild",
+      "min": 5,
+      "max": 9
+    },
+    {
+      "severity": "Moderate",
+      "min": 10,
+      "max": 14
+    },
+    {
+      "severity": "Moderately Severe",
+      "min": 15,
+      "max": 19
+    },
+    {
+      "severity": "Severe",
+      "min": 20,
+      "max": 27
+    }
+  ]
+}
