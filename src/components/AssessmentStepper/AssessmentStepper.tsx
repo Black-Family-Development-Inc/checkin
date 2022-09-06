@@ -9,20 +9,11 @@ const AssessmentStepper = () => {
     { text: "Assessment Questions", isComplete: false },
     { text: "Results & Resources", isComplete: false },
   ]);
-  /**
-   * We are currently using localStorage for testing purposes to track the current step in our assessment pages
-   * This call to the localStorage should be removed along with this comment
-   * block in the future once the Next/Previous buttons have been implemented
-   * Update this code to also include a `setAssessmentActiveStep` function
-   * when Next/Prev buttons have been implemented
-   * Please see Jira Issue BFDI-113
-   * https://detroitlabs.jira.com/jira/software/projects/BFDI/boards/147/backlog?selectedIssue=BFDI-113
-   */
   const [assessmentActiveStep, setAssessmentActiveStep] = useState<number>(0);
 
   /**
-   * Temporary
-   * See comment above assessmentActiveStep
+   * Temporary until Jira Issue BFDI-113 is closed
+   * https://detroitlabs.jira.com/jira/software/projects/BFDI/boards/147/backlog?selectedIssue=BFDI-113
    */
   const handleStepperButtonsClick = (
     incrementStepBy: number,
@@ -43,8 +34,8 @@ const AssessmentStepper = () => {
   };
 
   /**
-   * Temporary
-   * See comment above assessmentActiveStep
+   * Temporary until Jira Issue BFDI-113 is closed
+   * https://detroitlabs.jira.com/jira/software/projects/BFDI/boards/147/backlog?selectedIssue=BFDI-113
    */
   const handleStepperBubbleClick = (idx: number) => {
     setAssessmentActiveStep(idx);
@@ -68,7 +59,7 @@ const AssessmentStepper = () => {
           <Step
             key={step.text}
             // eslint-disable-next-line max-len
-            completed={step.isComplete} // This logic is only for testing purposes. See javadoc comment above assessmentActiveStep
+            completed={step.isComplete} // Temporary logic until BFDI-113 is closed
             disabled={!step.isComplete}
           >
             <StepButton onClick={() => handleStepperBubbleClick(idx)}>
@@ -78,8 +69,8 @@ const AssessmentStepper = () => {
         ))}
       </Stepper>
       {/**
-       * The following buttons are temporary
-       * See comment above assessmentActiveStep
+       * Temporary until Jira Issue BFDI-113 is closed
+       * https://detroitlabs.jira.com/jira/software/projects/BFDI/boards/147/backlog?selectedIssue=BFDI-113
        */}
       <button onClick={() => handleStepperButtonsClick(-1)}>Back</button>
       <button onClick={() => handleStepperButtonsClick(1, true)}>Next</button>
