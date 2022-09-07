@@ -1,21 +1,21 @@
+import { Link } from "@mui/material";
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
 
 const ResultsPage = ({ data }: PageProps<Queries.ResultsPageQuery>) => {
   const { contentfulPage: results } = data;
-  const handleClick = () => {
-    window.open(
-      `${results?.assessmentButton?.link}`,
-      "_blank",
-      "rel=noreferrer",
-    );
-  };
   return (
     <DefaultLayout>
       <h2>{results?.header}</h2>
       <p>{results?.body?.body}</p>
-      <button onClick={handleClick}>{results?.assessmentButton?.text}</button>
+      <Link
+        href={`${results?.assessmentButton?.link}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {results?.assessmentButton?.text}
+      </Link>
     </DefaultLayout>
   );
 };
