@@ -1,17 +1,15 @@
-import { makeStyles } from "@material-ui/core";
-//This files is out of "pages" dir to prevent index.styles.ts from becoming a route
+import styled from "@emotion/styled";
+import { Button } from "@mui/material";
+import { Link } from "gatsby";
 
-const useStyles = makeStyles(() => ({
-  link: {
-    display: "flex",
-    alignItems: "center",
-    margin: "10px",
-    textDecoration: "none",
-    width: "300px",
-  },
-  button: {
-    width: "300px",
-  },
-}));
+export const LinkStyled = styled(Link)({
+  display: "flex",
+  alignItems: "center",
+  margin: "10px",
+  textDecoration: "none",
+  width: "300px",
+});
 
-export default useStyles;
+export const ButtonStyled = styled(Button)({
+  width: "300px",
+});

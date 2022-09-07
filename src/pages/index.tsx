@@ -1,16 +1,27 @@
-import { Box, Button } from "@mui/material";
-import { graphql, Link, PageProps } from "gatsby";
+import { Box } from "@mui/material";
+import { graphql, PageProps } from "gatsby";
 import * as React from "react";
 // import Button from "../components/Button/Button";
 import Accordion from "../components/Accordion/Accordion";
-import useStyles from "../index.styles";
+import { ButtonStyled, LinkStyled } from "../index.styles";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
+
+type ContentfulButton =
+  | {
+      link: string | null;
+      text: string | null;
+    }
+  | null
+  | undefined;
 
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   const header = data.contentfulPage?.header;
   const body = data.contentfulPage?.body?.body;
 
-  const { link, button } = useStyles();
+  const depression: ContentfulButton = data.contentfulPage?.depressionButton;
+  const substance: ContentfulButton = data.contentfulPage?.substanceUseButton;
+  const anxiety: ContentfulButton = data.contentfulPage?.anxietyButton;
+  const universal: ContentfulButton = data.contentfulPage?.universalButton;
 
   return (
     <>
@@ -18,26 +29,18 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
         <h1>{header}</h1>
         <p>{body}</p>
         <Box>
-          <Link to="/assessments/depression-assessment" className={link}>
-            <Button variant="contained" className={button}>
-              Depression Assessment
-            </Button>
-          </Link>
-          <Link to="/assessments/substance-use-assessment" className={link}>
-            <Button variant="contained" className={button}>
-              Substance Use Assessment
-            </Button>
-          </Link>
-          <Link to="/assessments/anxiety-assessment" className={link}>
-            <Button variant="contained" className={button}>
-              Anxiety Assessment
-            </Button>
-          </Link>
-          <Link to="/assessments/universal-assessment" className={link}>
-            <Button variant="contained" className={button}>
-              Universal Assessment
-            </Button>
-          </Link>
+          <LinkStyled to={depression?.link ? depression.link : ""}>
+            <ButtonStyled variant="contained">{depression?.text}</ButtonStyled>
+          </LinkStyled>
+          <LinkStyled to={substance?.link ? substance.link : ""}>
+            <ButtonStyled variant="contained">{substance?.text}</ButtonStyled>
+          </LinkStyled>
+          <LinkStyled to={anxiety?.link ? anxiety.link : ""}>
+            <ButtonStyled variant="contained">{anxiety?.text}</ButtonStyled>
+          </LinkStyled>
+          <LinkStyled to={universal?.link ? universal.link : ""}>
+            <ButtonStyled variant="contained">{universal?.text}</ButtonStyled>
+          </LinkStyled>
         </Box>
         <Accordion />
       </DefaultLayout>
@@ -54,6 +57,22 @@ export const query = graphql`
       header
       body {
         body
+      }
+      anxietyButton {
+        link
+        text
+      }
+      universalButton {
+        text
+        link
+      }
+      depressionButton {
+        link
+        text
+      }
+      substanceUseButton {
+        text
+        link
       }
     }
   }

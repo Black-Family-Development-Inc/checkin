@@ -8,16 +8,6 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
       <p>Assessment ID: {assessment?.id}</p>
       <p>Assessment Title: {assessment?.title}</p>
       <p>Assessment "Questions":</p>
-      <ul>
-        {assessment?.repeaterList?.map((el) => {
-          return (
-            <div key={el?.id}>
-              <li>{el?.key}</li>
-              <li>{el?.value}</li>
-            </div>
-          );
-        })}
-      </ul>
     </>
   );
 };
@@ -29,11 +19,6 @@ export const query = graphql`
     contentfulAssessment(title: { eq: $title }) {
       id
       title
-      repeaterList {
-        id
-        key
-        value
-      }
     }
   }
 `;
