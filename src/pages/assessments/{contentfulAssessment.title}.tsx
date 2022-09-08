@@ -9,12 +9,8 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
       <p>Assessment Title: {assessment?.title}</p>
       <p>Assessment "Questions":</p>
       <ul>
-        return (
-        <div>
-          <li>1</li>
-          <li>2</li>
-        </div>
-        );
+        <li>one</li>
+        <li>two</li>
       </ul>
     </>
   );
