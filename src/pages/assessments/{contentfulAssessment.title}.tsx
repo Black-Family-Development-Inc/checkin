@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import { graphql, PageProps } from "gatsby";
 import React, { useState } from "react";
+import AssessmentStepper from "../../components/AssessmentStepper/AssessmentStepper";
 
 const questions = ["This", "Is", "Just", "Filler", "Data", "🐱"];
 
@@ -13,6 +14,7 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
 
   return (
     <>
+      <AssessmentStepper />
       <p>Assessment ID: {assessment?.id}</p>
       <p>Assessment Title: {assessment?.title}</p>
       <p>Assessment "Questions":</p>
