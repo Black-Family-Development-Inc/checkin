@@ -8,6 +8,10 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
       <p>Assessment ID: {assessment?.id}</p>
       <p>Assessment Title: {assessment?.title}</p>
       <p>Assessment "Questions":</p>
+      <ul>
+        <li>one</li>
+        <li>two</li>
+      </ul>
     </>
   );
 };

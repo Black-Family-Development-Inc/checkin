@@ -50,5 +50,11 @@ export const query = graphql`
         link
       }
     }
+    allContentfulAssessment {
+      nodes {
+        id
+        title
+      }
+    }
   }
 `;
