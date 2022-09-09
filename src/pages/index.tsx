@@ -16,6 +16,9 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   return (
     <>
       <DefaultLayout>
+        {data.allContentfulAssessment.nodes.map((assessment) => {
+          return <p key={assessment.id}>{assessment.title}</p>;
+        })}
         <h1>{header}</h1>
         <p>{body}</p>
         <button onClick={handleClick}>{buttonData?.text}</button>
@@ -38,6 +41,12 @@ export const query = graphql`
       assessmentButton {
         link
         text
+      }
+    }
+    allContentfulAssessment {
+      nodes {
+        id
+        title
       }
     }
   }
