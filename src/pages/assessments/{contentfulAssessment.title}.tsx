@@ -32,7 +32,7 @@ export const query = graphql`
         questions {
           text
           triggerAnswer
-          type
+          questionType
           answers {
             text
             score
@@ -46,6 +46,7 @@ export const query = graphql`
         description
         headings {
           scale
+          binary
         }
       }
     }
