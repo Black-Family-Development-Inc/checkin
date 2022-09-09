@@ -4,7 +4,7 @@ import {
   Radio,
   RadioGroup,
 } from "@mui/material";
-import { graphql, PageProps } from "gatsby";
+import { graphql } from "gatsby";
 import React from "react";
 
 enum AnswerTypes {
@@ -13,30 +13,46 @@ enum AnswerTypes {
   custom = "custom",
 }
 
-interface IAnswersProps {
-  answers: any;
-  type: AnswerTypes;
-}
-
 type AnswerOptions = {
   score: number;
   text: string;
 };
 
-const Answer = ({ answers, type }: IAnswersProps) => {
-  if (type === AnswerTypes.custom) {
-    return answers.map((o: AnswerOptions, i: number) => (
-      <FormControlLabel
-        key={`custom-${i}`}
-        value={`${o.score}-${i}`}
-        control={<Radio />}
-        label={o.text}
-      />
-    ));
-  }
-  return answers[type].map((o: AnswerOptions, i: number) => (
+type Description = string;
+
+type Severity = {
+  max: number;
+  min: number;
+  severity: string;
+};
+
+type Heading = {
+  scale: string;
+  binary: string;
+};
+
+type Question = {
+  text: string;
+  questionType: AnswerTypes;
+  triggerAnswer: string;
+  answers: AnswerOptions[] | null;
+};
+
+type Assessment = {
+  questions: Question[];
+  headings: Heading[];
+  description: Description;
+  severityRubric: Severity[];
+  answers: {
+    binary: AnswerOptions[];
+    scale: AnswerOptions[];
+  };
+};
+
+const Answer = (answers: AnswerOptions[]) => {
+  return answers.map((o: AnswerOptions, i: number) => (
     <FormControlLabel
-      key={`${type}-${o.score}-${i}`}
+      key={`custom-${i}`}
       value={`${o.score}-${i}`}
       control={<Radio />}
       label={o.text}
@@ -44,13 +60,19 @@ const Answer = ({ answers, type }: IAnswersProps) => {
   ));
 };
 
-const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
-  const { contentfulAssessment } = data;
+const AssessmentPage = ({
+  data,
+}: {
+  data: { contentfulAssessment: { title: string; assessment: Assessment } };
+}) => {
+  const {
+    contentfulAssessment: { title, assessment },
+  } = data;
   return (
     <>
-      <p>Assessment Title: {contentfulAssessment?.title}</p>
+      <p>Assessment Title: {title}</p>
       <p>Assessment "Question":</p>
-      {contentfulAssessment?.assessment?.questions?.map((q: any, i: number) => (
+      {assessment?.questions?.map((q: Question, i: number) => (
         <div key={i}>
           <p>{q.text}</p>
           <FormControl>
@@ -59,16 +81,14 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
               defaultValue="female"
               name="radio-buttons-group"
             >
-              {q.questionType && (
-                <Answer
-                  answers={
-                    q.questionType === "custom"
-                      ? q.answers
-                      : contentfulAssessment?.assessment?.answers
-                  }
-                  type={q.questionType}
-                />
-              )}
+              {q.questionType &&
+                Answer(
+                  q.questionType === "custom" && q.answers
+                    ? q.answers
+                    : assessment?.answers[
+                        q.questionType as AnswerTypes.scale | AnswerTypes.binary
+                      ],
+                )}
             </RadioGroup>
           </FormControl>
         </div>
@@ -111,6 +131,7 @@ export const query = graphql`
         description
         headings {
           scale
+          binary
         }
       }
     }
