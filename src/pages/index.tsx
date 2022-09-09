@@ -1,25 +1,24 @@
-import { Link } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import * as React from "react";
 import Accordion from "../components/Accordion/Accordion";
-import Button from "../components/Button/Button";
+// import Button from "../components/Button/Button";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 
-type WelcomePropsType = {
-  name: string;
-};
+const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
+  const header = data.contentfulPage?.header;
+  const body = data.contentfulPage?.body?.body;
+  const buttonData: any = data.contentfulPage?.assessmentButton;
 
-const Welcome = (props: WelcomePropsType) => {
-  return <h1>Hello, {props.name}</h1>;
-};
+  const handleClick = () => {
+    window.open(buttonData.link, "_blank", "noopener,noreferrer"); //opens button link in a new tab
+  };
 
-const IndexPage = () => {
   return (
     <>
       <DefaultLayout>
-        <Welcome name="World" />
-        <Link to="http://www.google.com">
-          <Button />
-        </Link>
+        <h1>{header}</h1>
+        <p>{body}</p>
+        <button onClick={handleClick}>{buttonData?.text}</button>
         <Accordion />
       </DefaultLayout>
     </>
@@ -27,3 +26,19 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export const query = graphql`
+  query IndexPage {
+    contentfulPage(title: { eq: "Home Page" }) {
+      title
+      header
+      body {
+        body
+      }
+      assessmentButton {
+        link
+        text
+      }
+    }
+  }
+`;
