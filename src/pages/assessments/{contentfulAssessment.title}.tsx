@@ -4,6 +4,8 @@ import ButtonLink from "../../components/ButtonLink/ButtonLink";
 
 const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
   const { contentfulAssessment: assessment } = data;
+  const linkToResults = "/results";
+
   return (
     <>
       <p>Assessment ID: {assessment?.id}</p>
@@ -14,7 +16,7 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
         <li>two</li>
       </ul>
       {data.contentfulButton?.text && (
-        <ButtonLink text={data.contentfulButton.text} link="/results" />
+        <ButtonLink text={data.contentfulButton.text} link={linkToResults} />
       )}
     </>
   );
