@@ -1,5 +1,6 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
+import AssessmentStepper from "../../components/AssessmentStepper/AssessmentStepper";
 import ButtonLink from "../../components/ButtonLink/ButtonLink";
 
 const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
@@ -8,6 +9,7 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
 
   return (
     <>
+      <AssessmentStepper />
       <p>Assessment ID: {assessment?.id}</p>
       <p>Assessment Title: {assessment?.title}</p>
       <p>Assessment "Questions":</p>
