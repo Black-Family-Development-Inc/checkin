@@ -6,56 +6,16 @@ import {
 } from "@mui/material";
 import { graphql } from "gatsby";
 import React from "react";
+import AssessmentStepper from "../../components/AssessmentStepper/AssessmentStepper";
+import { AnswerOptions, AnswerTypes, Assessment, Question } from "../../types";
 
-enum AnswerTypes {
-  binary = "binary",
-  scale = "scale",
-  custom = "custom",
-}
-
-type AnswerOptions = {
-  score: number;
-  text: string;
-};
-
-type Description = string;
-
-type Severity = {
-  max: number;
-  min: number;
-  severity: string;
-};
-
-type Heading = {
-  scale: string;
-  binary: string;
-};
-
-type Question = {
-  text: string;
-  questionType: AnswerTypes;
-  triggerAnswer: string;
-  answers: AnswerOptions[] | null;
-};
-
-type Assessment = {
-  questions: Question[];
-  headings: Heading[];
-  description: Description;
-  severityRubric: Severity[];
-  answers: {
-    binary: AnswerOptions[];
-    scale: AnswerOptions[];
-  };
-};
-
-const Answer = (answers: AnswerOptions[]) => {
-  return answers.map((o: AnswerOptions, i: number) => (
+const renderAnswers = (answers: AnswerOptions[]) => {
+  return answers.map((answer: AnswerOptions, i: number) => (
     <FormControlLabel
       key={`custom-${i}`}
-      value={`${o.score}-${i}`}
+      value={`${answer.score}-${i}`}
       control={<Radio />}
-      label={o.text}
+      label={answer.text}
     />
   ));
 };
@@ -70,23 +30,26 @@ const AssessmentPage = ({
   } = data;
   return (
     <>
+      <AssessmentStepper />
       <p>Assessment Title: {title}</p>
       <p>Assessment "Question":</p>
-      {assessment?.questions?.map((q: Question, i: number) => (
+      {assessment?.questions?.map((question: Question, i: number) => (
         <div key={i}>
-          <p>{q.text}</p>
+          <p>{question.text}</p>
           <FormControl>
             <RadioGroup
               aria-labelledby="demo-radio-buttons-group-label"
               defaultValue="female"
               name="radio-buttons-group"
             >
-              {q.questionType &&
-                Answer(
-                  q.questionType === "custom" && q.answers
-                    ? q.answers
+              {question.questionType &&
+                renderAnswers(
+                  question.questionType === "custom" && question.answers
+                    ? question.answers
                     : assessment?.answers[
-                        q.questionType as AnswerTypes.scale | AnswerTypes.binary
+                        question.questionType as
+                          | AnswerTypes.scale
+                          | AnswerTypes.binary
                       ],
                 )}
             </RadioGroup>
