@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import {
   FormControl,
   FormControlLabel,
@@ -5,9 +6,11 @@ import {
   RadioGroup,
 } from "@mui/material";
 import { graphql } from "gatsby";
-import React from "react";
+import React, { useState } from "react";
 import AssessmentStepper from "../../components/AssessmentStepper/AssessmentStepper";
 import { AnswerOptions, AnswerTypes, Assessment, Question } from "../../types";
+
+const questions = ["This", "Is", "Just", "Filler", "Data", "🐱"];
 
 const renderAnswers = (answers: AnswerOptions[]) => {
   return answers.map((answer: AnswerOptions, i: number) => (
@@ -28,6 +31,15 @@ const AssessmentPage = ({
   const {
     contentfulAssessment: { title, assessment },
   } = data;
+
+  console.log(assessment); // only for testing purposes remove once page is more complete
+
+  const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
+
+  const clamp = (num: number) =>
+    Math.min(Math.max(num, 0), questions.length - 1);
+
+
   return (
     <>
       <AssessmentStepper />
@@ -47,10 +59,10 @@ const AssessmentPage = ({
                   question.questionType === "custom" && question.answers
                     ? question.answers
                     : assessment?.answers[
-                        question.questionType as
-                          | AnswerTypes.scale
-                          | AnswerTypes.binary
-                      ],
+                    question.questionType as
+                    | AnswerTypes.scale
+                    | AnswerTypes.binary
+                    ],
                 )}
             </RadioGroup>
           </FormControl>
