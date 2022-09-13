@@ -6,24 +6,24 @@ import { HR } from "../../../HR";
 import { ImageStyled } from "./FirstSection.styles";
 
 const FirstSection = ({
-  firstSectionHeader,
-  firstSectionSubheader,
-  firstSectionImage,
+  introSectionHeader,
+  introSectionSubheader,
+  introSectionImage,
   universalAssessmentButton: { text: assessmentButtonLabel, assessment },
 }: ContentfulHomePage) => {
   return (
     <>
-      <h2>{firstSectionHeader}</h2>
+      <h2>{introSectionHeader}</h2>
       <HR />
-      <p>{firstSectionSubheader}</p>
+      <p>{introSectionSubheader}</p>
       {/* This Link/Button area should later become the <LinkButton /> component pending BFDI-91 as is not getting styles at this moment */}
       <Link to={"/assessments/" + assessment.title.toLowerCase()}>
         <Button>{assessmentButtonLabel}</Button>
       </Link>
       <div>
         <ImageStyled
-          srcSet={firstSectionImage.gatsbyImageData.images.sources[0].srcSet}
-          alt={firstSectionImage.description}
+          srcSet={introSectionImage.gatsbyImageData.images.sources[0].srcSet}
+          alt={introSectionImage.description}
         />
       </div>
     </>

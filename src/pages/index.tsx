@@ -20,8 +20,8 @@ export const query = graphql`
   {
     contentfulHomePage(title: { eq: "Home Page" }) {
       title
-      firstSectionHeader
-      firstSectionSubheader
+      introSectionHeader
+      introSectionSubheader
       universalAssessmentButton {
         text
         assessment {
@@ -29,13 +29,10 @@ export const query = graphql`
           title
         }
       }
-      firstSectionImage {
+      introSectionImage {
         url
         description
         gatsbyImageData(formats: [WEBP], breakpoints: [375])
-      }
-      assessmentButtons {
-        link
       }
     }
     allContentfulAssessment {

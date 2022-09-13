@@ -4,9 +4,9 @@ export type IndexPageTypes = {
 };
 
 export type ContentfulHomePage = {
-  firstSectionHeader: string;
-  firstSectionSubheader: string;
-  firstSectionImage: ContentfulImage;
+  introSectionHeader: string;
+  introSectionSubheader: string;
+  introSectionImage: ContentfulImage;
   universalAssessmentButton: UniversalAssessmentButton;
 };
 
