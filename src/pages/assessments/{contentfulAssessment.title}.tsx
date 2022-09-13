@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import {
   FormControl,
   FormControlLabel,
@@ -33,11 +32,6 @@ const AssessmentPage = ({
   } = data;
 
   console.log(assessment); // only for testing purposes remove once page is more complete
-
-  const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
-
-  const clamp = (num: number) =>
-    Math.min(Math.max(num, 0), questions.length - 1);
 
 
   return (
