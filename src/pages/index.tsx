@@ -1,28 +1,14 @@
 import { graphql, PageProps } from "gatsby";
 import * as React from "react";
-import Accordion from "../components/Accordion/Accordion";
-// import Button from "../components/Button/Button";
+import { FirstSection } from "../components/pages/IndexPage/FirstSection";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
+import { IndexPageTypes } from "./IndexPage-types";
 
-const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
-  const header = data.contentfulPage?.header;
-  const body = data.contentfulPage?.body?.body;
-  const buttonData: any = data.contentfulPage?.assessmentButton;
-
-  const handleClick = () => {
-    window.open(buttonData.link, "_blank", "noopener,noreferrer"); //opens button link in a new tab
-  };
-
+const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
   return (
     <>
       <DefaultLayout>
-        {data.allContentfulAssessment.nodes.map((assessment) => {
-          return <p key={assessment.id}>{assessment.title}</p>;
-        })}
-        <h1>{header}</h1>
-        <p>{body}</p>
-        <button onClick={handleClick}>{buttonData?.text}</button>
-        <Accordion />
+        <FirstSection {...data.contentfulHomePage} />
       </DefaultLayout>
     </>
   );
@@ -31,16 +17,25 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 export default IndexPage;
 
 export const query = graphql`
-  query IndexPage {
-    contentfulPage(title: { eq: "Home Page" }) {
+  {
+    contentfulHomePage(title: { eq: "Home Page" }) {
       title
-      header
-      body {
-        body
-      }
-      assessmentButton {
-        link
+      firstSectionHeader
+      firstSectionSubheader
+      universalAssessmentButton {
         text
+        assessment {
+          id
+          title
+        }
+      }
+      firstSectionImage {
+        url
+        description
+        gatsbyImageData(formats: [WEBP])
+      }
+      assessmentButtons {
+        link
       }
     }
     allContentfulAssessment {
