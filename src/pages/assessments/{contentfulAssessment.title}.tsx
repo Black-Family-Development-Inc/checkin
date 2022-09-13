@@ -15,7 +15,6 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
   const clamp = (num: number) =>
     Math.min(Math.max(num, 0), questions.length - 1);
 
-
   return (
     <>
       <AssessmentStepper />
