@@ -1,13 +1,19 @@
 import { Button } from "@mui/material";
 import { graphql, PageProps } from "gatsby";
 import React, { useState } from "react";
-import AssessmentStepper from "../../components/AssessmentStepper/AssessmentStepper";
+import { AssessmentStepper } from "../../components/AssessmentStepper";
 import ButtonLink from "../../components/ButtonLink/ButtonLink";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
+import { AssessmentStep } from "./AssessmentPage-types";
 
 const questions = ["This", "Is", "Just", "Filler", "Data", "🐱"];
 
 const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
+  const [steps, setSteps] = useState<AssessmentStep[]>([
+    { label: "Preliminary Questions", isComplete: false },
+    { label: "Assessment Questions", isComplete: false },
+    { label: "Results & Resources", isComplete: false },
+  ]);
   const { contentfulAssessment: assessment } = data;
   const linkToResults = "/results";
 
@@ -20,7 +26,7 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
 
   return (
     <DefaultLayout>
-      <AssessmentStepper />
+      <AssessmentStepper {...{ steps, setSteps }} />
       <p>Assessment ID: {assessment?.id}</p>
       <p>Assessment Title: {assessment?.title}</p>
       <p>Assessment "Questions":</p>
@@ -64,6 +70,7 @@ export default AssessmentPage;
 export const query = graphql`
   query AssessmentPage($title: String!) {
     contentfulAssessment(title: { eq: $title }) {
+      id
       title
       assessment {
         answers {

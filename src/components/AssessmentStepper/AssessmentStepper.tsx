@@ -1,15 +1,19 @@
 import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
 import Stepper from "@mui/material/Stepper";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { AssessmentStepperPropTypes } from "./AssessmentStepper-types";
 
-const AssessmentStepper = () => {
-  const [steps, setSteps] = useState([
-    { text: "Preliminary Questions", isComplete: false },
-    { text: "Assessment Questions", isComplete: false },
-    { text: "Results & Resources", isComplete: false },
-  ]);
+const AssessmentStepper = ({ steps, setSteps }: AssessmentStepperPropTypes) => {
   const [assessmentActiveStep, setAssessmentActiveStep] = useState<number>(0);
+
+  /**
+   * Temporary until Jira Issue BFDI-113 is closed
+   * https://detroitlabs.jira.com/jira/software/projects/BFDI/boards/147/backlog?selectedIssue=BFDI-113
+   */
+  useEffect(() => {
+    console.log(assessmentActiveStep);
+  }, [assessmentActiveStep]);
 
   /**
    * Temporary until Jira Issue BFDI-113 is closed
@@ -33,20 +37,6 @@ const AssessmentStepper = () => {
     setAssessmentActiveStep(nextActiveStep);
   };
 
-  /**
-   * Temporary until Jira Issue BFDI-113 is closed
-   * https://detroitlabs.jira.com/jira/software/projects/BFDI/boards/147/backlog?selectedIssue=BFDI-113
-   */
-  const handleStepperBubbleClick = (idx: number) => {
-    setAssessmentActiveStep(idx);
-    const updatedSteps = [...steps];
-    updatedSteps[idx] = {
-      ...updatedSteps[idx],
-      isComplete: false,
-    };
-    setSteps(updatedSteps);
-  };
-
   return (
     <>
       <Stepper
@@ -57,13 +47,13 @@ const AssessmentStepper = () => {
       >
         {steps.map((step, idx) => (
           <Step
-            key={step.text}
+            key={step.label}
             // eslint-disable-next-line max-len
             completed={step.isComplete} // Temporary logic until BFDI-113 is closed
             disabled={!step.isComplete}
           >
-            <StepButton onClick={() => handleStepperBubbleClick(idx)}>
-              {step.text}
+            <StepButton onClick={() => setAssessmentActiveStep(idx)}>
+              {step.label}
             </StepButton>
           </Step>
         ))}
