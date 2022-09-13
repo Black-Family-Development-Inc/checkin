@@ -3,11 +3,13 @@ import {
   FormControlLabel,
   Radio,
   RadioGroup,
+  Button,
 } from "@mui/material";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
 import AssessmentStepper from "../../components/AssessmentStepper/AssessmentStepper";
 import { AnswerOptions, AnswerTypes, Assessment, Question } from "../../types";
+import ButtonLink from "../../components/ButtonLink/ButtonLink";
 
 const questions = ["This", "Is", "Just", "Filler", "Data", "🐱"];
 
@@ -22,10 +24,14 @@ const renderAnswers = (answers: AnswerOptions[]) => {
   ));
 };
 
+const linkToResults = "/results";
+
 const AssessmentPage = ({
   data,
 }: {
-  data: { contentfulAssessment: { title: string; assessment: Assessment } };
+  data: {
+    contentfulButton: any; contentfulAssessment: { title: string; assessment: Assessment }
+  };
 }) => {
   const {
     contentfulAssessment: { title, assessment },
@@ -33,12 +39,47 @@ const AssessmentPage = ({
 
   console.log(assessment); // only for testing purposes remove once page is more complete
 
+  const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
+
+  const clamp = (num: number) =>
+    Math.min(Math.max(num, 0), questions.length - 1);
 
   return (
     <>
       <AssessmentStepper />
       <p>Assessment Title: {title}</p>
       <p>Assessment "Question":</p>
+      <p>
+        You are on question {currentQuestionIdx + 1} out of {questions.length}
+      </p>
+      <ul>
+        <li>one</li>
+        <li>two</li>
+      </ul>
+      {data.contentfulButton?.text && (
+        <ButtonLink text={data.contentfulButton.text} link={linkToResults} />
+      )}
+
+      <div>
+        <Button
+          onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
+          disabled={currentQuestionIdx === 0}
+        >
+          Previous
+        </Button>
+
+        {currentQuestionIdx === questions.length - 1 ? (
+          <Button onClick={() => alert(questions[questions.length - 1])}>
+            Results
+          </Button>
+        ) : (
+          <Button
+            onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx + 1))}
+          >
+            Next
+          </Button>
+        )}
+      </div>
       {assessment?.questions?.map((question: Question, i: number) => (
         <div key={i}>
           <p>{question.text}</p>
@@ -103,6 +144,10 @@ export const query = graphql`
           binary
         }
       }
+    }
+    contentfulButton(text: { eq: "Results" }) {
+      text
+      link
     }
   }
 `;
