@@ -2,11 +2,13 @@ import { Button } from "@mui/material";
 import { graphql, PageProps } from "gatsby";
 import React, { useState } from "react";
 import AssessmentStepper from "../../components/AssessmentStepper/AssessmentStepper";
+import ButtonLink from "../../components/ButtonLink/ButtonLink";
 
 const questions = ["This", "Is", "Just", "Filler", "Data", "🐱"];
 
 const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
   const { contentfulAssessment: assessment } = data;
+  const linkToResults = "/results";
 
   console.log(assessment); // only for testing purposes remove once page is more complete
 
@@ -14,7 +16,6 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
 
   const clamp = (num: number) =>
     Math.min(Math.max(num, 0), questions.length - 1);
-
 
   return (
     <>
@@ -29,6 +30,9 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
         <li>one</li>
         <li>two</li>
       </ul>
+      {data.contentfulButton?.text && (
+        <ButtonLink text={data.contentfulButton.text} link={linkToResults} />
+      )}
 
       <div>
         <Button
@@ -91,6 +95,10 @@ export const query = graphql`
           binary
         }
       }
+    }
+    contentfulButton(text: { eq: "Results" }) {
+      text
+      link
     }
   }
 `;
