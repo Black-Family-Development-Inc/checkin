@@ -3,6 +3,7 @@ import { graphql, PageProps } from "gatsby";
 import React, { useState } from "react";
 import AssessmentStepper from "../../components/AssessmentStepper/AssessmentStepper";
 import ButtonLink from "../../components/ButtonLink/ButtonLink";
+import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
 
 const questions = ["This", "Is", "Just", "Filler", "Data", "🐱"];
 
@@ -18,7 +19,7 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
     Math.min(Math.max(num, 0), questions.length - 1);
 
   return (
-    <>
+    <DefaultLayout>
       <AssessmentStepper />
       <p>Assessment ID: {assessment?.id}</p>
       <p>Assessment Title: {assessment?.title}</p>
@@ -54,7 +55,7 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
           </Button>
         )}
       </div>
-    </>
+    </DefaultLayout>
   );
 };
 
