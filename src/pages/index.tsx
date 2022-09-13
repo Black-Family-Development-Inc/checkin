@@ -32,7 +32,7 @@ export const query = graphql`
       firstSectionImage {
         url
         description
-        gatsbyImageData(formats: [WEBP])
+        gatsbyImageData(formats: [WEBP], breakpoints: [375])
       }
       assessmentButtons {
         link
