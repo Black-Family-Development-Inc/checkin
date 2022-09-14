@@ -36,7 +36,7 @@ const AssessmentAnswers = ({
   const usersCurrentAnswer = usersSavedQuestions[currentQuestionIdx].answer;
   return (
     <ButtonGroup>
-      {getAppropriateAnswers().map((answer, i: number) => (
+      {getAppropriateAnswers()?.map((answer, i: number) => (
         <Button
           color={`${
             usersCurrentAnswer === answer.text ? "success" : "primary"
