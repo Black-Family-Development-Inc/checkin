@@ -1,12 +1,42 @@
-import { Button } from "@mui/material";
-import { graphql, PageProps } from "gatsby";
+import {
+  Button,
+  FormControl,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
+import { graphql } from "gatsby";
 import React, { useState } from "react";
 import AssessmentStepper from "../../components/AssessmentStepper/AssessmentStepper";
+import ButtonLink from "../../components/ButtonLink/ButtonLink";
+import { AnswerOptions, AnswerTypes, Assessment, Question } from "../../types";
 
 const questions = ["This", "Is", "Just", "Filler", "Data", "🐱"];
 
-const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
-  const { contentfulAssessment: assessment } = data;
+const renderAnswers = (answers: AnswerOptions[]) => {
+  return answers.map((answer: AnswerOptions, i: number) => (
+    <FormControlLabel
+      key={`custom-${i}`}
+      value={`${answer.score}-${i}`}
+      control={<Radio />}
+      label={answer.text}
+    />
+  ));
+};
+
+const linkToResults = "/results";
+
+const AssessmentPage = ({
+  data,
+}: {
+  data: {
+    contentfulButton: any;
+    contentfulAssessment: { title: string; assessment: Assessment };
+  };
+}) => {
+  const {
+    contentfulAssessment: { title, assessment },
+  } = data;
 
   console.log(assessment); // only for testing purposes remove once page is more complete
 
@@ -18,9 +48,8 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
   return (
     <>
       <AssessmentStepper />
-      <p>Assessment ID: {assessment?.id}</p>
-      <p>Assessment Title: {assessment?.title}</p>
-      <p>Assessment "Questions":</p>
+      <p>Assessment Title: {title}</p>
+      <p>Assessment "Question":</p>
       <p>
         You are on question {currentQuestionIdx + 1} out of {questions.length}
       </p>
@@ -28,6 +57,9 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
         <li>one</li>
         <li>two</li>
       </ul>
+      {data.contentfulButton?.text && (
+        <ButtonLink text={data.contentfulButton.text} link={linkToResults} />
+      )}
 
       <div>
         <Button
@@ -49,6 +81,29 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
           </Button>
         )}
       </div>
+      {assessment?.questions?.map((question: Question, i: number) => (
+        <div key={i}>
+          <p>{question.text}</p>
+          <FormControl>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="female"
+              name="radio-buttons-group"
+            >
+              {question.questionType &&
+                renderAnswers(
+                  question.questionType === "custom" && question.answers
+                    ? question.answers
+                    : assessment?.answers[
+                        question.questionType as
+                          | AnswerTypes.Scale
+                          | AnswerTypes.Binary
+                      ],
+                )}
+            </RadioGroup>
+          </FormControl>
+        </div>
+      ))}
     </>
   );
 };
@@ -90,6 +145,10 @@ export const query = graphql`
           binary
         }
       }
+    }
+    contentfulButton(text: { eq: "Results" }) {
+      text
+      link
     }
   }
 `;
