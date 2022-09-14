@@ -6,7 +6,7 @@ import { ButtonLinkPropsType } from "./ButtonLink-types";
 const ButtonLink = (props: ButtonLinkPropsType) => {
   return (
     <Link to={props.link}>
-      <ButtonStyled>{props.text}</ButtonStyled>
+      <ButtonStyled disabled={props.disabled}>{props.text}</ButtonStyled>
     </Link>
   );
 };

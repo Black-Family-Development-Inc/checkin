@@ -1,7 +1,7 @@
 export enum AnswerTypes {
-  binary = "binary",
-  scale = "scale",
-  custom = "custom",
+  Binary = "binary",
+  Scale = "scale",
+  Custom = "custom",
 }
 
 export type AnswerOptions = {
@@ -38,4 +38,22 @@ export type Assessment = {
     binary: AnswerOptions[];
     scale: AnswerOptions[];
   };
+};
+
+export type ContentfulButton = {
+  text: string;
+  link: string;
+};
+
+export type AssessmentPageProps = {
+  data: {
+    contentfulButton: ContentfulButton;
+    contentfulAssessment: { title: string; assessment: Assessment };
+  };
+};
+
+export type UsersSavedQuestions = {
+  question: string;
+  answer: string;
+  score: number;
 };
