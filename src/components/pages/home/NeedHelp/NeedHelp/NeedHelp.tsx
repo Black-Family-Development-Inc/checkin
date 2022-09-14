@@ -4,13 +4,14 @@ import {
   NeedHelpSubTitle,
   NeedHelpTitle,
 } from "./NeedHelp.styles";
+import { ContentfulHomePage } from '../../../../../pages/IndexPage-types';
 
-const NeedHelp = () => {
+const NeedHelp = ({ universalBottomSubHeader, universalBottomHeader }: ContentfulHomePage) => {
   return (
     <>
-      <NeedHelpTitle>Not sure what you need help with?</NeedHelpTitle>
+      <NeedHelpTitle>{universalBottomHeader}</NeedHelpTitle>
       <NeedHelpSubTitle>
-        Take a universal assessment to find out.
+        {universalBottomSubHeader}
       </NeedHelpSubTitle>
       <ButtonStyled> Universal Assessment </ButtonStyled>
     </>

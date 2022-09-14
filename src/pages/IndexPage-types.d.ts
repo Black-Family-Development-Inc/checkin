@@ -8,6 +8,8 @@ export type ContentfulHomePage = {
   introSectionSubheader: string;
   introSectionImage: ContentfulImage;
   universalAssessmentButton: UniversalAssessmentButton;
+  universalBottomSubHeader: string;
+  universalBottomHeader: string;
 };
 
 export type ContentfulImage = {

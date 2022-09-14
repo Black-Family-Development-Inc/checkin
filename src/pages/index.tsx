@@ -10,7 +10,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
     <>
       <DefaultLayout>
         <FirstSection {...data.contentfulHomePage} />
-        <NeedHelp />
+        <NeedHelp {...data.contentfulHomePage} />
       </DefaultLayout>
 
     </>
@@ -26,6 +26,8 @@ export const query = graphql`
       title
       introSectionHeader
       introSectionSubheader
+      universalBottomHeader
+      universalBottomSubHeader
       universalAssessmentButton {
         text
         assessment {
