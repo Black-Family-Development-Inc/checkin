@@ -1,35 +1,67 @@
-import { Button } from "@mui/material";
-import { graphql, PageProps } from "gatsby";
+import {
+  Button,
+  FormControl,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
+import { graphql } from "gatsby";
 import React, { useState } from "react";
 import { AssessmentStepper } from "../../components/AssessmentStepper";
 import ButtonLink from "../../components/ButtonLink/ButtonLink";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
-import { AssessmentStep } from "./AssessmentPage-types";
+import {
+  AnswerOptions,
+  AnswerTypes,
+  Assessment,
+  AssessmentStep,
+  Question,
+} from "./AssessmentPage-types";
 
 const questions = ["This", "Is", "Just", "Filler", "Data", "🐱"];
 
-const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
+const renderAnswers = (answers: AnswerOptions[]) => {
+  return answers.map((answer: AnswerOptions, i: number) => (
+    <FormControlLabel
+      key={`custom-${i}`}
+      value={`${answer.score}-${i}`}
+      control={<Radio />}
+      label={answer.text}
+    />
+  ));
+};
+
+const AssessmentPage = ({
+  data,
+}: {
+  data: {
+    contentfulButton: any;
+    contentfulAssessment: { title: string; assessment: Assessment };
+  };
+}) => {
   const [steps, setSteps] = useState<AssessmentStep[]>([
     { label: "Preliminary Questions", isComplete: false },
     { label: "Assessment Questions", isComplete: false },
     { label: "Results & Resources", isComplete: false },
   ]);
-  const { contentfulAssessment: assessment } = data;
-  const linkToResults = "/results";
-
-  console.log(assessment); // only for testing purposes remove once page is more complete
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
 
+  const {
+    contentfulAssessment: { title, assessment },
+  } = data;
+
+  const linkToResults = "/results";
   const clamp = (num: number) =>
     Math.min(Math.max(num, 0), questions.length - 1);
+
+  console.log(assessment); // only for testing purposes remove once page is more complete
 
   return (
     <DefaultLayout>
       <AssessmentStepper {...{ steps, setSteps }} />
-      <p>Assessment ID: {assessment?.id}</p>
-      <p>Assessment Title: {assessment?.title}</p>
-      <p>Assessment "Questions":</p>
+      <p>Assessment Title: {title}</p>
+      <p>Assessment "Question":</p>
       <p>
         You are on question {currentQuestionIdx + 1} out of {questions.length}
       </p>
@@ -61,6 +93,29 @@ const AssessmentPage = ({ data }: PageProps<Queries.AssessmentPageQuery>) => {
           </Button>
         )}
       </div>
+      {assessment?.questions?.map((question: Question, i: number) => (
+        <div key={i}>
+          <p>{question.text}</p>
+          <FormControl>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="female"
+              name="radio-buttons-group"
+            >
+              {question.questionType &&
+                renderAnswers(
+                  question.questionType === "custom" && question.answers
+                    ? question.answers
+                    : assessment?.answers[
+                        question.questionType as
+                          | AnswerTypes.Scale
+                          | AnswerTypes.Binary
+                      ],
+                )}
+            </RadioGroup>
+          </FormControl>
+        </div>
+      ))}
     </DefaultLayout>
   );
 };
