@@ -10,8 +10,10 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   const header = data.contentfulPage?.header;
   const body = data.contentfulPage?.body?.body;
 
-  const tempAccordionTitle = "This is the header of the Accordion";
-  const tempAccordionBody = "And this is the body of the accordion";
+  const tempAccordionTitle =
+    "This is data prop for the header of the Accordion";
+  const tempAccordionBody =
+    "And this is data prop for the body of the accordion";
 
   const assessmentButtons = data.contentfulPage?.assessmentButtons;
 
