@@ -1,15 +1,15 @@
 import {
+  Button,
   FormControl,
   FormControlLabel,
   Radio,
   RadioGroup,
-  Button,
 } from "@mui/material";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
 import AssessmentStepper from "../../components/AssessmentStepper/AssessmentStepper";
-import { AnswerOptions, AnswerTypes, Assessment, Question } from "../../types";
 import ButtonLink from "../../components/ButtonLink/ButtonLink";
+import { AnswerOptions, AnswerTypes, Assessment, Question } from "../../types";
 
 const questions = ["This", "Is", "Just", "Filler", "Data", "🐱"];
 
@@ -30,7 +30,8 @@ const AssessmentPage = ({
   data,
 }: {
   data: {
-    contentfulButton: any; contentfulAssessment: { title: string; assessment: Assessment }
+    contentfulButton: any;
+    contentfulAssessment: { title: string; assessment: Assessment };
   };
 }) => {
   const {
@@ -94,10 +95,10 @@ const AssessmentPage = ({
                   question.questionType === "custom" && question.answers
                     ? question.answers
                     : assessment?.answers[
-                    question.questionType as
-                    | AnswerTypes.scale
-                    | AnswerTypes.binary
-                    ],
+                        question.questionType as
+                          | AnswerTypes.scale
+                          | AnswerTypes.binary
+                      ],
                 )}
             </RadioGroup>
           </FormControl>
