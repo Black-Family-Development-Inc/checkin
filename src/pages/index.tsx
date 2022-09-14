@@ -1,6 +1,6 @@
 import { graphql, PageProps } from "gatsby";
 import * as React from "react";
-import AssessmentSection from "../components/AssessmentSection/AssessmentSection";
+import AssessmentSection from "../components/pages/home/AssessmentSection/AssessmentSection";
 // import Button from "../components/Button/Button";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 
@@ -25,7 +25,9 @@ export const query = graphql`
         ... on ContentfulAssessmentButton {
           assessmentDescription
           buttonText
-          link
+          assessment {
+            title
+          }
         }
       }
     }
