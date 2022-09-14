@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 import { graphql, PageProps } from "gatsby";
 import * as React from "react";
-// import Button from "../components/Button/Button";
 import Accordion from "../components/Accordion/Accordion";
+import NeedHelp from "../components/NeedHelp/NeedHelp";
 import { ButtonStyled, LinkStyled } from "../index.styles";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 
@@ -17,6 +17,7 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
       <DefaultLayout>
         <h1>{header}</h1>
         <p>{body}</p>
+        <NeedHelp />
         <Box>
           {assessmentButtons?.map((button) => {
             return (
