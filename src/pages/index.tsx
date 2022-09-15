@@ -1,7 +1,6 @@
 import { graphql, PageProps } from "gatsby";
 import * as React from "react";
 import AssessmentSection from "../components/pages/IndexPage/AssessmentSection/AssessmentSection";
-// import Button from "../components/Button/Button";
 import { FirstSection } from "../components/pages/IndexPage/FirstSection";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";

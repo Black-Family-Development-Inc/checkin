@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import * as React from "react";
-import { ButtonStyled, LinkStyled } from "../../../../index.styles";
 import {
   AssessmentButton,
   ContentfulHomePage,
 } from "../../../../pages/IndexPage-types";
+import ButtonLink from "../../../ButtonLink/ButtonLink";
 
 const AssessmentSection = (props: ContentfulHomePage) => {
   const {
@@ -23,11 +23,7 @@ const AssessmentSection = (props: ContentfulHomePage) => {
         return (
           <Box key={button.buttonText}>
             <Typography paragraph>{button.assessmentDescription}</Typography>
-            <LinkStyled to={link}>
-              <ButtonStyled variant="contained">
-                {button.buttonText}
-              </ButtonStyled>
-            </LinkStyled>
+            <ButtonLink text={button.buttonText} link={link} />
           </Box>
         );
       })}
