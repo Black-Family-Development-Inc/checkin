@@ -13,9 +13,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
         <FirstSection {...data.contentfulHomePage} />
         <UniversalBottom {...data.contentfulHomePage} />
       </DefaultLayout>
-
     </>
-
   );
 };
 
