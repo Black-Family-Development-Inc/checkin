@@ -3,8 +3,8 @@ import React from "react";
 import {
   AnswerOptions,
   AnswerTypes,
-} from "../../../pages/assessments/assessment-types";
-import { AssessmentAnswersProps } from "./assessmentComponent-types";
+} from "../../../../pages/assessments/assessment-types";
+import { AssessmentAnswersProps } from "./assessmentAnswers-types";
 
 const AssessmentAnswers = ({
   currentQuestion,
@@ -17,10 +17,10 @@ const AssessmentAnswers = ({
     if (currentQuestion.questionType === "custom" && currentQuestion.answers) {
       return currentQuestion.answers;
     }
-    const currentQuestionType = currentQuestion.questionType;
-    return answers[
-      currentQuestionType as AnswerTypes.Binary | AnswerTypes.Scale
-    ];
+    const currentQuestionType = currentQuestion.questionType as
+      | AnswerTypes.Binary
+      | AnswerTypes.Scale;
+    return answers[currentQuestionType];
   };
 
   const handleAnswerClick = ({ text, score }: AnswerOptions) => {

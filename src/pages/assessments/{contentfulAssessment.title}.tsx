@@ -1,9 +1,11 @@
 import { FormControl } from "@mui/material";
 import { graphql } from "gatsby";
 import React, { useEffect, useState } from "react";
-import AssessmentAnswers from "../../components/Pages/Assessment/AssesmentAnswers";
-import AssessmentPrevNext from "../../components/Pages/Assessment/AssessmentPrevNext";
-import AssessmentStepper from "../../components/Pages/Assessment/AssessmentStepper";
+import {
+  AssessmentAnswers,
+  AssessmentPrevNext,
+  AssessmentStepper,
+} from "../../components/pages/Assessments";
 import { AssessmentPageProps, UsersSavedQuestions } from "./assessment-types";
 
 const AssessmentPage = ({ data }: AssessmentPageProps) => {

@@ -1,7 +1,7 @@
 import Button from "@mui/material/Button";
 import React from "react";
-import ButtonLink from "../../ButtonLink/ButtonLink";
-import { AssessmentPrevNextProps } from "./assessmentComponent-types";
+import ButtonLink from "../../../ButtonLink/ButtonLink";
+import { AssessmentPrevNextProps } from "./assessmentPrevNext-types";
 
 const AssessmentPrevNext = ({
   currentQuestionIdx,
