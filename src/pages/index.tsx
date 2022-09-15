@@ -1,16 +1,17 @@
 import { graphql, PageProps } from "gatsby";
 import * as React from "react";
-import NeedHelp from "../components/pages/home/NeedHelp/NeedHelp/NeedHelp";
+import UniversalBottom from "../components/pages/home/UniversalBottom/UniversalBottom";
 import { FirstSection } from "../components/pages/IndexPage/FirstSection";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
 
 const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
+  console.log(data);
   return (
     <>
       <DefaultLayout>
         <FirstSection {...data.contentfulHomePage} />
-        <NeedHelp {...data.contentfulHomePage} />
+        <UniversalBottom {...data.contentfulHomePage} />
       </DefaultLayout>
 
     </>
