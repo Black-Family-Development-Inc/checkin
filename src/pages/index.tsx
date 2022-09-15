@@ -16,7 +16,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
     <>
       <DefaultLayout>
         <FirstSection {...data.contentfulHomePage} />
-        {/* Please remove Accordion once FAQ paged is created */}
+        {/* Please remove Accordion once FAQ page is created */}
         <Accordion title={tempAccordionTitle} body={tempAccordionBody} />
       </DefaultLayout>
     </>
