@@ -21,11 +21,6 @@ export default function Accordion(props: AccordionPropTypes) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader title={props.title} />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          {props.body}
-        </Typography>
-      </CardContent>
       <CardActions>
         {expanded ? (
           <ExpandLessIcon
