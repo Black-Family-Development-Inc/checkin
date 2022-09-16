@@ -21,7 +21,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
 export default IndexPage;
 
 export const query = graphql`
-  {
+  query HomePage {
     contentfulHomePage(title: { eq: "Home Page" }) {
       title
       introSectionHeader
