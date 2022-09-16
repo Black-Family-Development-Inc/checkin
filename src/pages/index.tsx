@@ -1,5 +1,6 @@
 import { graphql, PageProps } from "gatsby";
 import * as React from "react";
+import AssessmentSection from "../components/pages/IndexPage/AssessmentSection/AssessmentSection";
 import { FirstSection } from "../components/pages/IndexPage/FirstSection";
 import AssessmentInstructions from "../components/pages/IndexPage/FirstSection/AssessmentInstructions";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
@@ -11,6 +12,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
       <DefaultLayout>
         <FirstSection {...data.contentfulHomePage} />
         <AssessmentInstructions {...data.contentfulHomePage} />
+        <AssessmentSection {...data.contentfulHomePage} />
       </DefaultLayout>
     </>
   );
@@ -47,6 +49,17 @@ export const query = graphql`
         url
         description
         gatsbyImageData(formats: [WEBP], breakpoints: [375])
+      assessmentSectionHeader
+      assessmentSectionSubheader
+      assessmentButtons {
+        ... on ContentfulAssessmentButton {
+          assessmentDescription
+          buttonText
+          assessment {
+            title
+            id
+          }
+        }
       }
     }
     allContentfulAssessment {

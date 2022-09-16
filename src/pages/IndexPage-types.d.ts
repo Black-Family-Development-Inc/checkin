@@ -16,11 +16,20 @@ export type ContentfulHomePage = {
   stepThreeLabel: string;
   stepThreeDescription: string;
   assessmentStepsImage: ContentfulImage;
+  assessmentSectionHeader: string;
+  assessmentSectionSubheader: string;
+  assessmentButtons: AssessmentButton[];
 };
 
 export type ContentfulImage = {
   description: string;
   gatsbyImageData: GatsbyImageData;
+};
+
+export type AssessmentButton = {
+  buttonText: string;
+  assessmentDescription: string;
+  assessment: ContentfulAssessment;
 };
 
 export type UniversalAssessmentButton = {
