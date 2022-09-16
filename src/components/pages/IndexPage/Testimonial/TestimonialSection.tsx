@@ -1,8 +1,8 @@
 import React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
-import { BoxStyled, ContainerStyled } from "./Testimonial.styles";
+import { BoxStyled, ContainerStyled } from "./TestimonialSection.styles";
 
-const Testimonial = (props: ContentfulHomePage) => {
+const TestimonialSection = (props: ContentfulHomePage) => {
   const { testimonial, testimonialParticipant } = props;
 
   return (
@@ -13,4 +13,4 @@ const Testimonial = (props: ContentfulHomePage) => {
   );
 };
 
-export default Testimonial;
+export default TestimonialSection;

@@ -2,7 +2,7 @@ import { graphql, PageProps } from "gatsby";
 import * as React from "react";
 import AssessmentSection from "../components/pages/IndexPage/AssessmentSection/AssessmentSection";
 import { FirstSection } from "../components/pages/IndexPage/FirstSection";
-import Testimonial from "../components/pages/IndexPage/Testimonial/Testimonial";
+import { TestimonialSection } from "../components/pages/IndexPage/Testimonial";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
 
@@ -12,7 +12,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
       <DefaultLayout>
         <FirstSection {...data.contentfulHomePage} />
         <AssessmentSection {...data.contentfulHomePage} />
-        <Testimonial {...data.contentfulHomePage} />
+        <TestimonialSection {...data.contentfulHomePage} />
       </DefaultLayout>
     </>
   );
