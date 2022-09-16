@@ -8,11 +8,20 @@ export type ContentfulHomePage = {
   introSectionSubheader: string;
   introSectionImage: ContentfulImage;
   universalAssessmentButton: UniversalAssessmentButton;
+  assessmentSectionHeader: string;
+  assessmentSectionSubheader: string;
+  assessmentButtons: AssessmentButton[];
 };
 
 export type ContentfulImage = {
   description: string;
   gatsbyImageData: GatsbyImageData;
+};
+
+export type AssessmentButton = {
+  buttonText: string;
+  assessmentDescription: string;
+  assessment: ContentfulAssessment;
 };
 
 export type UniversalAssessmentButton = {
