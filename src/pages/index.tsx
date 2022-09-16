@@ -49,6 +49,7 @@ export const query = graphql`
         url
         description
         gatsbyImageData(formats: [WEBP], breakpoints: [375])
+      }
       assessmentSectionHeader
       assessmentSectionSubheader
       assessmentButtons {
