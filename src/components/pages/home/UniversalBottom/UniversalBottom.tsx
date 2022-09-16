@@ -1,30 +1,28 @@
-import { Link } from "gatsby";
 import React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
+import ButtonLink from "../../../ButtonLink/ButtonLink";
 import {
-    ButtonStyled,
-    UniversalBottomHeader,
-    UniversalBottomSubHeader,
+  UniversalBottomHeader,
+  UniversalBottomSubHeader,
 } from "./UniversalBottom.styles";
 
 const UniversalBottom = ({
-    universalBottomSubHeader,
-    universalBottomHeader,
-    universalAssessmentButton: { text: assessmentButtonLabel, assessment },
+  universalBottomSubHeader,
+  universalBottomHeader,
+  universalAssessmentButton: { text: assessmentButtonLabel, assessment },
 }: ContentfulHomePage) => {
-    return (
-        <>
-            <UniversalBottomHeader>{universalBottomHeader}</UniversalBottomHeader>
-            <UniversalBottomSubHeader>
-                {universalBottomSubHeader}
-            </UniversalBottomSubHeader>
-            <Link to={"/assessments/" + assessment.title.toLowerCase()}>
-                <ButtonStyled>
-                    {assessmentButtonLabel}
-                </ButtonStyled>
-            </Link>
-        </>
-    );
+  return (
+    <>
+      <UniversalBottomHeader>{universalBottomHeader}</UniversalBottomHeader>
+      <UniversalBottomSubHeader>
+        {universalBottomSubHeader}
+      </UniversalBottomSubHeader>
+      <ButtonLink
+        link={"/assessments/" + assessment.title.toLowerCase()}
+        text={assessmentButtonLabel}
+      />
+    </>
+  );
 };
 
 export default UniversalBottom;

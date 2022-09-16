@@ -1,7 +1,7 @@
 export enum AnswerTypes {
-  binary = "binary",
-  scale = "scale",
-  custom = "custom",
+  Binary = "binary",
+  Scale = "scale",
+  Custom = "custom",
 }
 
 export type AnswerOptions = {
