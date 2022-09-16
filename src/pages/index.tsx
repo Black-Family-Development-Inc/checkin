@@ -1,6 +1,7 @@
 import { graphql, PageProps } from "gatsby";
 import * as React from "react";
 import { FirstSection } from "../components/pages/IndexPage/FirstSection";
+import Testimonial from "../components/pages/IndexPage/Testimonial/Testimonial";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
 
@@ -9,6 +10,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
     <>
       <DefaultLayout>
         <FirstSection {...data.contentfulHomePage} />
+        <Testimonial {...data.contentfulHomePage} />
       </DefaultLayout>
     </>
   );
@@ -22,6 +24,8 @@ export const query = graphql`
       title
       introSectionHeader
       introSectionSubheader
+      testimonial
+      testimonialParticipant
       universalAssessmentButton {
         text
         assessment {
