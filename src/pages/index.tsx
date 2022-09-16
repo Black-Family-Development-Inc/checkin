@@ -1,6 +1,7 @@
 import { graphql, PageProps } from "gatsby";
 import * as React from "react";
 import Accordion from "../components/Accordion/Accordion";
+import AssessmentSection from "../components/pages/IndexPage/AssessmentSection/AssessmentSection";
 import { FirstSection } from "../components/pages/IndexPage/FirstSection";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
@@ -16,7 +17,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
     <>
       <DefaultLayout>
         <FirstSection {...data.contentfulHomePage} />
-        {/* Please remove Accordion once FAQ page is created */}
+        <AssessmentSection {...data.contentfulHomePage} />
         <Accordion title={tempAccordionTitle} body={tempAccordionBody} />
       </DefaultLayout>
     </>
@@ -42,6 +43,18 @@ export const query = graphql`
         url
         description
         gatsbyImageData(formats: [WEBP], breakpoints: [375])
+      }
+      assessmentSectionHeader
+      assessmentSectionSubheader
+      assessmentButtons {
+        ... on ContentfulAssessmentButton {
+          assessmentDescription
+          buttonText
+          assessment {
+            title
+            id
+          }
+        }
       }
     }
     allContentfulAssessment {
