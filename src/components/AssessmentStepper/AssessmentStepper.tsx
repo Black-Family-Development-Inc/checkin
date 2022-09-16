@@ -1,19 +1,12 @@
 import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
 import Stepper from "@mui/material/Stepper";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { AssessmentStep } from "../../pages/assessments/AssessmentPage-types";
 import { AssessmentStepperPropTypes } from "./AssessmentStepper-types";
 
 const AssessmentStepper = ({ steps, setSteps }: AssessmentStepperPropTypes) => {
   const [assessmentActiveStep, setAssessmentActiveStep] = useState<number>(0);
-
-  /**
-   * Temporary until Jira Issue BFDI-113 is closed
-   * https://detroitlabs.jira.com/jira/software/projects/BFDI/boards/147/backlog?selectedIssue=BFDI-113
-   */
-  useEffect(() => {
-    console.log(assessmentActiveStep);
-  }, [assessmentActiveStep]);
 
   /**
    * Temporary until Jira Issue BFDI-113 is closed
@@ -37,6 +30,11 @@ const AssessmentStepper = ({ steps, setSteps }: AssessmentStepperPropTypes) => {
     setAssessmentActiveStep(nextActiveStep);
   };
 
+  const isStepComplete = (step: AssessmentStep) => {
+    const stepIdx = steps.findIndex(({ label }) => label === step.label);
+    return stepIdx === assessmentActiveStep ? false : step.isComplete;
+  };
+
   return (
     <>
       <Stepper
@@ -48,8 +46,7 @@ const AssessmentStepper = ({ steps, setSteps }: AssessmentStepperPropTypes) => {
         {steps.map((step, idx) => (
           <Step
             key={step.label}
-            // eslint-disable-next-line max-len
-            completed={step.isComplete} // Temporary logic until BFDI-113 is closed
+            completed={isStepComplete(step)}
             disabled={!step.isComplete}
           >
             <StepButton onClick={() => setAssessmentActiveStep(idx)}>
