@@ -6,7 +6,6 @@ import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
 
 const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
-  console.log(data);
   return (
     <>
       <DefaultLayout>
