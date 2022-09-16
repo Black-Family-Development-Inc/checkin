@@ -4,12 +4,17 @@ export type FaqPagePropTypes = {
 
 export type ContentfulFaqPage = {
   title: string;
+  subHeader: FaqSubHeader;
   faqAccordion: FaqAccordion[];
+};
+
+export type FaqSubHeader = {
+  subHeader: string;
 };
 
 export type FaqAccordion = {
   title: string;
-  childContentfulAccordionBodyTextNode: FaqAccordionBody;
+  body: FaqAccordionBody;
 };
 
 export type FaqAccordionBody = {
