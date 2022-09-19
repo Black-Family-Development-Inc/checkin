@@ -1,35 +1,24 @@
-import { Box } from "@mui/material";
 import { graphql, PageProps } from "gatsby";
 import * as React from "react";
-// import Button from "../components/Button/Button";
 import Accordion from "../components/Accordion/Accordion";
-import { ButtonStyled, LinkStyled } from "../index.styles";
+import AssessmentSection from "../components/pages/IndexPage/AssessmentSection/AssessmentSection";
+import { FirstSection } from "../components/pages/IndexPage/FirstSection";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
+import { IndexPageTypes } from "./IndexPage-types";
 
-const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
-  const header = data.contentfulPage?.header;
-  const body = data.contentfulPage?.body?.body;
-
-  const assessmentButtons = data.contentfulPage?.assessmentButtons;
+const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
+  // Temp data variables to test component props, please remove once accordion component is removed
+  const tempAccordionTitle =
+    "This is data prop for the header of the Accordion";
+  const tempAccordionBody =
+    "And this is data prop for the body of the accordion";
 
   return (
     <>
       <DefaultLayout>
-        <h1>{header}</h1>
-        <p>{body}</p>
-        <Box>
-          {assessmentButtons?.map((button) => {
-            return (
-              <LinkStyled
-                to={button?.link ? button.link : ""}
-                key={button?.text}
-              >
-                <ButtonStyled variant="contained">{button?.text}</ButtonStyled>
-              </LinkStyled>
-            );
-          })}
-        </Box>
-        <Accordion />
+        <FirstSection {...data.contentfulHomePage} />
+        <AssessmentSection {...data.contentfulHomePage} />
+        <Accordion title={tempAccordionTitle} body={tempAccordionBody} />
       </DefaultLayout>
     </>
   );
@@ -38,16 +27,34 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 export default IndexPage;
 
 export const query = graphql`
-  query IndexPage {
-    contentfulPage(title: { eq: "Home Page" }) {
+  {
+    contentfulHomePage(title: { eq: "Home Page" }) {
       title
-      header
-      body {
-        body
-      }
-      assessmentButtons {
+      introSectionHeader
+      introSectionSubheader
+      universalAssessmentButton {
         text
-        link
+        assessment {
+          id
+          title
+        }
+      }
+      introSectionImage {
+        url
+        description
+        gatsbyImageData(formats: [WEBP], breakpoints: [375])
+      }
+      assessmentSectionHeader
+      assessmentSectionSubheader
+      assessmentButtons {
+        ... on ContentfulAssessmentButton {
+          assessmentDescription
+          buttonText
+          assessment {
+            title
+            id
+          }
+        }
       }
     }
     allContentfulAssessment {

@@ -5,8 +5,13 @@ import {
   AssessmentAnswers,
   AssessmentPrevNext,
   AssessmentStepper,
-} from "../../components/pages/Assessments";
-import { AssessmentPageProps, UsersSavedQuestions } from "./assessment-types";
+} from "../../components/pages/assessments";
+import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
+import {
+  AssessmentPageProps,
+  AssessmentStep,
+  UsersSavedQuestions,
+} from "./AssessmentPage-types";
 
 const AssessmentPage = ({ data }: AssessmentPageProps) => {
   const {
@@ -16,6 +21,12 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
     },
     contentfulButton,
   } = data;
+
+  const [steps, setSteps] = useState<AssessmentStep[]>([
+    { label: "Preliminary Questions", isComplete: false },
+    { label: "Assessment Questions", isComplete: false },
+    { label: "Results & Resources", isComplete: false },
+  ]);
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
@@ -34,9 +45,10 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
   const resultsDisabled = usersSavedQuestions.some(
     (saved) => saved.answer === "",
   );
+
   return (
-    <>
-      <AssessmentStepper />
+    <DefaultLayout>
+      <AssessmentStepper {...{ steps, setSteps }} />
       <p>Assessment Title: {title}</p>
       <p>
         You are on question {currentQuestionIdx + 1} out of {questions.length}
@@ -61,7 +73,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
           />
         </div>
       </FormControl>
-    </>
+    </DefaultLayout>
   );
 };
 
@@ -70,6 +82,7 @@ export default AssessmentPage;
 export const query = graphql`
   query AssessmentPage($title: String!) {
     contentfulAssessment(title: { eq: $title }) {
+      id
       title
       assessment {
         answers {

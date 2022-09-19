@@ -1,3 +1,8 @@
+export type AssessmentStep = {
+  label: string;
+  isComplete: boolean;
+};
+
 export enum AnswerTypes {
   Binary = "binary",
   Scale = "scale",
@@ -6,7 +11,7 @@ export enum AnswerTypes {
 
 export type AnswerOptions = {
   score: number;
-  text: string; // geuyrf
+  text: string;
 };
 
 export type Description = string;
