@@ -29,7 +29,7 @@ const FaqPage = ({
           title,
           body,
         };
-        return <Accordion {...accordionProps} />;
+        return <Accordion key={accordion.id} {...accordionProps} />;
       })}
     </DefaultLayout>
   );
@@ -45,6 +45,7 @@ export const query = graphql`
         subHeader
       }
       faqAccordion {
+        id
         title
         body {
           body

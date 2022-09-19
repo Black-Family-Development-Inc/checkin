@@ -13,6 +13,7 @@ export type FaqSubHeader = {
 };
 
 export type FaqAccordion = {
+  id: string;
   title: string;
   body: FaqAccordionBody;
 };
