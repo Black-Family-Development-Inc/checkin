@@ -1,12 +1,24 @@
+import { Link } from "gatsby";
 import React from "react";
-import { NavBarContainerStyled } from "./NavBar.styles";
+import logo from "../../images/bfdi-logo.png";
+import {
+  NavBarContainerStyled,
+  NavBarLink,
+  NavBarLogoContainer,
+} from "./NavBar.styles";
 
 const NavBar = () => {
   return (
     <NavBarContainerStyled>
-      <span>LOGO</span>
-      <span>Black Family Development, Inc.</span>
-      <span>=</span>
+      <NavBarLogoContainer>
+        <img src={logo} alt="BFDI LOGO" />
+        <span className="logo-text">Black Family Development, Inc.</span>
+      </NavBarLogoContainer>
+      <NavBarLink>
+        <Link className="nav-link" to="/faq">
+          FAQ
+        </Link>
+      </NavBarLink>
     </NavBarContainerStyled>
   );
 };

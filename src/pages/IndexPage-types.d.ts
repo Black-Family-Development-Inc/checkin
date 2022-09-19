@@ -11,6 +11,8 @@ export type ContentfulHomePage = {
   assessmentSectionHeader: string;
   assessmentSectionSubheader: string;
   assessmentButtons: AssessmentButton[];
+  universalBottomSubHeader: string;
+  universalBottomHeader: string;
 };
 
 export type ContentfulImage = {
