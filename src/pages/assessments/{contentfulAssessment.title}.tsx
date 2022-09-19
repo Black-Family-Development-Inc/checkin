@@ -7,9 +7,16 @@ import {
 } from "@mui/material";
 import { graphql } from "gatsby";
 import React, { useState } from "react";
-import AssessmentStepper from "../../components/AssessmentStepper/AssessmentStepper";
+import { AssessmentStepper } from "../../components/AssessmentStepper";
 import ButtonLink from "../../components/ButtonLink/ButtonLink";
-import { AnswerOptions, AnswerTypes, Assessment, Question } from "../../types";
+import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
+import {
+  AnswerOptions,
+  AnswerTypes,
+  Assessment,
+  AssessmentStep,
+  Question,
+} from "./AssessmentPage-types";
 
 const questions = ["This", "Is", "Just", "Filler", "Data", "🐱"];
 
@@ -24,8 +31,6 @@ const renderAnswers = (answers: AnswerOptions[]) => {
   ));
 };
 
-const linkToResults = "/results";
-
 const AssessmentPage = ({
   data,
 }: {
@@ -34,20 +39,27 @@ const AssessmentPage = ({
     contentfulAssessment: { title: string; assessment: Assessment };
   };
 }) => {
+  const [steps, setSteps] = useState<AssessmentStep[]>([
+    { label: "Preliminary Questions", isComplete: false },
+    { label: "Assessment Questions", isComplete: false },
+    { label: "Results & Resources", isComplete: false },
+  ]);
+
+  const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
+
   const {
     contentfulAssessment: { title, assessment },
   } = data;
 
-  console.log(assessment); // only for testing purposes remove once page is more complete
-
-  const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
-
+  const linkToResults = "/results";
   const clamp = (num: number) =>
     Math.min(Math.max(num, 0), questions.length - 1);
 
+  console.log(assessment); // only for testing purposes remove once page is more complete
+
   return (
-    <>
-      <AssessmentStepper />
+    <DefaultLayout>
+      <AssessmentStepper {...{ steps, setSteps }} />
       <p>Assessment Title: {title}</p>
       <p>Assessment "Question":</p>
       <p>
@@ -96,15 +108,15 @@ const AssessmentPage = ({
                     ? question.answers
                     : assessment?.answers[
                         question.questionType as
-                          | AnswerTypes.scale
-                          | AnswerTypes.binary
+                          | AnswerTypes.Scale
+                          | AnswerTypes.Binary
                       ],
                 )}
             </RadioGroup>
           </FormControl>
         </div>
       ))}
-    </>
+    </DefaultLayout>
   );
 };
 
@@ -113,6 +125,7 @@ export default AssessmentPage;
 export const query = graphql`
   query AssessmentPage($title: String!) {
     contentfulAssessment(title: { eq: $title }) {
+      id
       title
       assessment {
         answers {
