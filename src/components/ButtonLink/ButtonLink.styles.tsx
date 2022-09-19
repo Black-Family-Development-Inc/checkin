@@ -5,7 +5,7 @@ export const LinkStyled = styled(Link)({
   display: "flex",
   alignItems: "center",
   margin: "10px",
-  width: "343px",
+  width: "320px",
   height: "44px",
   textDecoration: "none",
   borderRadius: "8px",

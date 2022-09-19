@@ -6,3 +6,4 @@ src/gatsby-types.d.ts
 .env
 bfdi-afac-f7e956ec28de.json
 .idea/
+.vscode/settings.json

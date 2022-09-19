@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
 import { HR } from "../../../HR";
-import { ImageStyled } from "./FirstSection.styles";
+import { ImageStyled } from "../../../Image/img.styles";
 
 const FirstSection = ({
   introSectionHeader,
