@@ -5,7 +5,7 @@ import {
   AssessmentAnswers,
   AssessmentPrevNext,
   AssessmentStepper,
-} from "../../components/pages/assessments";
+} from "../../components/pages/Assessments";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
 import {
   AssessmentPageProps,
