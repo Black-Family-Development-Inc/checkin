@@ -4,6 +4,7 @@ import Accordion from "../components/Accordion/Accordion";
 import UniversalBottom from "../components/pages/home/UniversalBottom/UniversalBottom";
 import AssessmentSection from "../components/pages/IndexPage/AssessmentSection/AssessmentSection";
 import { FirstSection } from "../components/pages/IndexPage/FirstSection";
+import AssessmentInstructions from "../components/pages/IndexPage/FirstSection/AssessmentInstructions";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
 
@@ -18,6 +19,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
     <>
       <DefaultLayout>
         <FirstSection {...data.contentfulHomePage} />
+        <AssessmentInstructions {...data.contentfulHomePage} />
         <AssessmentSection {...data.contentfulHomePage} />
         <Accordion title={tempAccordionTitle} body={tempAccordionBody} />
         <UniversalBottom {...data.contentfulHomePage} />
@@ -29,7 +31,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
 export default IndexPage;
 
 export const query = graphql`
-  {
+  query HomePage {
     contentfulHomePage(title: { eq: "Home Page" }) {
       title
       introSectionHeader
@@ -44,6 +46,18 @@ export const query = graphql`
         }
       }
       introSectionImage {
+        url
+        description
+        gatsbyImageData(formats: [WEBP], breakpoints: [375])
+      }
+      assessmentInstructionsHeader
+      stepOneLabel
+      stepOneDescription
+      stepTwoLabel
+      stepTwoDescription
+      stepThreeLabel
+      stepThreeDescription
+      assessmentStepsImage {
         url
         description
         gatsbyImageData(formats: [WEBP], breakpoints: [375])
