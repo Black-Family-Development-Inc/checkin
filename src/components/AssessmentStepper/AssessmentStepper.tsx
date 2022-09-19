@@ -2,13 +2,10 @@ import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
 import Stepper from "@mui/material/Stepper";
 import React, { useState } from "react";
+import { AssessmentStep } from "../../pages/assessments/AssessmentPage-types";
+import { AssessmentStepperPropTypes } from "./AssessmentStepper-types";
 
-const AssessmentStepper = () => {
-  const [steps, setSteps] = useState([
-    { text: "Preliminary Questions", isComplete: false },
-    { text: "Assessment Questions", isComplete: false },
-    { text: "Results & Resources", isComplete: false },
-  ]);
+const AssessmentStepper = ({ steps, setSteps }: AssessmentStepperPropTypes) => {
   const [assessmentActiveStep, setAssessmentActiveStep] = useState<number>(0);
 
   /**
@@ -33,18 +30,9 @@ const AssessmentStepper = () => {
     setAssessmentActiveStep(nextActiveStep);
   };
 
-  /**
-   * Temporary until Jira Issue BFDI-113 is closed
-   * https://detroitlabs.jira.com/jira/software/projects/BFDI/boards/147/backlog?selectedIssue=BFDI-113
-   */
-  const handleStepperBubbleClick = (idx: number) => {
-    setAssessmentActiveStep(idx);
-    const updatedSteps = [...steps];
-    updatedSteps[idx] = {
-      ...updatedSteps[idx],
-      isComplete: false,
-    };
-    setSteps(updatedSteps);
+  const isStepComplete = (step: AssessmentStep) => {
+    const stepIdx = steps.findIndex(({ label }) => label === step.label);
+    return stepIdx === assessmentActiveStep ? false : step.isComplete;
   };
 
   return (
@@ -57,13 +45,12 @@ const AssessmentStepper = () => {
       >
         {steps.map((step, idx) => (
           <Step
-            key={step.text}
-            // eslint-disable-next-line max-len
-            completed={step.isComplete} // Temporary logic until BFDI-113 is closed
+            key={step.label}
+            completed={isStepComplete(step)}
             disabled={!step.isComplete}
           >
-            <StepButton onClick={() => handleStepperBubbleClick(idx)}>
-              {step.text}
+            <StepButton onClick={() => setAssessmentActiveStep(idx)}>
+              {step.label}
             </StepButton>
           </Step>
         ))}
