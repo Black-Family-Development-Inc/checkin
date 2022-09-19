@@ -1,5 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
+import logo from "../../images/bfdi-logo.png";
 import {
   NavBarContainerStyled,
   NavBarLink,
@@ -10,7 +11,7 @@ const NavBar = () => {
   return (
     <NavBarContainerStyled>
       <NavBarLogoContainer>
-        <img src="/bfdi-logo.png" alt="BFDI LOGO" />
+        <img src={logo} alt="BFDI LOGO" />
         <span className="logo-text">Black Family Development, Inc.</span>
       </NavBarLogoContainer>
       <NavBarLink>

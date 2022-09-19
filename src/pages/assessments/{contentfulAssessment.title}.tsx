@@ -95,10 +95,10 @@ const AssessmentPage = ({
                   question.questionType === "custom" && question.answers
                     ? question.answers
                     : assessment?.answers[
-                    question.questionType as
-                    | AnswerTypes.scale
-                    | AnswerTypes.binary
-                    ],
+                        question.questionType as
+                          | AnswerTypes.scale
+                          | AnswerTypes.binary
+                      ],
                 )}
             </RadioGroup>
           </FormControl>
