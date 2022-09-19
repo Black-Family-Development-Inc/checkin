@@ -2,7 +2,7 @@ import { SetStateAction } from "react";
 import {
   ContentfulButton,
   Question,
-} from "../../../pages/assessments/assessment-types";
+} from "../../../../pages/assessments/AssessmentPage-types";
 
 export type AssessmentPrevNextProps = {
   setCurrentQuestionIdx: Dispatch<SetStateAction<number>>;

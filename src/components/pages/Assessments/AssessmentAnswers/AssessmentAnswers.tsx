@@ -3,8 +3,8 @@ import React from "react";
 import {
   AnswerOptions,
   AnswerTypes,
-} from "../../../../pages/assessments/assessment-types";
-import { AssessmentAnswersProps } from "./assessmentAnswers-types";
+} from "../../../../pages/assessments/AssessmentPage-types";
+import { AssessmentAnswersProps } from "./AssessmentAnswers-types";
 
 const AssessmentAnswers = ({
   currentQuestion,
@@ -36,7 +36,7 @@ const AssessmentAnswers = ({
   const usersCurrentAnswer = usersSavedQuestions[currentQuestionIdx].answer;
   return (
     <ButtonGroup>
-      {getAppropriateAnswers()?.map((answer, i: number) => (
+      {getAppropriateAnswers()?.map((answer: AnswerOptions, i: number) => (
         <Button
           color={`${
             usersCurrentAnswer === answer.text ? "success" : "primary"
