@@ -1,6 +1,7 @@
 import { graphql, PageProps } from "gatsby";
 import * as React from "react";
 import Accordion from "../components/Accordion/Accordion";
+import UniversalBottom from "../components/pages/home/UniversalBottom/UniversalBottom";
 import AssessmentSection from "../components/pages/IndexPage/AssessmentSection/AssessmentSection";
 import { FirstSection } from "../components/pages/IndexPage/FirstSection";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
@@ -19,6 +20,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
         <FirstSection {...data.contentfulHomePage} />
         <AssessmentSection {...data.contentfulHomePage} />
         <Accordion title={tempAccordionTitle} body={tempAccordionBody} />
+        <UniversalBottom {...data.contentfulHomePage} />
       </DefaultLayout>
     </>
   );
@@ -32,6 +34,8 @@ export const query = graphql`
       title
       introSectionHeader
       introSectionSubheader
+      universalBottomHeader
+      universalBottomSubHeader
       universalAssessmentButton {
         text
         assessment {
