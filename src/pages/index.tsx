@@ -5,6 +5,7 @@ import UniversalBottom from "../components/pages/home/UniversalBottom/UniversalB
 import AssessmentSection from "../components/pages/IndexPage/AssessmentSection/AssessmentSection";
 import { FirstSection } from "../components/pages/IndexPage/FirstSection";
 import AssessmentInstructions from "../components/pages/IndexPage/FirstSection/AssessmentInstructions";
+import { TestimonialSection } from "../components/pages/IndexPage/Testimonial";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
 
@@ -23,6 +24,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
         <AssessmentSection {...data.contentfulHomePage} />
         <Accordion title={tempAccordionTitle} body={tempAccordionBody} />
         <UniversalBottom {...data.contentfulHomePage} />
+        <TestimonialSection {...data.contentfulHomePage} />
       </DefaultLayout>
     </>
   );
@@ -36,6 +38,8 @@ export const query = graphql`
       title
       introSectionHeader
       introSectionSubheader
+      testimonial
+      testimonialParticipant
       universalBottomHeader
       universalBottomSubHeader
       universalAssessmentButton {
