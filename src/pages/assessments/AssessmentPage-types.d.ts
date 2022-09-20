@@ -44,3 +44,21 @@ export type Assessment = {
     scale: AnswerOptions[];
   };
 };
+
+export type ContentfulButton = {
+  text: string;
+  link: string;
+};
+
+export type AssessmentPageProps = {
+  data: {
+    contentfulButton: ContentfulButton;
+    contentfulAssessment: { title: string; assessment: Assessment };
+  };
+};
+
+export type UsersSavedQuestions = {
+  question: string;
+  answer: string;
+  score: number;
+};

@@ -1,44 +1,27 @@
-import {
-  Button,
-  FormControl,
-  FormControlLabel,
-  Radio,
-  RadioGroup,
-} from "@mui/material";
+import { FormControl } from "@mui/material";
 import { graphql } from "gatsby";
-import React, { useState } from "react";
-import { AssessmentStepper } from "../../components/AssessmentStepper";
-import ButtonLink from "../../components/ButtonLink/ButtonLink";
+import React, { useEffect, useState } from "react";
+import {
+  AssessmentAnswers,
+  AssessmentPrevNext,
+  AssessmentStepper,
+} from "../../components/pages/Assessments";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
 import {
-  AnswerOptions,
-  AnswerTypes,
-  Assessment,
+  AssessmentPageProps,
   AssessmentStep,
-  Question,
+  UsersSavedQuestions,
 } from "./AssessmentPage-types";
 
-const questions = ["This", "Is", "Just", "Filler", "Data", "🐱"];
+const AssessmentPage = ({ data }: AssessmentPageProps) => {
+  const {
+    contentfulAssessment: {
+      title,
+      assessment: { answers, questions },
+    },
+    contentfulButton,
+  } = data;
 
-const renderAnswers = (answers: AnswerOptions[]) => {
-  return answers.map((answer: AnswerOptions, i: number) => (
-    <FormControlLabel
-      key={`custom-${i}`}
-      value={`${answer.score}-${i}`}
-      control={<Radio />}
-      label={answer.text}
-    />
-  ));
-};
-
-const AssessmentPage = ({
-  data,
-}: {
-  data: {
-    contentfulButton: any;
-    contentfulAssessment: { title: string; assessment: Assessment };
-  };
-}) => {
   const [steps, setSteps] = useState<AssessmentStep[]>([
     { label: "Preliminary Questions", isComplete: false },
     { label: "Assessment Questions", isComplete: false },
@@ -46,76 +29,50 @@ const AssessmentPage = ({
   ]);
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
+  const [usersSavedQuestions, setUsersSavedQuestions] = useState<
+    UsersSavedQuestions[]
+  >([{ question: "", answer: "", score: 0 }]);
 
-  const {
-    contentfulAssessment: { title, assessment },
-  } = data;
+  useEffect(() => {
+    const unansweredQuestions = questions.map((question) => {
+      return { question: question.text, answer: "", score: 0 };
+    });
+    setUsersSavedQuestions(unansweredQuestions);
+  }, [questions]);
 
-  const linkToResults = "/results";
-  const clamp = (num: number) =>
-    Math.min(Math.max(num, 0), questions.length - 1);
-
-  console.log(assessment); // only for testing purposes remove once page is more complete
+  const currentQuestion = questions[currentQuestionIdx];
+  const nextDisabled = !usersSavedQuestions?.[currentQuestionIdx]?.answer;
+  const resultsDisabled = usersSavedQuestions.some(
+    (saved) => saved.answer === "",
+  );
 
   return (
     <DefaultLayout>
       <AssessmentStepper {...{ steps, setSteps }} />
       <p>Assessment Title: {title}</p>
-      <p>Assessment "Question":</p>
       <p>
         You are on question {currentQuestionIdx + 1} out of {questions.length}
       </p>
-      <ul>
-        <li>one</li>
-        <li>two</li>
-      </ul>
-      {data.contentfulButton?.text && (
-        <ButtonLink text={data.contentfulButton.text} link={linkToResults} />
-      )}
-
-      <div>
-        <Button
-          onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
-          disabled={currentQuestionIdx === 0}
-        >
-          Previous
-        </Button>
-
-        {currentQuestionIdx === questions.length - 1 ? (
-          <Button onClick={() => alert(questions[questions.length - 1])}>
-            Results
-          </Button>
-        ) : (
-          <Button
-            onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx + 1))}
-          >
-            Next
-          </Button>
-        )}
-      </div>
-      {assessment?.questions?.map((question: Question, i: number) => (
-        <div key={i}>
-          <p>{question.text}</p>
-          <FormControl>
-            <RadioGroup
-              aria-labelledby="demo-radio-buttons-group-label"
-              defaultValue="female"
-              name="radio-buttons-group"
-            >
-              {question.questionType &&
-                renderAnswers(
-                  question.questionType === "custom" && question.answers
-                    ? question.answers
-                    : assessment?.answers[
-                        question.questionType as
-                          | AnswerTypes.scale
-                          | AnswerTypes.binary
-                      ],
-                )}
-            </RadioGroup>
-          </FormControl>
+      <FormControl>
+        <p>{currentQuestion.text}</p>
+        <AssessmentAnswers
+          answers={answers}
+          currentQuestion={currentQuestion}
+          currentQuestionIdx={currentQuestionIdx}
+          usersSavedQuestions={usersSavedQuestions}
+          setUsersSavedQuestions={setUsersSavedQuestions}
+        />
+        <div>
+          <AssessmentPrevNext
+            currentQuestionIdx={currentQuestionIdx}
+            questions={questions}
+            contentfulButton={contentfulButton}
+            setCurrentQuestionIdx={setCurrentQuestionIdx}
+            nextDisabled={nextDisabled}
+            resultsDisabled={resultsDisabled}
+          />
         </div>
-      ))}
+      </FormControl>
     </DefaultLayout>
   );
 };
