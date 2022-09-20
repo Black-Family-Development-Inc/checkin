@@ -3,8 +3,8 @@ import * as React from "react";
 import Accordion from "../components/Accordion/Accordion";
 import UniversalBottom from "../components/pages/home/UniversalBottom/UniversalBottom";
 import AssessmentSection from "../components/pages/IndexPage/AssessmentSection/AssessmentSection";
-import { FirstSection } from "../components/pages/IndexPage/FirstSection";
-import AssessmentInstructions from "../components/pages/IndexPage/FirstSection/AssessmentInstructions";
+import { IntroSection } from "../components/pages/IndexPage/IntroSection";
+import AssessmentInstructions from "../components/pages/IndexPage/IntroSection/AssessmentInstructions";
 import { TestimonialSection } from "../components/pages/IndexPage/Testimonial";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
@@ -19,7 +19,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
   return (
     <>
       <DefaultLayout>
-        <FirstSection {...data.contentfulHomePage} />
+        <IntroSection {...data.contentfulHomePage} />
         <AssessmentInstructions {...data.contentfulHomePage} />
         <AssessmentSection {...data.contentfulHomePage} />
         <Accordion title={tempAccordionTitle} body={tempAccordionBody} />

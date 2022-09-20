@@ -3,9 +3,9 @@ import { Link } from "gatsby";
 import React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
 import { HR } from "../../../HR";
-import { ImageStyled } from "../../../Image/img.styles";
+import { ImageStyled } from "./IntroSection.styles";
 
-const FirstSection = ({
+const IntroSection = ({
   introSectionHeader,
   introSectionSubheader,
   introSectionImage,
@@ -30,4 +30,4 @@ const FirstSection = ({
   );
 };
 
-export default FirstSection;
+export default IntroSection;
