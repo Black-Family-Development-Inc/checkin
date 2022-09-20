@@ -1,5 +1,5 @@
 import { FormControl } from "@mui/material";
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
 import React, { useEffect, useState } from "react";
 import {
   AssessmentAnswers,
@@ -17,7 +17,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
   const {
     contentfulAssessment: {
       title,
-      assessment: { answers, questions },
+      assessment: { answers, questions, severityRubric },
     },
     contentfulButton,
   } = data;
@@ -46,6 +46,16 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
     (saved) => saved.answer === "",
   );
 
+  const navigateToResultsPage = () => {
+    const assessmentScore = accumulateAssessmentScore();
+    navigate("/results/" + title.toLowerCase(), {
+      state: { assessmentScore, severityRubric },
+    });
+  };
+
+  const accumulateAssessmentScore = () =>
+    usersSavedQuestions.reduce((prev, curr) => prev + curr.score, 0);
+
   return (
     <DefaultLayout>
       <AssessmentStepper {...{ steps, setSteps }} />
@@ -70,6 +80,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
             setCurrentQuestionIdx={setCurrentQuestionIdx}
             nextDisabled={nextDisabled}
             resultsDisabled={resultsDisabled}
+            handleResultsClick={navigateToResultsPage}
           />
         </div>
       </FormControl>
