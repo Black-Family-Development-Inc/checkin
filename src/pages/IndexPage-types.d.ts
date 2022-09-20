@@ -8,9 +8,19 @@ export type ContentfulHomePage = {
   introSectionSubheader: string;
   introSectionImage: ContentfulImage;
   universalAssessmentButton: UniversalAssessmentButton;
+  assessmentInstructionsHeader: string;
+  stepOneLabel: string;
+  stepOneDescription: string;
+  stepTwoLabel: string;
+  stepTwoDescription: string;
+  stepThreeLabel: string;
+  stepThreeDescription: string;
+  assessmentStepsImage: ContentfulImage;
   assessmentSectionHeader: string;
   assessmentSectionSubheader: string;
   assessmentButtons: AssessmentButton[];
+  universalBottomSubHeader: string;
+  universalBottomHeader: string;
 };
 
 export type ContentfulImage = {

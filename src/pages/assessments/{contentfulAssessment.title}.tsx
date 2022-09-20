@@ -108,8 +108,8 @@ const AssessmentPage = ({
                     ? question.answers
                     : assessment?.answers[
                         question.questionType as
-                          | AnswerTypes.Scale
-                          | AnswerTypes.Binary
+                          | AnswerTypes.scale
+                          | AnswerTypes.binary
                       ],
                 )}
             </RadioGroup>
