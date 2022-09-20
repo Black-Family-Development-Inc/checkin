@@ -39,7 +39,7 @@ export default FaqPage;
 
 export const query = graphql`
   query {
-    contentfulFaqPage(title: { eq: "FAQ" }) {
+    contentfulFaqPage(title: { eq: "Frequently Asked Questions" }) {
       title
       subHeader {
         subHeader
