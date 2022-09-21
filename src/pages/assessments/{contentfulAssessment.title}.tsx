@@ -10,7 +10,7 @@ import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
 import {
   AssessmentPageProps,
   AssessmentStep,
-  UsersSavedQuestions,
+  UsersSavedQuestion,
 } from "./AssessmentPage-types";
 
 const AssessmentPage = ({ data }: AssessmentPageProps) => {
@@ -30,8 +30,8 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
-    UsersSavedQuestions[]
-  >([{ question: "", answer: "", score: 0 }]);
+    UsersSavedQuestion[]
+  >([]);
 
   useEffect(() => {
     const unansweredQuestions = questions.map((question) => {
@@ -47,8 +47,9 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
   );
 
   const navigateToResultsPage = () => {
+    const resultsPage = "/results/" + title.toLowerCase();
     const assessmentScore = accumulateAssessmentScore();
-    navigate("/results/" + title.toLowerCase(), {
+    navigate(resultsPage, {
       state: { assessmentScore, severityRubric },
     });
   };

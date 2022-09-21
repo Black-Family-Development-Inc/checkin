@@ -1,14 +1,32 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
+import { LocationState, ResultsPagePropTypes } from "./ResultsPage-types";
 
-type ResultPagePropTypes = {
-  contentfulResultsPage: {
-    title: string;
+const ResultsPage = ({
+  data,
+  location: {
+    state: { assessmentScore, severityRubric },
+  },
+}: PageProps<ResultsPagePropTypes, object, LocationState>) => {
+  const determineAssessmentSeverity = () => {
+    let assessmentSeverity = severityRubric.find(({ min, max }) => {
+      return assessmentScore >= min && assessmentScore <= max;
+    });
+
+    return (
+      assessmentSeverity?.severity ||
+      "Could not determine score" +
+        "Please check that the accumulative of answers matches one area of the scoring rubric for this assessment"
+    );
   };
-};
 
-const ResultsPage = ({ data }: PageProps<ResultPagePropTypes>) => {
-  return <h1>{data.contentfulResultsPage.title}</h1>;
+  return (
+    <>
+      <h1>{data.contentfulResultsPage.title}</h1>
+      <p>Score: {assessmentScore}</p>
+      <p>Severity: {determineAssessmentSeverity()}</p>
+    </>
+  );
 };
 
 export default ResultsPage;
