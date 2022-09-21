@@ -8,6 +8,8 @@ export type ContentfulHomePage = {
   introSectionSubheader: string;
   introSectionImage: ContentfulImage;
   universalAssessmentButton: UniversalAssessmentButton;
+  testimonial: string;
+  testimonialParticipant: string;
   assessmentInstructionsHeader: string;
   stepOneLabel: string;
   stepOneDescription: string;
