@@ -11,9 +11,17 @@ const NavBar = () => {
   return (
     <NavBarContainerStyled>
       <NavBarLogoContainer>
-        <img src={logo} alt="BFDI LOGO" />
-        <span className="logo-text">Black Family Development, Inc.</span>
+        <Link to="/">
+          <img src={logo} alt="BFDI LOGO" />
+        </Link>
+
+        <NavBarLink>
+          <Link to="/" className="nav-link">
+            <span className="logo-text">Black Family Development, Inc.</span>
+          </Link>
+        </NavBarLink>
       </NavBarLogoContainer>
+
       <NavBarLink>
         <Link className="nav-link" to="/faq">
           FAQ
