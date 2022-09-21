@@ -4,12 +4,10 @@ import React, { useEffect, useState } from "react";
 import {
   AssessmentAnswers,
   AssessmentPrevNext,
-  AssessmentStepper,
 } from "../../components/pages/Assessments";
-import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
+import AssessmentTracker from "../../layouts/AsssessmentTracker/AssessementTracker";
 import {
   AssessmentPageProps,
-  AssessmentStep,
   UsersSavedQuestions,
 } from "./AssessmentPage-types";
 
@@ -21,12 +19,6 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
     },
     contentfulButton,
   } = data;
-
-  const [steps, setSteps] = useState<AssessmentStep[]>([
-    { label: "Preliminary Questions", isComplete: false },
-    { label: "Assessment Questions", isComplete: false },
-    { label: "Results & Resources", isComplete: false },
-  ]);
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
@@ -47,8 +39,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
   );
 
   return (
-    <DefaultLayout>
-      <AssessmentStepper {...{ steps, setSteps }} />
+    <AssessmentTracker>
       <p>Assessment Title: {title}</p>
       <p>
         You are on question {currentQuestionIdx + 1} out of {questions.length}
@@ -73,7 +64,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
           />
         </div>
       </FormControl>
-    </DefaultLayout>
+    </AssessmentTracker>
   );
 };
 

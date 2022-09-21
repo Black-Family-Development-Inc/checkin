@@ -1,5 +1,6 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
+import AssessmentTracker from "../../layouts/AsssessmentTracker/AssessementTracker";
 
 type ResultPagePropTypes = {
   contentfulResultsPage: {
@@ -8,7 +9,11 @@ type ResultPagePropTypes = {
 };
 
 const ResultsPage = ({ data }: PageProps<ResultPagePropTypes>) => {
-  return <h1>{data.contentfulResultsPage.title}</h1>;
+  return (
+    <AssessmentTracker>
+      <h1>{data.contentfulResultsPage.title}</h1>
+    </AssessmentTracker>
+  );
 };
 
 export default ResultsPage;
