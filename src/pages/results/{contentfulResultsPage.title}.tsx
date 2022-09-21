@@ -6,9 +6,11 @@ const ResultsPage = ({
   data,
   location: { state },
 }: PageProps<ResultsPagePropTypes, object, LocationState>) => {
+  const { assessmentScore, severityRubric } = state || {};
+
   const determineAssessmentSeverity = () => {
-    let assessmentSeverity = state?.severityRubric.find(({ min, max }) => {
-      return state?.assessmentScore >= min && state?.assessmentScore <= max;
+    const assessmentSeverity = severityRubric?.find(({ min, max }) => {
+      return assessmentScore >= min && assessmentScore <= max;
     });
 
     return (
@@ -21,8 +23,7 @@ const ResultsPage = ({
   return (
     <>
       <h1>{data.contentfulResultsPage.title}</h1>
-      {/* <p>Score: {assessmentScore}</p> */}
-      <p>Hello</p>
+      <p>Score: {assessmentScore}</p>
       <p>Severity: {determineAssessmentSeverity()}</p>
     </>
   );
