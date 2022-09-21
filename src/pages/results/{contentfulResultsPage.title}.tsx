@@ -4,13 +4,11 @@ import { LocationState, ResultsPagePropTypes } from "./ResultsPage-types";
 
 const ResultsPage = ({
   data,
-  location: {
-    state: { assessmentScore, severityRubric },
-  },
+  location: { state },
 }: PageProps<ResultsPagePropTypes, object, LocationState>) => {
   const determineAssessmentSeverity = () => {
-    let assessmentSeverity = severityRubric.find(({ min, max }) => {
-      return assessmentScore >= min && assessmentScore <= max;
+    let assessmentSeverity = state?.severityRubric.find(({ min, max }) => {
+      return state?.assessmentScore >= min && state?.assessmentScore <= max;
     });
 
     return (
@@ -23,7 +21,8 @@ const ResultsPage = ({
   return (
     <>
       <h1>{data.contentfulResultsPage.title}</h1>
-      <p>Score: {assessmentScore}</p>
+      {/* <p>Score: {assessmentScore}</p> */}
+      <p>Hello</p>
       <p>Severity: {determineAssessmentSeverity()}</p>
     </>
   );
