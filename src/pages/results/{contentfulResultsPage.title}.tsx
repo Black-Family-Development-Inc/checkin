@@ -12,19 +12,26 @@ const ResultsPage = ({
     const assessmentSeverity = severityRubric?.find(({ min, max }) => {
       return assessmentScore >= min && assessmentScore <= max;
     });
-
-    return (
-      assessmentSeverity?.severity ||
-      "Could not determine score" +
-        "Please check that the accumulative of answers matches one area of the scoring rubric for this assessment"
-    );
+    return assessmentSeverity?.severity;
   };
 
   return (
     <>
       <h1>{data.contentfulResultsPage.title}</h1>
-      <p>Score: {assessmentScore}</p>
-      <p>Severity: {determineAssessmentSeverity()}</p>
+      {assessmentScore ? (
+        <>
+          <p>Score: {assessmentScore}</p>
+          <p>Severity: {determineAssessmentSeverity()}</p>
+        </>
+      ) : (
+        <>
+          <p>Could not determine score</p>
+          <p>
+            Please check that the accumulative of answers matches on area of the
+            scoring rubric for this assessment
+          </p>
+        </>
+      )}
     </>
   );
 };
