@@ -10,7 +10,7 @@ import {
   FirstSectionTitleStyled,
 } from "./FirstSection.styles";
 
-const FirstSection = ({
+const IntroSection = ({
   introSectionHeader,
   introSectionSubheader,
   introSectionImage,
@@ -39,4 +39,4 @@ const FirstSection = ({
   );
 };
 
-export default FirstSection;
+export default IntroSection;

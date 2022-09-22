@@ -2,7 +2,7 @@ import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
 import Stepper from "@mui/material/Stepper";
 import React, { useState } from "react";
-import { AssessmentStep } from "../../pages/assessments/AssessmentPage-types";
+import { AssessmentStep } from "../../../../pages/assessments/AssessmentPage-types";
 import { AssessmentStepperPropTypes } from "./AssessmentStepper-types";
 
 const AssessmentStepper = ({ steps, setSteps }: AssessmentStepperPropTypes) => {
