@@ -5,3 +5,8 @@ export type AnswerButtonType = {
   handleAnswerClick: function;
   usersCurrentAnswer: string;
 };
+
+export type ButtonStyledProps = {
+  currentanswer: string;
+  answer: string;
+};

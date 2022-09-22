@@ -1,38 +1,32 @@
 import { Button, ButtonGroup } from "@mui/material";
 import { styled } from "@mui/system";
+import { ButtonStyledProps } from "./AssessmentButton-types";
 
-type ButtonStyledProps = {
-  currentanswer: string;
-  answer: string;
-};
-
-export const AssessmentButtonStyled = styled(Button)<ButtonStyledProps>(
-  (props) => ({
-    padding: 10,
-    margin: 10,
-    width: "343px",
-    ":hover": {
-      backgroundColor:
-        props.currentanswer === props.answer ? "#b8b4b7" : "#E6E1E5",
-      cursor: "pointer",
-      border: "2px solid black",
-    },
-    fontSize: "15px",
-    color: "black",
-    borderRadius: "8px",
+export const AssessmentButtonStyled = styled(Button, {
+  shouldForwardProp: (prop) => prop !== "answer" && prop !== "currentanswer",
+})<ButtonStyledProps>((props) => ({
+  padding: 10,
+  margin: 10,
+  width: "343px",
+  fontSize: "18px",
+  color: "black",
+  borderRadius: "8px",
+  backgroundColor: props.currentanswer === props.answer ? "#b8b4b7" : "#E6E1E5",
+  border: "2px solid black",
+  fontFamily: "roboto",
+  textTransform: "none",
+  ":hover": {
     backgroundColor:
       props.currentanswer === props.answer ? "#b8b4b7" : "#E6E1E5",
     border: "2px solid black",
-    fontFamily: "roboto",
-    textTransform: "none",
-  }),
-);
+  },
+}));
 
 export const ButtonGroupStyled = styled(ButtonGroup)({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  width: "100vw",
+  // border: "2px solid black",
 });
 
 export const ButtonStyled = styled(Button)({

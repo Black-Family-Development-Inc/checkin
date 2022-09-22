@@ -1,4 +1,4 @@
-import { FormControl } from "@mui/material";
+import { FormControl, Typography } from "@mui/material";
 import { graphql } from "gatsby";
 import React, { useEffect, useState } from "react";
 import {
@@ -6,6 +6,10 @@ import {
   AssessmentPrevNext,
   AssessmentStepper,
 } from "../../components/pages/Assessments";
+import {
+  AssessmentPageStyled,
+  QuestionStyled,
+} from "../../components/pages/Assessments/AssessmentPage/AssessmentPage.styles";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
 import {
   AssessmentPageProps,
@@ -46,23 +50,32 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
     (saved) => saved.answer === "",
   );
 
+  const titleChecker = () => {
+    if (title.toLocaleLowerCase() === "phq-9") {
+      return "Depression ";
+    }
+  };
+
   return (
     <DefaultLayout>
-      <AssessmentStepper {...{ steps, setSteps }} />
-      <p>Assessment Title: {title}</p>
-      <p>
-        You are on question {currentQuestionIdx + 1} out of {questions.length}
-      </p>
-      <FormControl>
-        <p>{currentQuestion.text}</p>
-        <AssessmentAnswers
-          answers={answers}
-          currentQuestion={currentQuestion}
-          currentQuestionIdx={currentQuestionIdx}
-          usersSavedQuestions={usersSavedQuestions}
-          setUsersSavedQuestions={setUsersSavedQuestions}
-        />
-        <div>
+      <AssessmentPageStyled>
+        <AssessmentStepper {...{ steps, setSteps }} />
+        <Typography variant="h4">{titleChecker()} Assessment</Typography>
+        <FormControl>
+          <QuestionStyled>
+            <Typography>{currentQuestion.text}</Typography>
+            <Typography>
+              {currentQuestionIdx + 1}/{questions.length}
+            </Typography>
+          </QuestionStyled>
+          <AssessmentAnswers
+            answers={answers}
+            currentQuestion={currentQuestion}
+            currentQuestionIdx={currentQuestionIdx}
+            usersSavedQuestions={usersSavedQuestions}
+            setUsersSavedQuestions={setUsersSavedQuestions}
+          />
+
           <AssessmentPrevNext
             currentQuestionIdx={currentQuestionIdx}
             questions={questions}
@@ -71,8 +84,8 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
             nextDisabled={nextDisabled}
             resultsDisabled={resultsDisabled}
           />
-        </div>
-      </FormControl>
+        </FormControl>
+      </AssessmentPageStyled>
     </DefaultLayout>
   );
 };

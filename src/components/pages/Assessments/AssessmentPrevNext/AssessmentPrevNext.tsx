@@ -19,7 +19,7 @@ const AssessmentPrevNext = ({
   };
   return (
     <>
-      <Button //buttonStyled
+      <Button
         onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
         disabled={currentQuestionIdx === 0}
       >
