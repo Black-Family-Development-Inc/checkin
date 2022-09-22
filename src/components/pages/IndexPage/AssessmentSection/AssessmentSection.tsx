@@ -5,6 +5,13 @@ import {
   ContentfulHomePage,
 } from "../../../../pages/IndexPage-types";
 import ButtonLink from "../../../ButtonLink/ButtonLink";
+import { HR } from "../../../HR";
+import {
+  AssessmentQuestionStyled,
+  AssessmentQuestionWrapperStyled,
+  AssessmentSectionContent,
+  AssessmentSectionTitleStyled,
+} from "./AssessmentSection.styles";
 
 const AssessmentSection = (props: ContentfulHomePage) => {
   const {
@@ -15,16 +22,24 @@ const AssessmentSection = (props: ContentfulHomePage) => {
 
   return (
     <Box>
-      <Typography variant="h5">{assessmentSectionHeader}</Typography>
-      <Typography paragraph>{assessmentSectionSubheader}</Typography>
+      <AssessmentSectionTitleStyled>
+        {" "}
+        {assessmentSectionHeader}
+      </AssessmentSectionTitleStyled>
+      <HR />
+      <AssessmentSectionContent>
+        {assessmentSectionSubheader}
+      </AssessmentSectionContent>
       {assessmentButtons.map((button: AssessmentButton) => {
         const link = `/assessments/${button.assessment.title}`;
 
         return (
-          <Box key={button.buttonText}>
-            <Typography paragraph>{button.assessmentDescription}</Typography>
+          <AssessmentQuestionWrapperStyled key={button.buttonText}>
+            <AssessmentQuestionStyled>
+              {button.assessmentDescription}
+            </AssessmentQuestionStyled>
             <ButtonLink text={button.buttonText} link={link} />
-          </Box>
+          </AssessmentQuestionWrapperStyled>
         );
       })}
     </Box>

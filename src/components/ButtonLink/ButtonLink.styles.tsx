@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 export const LinkStyled = styled(Link)({
   display: "flex",
   alignItems: "center",
-  margin: "10px",
+  margin: "0px",
   width: "320px",
   height: "44px",
   textDecoration: "none",
