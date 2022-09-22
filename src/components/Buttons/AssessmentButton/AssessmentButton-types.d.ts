@@ -7,6 +7,6 @@ export type AnswerButtonType = {
 };
 
 export type ButtonStyledProps = {
-  currentanswer: string;
+  currentAnswer: string;
   answer: string;
 };

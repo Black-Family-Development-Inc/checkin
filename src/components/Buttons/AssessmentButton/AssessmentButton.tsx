@@ -12,7 +12,7 @@ const AssessmentButton = ({
     <>
       <Box onClick={() => handleAnswerClick(answer)}>
         <AssessmentButtonStyled
-          currentanswer={usersCurrentAnswer}
+          currentAnswer={usersCurrentAnswer}
           answer={answer.text}
         >
           {answer.text}

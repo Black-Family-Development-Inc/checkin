@@ -7,9 +7,6 @@ export const AssessmentPageStyled = styled(Box)({
   justifyContent: "center",
   flexDirection: "column",
   padding: "10px",
-  //   border: "2px solid black",
-  //   width: "100vw",
-  //   maxWidth: "100%",
 });
 
 export const AssessmentTitleStyled = styled(Box)({});

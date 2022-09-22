@@ -11,13 +11,13 @@ export const AssessmentButtonStyled = styled(Button, {
   fontSize: "18px",
   color: "black",
   borderRadius: "8px",
-  backgroundColor: props.currentanswer === props.answer ? "#b8b4b7" : "#E6E1E5",
+  backgroundColor: props.currentAnswer === props.answer ? "#b8b4b7" : "#E6E1E5",
   border: "2px solid black",
   fontFamily: "roboto",
   textTransform: "none",
   ":hover": {
     backgroundColor:
-      props.currentanswer === props.answer ? "#b8b4b7" : "#E6E1E5",
+      props.currentAnswer === props.answer ? "#b8b4b7" : "#E6E1E5",
     border: "2px solid black",
   },
 }));
