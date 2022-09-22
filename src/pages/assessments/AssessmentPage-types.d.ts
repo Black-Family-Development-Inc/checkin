@@ -61,4 +61,5 @@ export type UsersSavedQuestion = {
   question: string;
   answer: string;
   score: number;
+  triggered: boolean;
 };

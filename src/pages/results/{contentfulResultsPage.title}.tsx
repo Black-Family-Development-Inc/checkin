@@ -6,22 +6,29 @@ const ResultsPage = ({
   data,
   location: { state },
 }: PageProps<ResultsPagePropTypes, object, LocationState>) => {
-  const { assessmentScore, severityRubric } = state || {};
+  const { assessmentScore, severityRubric, triggered } = state || {};
 
   const determineAssessmentSeverity = () => {
-    const assessmentSeverity = severityRubric?.find(({ min, max }) => {
-      return assessmentScore >= min && assessmentScore <= max;
+    return severityRubric?.find(({ min, max }) => {
+      const isScoreInRange = assessmentScore >= min && assessmentScore <= max;
+      return isScoreInRange;
     });
-    return assessmentSeverity?.severity;
   };
-
+  const getHighestSeverity = () => {
+    return severityRubric.reduce((acc, severity) =>
+      severity.max > acc.max ? severity : acc,
+    );
+  };
+  const assessmentResults = triggered
+    ? getHighestSeverity()
+    : determineAssessmentSeverity();
   return (
     <>
       <h1>{data.contentfulResultsPage.title}</h1>
       {assessmentScore > -1 ? (
         <>
           <p>Score: {assessmentScore}</p>
-          <p>Severity: {determineAssessmentSeverity()}</p>
+          <p>Severity: {assessmentResults?.severity}</p>
         </>
       ) : (
         <>
