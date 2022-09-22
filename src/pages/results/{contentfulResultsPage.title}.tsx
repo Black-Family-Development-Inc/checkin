@@ -1,5 +1,6 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
+import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import { LocationState, ResultsPagePropTypes } from "./ResultsPage-types";
 
 const ResultsPage = ({
@@ -16,7 +17,7 @@ const ResultsPage = ({
   };
 
   return (
-    <>
+    <AssessmentTrackerLayout>
       <h1>{data.contentfulResultsPage.title}</h1>
       {assessmentScore > -1 ? (
         <>
@@ -32,7 +33,7 @@ const ResultsPage = ({
           </p>
         </>
       )}
-    </>
+    </AssessmentTrackerLayout>
   );
 };
 
