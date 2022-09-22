@@ -1,17 +1,38 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
+import { LocationState, ResultsPagePropTypes } from "./ResultsPage-types";
 
-type ResultPagePropTypes = {
-  contentfulResultsPage: {
-    title: string;
+const ResultsPage = ({
+  data,
+  location: { state },
+}: PageProps<ResultsPagePropTypes, object, LocationState>) => {
+  const { assessmentScore, severityRubric } = state || {};
+
+  const determineAssessmentSeverity = () => {
+    const assessmentSeverity = severityRubric?.find(({ min, max }) => {
+      return assessmentScore >= min && assessmentScore <= max;
+    });
+    return assessmentSeverity?.severity;
   };
-};
 
-const ResultsPage = ({ data }: PageProps<ResultPagePropTypes>) => {
   return (
     <AssessmentTrackerLayout>
       <h1>{data.contentfulResultsPage.title}</h1>
+      {assessmentScore > -1 ? (
+        <>
+          <p>Score: {assessmentScore}</p>
+          <p>Severity: {determineAssessmentSeverity()}</p>
+        </>
+      ) : (
+        <>
+          <p>Could not determine score</p>
+          <p>
+            Please check that the accumulative of answers matches on area of the
+            scoring rubric for this assessment
+          </p>
+        </>
+      )}
     </AssessmentTrackerLayout>
   );
 };

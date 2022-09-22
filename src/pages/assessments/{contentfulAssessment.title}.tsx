@@ -1,5 +1,5 @@
 import { FormControl } from "@mui/material";
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
 import React, { useEffect, useState } from "react";
 import {
   AssessmentAnswers,
@@ -8,22 +8,22 @@ import {
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import {
   AssessmentPageProps,
-  UsersSavedQuestions,
+  UsersSavedQuestion,
 } from "./AssessmentPage-types";
 
 const AssessmentPage = ({ data }: AssessmentPageProps) => {
   const {
     contentfulAssessment: {
       title,
-      assessment: { answers, questions },
+      assessment: { answers, questions, severityRubric },
     },
     contentfulButton,
   } = data;
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
-    UsersSavedQuestions[]
-  >([{ question: "", answer: "", score: 0 }]);
+    UsersSavedQuestion[]
+  >([]);
 
   useEffect(() => {
     const unansweredQuestions = questions.map((question) => {
@@ -37,6 +37,17 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
   const resultsDisabled = usersSavedQuestions.some(
     (saved) => saved.answer === "",
   );
+
+  const navigateToResultsPage = () => {
+    const resultsPage = "/results/" + title.toLowerCase();
+    const assessmentScore = accumulateAssessmentScore();
+    navigate(resultsPage, {
+      state: { assessmentScore, severityRubric },
+    });
+  };
+
+  const accumulateAssessmentScore = () =>
+    usersSavedQuestions.reduce((prev, curr) => prev + curr.score, 0);
 
   return (
     <AssessmentTrackerLayout>
@@ -61,6 +72,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
             setCurrentQuestionIdx={setCurrentQuestionIdx}
             nextDisabled={nextDisabled}
             resultsDisabled={resultsDisabled}
+            handleResultsClick={navigateToResultsPage}
           />
         </div>
       </FormControl>
