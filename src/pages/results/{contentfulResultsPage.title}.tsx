@@ -1,6 +1,6 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
-import AssessmentTracker from "../../layouts/AsssessmentTracker/AssessementTracker";
+import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 
 type ResultPagePropTypes = {
   contentfulResultsPage: {
@@ -10,9 +10,9 @@ type ResultPagePropTypes = {
 
 const ResultsPage = ({ data }: PageProps<ResultPagePropTypes>) => {
   return (
-    <AssessmentTracker>
+    <AssessmentTrackerLayout>
       <h1>{data.contentfulResultsPage.title}</h1>
-    </AssessmentTracker>
+    </AssessmentTrackerLayout>
   );
 };
 

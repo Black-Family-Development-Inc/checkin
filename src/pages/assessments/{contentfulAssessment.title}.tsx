@@ -5,7 +5,7 @@ import {
   AssessmentAnswers,
   AssessmentPrevNext,
 } from "../../components/pages/Assessments";
-import AssessmentTracker from "../../layouts/AsssessmentTracker/AssessementTracker";
+import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import {
   AssessmentPageProps,
   UsersSavedQuestions,
@@ -39,7 +39,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
   );
 
   return (
-    <AssessmentTracker>
+    <AssessmentTrackerLayout>
       <p>Assessment Title: {title}</p>
       <p>
         You are on question {currentQuestionIdx + 1} out of {questions.length}
@@ -64,7 +64,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
           />
         </div>
       </FormControl>
-    </AssessmentTracker>
+    </AssessmentTrackerLayout>
   );
 };
 

@@ -8,7 +8,9 @@ type AssessmentTrackerLayoutPropTypes = {
   children: ReactNode;
 };
 
-const AssessmentTracker = ({ children }: AssessmentTrackerLayoutPropTypes) => {
+const AssessmentTrackerLayout = ({
+  children,
+}: AssessmentTrackerLayoutPropTypes) => {
   const [steps, setSteps] = useState<AssessmentStep[]>([
     { label: "Preliminary Questions", isComplete: false },
     { label: "Assessment Questions", isComplete: false },
@@ -24,4 +26,4 @@ const AssessmentTracker = ({ children }: AssessmentTrackerLayoutPropTypes) => {
   );
 };
 
-export default AssessmentTracker;
+export default AssessmentTrackerLayout;
