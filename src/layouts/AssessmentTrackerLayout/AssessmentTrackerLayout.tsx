@@ -1,12 +1,9 @@
-import React, { ReactNode, useState } from "react";
+import React, { useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import { AssessmentStepper } from "../../components/pages/Assessments";
 import { AssessmentStep } from "../../pages/assessments/AssessmentPage-types";
-
-type AssessmentTrackerLayoutPropTypes = {
-  children: ReactNode;
-};
+import { AssessmentTrackerLayoutPropTypes } from "./AssessmentTrackerLayout-types";
 
 const AssessmentTrackerLayout = ({
   children,
