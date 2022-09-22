@@ -18,7 +18,7 @@ const ResultsPage = ({
   return (
     <>
       <h1>{data.contentfulResultsPage.title}</h1>
-      {assessmentScore ? (
+      {assessmentScore > -1 ? (
         <>
           <p>Score: {assessmentScore}</p>
           <p>Severity: {determineAssessmentSeverity()}</p>
