@@ -11,4 +11,5 @@ export type AssessmentPrevNextProps = {
   contentfulButton: ContentfulButton;
   nextDisabled: boolean;
   resultsDisabled: boolean;
+  handleResultsClick: () => void;
 };

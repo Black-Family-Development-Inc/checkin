@@ -1,17 +1,17 @@
 import { SetStateAction } from "react";
 import {
-  AnswerOptions,
+  AnswerOption,
   Question,
-  UsersSavedQuestions,
-} from "../../../../pages/assessments/assessment-types";
+  UsersSavedQuestion,
+} from "../../../../pages/assessments/AssessmentPage-types";
 
 export type AssessmentAnswersProps = {
   answers: {
-    binary: AnswerOptions[];
-    scale: AnswerOptions[];
+    binary: AnswerOption[];
+    scale: AnswerOption[];
   };
   currentQuestion: Question;
-  usersSavedQuestions: UsersSavedQuestions[];
+  usersSavedQuestions: UsersSavedQuestion[];
   currentQuestionIdx: number;
-  setUsersSavedQuestions: Dispatch<SetStateAction<UsersSavedQuestions[]>>;
+  setUsersSavedQuestions: Dispatch<SetStateAction<UsersSavedQuestion[]>>;
 };

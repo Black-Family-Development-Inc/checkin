@@ -1,7 +1,6 @@
 import Button from "@mui/material/Button";
 import React from "react";
-import ButtonLink from "../../../ButtonLink/ButtonLink";
-import { AssessmentPrevNextProps } from "./AssessmentPrevNext-types";
+import { AssessmentPrevNextProps } from "./assessmentPrevNext-types";
 
 const AssessmentPrevNext = ({
   currentQuestionIdx,
@@ -10,6 +9,7 @@ const AssessmentPrevNext = ({
   setCurrentQuestionIdx,
   nextDisabled,
   resultsDisabled,
+  handleResultsClick,
 }: AssessmentPrevNextProps) => {
   const clamp = (num: number) =>
     Math.min(Math.max(num, 0), questions.length - 1);
@@ -17,6 +17,7 @@ const AssessmentPrevNext = ({
   const handleNextClick = () => {
     setCurrentQuestionIdx(clamp(currentQuestionIdx + 1));
   };
+
   return (
     <>
       <Button
@@ -26,11 +27,9 @@ const AssessmentPrevNext = ({
         Previous
       </Button>
       {currentQuestionIdx === questions.length - 1 ? (
-        <ButtonLink
-          text={contentfulButton.text}
-          link={contentfulButton.link}
-          disabled={resultsDisabled}
-        />
+        <Button disabled={resultsDisabled} onClick={handleResultsClick}>
+          {contentfulButton.text}
+        </Button>
       ) : (
         <Button onClick={handleNextClick} disabled={nextDisabled}>
           Next
