@@ -1,6 +1,6 @@
 import Button from "@mui/material/Button";
 import React from "react";
-import ButtonLink from "../../../ButtonLink/ButtonLink";
+import ButtonLink from "../../../Buttons/ButtonLink/ButtonLink";
 import { AssessmentPrevNextProps } from "./AssessmentPrevNext-types";
 
 const AssessmentPrevNext = ({
@@ -19,7 +19,7 @@ const AssessmentPrevNext = ({
   };
   return (
     <>
-      <Button
+      <Button //buttonStyled
         onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
         disabled={currentQuestionIdx === 0}
       >

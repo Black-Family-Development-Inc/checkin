@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonStyled } from "../Button/Button.styles";
+import { ButtonStyled } from "../AssessmentButton/AssessmentButton.styles";
 import { LinkStyled } from "./ButtonLink.styles";
 import { ButtonLinkPropsType } from "./ButtonLink-types";
 

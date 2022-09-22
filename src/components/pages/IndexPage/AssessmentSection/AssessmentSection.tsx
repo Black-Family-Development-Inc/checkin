@@ -4,7 +4,7 @@ import {
   AssessmentButton,
   ContentfulHomePage,
 } from "../../../../pages/IndexPage-types";
-import ButtonLink from "../../../ButtonLink/ButtonLink";
+import ButtonLink from "../../../Buttons/ButtonLink/ButtonLink";
 
 const AssessmentSection = (props: ContentfulHomePage) => {
   const {
@@ -23,7 +23,7 @@ const AssessmentSection = (props: ContentfulHomePage) => {
         return (
           <Box key={button.buttonText}>
             <Typography paragraph>{button.assessmentDescription}</Typography>
-            <ButtonLink text={button.buttonText} link={link} />
+            <ButtonLink text={button.buttonText} link={link} disabled={false} />
           </Box>
         );
       })}
