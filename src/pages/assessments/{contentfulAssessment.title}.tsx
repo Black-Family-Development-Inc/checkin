@@ -7,7 +7,9 @@ import {
   AssessmentStepper,
 } from "../../components/pages/Assessments";
 import {
+  AssessmentHeaderContainer,
   AssessmentPageStyled,
+  AssessmentTitleStyled,
   QuestionStyled,
 } from "../../components/pages/Assessments/AssessmentPage/AssessmentPage.styles";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
@@ -52,7 +54,16 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
 
   const titleChecker = () => {
     if (title.toLocaleLowerCase() === "phq-9") {
-      return "Depression ";
+      return "Depression";
+    }
+    if (title.toLocaleLowerCase() === "dast-10") {
+      return "Anxiety";
+    }
+    if (title.toLocaleLowerCase() === "gad-7") {
+      return "Substance Use";
+    }
+    if (title.toLocaleLowerCase() === "universal") {
+      return "Universal";
     }
   };
 
@@ -60,14 +71,19 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
     <DefaultLayout>
       <AssessmentPageStyled>
         <AssessmentStepper {...{ steps, setSteps }} />
-        <Typography variant="h4">{titleChecker()} Assessment</Typography>
-        <FormControl>
+        <AssessmentHeaderContainer>
+          <AssessmentTitleStyled>
+            {titleChecker()} Assessment
+          </AssessmentTitleStyled>
           <QuestionStyled>
             <Typography>{currentQuestion.text}</Typography>
-            <Typography>
+            <Typography sx={{ paddingLeft: "35px" }}>
               {currentQuestionIdx + 1}/{questions.length}
             </Typography>
           </QuestionStyled>
+        </AssessmentHeaderContainer>
+
+        <FormControl>
           <AssessmentAnswers
             answers={answers}
             currentQuestion={currentQuestion}

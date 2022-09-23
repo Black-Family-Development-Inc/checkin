@@ -9,7 +9,18 @@ export const AssessmentPageStyled = styled(Box)({
   padding: "10px",
 });
 
-export const AssessmentTitleStyled = styled(Box)({});
+export const AssessmentTitleStyled = styled(Box)({
+  display: "flex",
+  justifyContent: "flex-start",
+  fontSize: "24px",
+  fontWeight: "600",
+  width: "100%",
+  // fontWeight: 600
+});
+
+export const AssessmentHeaderContainer = styled(Box)({
+  width: "350px",
+});
 
 export const QuestionStyled = styled(Box)({
   display: "flex",
