@@ -4,7 +4,7 @@ import {
   AssessmentButton,
   ContentfulHomePage,
 } from "../../../../pages/IndexPage-types";
-import ButtonLink from "../../../Buttons/ButtonLink/ButtonLink";
+import ButtonLink from "../../Assessments/Buttons/ButtonLink/ButtonLink";
 
 const AssessmentSection = (props: ContentfulHomePage) => {
   const {

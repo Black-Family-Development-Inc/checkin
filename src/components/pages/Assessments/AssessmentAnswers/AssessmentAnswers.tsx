@@ -4,8 +4,8 @@ import {
   AnswerOption,
   AnswerTypes,
 } from "../../../../pages/assessments/AssessmentPage-types";
-import AnswerButton from "../../../Buttons/AssessmentButton/AssessmentButton";
-import { ButtonGroupStyled } from "../../../Buttons/AssessmentButton/AssessmentButton.styles";
+import AnswerButton from "../Buttons/AssessmentButton/AssessmentButton";
+import { ButtonGroupStyled } from "../Buttons/AssessmentButton/AssessmentButton.styles";
 import { AssessmentAnswersProps } from "./assessmentAnswers-types";
 
 const AssessmentAnswers = ({
