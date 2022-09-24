@@ -16,7 +16,7 @@ const AssessmentStepper = ({ steps }: AssessmentStepperPropTypes) => {
   return (
     <>
       <Stepper
-        sx={{ marginBottom: 5 }}
+        sx={{ marginBottom: 5, marginTop: 5 }}
         activeStep={assessmentActiveStep}
         alternativeLabel
         nonLinear
