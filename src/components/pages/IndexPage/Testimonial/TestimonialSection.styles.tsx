@@ -15,9 +15,9 @@ export const ContainerStyled = styled(Box)({
   position: "relative",
   marginTop: "66px",
   marginBottom: "36px",
-  '@media(max-width: 375px)': {
-    width: '100%'
-  }
+  "@media(max-width: 375px)": {
+    width: "100%",
+  },
 });
 
 export const BoxStyled = styled(Box)({
@@ -27,18 +27,15 @@ export const BoxStyled = styled(Box)({
   fontFamily: "'Times New Roman', Times, serif",
   fontStyle: "italic",
   color: "#fff",
-  marginBottom: "10px"
-
+  marginBottom: "10px",
 });
 
-export const ImageStyled = styled('img')({
+export const ImageStyled = styled("img")({
   position: "absolute",
   top: "0",
   left: "0",
   width: "auto",
-  '@media(max-width: 340px)': {
-    width: '30%'
-  }
-})
-
-
+  "@media(max-width: 340px)": {
+    width: "30%",
+  },
+});

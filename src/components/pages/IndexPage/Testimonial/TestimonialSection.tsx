@@ -1,7 +1,11 @@
 import React from "react";
-import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
-import { BoxStyled, ContainerStyled, ImageStyled } from "./TestimonialSection.styles";
 import QuoteSVG from "../../../../images/Vector.svg";
+import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
+import {
+  BoxStyled,
+  ContainerStyled,
+  ImageStyled,
+} from "./TestimonialSection.styles";
 
 const TestimonialSection = (props: ContentfulHomePage) => {
   const { testimonial, testimonialParticipant } = props;

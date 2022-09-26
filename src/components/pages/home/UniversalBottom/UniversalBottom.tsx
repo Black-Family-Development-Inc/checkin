@@ -1,7 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
-import ButtonLink from "../../../ButtonLink/ButtonLink";
 import {
   ButtonStyled,
   UniversalBottomHeader,

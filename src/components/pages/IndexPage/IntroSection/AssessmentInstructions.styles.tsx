@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-import { Button, Step, StepContent, StepLabel, Stepper } from "@mui/material";
-import { Link } from "gatsby";
+import { StepLabel, Stepper } from "@mui/material";
 
 export const AssessmentInstructionsTitleStyled = styled("h2")({
   fontSize: "24px",

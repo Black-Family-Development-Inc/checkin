@@ -19,7 +19,7 @@ export const UniversalBottomSubHeader = styled("p")({
   marginBottom: "36px",
 });
 
-export const ButtonStyled = styled('button')({
+export const ButtonStyled = styled("button")({
   padding: "10px 24px",
   background: "#000",
   borderRadius: "8px",
@@ -30,7 +30,7 @@ export const ButtonStyled = styled('button')({
   marginTop: "20px",
   fontSize: "16px",
   textTransform: "uppercase",
-  '@media(max-width: 375px)': {
-    width: '100%'
-  }
+  "@media(max-width: 375px)": {
+    width: "100%",
+  },
 });

@@ -3,10 +3,10 @@ import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
 import { HR } from "../../../HR";
 import { ImageStyled } from "../../../Image/img.styles";
 import {
+  IntroContent,
   IntroSectionButtonStyled,
   IntroSectionLinkStyled,
   IntroSectionTitleStyled,
-  IntroContent,
 } from "./IntroSection.styles";
 
 const IntroSection = ({
