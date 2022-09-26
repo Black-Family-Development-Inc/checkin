@@ -1,6 +1,7 @@
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
+  Button,
   Card,
   CardActions,
   CardContent,
@@ -22,19 +23,13 @@ export default function Accordion(props: AccordionPropTypes) {
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader title={props.title} />
       <CardActions>
-        {expanded ? (
-          <ExpandLessIcon
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          />
-        ) : (
-          <ExpandMoreIcon
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show less"
-          />
-        )}
+        <Button onClick={handleExpandClick}>
+          {expanded ? (
+            <ExpandLessIcon aria-expanded={expanded} aria-label="show more" />
+          ) : (
+            <ExpandMoreIcon aria-expanded={expanded} aria-label="show less" />
+          )}
+        </Button>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
