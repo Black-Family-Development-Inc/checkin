@@ -1,6 +1,5 @@
 import { graphql, PageProps } from "gatsby";
 import * as React from "react";
-import Accordion from "../components/Accordion/Accordion";
 import UniversalBottom from "../components/pages/home/UniversalBottom/UniversalBottom";
 import AssessmentSection from "../components/pages/IndexPage/AssessmentSection/AssessmentSection";
 import { IntroSection } from "../components/pages/IndexPage/IntroSection";
@@ -10,19 +9,12 @@ import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
 
 const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
-  // Temp data variables to test component props, please remove once accordion component is removed
-  const tempAccordionTitle =
-    "This is data prop for the header of the Accordion";
-  const tempAccordionBody =
-    "And this is data prop for the body of the accordion";
-
   return (
     <>
       <DefaultLayout>
         <IntroSection {...data.contentfulHomePage} />
         <AssessmentInstructions {...data.contentfulHomePage} />
         <AssessmentSection {...data.contentfulHomePage} />
-        <Accordion title={tempAccordionTitle} body={tempAccordionBody} />
         <UniversalBottom {...data.contentfulHomePage} />
         <TestimonialSection {...data.contentfulHomePage} />
       </DefaultLayout>
