@@ -1,5 +1,7 @@
 import Button from "@mui/material/Button";
 import React from "react";
+import MultiButton from "../../../MultiButtons/MultiButton";
+import { Versions } from "../../../MultiButtons/MultiButton-types";
 import { PrevNextStyled } from "./AssessmentPrevNext.styles";
 import { AssessmentPrevNextProps } from "./assessmentPrevNext-types";
 
@@ -21,20 +23,25 @@ const AssessmentPrevNext = ({
 
   return (
     <PrevNextStyled>
-      <Button
+      <MultiButton
+        version={"previous" as Versions.Previous}
+        // version={"previous"}
         onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
-        disabled={currentQuestionIdx === 0}
-      >
-        Previous
-      </Button>
+        // disabled={currentQuestionIdx === 0}
+        label={"Previous"}
+      />
       {currentQuestionIdx === questions.length - 1 ? (
         <Button disabled={resultsDisabled} onClick={handleResultsClick}>
           {contentfulButton?.text}
         </Button>
       ) : (
-        <Button onClick={handleNextClick} disabled={nextDisabled}>
-          Next
-        </Button>
+        <MultiButton
+          version={"next" as Versions.Next}
+          // version={"next"}
+          onClick={nextDisabled ? () => {} : handleNextClick}
+          backgroundColor={nextDisabled ? "grey" : "black"}
+          label={"Next"}
+        />
       )}
     </PrevNextStyled>
   );
