@@ -1,15 +1,30 @@
+import { Typography } from "@mui/material";
 import React from "react";
 import Accordion from "../../../Accordion/Accordion";
 import { HR } from "../../../HR";
 
-const ResultsSection = () => {
+const ResultsSection = ({
+  resultsHeader,
+  resultsSummary,
+  resultsAccordion,
+}: ResultsSectionPropTypes) => {
   return (
     <>
-      <h1>Results Section</h1>
+      <Typography variant="h2">{resultsHeader}</Typography>
       <HR />
-      <p>Your responses indicate you may be experiencing the following:</p>
+      <Typography paragraph>{resultsSummary}</Typography>
 
-      <Accordion title="Anxiety" body="Lorem Ipsum" />
+      <Accordion
+        title={resultsAccordion.condition}
+        summary={summary}
+        body={body}
+      />
+
+      <Typography paragraph>
+        Take a screenshot or{" "}
+        <a href="mailto:?subject=Test testing&body=This is the body!">Email</a>{" "}
+        your results
+      </Typography>
     </>
   );
 };
