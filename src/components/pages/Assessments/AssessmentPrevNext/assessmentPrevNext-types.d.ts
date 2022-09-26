@@ -13,3 +13,8 @@ export type AssessmentPrevNextProps = {
   resultsDisabled: boolean;
   handleResultsClick: () => void;
 };
+
+export type PrevNextStyledProps = {
+  bgColor: string;
+  cursor: string;
+};

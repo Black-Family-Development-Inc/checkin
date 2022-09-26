@@ -1,6 +1,11 @@
+import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import React from "react";
-import { PrevNextStyled } from "./AssessmentPrevNext.styles";
+import {
+  NextButtonStyled,
+  PreviousButtonStyled,
+  PrevNextContainerStyled,
+} from "./AssessmentPrevNext.styles";
 import { AssessmentPrevNextProps } from "./assessmentPrevNext-types";
 
 const AssessmentPrevNext = ({
@@ -20,23 +25,38 @@ const AssessmentPrevNext = ({
   };
 
   return (
-    <PrevNextStyled>
-      <Button
-        onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
-        disabled={currentQuestionIdx === 0}
+    <PrevNextContainerStyled>
+      <Box
+        onClick={
+          currentQuestionIdx === 0
+            ? () => {}
+            : () => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))
+        }
       >
-        Previous
-      </Button>
+        <PreviousButtonStyled
+          bgColor={currentQuestionIdx === 0 ? "gray" : "black"}
+          cursor={currentQuestionIdx === 0 ? "default" : "pointer"}
+        >
+          Previous
+        </PreviousButtonStyled>
+      </Box>
       {currentQuestionIdx === questions.length - 1 ? (
         <Button disabled={resultsDisabled} onClick={handleResultsClick}>
           {contentfulButton?.text}
         </Button>
       ) : (
-        <Button onClick={handleNextClick} disabled={nextDisabled}>
-          Next
-        </Button>
+        <>
+          <Box onClick={nextDisabled ? () => {} : handleNextClick}>
+            <NextButtonStyled
+              bgColor={nextDisabled ? "gray" : "black"}
+              cursor={nextDisabled ? "default" : "pointer"}
+            >
+              Next
+            </NextButtonStyled>
+          </Box>
+        </>
       )}
-    </PrevNextStyled>
+    </PrevNextContainerStyled>
   );
 };
 
