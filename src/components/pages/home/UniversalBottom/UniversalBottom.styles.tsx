@@ -19,12 +19,18 @@ export const UniversalBottomSubHeader = styled("p")({
   marginBottom: "36px",
 });
 
-export const ButtonStyled = styled("button")({
-  padding: 10,
-  width: "359px",
+export const ButtonStyled = styled('button')({
+  padding: "10px 24px",
   background: "#000",
-  color: "#fff",
-  fontSize: "18px",
-  border: "0px",
   borderRadius: "8px",
+  width: "320px",
+  height: "44px",
+  color: "#fff",
+  textDecoration: "none",
+  marginTop: "20px",
+  fontSize: "16px",
+  textTransform: "uppercase",
+  '@media(max-width: 375px)': {
+    width: '100%'
+  }
 });

@@ -38,7 +38,7 @@ const AssessmentSection = (props: ContentfulHomePage) => {
             <AssessmentQuestionStyled>
               {button.assessmentDescription}
             </AssessmentQuestionStyled>
-            <ButtonLink text={button.buttonText} link={link} />
+            <ButtonLink text={button.buttonText} link={link} disabled={false} />
           </AssessmentQuestionWrapperStyled>
         );
       })}

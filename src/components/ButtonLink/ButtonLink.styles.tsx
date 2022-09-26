@@ -11,4 +11,7 @@ export const LinkStyled = styled(Link)({
   borderRadius: "8px",
   backgroundColor: "#E6E1E5",
   border: "2px solid black",
+  '@media(max-width: 375px)': {
+    width: '100%'
+  }
 });

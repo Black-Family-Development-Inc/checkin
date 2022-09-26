@@ -1,14 +1,13 @@
-import { Button } from "@mui/material";
-import { Link } from "gatsby";
 import React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
 import { HR } from "../../../HR";
 import { ImageStyled } from "../../../Image/img.styles";
 import {
-  FirstSectionButtonStyled,
-  FirstSectionLinkStyled,
-  FirstSectionTitleStyled,
-} from "./FirstSection.styles";
+  IntroSectionButtonStyled,
+  IntroSectionLinkStyled,
+  IntroSectionTitleStyled,
+  IntroContent,
+} from "./IntroSection.styles";
 
 const IntroSection = ({
   introSectionHeader,
@@ -18,17 +17,17 @@ const IntroSection = ({
 }: ContentfulHomePage) => {
   return (
     <>
-      <FirstSectionTitleStyled>{introSectionHeader}</FirstSectionTitleStyled>
+      <IntroSectionTitleStyled>{introSectionHeader}</IntroSectionTitleStyled>
       <HR />
-      <p>{introSectionSubheader}</p>
+      <IntroContent>{introSectionSubheader}</IntroContent>
       {/* This Link/Button area should later become the <LinkButton /> component pending BFDI-91 as is not getting styles at this moment */}
-      <FirstSectionLinkStyled
+      <IntroSectionLinkStyled
         to={"/assessments/" + assessment.title.toLowerCase()}
       >
-        <FirstSectionButtonStyled>
+        <IntroSectionButtonStyled>
           {assessmentButtonLabel}
-        </FirstSectionButtonStyled>
-      </FirstSectionLinkStyled>
+        </IntroSectionButtonStyled>
+      </IntroSectionLinkStyled>
       <div>
         <ImageStyled
           srcSet={introSectionImage.gatsbyImageData.images.sources[0].srcSet}
