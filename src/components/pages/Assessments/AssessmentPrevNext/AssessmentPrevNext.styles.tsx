@@ -6,5 +6,4 @@ export const PrevNextStyled = styled(Box)({
   alignItems: "center",
   justifyContent: "flex-end",
   padding: "10px",
-  //   border: "2px solid black",
 });

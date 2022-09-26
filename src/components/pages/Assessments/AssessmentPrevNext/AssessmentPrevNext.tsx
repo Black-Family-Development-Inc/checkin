@@ -25,7 +25,6 @@ const AssessmentPrevNext = ({
     <PrevNextStyled>
       <MultiButton
         version={"previous" as Versions.Previous}
-        // version={"previous"}
         onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
         // disabled={currentQuestionIdx === 0}
         label={"Previous"}
@@ -37,7 +36,6 @@ const AssessmentPrevNext = ({
       ) : (
         <MultiButton
           version={"next" as Versions.Next}
-          // version={"next"}
           onClick={nextDisabled ? () => {} : handleNextClick}
           backgroundColor={nextDisabled ? "grey" : "black"}
           label={"Next"}
