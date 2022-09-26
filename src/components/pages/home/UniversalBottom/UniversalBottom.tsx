@@ -1,6 +1,6 @@
 import React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
-import ButtonLink from "../../Assessments/Buttons/ButtonLink/ButtonLink";
+import ButtonLink from "../../ButtonLink/ButtonLink";
 import {
   UniversalBottomHeader,
   UniversalBottomSubHeader,

@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import React from "react";
-import { AssessmentButtonStyled } from "./AssessmentButton.styles";
-import { AnswerButtonType } from "./AssessmentButton-types";
+import { AnswerButtonStyled } from "./AnswerButton.styles";
+import { AnswerButtonType } from "./AnswerButton-types";
 
-const AssessmentButton = ({
+const AnswerButton = ({
   answer,
   handleAnswerClick,
   usersCurrentAnswer,
@@ -11,15 +11,15 @@ const AssessmentButton = ({
   return (
     <>
       <Box onClick={() => handleAnswerClick(answer)}>
-        <AssessmentButtonStyled
+        <AnswerButtonStyled
           currentAnswer={usersCurrentAnswer}
           answer={answer.text}
         >
           {answer.text}
-        </AssessmentButtonStyled>
+        </AnswerButtonStyled>
       </Box>
     </>
   );
 };
 
-export default AssessmentButton;
+export default AnswerButton;
