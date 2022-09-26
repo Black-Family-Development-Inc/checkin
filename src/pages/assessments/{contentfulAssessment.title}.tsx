@@ -1,37 +1,29 @@
 import { FormControl } from "@mui/material";
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
 import React, { useEffect, useState } from "react";
 import {
   AssessmentAnswers,
   AssessmentPrevNext,
-  AssessmentStepper,
 } from "../../components/pages/Assessments";
-import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
+import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import {
   AssessmentPageProps,
-  AssessmentStep,
-  UsersSavedQuestions,
+  UsersSavedQuestion,
 } from "./AssessmentPage-types";
 
 const AssessmentPage = ({ data }: AssessmentPageProps) => {
   const {
     contentfulAssessment: {
       title,
-      assessment: { answers, questions },
+      assessment: { answers, questions, severityRubric },
     },
     contentfulButton,
   } = data;
 
-  const [steps, setSteps] = useState<AssessmentStep[]>([
-    { label: "Preliminary Questions", isComplete: false },
-    { label: "Assessment Questions", isComplete: false },
-    { label: "Results & Resources", isComplete: false },
-  ]);
-
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
-    UsersSavedQuestions[]
-  >([{ question: "", answer: "", score: 0 }]);
+    UsersSavedQuestion[]
+  >([]);
 
   useEffect(() => {
     const unansweredQuestions = questions.map((question) => {
@@ -46,9 +38,19 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
     (saved) => saved.answer === "",
   );
 
+  const navigateToResultsPage = () => {
+    const resultsPage = "/results/" + title.toLowerCase();
+    const assessmentScore = accumulateAssessmentScore();
+    navigate(resultsPage, {
+      state: { assessmentScore, severityRubric },
+    });
+  };
+
+  const accumulateAssessmentScore = () =>
+    usersSavedQuestions.reduce((prev, curr) => prev + curr.score, 0);
+
   return (
-    <DefaultLayout>
-      <AssessmentStepper {...{ steps, setSteps }} />
+    <AssessmentTrackerLayout>
       <p>Assessment Title: {title}</p>
       <p>
         You are on question {currentQuestionIdx + 1} out of {questions.length}
@@ -70,10 +72,11 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
             setCurrentQuestionIdx={setCurrentQuestionIdx}
             nextDisabled={nextDisabled}
             resultsDisabled={resultsDisabled}
+            handleResultsClick={navigateToResultsPage}
           />
         </div>
       </FormControl>
-    </DefaultLayout>
+    </AssessmentTrackerLayout>
   );
 };
 

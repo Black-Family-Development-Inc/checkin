@@ -1,10 +1,10 @@
 import { Button, ButtonGroup } from "@mui/material";
 import React from "react";
 import {
-  AnswerOptions,
+  AnswerOption,
   AnswerTypes,
 } from "../../../../pages/assessments/AssessmentPage-types";
-import { AssessmentAnswersProps } from "./AssessmentAnswers-types";
+import { AssessmentAnswersProps } from "./assessmentAnswers-types";
 
 const AssessmentAnswers = ({
   currentQuestion,
@@ -23,7 +23,7 @@ const AssessmentAnswers = ({
     return answers[currentQuestionType];
   };
 
-  const handleAnswerClick = ({ text, score }: AnswerOptions) => {
+  const handleAnswerClick = ({ text, score }: AnswerOption) => {
     const updatedSavedQuestions = usersSavedQuestions.map((saved) => {
       if (saved.question === currentQuestion.text) {
         return { ...saved, answer: text, score };
@@ -33,10 +33,10 @@ const AssessmentAnswers = ({
     setUsersSavedQuestions(updatedSavedQuestions);
   };
 
-  const usersCurrentAnswer = usersSavedQuestions[currentQuestionIdx].answer;
+  const usersCurrentAnswer = usersSavedQuestions[currentQuestionIdx]?.answer;
   return (
     <ButtonGroup>
-      {getAppropriateAnswers()?.map((answer: AnswerOptions, i: number) => (
+      {getAppropriateAnswers()?.map((answer: AnswerOption, i: number) => (
         <Button
           color={`${
             usersCurrentAnswer === answer.text ? "success" : "primary"

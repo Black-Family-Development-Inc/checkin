@@ -9,7 +9,7 @@ export enum AnswerTypes {
   Custom = "custom",
 }
 
-export type AnswerOptions = {
+export type AnswerOption = {
   score: number;
   text: string;
 };
@@ -31,7 +31,7 @@ export type Question = {
   text: string;
   questionType: AnswerTypes;
   triggerAnswer: string;
-  answers: AnswerOptions[] | null;
+  answers: AnswerOption[] | null;
 };
 
 export type Assessment = {
@@ -40,8 +40,8 @@ export type Assessment = {
   description: Description;
   severityRubric: Severity[];
   answers: {
-    binary: AnswerOptions[];
-    scale: AnswerOptions[];
+    binary: AnswerOption[];
+    scale: AnswerOption[];
   };
 };
 
@@ -57,7 +57,7 @@ export type AssessmentPageProps = {
   };
 };
 
-export type UsersSavedQuestions = {
+export type UsersSavedQuestion = {
   question: string;
   answer: string;
   score: number;
