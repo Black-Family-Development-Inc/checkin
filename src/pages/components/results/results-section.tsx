@@ -1,7 +1,8 @@
 import React from "react";
+import { ResultsSection } from "../../../components/pages/ResultsPage/ResultsSection";
 
 const ResultsSectionPage = () => {
-  return <h1>Results Section</h1>;
+  return <ResultsSection />;
 };
 
 export default ResultsSectionPage;
