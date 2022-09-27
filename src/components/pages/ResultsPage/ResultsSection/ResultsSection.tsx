@@ -3,6 +3,19 @@ import React from "react";
 import Accordion from "../../../Accordion/Accordion";
 import { HR } from "../../../HR";
 
+type ResultsSectionPropTypes = {
+  resultsHeader: string;
+  resultsSummary: string;
+  resultsAccordion: {
+    title: string;
+    summary: string;
+    scoreRange: string;
+    body: {
+      body: string;
+    };
+  };
+};
+
 const ResultsSection = ({
   resultsHeader,
   resultsSummary,
@@ -15,9 +28,9 @@ const ResultsSection = ({
       <Typography paragraph>{resultsSummary}</Typography>
 
       <Accordion
-        title={resultsAccordion.condition}
-        summary={summary}
-        body={body}
+        title={resultsAccordion.title}
+        summary={resultsAccordion.summary}
+        body={resultsAccordion.body.body}
       />
 
       <Typography paragraph>
