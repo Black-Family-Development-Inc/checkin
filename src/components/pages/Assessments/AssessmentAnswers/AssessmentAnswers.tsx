@@ -24,9 +24,11 @@ const AssessmentAnswers = ({
   };
 
   const handleAnswerClick = ({ text, score }: AnswerOption) => {
+    const triggered = currentQuestion.triggerAnswer === text;
+
     const updatedSavedQuestions = usersSavedQuestions.map((saved) => {
       if (saved.question === currentQuestion.text) {
-        return { ...saved, answer: text, score };
+        return { ...saved, answer: text, score, triggered };
       }
       return { ...saved };
     });

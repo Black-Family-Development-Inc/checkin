@@ -27,7 +27,12 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
 
   useEffect(() => {
     const unansweredQuestions = questions.map((question) => {
-      return { question: question.text, answer: "", score: 0 };
+      return {
+        question: question.text,
+        answer: "",
+        score: 0,
+        triggered: false,
+      };
     });
     setUsersSavedQuestions(unansweredQuestions);
   }, [questions]);
@@ -38,11 +43,15 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
     (saved) => saved.answer === "",
   );
 
+  const checkTriggerQuestions = () =>
+    usersSavedQuestions.some((question) => question.triggered);
+
   const navigateToResultsPage = () => {
     const resultsPage = "/results/" + title.toLowerCase();
+    const triggered = checkTriggerQuestions();
     const assessmentScore = accumulateAssessmentScore();
     navigate(resultsPage, {
-      state: { assessmentScore, severityRubric },
+      state: { assessmentScore, severityRubric, triggered },
     });
   };
 
