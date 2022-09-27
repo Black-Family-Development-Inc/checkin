@@ -1,14 +1,10 @@
 import { SetStateAction } from "react";
-import {
-  ContentfulButton,
-  Question,
-} from "../../../../pages/assessments/AssessmentPage-types";
+import { Question } from "../../../../pages/assessments/AssessmentPage-types";
 
 export type AssessmentPrevNextProps = {
   setCurrentQuestionIdx: Dispatch<SetStateAction<number>>;
   questions: Question[];
   currentQuestionIdx: number;
-  contentfulButton: ContentfulButton;
   nextDisabled: boolean;
   resultsDisabled: boolean;
   handleResultsClick: () => void;
@@ -16,5 +12,5 @@ export type AssessmentPrevNextProps = {
 
 export type PrevNextStyledProps = {
   bgColor: string;
-  cursor: string;
+  cursor?: string;
 };

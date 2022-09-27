@@ -23,7 +23,6 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
       title,
       assessment: { answers, questions, severityRubric },
     },
-    contentfulButton,
   } = data;
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
@@ -97,7 +96,6 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
           <AssessmentPrevNext
             currentQuestionIdx={currentQuestionIdx}
             questions={questions}
-            contentfulButton={contentfulButton}
             setCurrentQuestionIdx={setCurrentQuestionIdx}
             nextDisabled={nextDisabled}
             resultsDisabled={resultsDisabled}
@@ -147,10 +145,6 @@ export const query = graphql`
           binary
         }
       }
-    }
-    contentfulButton(text: { eq: "Results" }) {
-      text
-      link
     }
   }
 `;

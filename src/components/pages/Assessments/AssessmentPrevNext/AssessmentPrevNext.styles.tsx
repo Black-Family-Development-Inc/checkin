@@ -12,20 +12,20 @@ export const PrevNextContainerStyled = styled(Box)({
 const preventDomList = (prop: string) =>
   prop !== "bgColor" && prop !== "cursor";
 
-export const NextButtonStyled = styled(Button, {
+export const NextResultButtonStyled = styled(Button, {
   shouldForwardProp: (prop) => preventDomList(prop),
-})<PrevNextStyledProps>((props) => ({
+})<PrevNextStyledProps>(({ bgColor, cursor = "pointer" }) => ({
   width: "120px",
   fontSize: "18px",
   color: "white",
   borderRadius: "8px",
-  backgroundColor: props.bgColor,
+  backgroundColor: bgColor,
   fontFamily: "roboto",
   fontWeight: 600,
   textTransform: "none",
   ":hover": {
-    backgroundColor: props.bgColor,
-    cursor: props.cursor,
+    backgroundColor: bgColor,
+    cursor: cursor,
   },
 }));
 
