@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const UniversalBottomHeader = styled("h4")({
   fontSize: "26px",
   marginBottom: "12px",
-  fontFamily: "Inter",
+  fontFamily: "Roboto, Inter",
   "&:after": {
     content: '""',
     width: "80px",

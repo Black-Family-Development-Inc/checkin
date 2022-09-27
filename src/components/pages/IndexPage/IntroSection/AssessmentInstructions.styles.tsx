@@ -8,7 +8,7 @@ export const AssessmentInstructionsTitleStyled = styled("h2")({
   color: "#000",
   marginBottom: "8px",
   marginTop: "66px",
-  fontFamily: "Inter",
+  fontFamily: "Roboto, Inter",
 });
 
 export const StepperStyled = styled(Stepper)({

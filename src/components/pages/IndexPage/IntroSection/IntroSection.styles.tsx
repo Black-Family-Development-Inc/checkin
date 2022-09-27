@@ -31,7 +31,7 @@ export const IntroSectionButtonStyled = styled(Button)({
 export const IntroSectionTitleStyled = styled("h2")({
   fontSize: "24px",
   fontWeight: "600",
-  fontFamily: "Inter",
+  fontFamily: "Roboto, Inter",
   lineHeight: "28px",
   color: "#000",
   marginBottom: "8px",
