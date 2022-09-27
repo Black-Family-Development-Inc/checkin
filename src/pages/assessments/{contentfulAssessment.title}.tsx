@@ -45,7 +45,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
     setUsersSavedQuestions(unansweredQuestions);
   }, [questions]);
 
-  const currentQuestion = questions[currentQuestionIdx];
+  const currentQuestion = questions?.[currentQuestionIdx];
   const nextDisabled = !usersSavedQuestions?.[currentQuestionIdx]?.answer;
   const resultsDisabled = usersSavedQuestions.some(
     (saved) => saved.answer === "",
