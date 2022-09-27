@@ -31,7 +31,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
     UsersSavedQuestion[]
-  >([{ question: "", answer: "", score: 0, triggered: false }]);
+  >([]);
 
   useEffect(() => {
     const unansweredQuestions = questions.map((question) => {
