@@ -14,14 +14,8 @@ const ResultsPage = ({
       return isScoreInRange;
     });
   };
-  const getHighestSeverity = () => {
-    return severityRubric.reduce((acc, severity) =>
-      severity.max > acc.max ? severity : acc,
-    );
-  };
-  const assessmentResults = triggered
-    ? getHighestSeverity()
-    : determineAssessmentSeverity();
+
+  const assessmentResults = determineAssessmentSeverity();
   return (
     <>
       <h1>{data.contentfulResultsPage.title}</h1>
@@ -29,6 +23,8 @@ const ResultsPage = ({
         <>
           <p>Score: {assessmentScore}</p>
           <p>Severity: {assessmentResults?.severity}</p>
+          <p>Did you trip a trigger question: {triggered ? "Yes" : "No"}</p>
+          {/* remove above line concerning trigger question once its properly used */}
         </>
       ) : (
         <>
