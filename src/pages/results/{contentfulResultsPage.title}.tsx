@@ -16,6 +16,7 @@ const ResultsPage = ({
   };
 
   const assessmentResults = determineAssessmentSeverity();
+
   return (
     <>
       <h1>{data.contentfulResultsPage.title}</h1>
