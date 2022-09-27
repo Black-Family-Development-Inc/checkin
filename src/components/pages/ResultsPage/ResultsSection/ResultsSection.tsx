@@ -9,13 +9,15 @@ const ResultsSection = ({
   resultsSummary,
   resultsAccordion,
 }: ResultsPageResultsSection) => {
+  console.log(resultsAccordion);
+
   return (
     <>
       <Typography variant="h2">{resultsHeader}</Typography>
       <HR />
       <Typography paragraph>{resultsSummary}</Typography>
 
-      {resultsAccordion.map((accordion) => {
+      {resultsAccordion?.map((accordion) => {
         return (
           <Accordion
             key={accordion.id}
