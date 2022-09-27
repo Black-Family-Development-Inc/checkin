@@ -36,7 +36,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
   useEffect(() => {
     const unansweredQuestions = questions.map((question) => {
       return {
-        question: question.text,
+        question: question?.text,
         answer: "",
         score: 0,
         triggered: false,
@@ -52,7 +52,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
   );
 
   const checkTriggerQuestions = () =>
-    usersSavedQuestions.some((question) => question.triggered);
+    usersSavedQuestions.some((question) => question?.triggered);
 
   const navigateToResultsPage = () => {
     const resultsPage = "/results/" + title.toLowerCase();
@@ -74,7 +74,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
         You are on question {currentQuestionIdx + 1} out of {questions?.length}
       </p>
       <FormControl>
-        <p>{currentQuestion.text}</p>
+        <p>{currentQuestion?.text}</p>
         <AssessmentAnswers
           answers={answers}
           currentQuestion={currentQuestion}
