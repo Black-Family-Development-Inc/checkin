@@ -1,37 +1,30 @@
 import { Typography } from "@mui/material";
 import React from "react";
+import { ResultsPageResultsSection } from "../../../../pages/components/results/results-section-{contentfulResultsPage.title}";
 import Accordion from "../../../Accordion/Accordion";
 import { HR } from "../../../HR";
-
-type ResultsSectionPropTypes = {
-  resultsHeader: string;
-  resultsSummary: string;
-  resultsAccordion: {
-    title: string;
-    summary: string;
-    scoreRange: string;
-    body: {
-      body: string;
-    };
-  };
-};
 
 const ResultsSection = ({
   resultsHeader,
   resultsSummary,
   resultsAccordion,
-}: ResultsSectionPropTypes) => {
+}: ResultsPageResultsSection) => {
   return (
     <>
       <Typography variant="h2">{resultsHeader}</Typography>
       <HR />
       <Typography paragraph>{resultsSummary}</Typography>
 
-      <Accordion
-        title={resultsAccordion.title}
-        summary={resultsAccordion.summary}
-        body={resultsAccordion.body.body}
-      />
+      {resultsAccordion.map((accordion) => {
+        return (
+          <Accordion
+            key={accordion.id}
+            title={accordion.title}
+            summary={accordion.summary}
+            body={accordion.body.body}
+          />
+        );
+      })}
 
       <Typography paragraph>
         Take a screenshot or{" "}
