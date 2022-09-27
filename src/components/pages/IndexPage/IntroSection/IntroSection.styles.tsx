@@ -4,6 +4,10 @@ import { Link } from "gatsby";
 
 export const IntroSectionLinkStyled = styled(Link)({
   textDecoration: "none",
+
+  "@media(max-width: 375px)": {
+    width: "100%",
+  },
 });
 
 export const IntroSectionButtonStyled = styled(Button)({
@@ -16,6 +20,9 @@ export const IntroSectionButtonStyled = styled(Button)({
   textDecoration: "none",
   marginTop: "20px",
   marginBottom: "66px",
+  fontWeight: "600",
+  fontSize: "18px",
+  textTransform: "none",
   "@media(max-width: 375px)": {
     width: "100%",
   },
@@ -24,6 +31,7 @@ export const IntroSectionButtonStyled = styled(Button)({
 export const IntroSectionTitleStyled = styled("h2")({
   fontSize: "24px",
   fontWeight: "600",
+  fontFamily: "Inter",
   lineHeight: "28px",
   color: "#000",
   marginBottom: "8px",
@@ -39,4 +47,5 @@ export const IntroContent = styled("p")({
   lineHeight: "24px",
   letterSpacing: "0.5px",
   color: "rgba(0, 0, 0, 0.87);",
+  fontWeight: "400",
 });

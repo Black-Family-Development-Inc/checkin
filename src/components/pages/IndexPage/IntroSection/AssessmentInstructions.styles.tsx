@@ -8,6 +8,7 @@ export const AssessmentInstructionsTitleStyled = styled("h2")({
   color: "#000",
   marginBottom: "8px",
   marginTop: "66px",
+  fontFamily: "Inter",
 });
 
 export const StepperStyled = styled(Stepper)({
@@ -23,7 +24,7 @@ export const StepperStyled = styled(Stepper)({
 export const StepLabelStyled = styled(StepLabel)({
   ".MuiStepLabel-label": {
     fontSize: "20px",
-    fontWeight: "500",
+    fontWeight: "600",
     lineHeight: "24px",
     color: "rgba(0, 0, 0, 0.87);",
   },
@@ -34,5 +35,5 @@ export const StepContentStyled = styled("p")({
   fontSize: "16px",
   letterSpacing: "0.5px",
   color: "rgba(0, 0, 0, 0.87);",
-  fontWeight: "500",
+  fontWeight: "400",
 });

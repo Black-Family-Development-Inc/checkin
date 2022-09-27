@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const UniversalBottomHeader = styled("h4")({
   fontSize: "26px",
   marginBottom: "12px",
+  fontFamily: "Inter",
   "&:after": {
     content: '""',
     width: "80px",
@@ -28,8 +29,9 @@ export const ButtonStyled = styled("button")({
   color: "#fff",
   textDecoration: "none",
   marginTop: "20px",
-  fontSize: "16px",
-  textTransform: "uppercase",
+  fontSize: "18px",
+  textTransform: "none",
+  fontWeight: "600",
   "@media(max-width: 375px)": {
     width: "100%",
   },

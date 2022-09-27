@@ -7,6 +7,7 @@ export const AssessmentSectionTitleStyled = styled("h2")({
   color: "#000",
   marginBottom: "8px",
   marginTop: "36px",
+  fontFamily: "Inter",
 });
 
 export const AssessmentSectionContent = styled("p")({

@@ -28,6 +28,10 @@ const config: GatsbyConfig = {
             name: `Inter`,
             file: `https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap%27);`,
           },
+          {
+            name: `Roboto`,
+            file: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap%27);"
+          }
         ],
       },
     },
