@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import * as React from "react";
 import {
-  AssessmentButton,
+  AssessmentButtonType,
   ContentfulHomePage,
 } from "../../../../pages/IndexPage-types";
-import ButtonLink from "../AssessmentButton/AssessmentButton";
+import AssessmentButton from "../AssessmentButton/AssessmentButton";
 
 const AssessmentSection = (props: ContentfulHomePage) => {
   const {
@@ -17,13 +17,17 @@ const AssessmentSection = (props: ContentfulHomePage) => {
     <Box>
       <Typography variant="h5">{assessmentSectionHeader}</Typography>
       <Typography paragraph>{assessmentSectionSubheader}</Typography>
-      {assessmentButtons.map((button: AssessmentButton) => {
+      {assessmentButtons.map((button: AssessmentButtonType) => {
         const link = `/assessments/${button.assessment.title}`;
 
         return (
           <Box key={button.buttonText}>
             <Typography paragraph>{button.assessmentDescription}</Typography>
-            <ButtonLink text={button.buttonText} link={link} disabled={false} />
+            <AssessmentButton
+              text={button.buttonText}
+              link={link}
+              disabled={false}
+            />
           </Box>
         );
       })}

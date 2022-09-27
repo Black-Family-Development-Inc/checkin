@@ -20,7 +20,7 @@ export const NextResultButtonStyled = styled(Button, {
   color: "white",
   borderRadius: "8px",
   backgroundColor: bgColor,
-  fontFamily: "roboto",
+  fontFamily: "Roboto",
   fontWeight: 600,
   textTransform: "none",
   ":hover": {
@@ -38,7 +38,7 @@ export const PreviousButtonStyled = styled(Button, {
   marginRight: "20px",
   color: props.bgColor,
   borderRadius: "8px",
-  fontFamily: "roboto",
+  fontFamily: "Roboto",
   fontWeight: 600,
   textTransform: "none",
   textDecorationLine: "underline",

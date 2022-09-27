@@ -15,7 +15,7 @@ export const AssessmentTitleStyled = styled(Box)({
   fontSize: "24px",
   fontWeight: "600",
   width: "100%",
-  fontFamily: "inter",
+  fontFamily: "Inter",
 });
 
 export const AssessmentHeaderContainer = styled(Box)({
