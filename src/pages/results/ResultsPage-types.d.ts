@@ -9,4 +9,5 @@ type ResultsPagePropTypes = {
 type LocationState = {
   assessmentScore: number;
   severityRubric: Severity[];
+  triggered: boolean;
 };

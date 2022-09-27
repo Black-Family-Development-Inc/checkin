@@ -30,8 +30,8 @@ const config: GatsbyConfig = {
           },
           {
             name: `Roboto`,
-            file: `https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap%27);`,
-          },
+            file: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap%27);"
+          }
         ],
       },
     },
