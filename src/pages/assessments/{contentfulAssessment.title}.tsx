@@ -71,7 +71,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
       <AssessmentStepper {...{ steps, setSteps }} />
       <p>Assessment Title: {title}</p>
       <p>
-        You are on question {currentQuestionIdx + 1} out of {questions.length}
+        You are on question {currentQuestionIdx + 1} out of {questions?.length}
       </p>
       <FormControl>
         <p>{currentQuestion.text}</p>
