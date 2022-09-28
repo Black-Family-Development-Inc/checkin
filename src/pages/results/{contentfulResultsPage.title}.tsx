@@ -32,7 +32,6 @@ const ResultsPage = ({
           </p>
         </>
       )}
-      <p>Test</p>
       <RetakeSection
         {...data.contentfulHomePage}
         {...data.contentfulResultsPage}

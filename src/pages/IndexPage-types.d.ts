@@ -1,7 +1,6 @@
 export type IndexPageTypes = {
   contentfulHomePage: ContentfulHomePage;
   allContentfulAssessments: AllContentfulAssessment;
-  contentfulResultsPage: ContentfulResultsPage;
 };
 
 export type ContentfulHomePage = {
