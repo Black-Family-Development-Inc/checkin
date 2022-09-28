@@ -48,19 +48,11 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
     (saved) => saved.answer === "",
   );
 
-  const titleChecker = () => {
-    if (title.toLocaleLowerCase() === "phq-9") {
-      return "Depression";
-    }
-    if (title.toLocaleLowerCase() === "dast-10") {
-      return "Anxiety";
-    }
-    if (title.toLocaleLowerCase() === "gad-7") {
-      return "Substance Use";
-    }
-    if (title.toLocaleLowerCase() === "universal") {
-      return "Universal";
-    }
+  const titles = {
+    "phq-9": "Depression",
+    "dast-10": "Anxiety",
+    "gad-7": "Substance Use",
+    universal: "Universal",
   };
 
   const checkTriggerQuestions = () =>
@@ -83,7 +75,8 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
       <AssessmentPageStyled>
         <AssessmentHeaderContainer>
           <AssessmentTitleStyled>
-            {titleChecker()} Assessment
+            {titles[title.toLocaleLowerCase() as keyof typeof titles]}{" "}
+            Assessment
           </AssessmentTitleStyled>
           <QuestionStyled>
             <Typography>{currentQuestion.text}</Typography>
