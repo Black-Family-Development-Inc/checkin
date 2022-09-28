@@ -6,7 +6,7 @@ export type AnswerButtonType = {
   usersCurrentAnswer: string;
 };
 
-export type ButtonStyledProps = {
+export type AnswerButtonStyledProps = {
   currentAnswer: string;
   answer: string;
 };

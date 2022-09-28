@@ -4,8 +4,8 @@ import {
   AnswerOption,
   AnswerTypes,
 } from "../../../../pages/assessments/AssessmentPage-types";
-import AnswerButton from "../Buttons/AssessmentButton/AssessmentButton";
-import { ButtonGroupStyled } from "../Buttons/AssessmentButton/AssessmentButton.styles";
+import AnswerButton from "../AnswerButton/AnswerButton";
+import { AnswerButtonGroupStyled } from "../AnswerButton/AnswerButton.styles";
 import { AssessmentAnswersProps } from "./assessmentAnswers-types";
 
 const AssessmentAnswers = ({
@@ -26,9 +26,11 @@ const AssessmentAnswers = ({
   };
 
   const handleAnswerClick = ({ text, score }: AnswerOption) => {
+    const triggered = currentQuestion.triggerAnswer === text;
+
     const updatedSavedQuestions = usersSavedQuestions.map((saved) => {
       if (saved.question === currentQuestion.text) {
-        return { ...saved, answer: text, score };
+        return { ...saved, answer: text, score, triggered };
       }
       return { ...saved };
     });
@@ -37,9 +39,9 @@ const AssessmentAnswers = ({
 
   const usersCurrentAnswer = usersSavedQuestions[currentQuestionIdx]?.answer;
   return (
-    <ButtonGroupStyled>
-      {getAppropriateAnswers()?.map((answer: AnswerOption, i: number) => (
-        <Box key={i}>
+    <AnswerButtonGroupStyled>
+      {getAppropriateAnswers()?.map((answer: AnswerOption) => (
+        <Box key={answer.text}>
           <AnswerButton
             answer={answer}
             handleAnswerClick={handleAnswerClick}
@@ -47,7 +49,7 @@ const AssessmentAnswers = ({
           />
         </Box>
       ))}
-    </ButtonGroupStyled>
+    </AnswerButtonGroupStyled>
   );
 };
 

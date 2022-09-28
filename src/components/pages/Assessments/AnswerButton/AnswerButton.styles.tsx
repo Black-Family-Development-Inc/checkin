@@ -1,10 +1,10 @@
 import { Button, ButtonGroup } from "@mui/material";
 import { styled } from "@mui/system";
-import { ButtonStyledProps } from "./AssessmentButton-types";
+import { AnswerButtonStyledProps } from "./AnswerButton-types";
 
 const preventDomList = ["answer", "currentAnswer"];
 
-export const AssessmentButtonStyled = styled(Button, {
+export const AnswerButtonStyled = styled(Button, {
   shouldForwardProp: (prop) => {
     let isTrue = false;
     preventDomList.forEach((attribute) => {
@@ -12,7 +12,7 @@ export const AssessmentButtonStyled = styled(Button, {
     });
     return isTrue;
   },
-})<ButtonStyledProps>((props) => ({
+})<AnswerButtonStyledProps>((props) => ({
   padding: 10,
   margin: 10,
   width: "343px",
@@ -30,20 +30,8 @@ export const AssessmentButtonStyled = styled(Button, {
   },
 }));
 
-export const ButtonGroupStyled = styled(ButtonGroup)({
+export const AnswerButtonGroupStyled = styled(ButtonGroup)({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-});
-
-export const ButtonStyled = styled(Button)({
-  padding: 10,
-  margin: 20,
-  width: "343px",
-  ":hover": {
-    background: "none",
-  },
-  fontWeight: "bold",
-  fontSize: "15px",
-  color: "black",
 });

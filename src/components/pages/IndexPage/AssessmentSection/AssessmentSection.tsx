@@ -1,10 +1,17 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import * as React from "react";
 import {
-  AssessmentButton,
+  AssessmentButtonType,
   ContentfulHomePage,
 } from "../../../../pages/IndexPage-types";
-import ButtonLink from "../../Assessments/Buttons/ButtonLink/ButtonLink";
+import { HR } from "../../../HR";
+import AssessmentButton from "../AssessmentButton/AssessmentButton";
+import {
+  AssessmentQuestionStyled,
+  AssessmentQuestionWrapperStyled,
+  AssessmentSectionContent,
+  AssessmentSectionTitleStyled,
+} from "./AssessmentSection.styles";
 
 const AssessmentSection = (props: ContentfulHomePage) => {
   const {
@@ -15,16 +22,26 @@ const AssessmentSection = (props: ContentfulHomePage) => {
 
   return (
     <Box>
-      <Typography variant="h5">{assessmentSectionHeader}</Typography>
-      <Typography paragraph>{assessmentSectionSubheader}</Typography>
-      {assessmentButtons.map((button: AssessmentButton) => {
+      <AssessmentSectionTitleStyled>
+        {" "}
+        {assessmentSectionHeader}
+      </AssessmentSectionTitleStyled>
+      <HR />
+      <AssessmentSectionContent>
+        {assessmentSectionSubheader}
+      </AssessmentSectionContent>
+      {assessmentButtons.map((button: AssessmentButtonType) => {
         const link = `/assessments/${button.assessment.title}`;
-
         return (
-          <Box key={button.buttonText}>
-            <Typography paragraph>{button.assessmentDescription}</Typography>
-            <ButtonLink text={button.buttonText} link={link} disabled={false} />
-          </Box>
+          <AssessmentQuestionWrapperStyled key={button.buttonText}>
+            <AssessmentQuestionStyled>
+              {button.assessmentDescription}
+            </AssessmentQuestionStyled>
+            //{" "}
+            <Box key={button.buttonText}>
+              <AssessmentButton text={button.buttonText} link={link} />
+            </Box>
+          </AssessmentQuestionWrapperStyled>
         );
       })}
     </Box>

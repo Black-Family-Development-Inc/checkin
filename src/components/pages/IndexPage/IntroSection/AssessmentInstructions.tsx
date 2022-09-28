@@ -1,11 +1,15 @@
 import Step from "@mui/material/Step";
 import StepContent from "@mui/material/StepContent";
-import StepLabel from "@mui/material/StepLabel";
-import Stepper from "@mui/material/Stepper";
 import * as React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
 import { HR } from "../../../HR";
 import { ImageStyled } from "../../../Image/img.styles";
+import {
+  AssessmentInstructionsTitleStyled,
+  StepContentStyled,
+  StepLabelStyled,
+  StepperStyled,
+} from "./AssessmentInstructions.styles";
 
 const AssessmentInstructions = ({
   assessmentInstructionsHeader,
@@ -33,18 +37,20 @@ const AssessmentInstructions = ({
   ];
   return (
     <div>
-      <h2>{assessmentInstructionsHeader}</h2>
+      <AssessmentInstructionsTitleStyled>
+        {assessmentInstructionsHeader}
+      </AssessmentInstructionsTitleStyled>
       <HR />
-      <Stepper activeStep={-1} orientation="vertical">
+      <StepperStyled activeStep={-1} orientation="vertical">
         {steps.map((step) => (
           <Step key={step.label} expanded={true}>
-            <StepLabel>{step.label}</StepLabel>
+            <StepLabelStyled>{step.label}</StepLabelStyled>
             <StepContent>
-              <p>{step.description}</p>
+              <StepContentStyled>{step.description}</StepContentStyled>
             </StepContent>
           </Step>
         ))}
-      </Stepper>
+      </StepperStyled>
       <ImageStyled
         srcSet={assessmentStepsImage.gatsbyImageData.images.sources[0].srcSet}
         alt={assessmentStepsImage.description}

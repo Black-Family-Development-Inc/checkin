@@ -1,17 +1,19 @@
-import Button from "@mui/material/Button";
 import React from "react";
-import MultiButton from "../../../MultiButtons/MultiButton";
-import { Versions } from "../../../MultiButtons/MultiButton-types";
-import { PrevNextStyled } from "./AssessmentPrevNext.styles";
+// import MultiButton from "../../../MultiButtons/MultiButton";
+// import { Versions } from "../../../MultiButtons/MultiButton-types";
+// import { PrevNextStyled } from "./AssessmentPrevNext.styles";
+import {
+  NextResultButtonStyled,
+  PreviousButtonStyled,
+  PrevNextContainerStyled,
+} from "./AssessmentPrevNext.styles";
 import { AssessmentPrevNextProps } from "./assessmentPrevNext-types";
 
 const AssessmentPrevNext = ({
   currentQuestionIdx,
   questions,
-  contentfulButton,
   setCurrentQuestionIdx,
   nextDisabled,
-  resultsDisabled,
   handleResultsClick,
 }: AssessmentPrevNextProps) => {
   const clamp = (num: number) =>
@@ -22,26 +24,38 @@ const AssessmentPrevNext = ({
   };
 
   return (
-    <PrevNextStyled>
-      <MultiButton
-        version={"previous" as Versions.Previous}
-        onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
-        // disabled={currentQuestionIdx === 0}
-        label={"Previous"}
-      />
-      {currentQuestionIdx === questions.length - 1 ? (
-        <Button disabled={resultsDisabled} onClick={handleResultsClick}>
-          {contentfulButton?.text}
-        </Button>
-      ) : (
-        <MultiButton
-          version={"next" as Versions.Next}
-          onClick={nextDisabled ? () => {} : handleNextClick}
-          backgroundColor={nextDisabled ? "grey" : "black"}
-          label={"Next"}
-        />
+    <PrevNextContainerStyled>
+      {currentQuestionIdx !== 0 && (
+        <PreviousButtonStyled
+          bgColor={currentQuestionIdx === 0 ? "gray" : "black"}
+          cursor={currentQuestionIdx === 0 ? "default" : "pointer"}
+          onClick={
+            currentQuestionIdx === 0
+              ? () => {}
+              : () => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))
+          }
+        >
+          Previous
+        </PreviousButtonStyled>
       )}
-    </PrevNextStyled>
+      {currentQuestionIdx === questions.length - 1 ? (
+        <NextResultButtonStyled
+          bgColor={"black"}
+          cursor={"pointer"}
+          onClick={handleResultsClick}
+        >
+          Submit
+        </NextResultButtonStyled>
+      ) : (
+        <NextResultButtonStyled
+          bgColor={nextDisabled ? "gray" : "black"}
+          cursor={nextDisabled ? "default" : "pointer"}
+          onClick={handleNextClick}
+        >
+          Next
+        </NextResultButtonStyled>
+      )}
+    </PrevNextContainerStyled>
   );
 };
 

@@ -12,7 +12,7 @@ export const NavBarLogoContainer = styled("div")({
   display: "flex",
   alignItems: "center",
   ".logo-text": {
-    marginLeft: "10px",
+    marginLeft: "8px",
     color: "#000",
     fontSize: "14px",
     fontWeight: "600",
@@ -21,7 +21,7 @@ export const NavBarLogoContainer = styled("div")({
 
 export const NavBarLink = styled("div")({
   ".nav-link": {
-    padding: "12px 16px",
+    padding: "12px 0px",
     textDecoration: "none",
     color: "#000",
     fontSize: "12px",

@@ -7,14 +7,16 @@ const ResultsPage = ({
   data,
   location: { state },
 }: PageProps<ResultsPagePropTypes, object, LocationState>) => {
-  const { assessmentScore, severityRubric } = state || {};
+  const { assessmentScore, severityRubric, triggered } = state || {};
 
   const determineAssessmentSeverity = () => {
-    const assessmentSeverity = severityRubric?.find(({ min, max }) => {
-      return assessmentScore >= min && assessmentScore <= max;
+    return severityRubric?.find(({ min, max }) => {
+      const isScoreInRange = assessmentScore >= min && assessmentScore <= max;
+      return isScoreInRange;
     });
-    return assessmentSeverity?.severity;
   };
+
+  const assessmentResults = determineAssessmentSeverity();
 
   return (
     <AssessmentTrackerLayout>
@@ -22,7 +24,9 @@ const ResultsPage = ({
       {assessmentScore > -1 ? (
         <>
           <p>Score: {assessmentScore}</p>
-          <p>Severity: {determineAssessmentSeverity()}</p>
+          <p>Severity: {assessmentResults?.severity}</p>
+          <p>Did you trip a trigger question: {triggered ? "Yes" : "No"}</p>
+          {/* remove above line concerning trigger question once its properly used */}
         </>
       ) : (
         <>
