@@ -11,9 +11,9 @@ type ResultsSectionPageTypes = {
 };
 
 export type ResultsPageResultsSection = {
-  resultsHeader: string;
-  resultsSummary: string;
-  resultsAccordion: ResultsAccordion[];
+  resultsHeaderText: string;
+  resultsSummaryText: string;
+  resultsAccordionData: ResultsAccordion[];
 };
 
 type ResultsAccordion = {
@@ -38,9 +38,9 @@ export const query = graphql`
   query ($title: String) {
     contentfulResultsPage(title: { eq: $title }) {
       title
-      resultsHeader
-      resultsSummary
-      resultsAccordion {
+      resultsHeaderText
+      resultsSummaryText
+      resultsAccordionData {
         id
         title
         summary

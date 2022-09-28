@@ -5,19 +5,17 @@ import Accordion from "../../../Accordion/Accordion";
 import { HR } from "../../../HR";
 
 const ResultsSection = ({
-  resultsHeader,
-  resultsSummary,
-  resultsAccordion,
+  resultsHeaderText,
+  resultsSummaryText,
+  resultsAccordionData,
 }: ResultsPageResultsSection) => {
-  console.log(resultsAccordion);
-
   return (
     <>
-      <Typography variant="h2">{resultsHeader}</Typography>
+      <Typography variant="h2">{resultsHeaderText}</Typography>
       <HR />
-      <Typography paragraph>{resultsSummary}</Typography>
+      <Typography paragraph>{resultsSummaryText}</Typography>
 
-      {resultsAccordion?.map((accordion) => {
+      {resultsAccordionData?.map((accordion) => {
         return (
           <Accordion
             key={accordion.id}
