@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import React from "react";
 import {
   NextResultButtonStyled,
@@ -12,7 +11,6 @@ const AssessmentPrevNext = ({
   questions,
   setCurrentQuestionIdx,
   nextDisabled,
-  resultsDisabled,
   handleResultsClick,
 }: AssessmentPrevNextProps) => {
   const clamp = (num: number) =>
@@ -24,37 +22,35 @@ const AssessmentPrevNext = ({
 
   return (
     <PrevNextContainerStyled>
-      <Box
-        onClick={
-          currentQuestionIdx === 0
-            ? () => {}
-            : () => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))
-        }
-      >
+      {currentQuestionIdx !== 0 && (
         <PreviousButtonStyled
           bgColor={currentQuestionIdx === 0 ? "gray" : "black"}
           cursor={currentQuestionIdx === 0 ? "default" : "pointer"}
+          onClick={
+            currentQuestionIdx === 0
+              ? () => {}
+              : () => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))
+          }
         >
           Previous
         </PreviousButtonStyled>
-      </Box>
+      )}
       {currentQuestionIdx === questions.length - 1 ? (
-        <Box onClick={resultsDisabled ? () => {} : handleResultsClick}>
-          <NextResultButtonStyled bgColor={"black"} cursor={"pointer"}>
-            Submit
-          </NextResultButtonStyled>
-        </Box>
+        <NextResultButtonStyled
+          bgColor={"black"}
+          cursor={"pointer"}
+          onClick={handleResultsClick}
+        >
+          Submit
+        </NextResultButtonStyled>
       ) : (
-        <>
-          <Box onClick={nextDisabled ? () => {} : handleNextClick}>
-            <NextResultButtonStyled
-              bgColor={nextDisabled ? "gray" : "black"}
-              cursor={nextDisabled ? "default" : "pointer"}
-            >
-              Next
-            </NextResultButtonStyled>
-          </Box>
-        </>
+        <NextResultButtonStyled
+          bgColor={nextDisabled ? "gray" : "black"}
+          cursor={nextDisabled ? "default" : "pointer"}
+          onClick={handleNextClick}
+        >
+          Next
+        </NextResultButtonStyled>
       )}
     </PrevNextContainerStyled>
   );

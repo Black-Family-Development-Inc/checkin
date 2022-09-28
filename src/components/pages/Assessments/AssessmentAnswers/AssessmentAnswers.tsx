@@ -40,8 +40,8 @@ const AssessmentAnswers = ({
   const usersCurrentAnswer = usersSavedQuestions[currentQuestionIdx]?.answer;
   return (
     <AnswerButtonGroupStyled>
-      {getAppropriateAnswers()?.map((answer: AnswerOption, i: number) => (
-        <Box key={i}>
+      {getAppropriateAnswers()?.map((answer: AnswerOption) => (
+        <Box key={answer.text}>
           <AnswerButton
             answer={answer}
             handleAnswerClick={handleAnswerClick}
