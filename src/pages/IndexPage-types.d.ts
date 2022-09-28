@@ -1,6 +1,7 @@
 export type IndexPageTypes = {
   contentfulHomePage: ContentfulHomePage;
   allContentfulAssessments: AllContentfulAssessment;
+  contentfulResultsPage: ContentfulResultsPage;
 };
 
 export type ContentfulHomePage = {
@@ -23,6 +24,7 @@ export type ContentfulHomePage = {
   assessmentButtons: AssessmentButton[];
   universalBottomSubHeader: string;
   universalBottomHeader: string;
+  retakeDescription: string;
 };
 
 export type ContentfulImage = {
@@ -60,4 +62,16 @@ export type AllContentfulAssessment = {
 export type ContentfulAssessment = {
   id: string;
   title: string;
+};
+
+export type RetakeSectionType = {
+  retakeDescription: string;
+  testimonial: string;
+  testimonialParticipant: string;
+  title: string;
+};
+
+export type TestimonialSectionType = {
+  testimonial: string;
+  testimonialParticipant: string;
 };

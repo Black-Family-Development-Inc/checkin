@@ -7,6 +7,7 @@ import { IntroSection } from "../components/pages/IndexPage/IntroSection";
 import AssessmentInstructions from "../components/pages/IndexPage/IntroSection/AssessmentInstructions";
 import { TestimonialSection } from "../components/pages/IndexPage/Testimonial";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
+import RetakeSection from "./components/results/RetakeSection";
 import { IndexPageTypes } from "./IndexPage-types";
 
 const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
@@ -25,6 +26,10 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
         <Accordion title={tempAccordionTitle} body={tempAccordionBody} />
         <UniversalBottom {...data.contentfulHomePage} />
         <TestimonialSection {...data.contentfulHomePage} />
+        <RetakeSection
+          {...data.contentfulHomePage}
+          {...data.contentfulResultsPage}
+        />
       </DefaultLayout>
     </>
   );
@@ -84,6 +89,9 @@ export const query = graphql`
         id
         title
       }
+    }
+    contentfulResultsPage {
+      retakeDescription
     }
   }
 `;

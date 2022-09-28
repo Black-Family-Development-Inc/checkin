@@ -22,7 +22,9 @@ const AssessmentSection = (props: ContentfulHomePage) => {
 
         return (
           <Box key={button.buttonText}>
-            <Typography paragraph>{button.assessmentDescription}</Typography>
+            <Typography id="scroll" paragraph>
+              {button.assessmentDescription}
+            </Typography>
             <ButtonLink text={button.buttonText} link={link} />
           </Box>
         );
