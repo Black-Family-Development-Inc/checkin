@@ -26,11 +26,7 @@ const AssessmentPrevNext = ({
         <PreviousButtonStyled
           bgColor={currentQuestionIdx === 0 ? "gray" : "black"}
           cursor={currentQuestionIdx === 0 ? "default" : "pointer"}
-          onClick={
-            currentQuestionIdx === 0
-              ? () => {}
-              : () => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))
-          }
+          onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
         >
           Previous
         </PreviousButtonStyled>
