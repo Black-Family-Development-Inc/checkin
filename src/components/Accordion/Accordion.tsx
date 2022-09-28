@@ -22,6 +22,7 @@ export default function Accordion(props: AccordionPropTypes) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader title={props.title} />
+      {props.summary && <Typography paragraph>{props.summary}</Typography>}
       <CardActions>
         <Button onClick={handleExpandClick}>
           {expanded ? (
@@ -33,6 +34,12 @@ export default function Accordion(props: AccordionPropTypes) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
+          {props.assessmentScore && props.assessmentSeverity && (
+            <Typography paragraph>
+              Score: {props.assessmentScore} [{props.assessmentSeverity}
+              -Symptoms]
+            </Typography>
+          )}
           <Typography paragraph>{props.body}</Typography>
         </CardContent>
       </Collapse>
