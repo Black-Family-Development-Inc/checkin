@@ -6,13 +6,9 @@ export type AnswerButtonType = {
   usersCurrentAnswer?: string;
 };
 
-export type AssessmentStyledProps = {
+export type AnswerStyledProps = {
   currentAnswer?: string;
   answer?: string;
-};
-
-export type NextStyledProps = {
-  backgroundColor?: string;
 };
 
 export const enum Versions {
