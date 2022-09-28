@@ -1,6 +1,7 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
+import RetakeSection from "../components/results/RetakeSection";
 import { LocationState, ResultsPagePropTypes } from "./ResultsPage-types";
 
 const ResultsPage = ({
@@ -8,14 +9,12 @@ const ResultsPage = ({
   location: { state },
 }: PageProps<ResultsPagePropTypes, object, LocationState>) => {
   const { assessmentScore, severityRubric } = state || {};
-
   const determineAssessmentSeverity = () => {
     const assessmentSeverity = severityRubric?.find(({ min, max }) => {
       return assessmentScore >= min && assessmentScore <= max;
     });
     return assessmentSeverity?.severity;
   };
-
   return (
     <AssessmentTrackerLayout>
       <h1>{data.contentfulResultsPage.title}</h1>
@@ -33,6 +32,11 @@ const ResultsPage = ({
           </p>
         </>
       )}
+      <p>Test</p>
+      <RetakeSection
+        {...data.contentfulHomePage}
+        {...data.contentfulResultsPage}
+      />
     </AssessmentTrackerLayout>
   );
 };
@@ -43,6 +47,11 @@ export const query = graphql`
   query ($title: String!) {
     contentfulResultsPage(title: { eq: $title }) {
       title
+      retakeDescription
+    }
+    contentfulHomePage {
+      testimonial
+      testimonialParticipant
     }
   }
 `;
