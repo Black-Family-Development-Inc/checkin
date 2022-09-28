@@ -28,7 +28,7 @@ const MultiButton = (props: MultiButtonPropType) => {
       <PreviousStyled onClick={props.onClick}>{props.label}</PreviousStyled>
     ),
   };
-  return buttons[props.version];
+  return buttons[props.version as keyof typeof buttons];
 };
 
 export default MultiButton;

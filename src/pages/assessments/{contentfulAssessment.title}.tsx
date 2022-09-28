@@ -43,10 +43,6 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
   }, [questions]);
 
   const currentQuestion = questions[currentQuestionIdx];
-  const nextDisabled = !usersSavedQuestions?.[currentQuestionIdx]?.answer;
-  const resultsDisabled = usersSavedQuestions.some(
-    (saved) => saved.answer === "",
-  );
 
   const titles = {
     "phq-9": "Depression",
@@ -99,8 +95,6 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
             currentQuestionIdx={currentQuestionIdx}
             questions={questions}
             setCurrentQuestionIdx={setCurrentQuestionIdx}
-            nextDisabled={nextDisabled}
-            resultsDisabled={resultsDisabled}
             handleResultsClick={navigateToResultsPage}
           />
         </FormControl>

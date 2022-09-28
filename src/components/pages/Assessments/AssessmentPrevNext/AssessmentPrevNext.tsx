@@ -1,7 +1,5 @@
 import React from "react";
-// import MultiButton from "../../../MultiButtons/MultiButton";
-// import { Versions } from "../../../MultiButtons/MultiButton-types";
-// import { PrevNextStyled } from "./AssessmentPrevNext.styles";
+import MultiButton from "../../../MultiButton/MultiButton";
 import {
   NextResultButtonStyled,
   PreviousButtonStyled,
@@ -13,7 +11,6 @@ const AssessmentPrevNext = ({
   currentQuestionIdx,
   questions,
   setCurrentQuestionIdx,
-  nextDisabled,
   handleResultsClick,
 }: AssessmentPrevNextProps) => {
   const clamp = (num: number) =>
@@ -29,11 +26,7 @@ const AssessmentPrevNext = ({
         <PreviousButtonStyled
           bgColor={currentQuestionIdx === 0 ? "gray" : "black"}
           cursor={currentQuestionIdx === 0 ? "default" : "pointer"}
-          onClick={
-            currentQuestionIdx === 0
-              ? () => {}
-              : () => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))
-          }
+          onClick={setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
         >
           Previous
         </PreviousButtonStyled>
@@ -47,13 +40,7 @@ const AssessmentPrevNext = ({
           Submit
         </NextResultButtonStyled>
       ) : (
-        <NextResultButtonStyled
-          bgColor={nextDisabled ? "gray" : "black"}
-          cursor={nextDisabled ? "default" : "pointer"}
-          onClick={handleNextClick}
-        >
-          Next
-        </NextResultButtonStyled>
+        <MultiButton version="next" onClick={handleNextClick} label="Next" />
       )}
     </PrevNextContainerStyled>
   );

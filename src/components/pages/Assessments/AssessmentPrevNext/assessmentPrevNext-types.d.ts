@@ -5,8 +5,6 @@ export type AssessmentPrevNextProps = {
   setCurrentQuestionIdx: Dispatch<SetStateAction<number>>;
   questions: Question[];
   currentQuestionIdx: number;
-  nextDisabled: boolean;
-  resultsDisabled: boolean;
   handleResultsClick: () => void;
 };
 

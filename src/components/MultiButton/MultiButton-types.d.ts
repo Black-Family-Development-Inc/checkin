@@ -1,3 +1,12 @@
+export type MultiButtonPropType = {
+  version: Versions;
+  onClick?: () => void;
+  answer?: string;
+  currentAnswer?: string;
+  backgroundColor?: string;
+  label: string;
+};
+
 export type AnswerButtonType = {
   answer?: {
     text: string;
@@ -11,17 +20,10 @@ export type AnswerStyledProps = {
   answer?: string;
 };
 
-export const enum Versions {
-  Assessment = "assessment",
-  Previous = "previous",
-  Next = "next",
-}
-
-export type MultiButtonPropType = {
-  version: Versions;
-  onClick?: () => void;
-  answer?: string;
-  currentAnswer?: string;
-  backgroundColor?: string;
-  label: string;
-};
+type Versions =
+  | "assessment"
+  | "next"
+  | "previous"
+  | "result"
+  | "answer"
+  | "universal";
