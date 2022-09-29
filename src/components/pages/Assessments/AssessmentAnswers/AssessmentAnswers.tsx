@@ -1,9 +1,11 @@
-import { Button, ButtonGroup } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
 import {
   AnswerOption,
   AnswerTypes,
 } from "../../../../pages/assessments/AssessmentPage-types";
+import AnswerButton from "../AnswerButton/AnswerButton";
+import { AnswerButtonGroupStyled } from "../AnswerButton/AnswerButton.styles";
 import { AssessmentAnswersProps } from "./assessmentAnswers-types";
 
 const AssessmentAnswers = ({
@@ -37,19 +39,17 @@ const AssessmentAnswers = ({
 
   const usersCurrentAnswer = usersSavedQuestions[currentQuestionIdx]?.answer;
   return (
-    <ButtonGroup>
-      {getAppropriateAnswers()?.map((answer: AnswerOption, i: number) => (
-        <Button
-          color={`${
-            usersCurrentAnswer === answer.text ? "success" : "primary"
-          }`}
-          key={`answer-${i}`}
-          onClick={() => handleAnswerClick(answer)}
-        >
-          {answer.text}
-        </Button>
+    <AnswerButtonGroupStyled>
+      {getAppropriateAnswers()?.map((answer: AnswerOption) => (
+        <Box key={answer.text}>
+          <AnswerButton
+            answer={answer}
+            handleAnswerClick={handleAnswerClick}
+            usersCurrentAnswer={usersCurrentAnswer}
+          />
+        </Box>
       ))}
-    </ButtonGroup>
+    </AnswerButtonGroupStyled>
   );
 };
 

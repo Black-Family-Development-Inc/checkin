@@ -30,7 +30,7 @@ export type ContentfulImage = {
   gatsbyImageData: GatsbyImageData;
 };
 
-export type AssessmentButton = {
+export type AssessmentButtonType = {
   buttonText: string;
   assessmentDescription: string;
   assessment: ContentfulAssessment;

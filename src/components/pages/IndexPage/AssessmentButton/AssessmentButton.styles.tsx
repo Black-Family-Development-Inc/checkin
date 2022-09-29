@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Button } from "@mui/material";
 import { Link } from "gatsby";
 
 export const LinkStyled = styled(Link)({
@@ -14,4 +15,16 @@ export const LinkStyled = styled(Link)({
   "@media(max-width: 375px)": {
     width: "100%",
   },
+});
+
+export const AssessmentButtonStyled = styled(Button)({
+  padding: 10,
+  margin: 20,
+  width: "343px",
+  ":hover": {
+    background: "none",
+  },
+  fontWeight: "bold",
+  fontSize: "15px",
+  color: "black",
 });

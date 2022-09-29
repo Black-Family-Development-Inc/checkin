@@ -1,10 +1,16 @@
-import { FormControl } from "@mui/material";
+import { FormControl, Typography } from "@mui/material";
 import { graphql, navigate } from "gatsby";
 import React, { useEffect, useState } from "react";
 import {
   AssessmentAnswers,
   AssessmentPrevNext,
 } from "../../components/pages/Assessments";
+import {
+  AssessmentHeaderContainer,
+  AssessmentPageStyled,
+  AssessmentTitleStyled,
+  QuestionStyled,
+} from "../../components/pages/Assessments/AssessmentPage/AssessmentPage.styles";
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import {
   AssessmentPageProps,
@@ -17,7 +23,6 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
       title,
       assessment: { answers, questions, severityRubric },
     },
-    contentfulButton,
   } = data;
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
@@ -43,6 +48,13 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
     (saved) => saved.answer === "",
   );
 
+  const titles = {
+    "phq-9": "Depression",
+    "dast-10": "Anxiety",
+    "gad-7": "Substance Use",
+    universal: "Universal",
+  };
+
   const checkTriggerQuestions = () =>
     usersSavedQuestions.some((question) => question.triggered);
 
@@ -60,31 +72,39 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
 
   return (
     <AssessmentTrackerLayout>
-      <p>Assessment Title: {title}</p>
-      <p>
-        You are on question {currentQuestionIdx + 1} out of {questions.length}
-      </p>
-      <FormControl>
-        <p>{currentQuestion.text}</p>
-        <AssessmentAnswers
-          answers={answers}
-          currentQuestion={currentQuestion}
-          currentQuestionIdx={currentQuestionIdx}
-          usersSavedQuestions={usersSavedQuestions}
-          setUsersSavedQuestions={setUsersSavedQuestions}
-        />
-        <div>
+      <AssessmentPageStyled>
+        <AssessmentHeaderContainer>
+          <AssessmentTitleStyled>
+            {titles[title.toLocaleLowerCase() as keyof typeof titles]}{" "}
+            Assessment
+          </AssessmentTitleStyled>
+          <QuestionStyled>
+            <Typography>{currentQuestion.text}</Typography>
+            <Typography sx={{ paddingLeft: "35px" }}>
+              {currentQuestionIdx + 1}/{questions.length}
+            </Typography>
+          </QuestionStyled>
+        </AssessmentHeaderContainer>
+
+        <FormControl>
+          <AssessmentAnswers
+            answers={answers}
+            currentQuestion={currentQuestion}
+            currentQuestionIdx={currentQuestionIdx}
+            usersSavedQuestions={usersSavedQuestions}
+            setUsersSavedQuestions={setUsersSavedQuestions}
+          />
+
           <AssessmentPrevNext
             currentQuestionIdx={currentQuestionIdx}
             questions={questions}
-            contentfulButton={contentfulButton}
             setCurrentQuestionIdx={setCurrentQuestionIdx}
             nextDisabled={nextDisabled}
             resultsDisabled={resultsDisabled}
             handleResultsClick={navigateToResultsPage}
           />
-        </div>
-      </FormControl>
+        </FormControl>
+      </AssessmentPageStyled>
     </AssessmentTrackerLayout>
   );
 };
@@ -127,10 +147,6 @@ export const query = graphql`
           binary
         }
       }
-    }
-    contentfulButton(text: { eq: "Results" }) {
-      text
-      link
     }
   }
 `;

@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
 import * as React from "react";
 import {
-  AssessmentButton,
+  AssessmentButtonType,
   ContentfulHomePage,
 } from "../../../../pages/IndexPage-types";
-import ButtonLink from "../../../ButtonLink/ButtonLink";
 import { HR } from "../../../HR";
+import AssessmentButton from "../AssessmentButton/AssessmentButton";
 import {
   AssessmentQuestionStyled,
   AssessmentQuestionWrapperStyled,
@@ -30,15 +30,16 @@ const AssessmentSection = (props: ContentfulHomePage) => {
       <AssessmentSectionContent>
         {assessmentSectionSubheader}
       </AssessmentSectionContent>
-      {assessmentButtons.map((button: AssessmentButton) => {
+      {assessmentButtons.map((button: AssessmentButtonType) => {
         const link = `/assessments/${button.assessment.title}`;
-
         return (
           <AssessmentQuestionWrapperStyled key={button.buttonText}>
             <AssessmentQuestionStyled>
               {button.assessmentDescription}
             </AssessmentQuestionStyled>
-            <ButtonLink text={button.buttonText} link={link} disabled={false} />
+            <Box key={button.buttonText}>
+              <AssessmentButton text={button.buttonText} link={link} />
+            </Box>
           </AssessmentQuestionWrapperStyled>
         );
       })}
