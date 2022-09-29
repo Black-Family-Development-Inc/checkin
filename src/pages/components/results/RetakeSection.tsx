@@ -16,7 +16,7 @@ const RetakeSection = (props: RetakeSectionType) => {
       <Typography paragraph>{retakeDescription}</Typography>
       <AssessmentButton
         text={retakeBtnLabel}
-        link={"/assessment/" + title.toLowerCase()}
+        link={"/assessments/" + title.toLowerCase()}
       />
       <AssessmentButton text={startOverBtnLabel} link={scrollToLink} />
       <TestimonialSection
