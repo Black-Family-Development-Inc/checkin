@@ -11,6 +11,7 @@ const AssessmentPrevNext = ({
   currentQuestionIdx,
   questions,
   setCurrentQuestionIdx,
+  resultsDisabled,
   handleResultsClick,
 }: AssessmentPrevNextProps) => {
   const clamp = (num: number) =>
@@ -26,21 +27,28 @@ const AssessmentPrevNext = ({
         <PreviousButtonStyled
           bgColor={currentQuestionIdx === 0 ? "gray" : "black"}
           cursor={currentQuestionIdx === 0 ? "default" : "pointer"}
-          onClick={setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
+          onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
         >
           Previous
         </PreviousButtonStyled>
       )}
       {currentQuestionIdx === questions.length - 1 ? (
         <NextResultButtonStyled
-          bgColor={"black"}
-          cursor={"pointer"}
-          onClick={handleResultsClick}
+          bgColor={resultsDisabled ? "gray" : "black"}
+          cursor={resultsDisabled ? "default" : "pointer"}
+          onClick={resultsDisabled ? () => {} : handleResultsClick}
         >
           Submit
         </NextResultButtonStyled>
       ) : (
-        <MultiButton version="next" onClick={handleNextClick} label="Next" />
+        <MultiButton version="next" label="Next" onClick={handleNextClick} />
+        // <NextResultButtonStyled
+        //   bgColor={nextDisabled ? "gray" : "black"}
+        //   cursor={nextDisabled ? "default" : "pointer"}
+        //   onClick={nextDisabled ? () => {} : handleNextClick}
+        // >
+        //   Next
+        // </NextResultButtonStyled>
       )}
     </PrevNextContainerStyled>
   );

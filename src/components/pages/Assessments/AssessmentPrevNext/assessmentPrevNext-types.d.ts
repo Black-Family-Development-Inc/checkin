@@ -6,6 +6,7 @@ export type AssessmentPrevNextProps = {
   questions: Question[];
   currentQuestionIdx: number;
   handleResultsClick: () => void;
+  resultsDisabled?: boolean;
 };
 
 export type PrevNextStyledProps = {
