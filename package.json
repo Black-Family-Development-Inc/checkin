@@ -27,6 +27,7 @@
     "@mui/material": "^5.10.0",
     "dotenv": "^16.0.1",
     "gatsby": "^4.19.2",
+    "gatsby-omni-font-loader": "^2.0.2",
     "gatsby-plugin-image": "^2.19.0",
     "gatsby-plugin-manifest": "^4.20.0",
     "gatsby-plugin-offline": "^5.20.0",
@@ -34,7 +35,8 @@
     "gatsby-plugin-sharp": "^4.19.0",
     "gatsby-source-contentful": "^7.17.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-helmet": "^6.1.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.45",

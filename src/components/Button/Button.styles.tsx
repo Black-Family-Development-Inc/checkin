@@ -9,6 +9,7 @@ export const ButtonStyled = styled(Button)({
     background: "none",
   },
   color: "black",
-  fontWeight: "bold",
+  fontWeight: "600",
+  textTransform: "none",
   fontSize: "15px",
 });

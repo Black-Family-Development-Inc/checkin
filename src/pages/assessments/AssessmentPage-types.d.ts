@@ -52,7 +52,6 @@ export type ContentfulButton = {
 
 export type AssessmentPageProps = {
   data: {
-    contentfulButton: ContentfulButton;
     contentfulAssessment: { title: string; assessment: Assessment };
   };
 };
@@ -61,4 +60,5 @@ export type UsersSavedQuestion = {
   question: string;
   answer: string;
   score: number;
+  triggered: boolean;
 };
