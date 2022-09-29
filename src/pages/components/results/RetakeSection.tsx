@@ -9,13 +9,15 @@ const RetakeSection = (props: RetakeSectionType) => {
     props;
   const retakeBtnLabel = "Retake";
   const startOverBtnLabel = "Start Over";
-  const retakeBtnLink = `/assessments/${title.toLowerCase()}`;
   const scrollToLink = "/#scroll";
 
   return (
     <>
       <Typography paragraph>{retakeDescription}</Typography>
-      <AssessmentButton text={retakeBtnLabel} link={retakeBtnLink} />
+      <AssessmentButton
+        text={retakeBtnLabel}
+        link={"/assessment/" + title.toLowerCase()}
+      />
       <AssessmentButton text={startOverBtnLabel} link={scrollToLink} />
       <TestimonialSection
         testimonial={testimonial}
