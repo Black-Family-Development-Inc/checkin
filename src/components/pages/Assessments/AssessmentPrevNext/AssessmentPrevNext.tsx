@@ -10,6 +10,7 @@ const AssessmentPrevNext = ({
   currentQuestionIdx,
   questions,
   setCurrentQuestionIdx,
+  resultsDisabled,
   nextDisabled,
   handleResultsClick,
 }: AssessmentPrevNextProps) => {
@@ -33,9 +34,9 @@ const AssessmentPrevNext = ({
       )}
       {currentQuestionIdx === questions.length - 1 ? (
         <NextResultButtonStyled
-          bgColor={"black"}
-          cursor={"pointer"}
-          onClick={handleResultsClick}
+          bgColor={resultsDisabled ? "gray" : "black"}
+          cursor={resultsDisabled ? "default" : "pointer"}
+          onClick={resultsDisabled ? () => {} : handleResultsClick}
         >
           Submit
         </NextResultButtonStyled>
