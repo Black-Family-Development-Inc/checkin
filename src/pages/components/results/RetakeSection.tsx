@@ -9,7 +9,7 @@ const RetakeSection = (props: RetakeSectionType) => {
     props;
   const retakeBtnLabel = "Retake";
   const startOverBtnLabel = "Start Over";
-  const retakeBtnLink = "/assessments/" + title.toLowerCase();
+  const retakeBtnLink = `/assessments/${title.toLowerCase()}`;
   const scrollToLink = "/#scroll";
 
   return (
