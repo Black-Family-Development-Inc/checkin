@@ -1,13 +1,13 @@
 import React from "react";
 import QuoteSVG from "../../../../images/Vector.svg";
-import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
+import { TestimonialSectionType } from "../../../../pages/IndexPage-types";
 import {
   BoxStyled,
   ContainerStyled,
   ImageStyled,
 } from "./TestimonialSection.styles";
 
-const TestimonialSection = (props: ContentfulHomePage) => {
+const TestimonialSection = (props: TestimonialSectionType) => {
   const { testimonial, testimonialParticipant } = props;
 
   return (
