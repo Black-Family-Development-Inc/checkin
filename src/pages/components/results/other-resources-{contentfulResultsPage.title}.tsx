@@ -2,6 +2,11 @@ import { graphql, PageProps } from "gatsby";
 import React from "react";
 import { OtherResources } from "../../../components/pages/ResultsPage/OtherResources";
 
+/**
+ * These types are in this file and not in a separate dedicated file because they will be removed
+ * once we start migrating all of the "results" componenents into a single file
+ */
+
 type OtherResourcesPageTypes = {
   contentfulResultsPage: { otherResources: OtherResourcesTypes };
 };

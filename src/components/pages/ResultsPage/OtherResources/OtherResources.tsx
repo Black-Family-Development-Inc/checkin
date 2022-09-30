@@ -15,14 +15,14 @@ const OtherResources = ({
     <>
       <Typography variant="h2">{title}</Typography>
       <Typography paragraph>
+        {faqResourcesParagraph + " "}
+        <a href={faqLink}>{faqLinkText}</a>
+      </Typography>
+      <Typography paragraph>
         {bfdiResourcesParagraph + " "}
         <a href={bfdiLink} target="_blank" rel="noopener noreferrer">
           {bfdiLinkText}
         </a>
-      </Typography>
-      <Typography paragraph>
-        {faqResourcesParagraph + " "}
-        <a href={faqLink}>{faqLinkText}</a>
       </Typography>
     </>
   );
