@@ -1,7 +1,6 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
-import RetakeSection from "../components/results/RetakeSection";
 import { LocationState, ResultsPagePropTypes } from "./ResultsPage-types";
 
 const ResultsPage = ({
@@ -38,10 +37,6 @@ const ResultsPage = ({
           </p>
         </>
       )}
-      <RetakeSection
-        {...data.contentfulHomePage}
-        {...data.contentfulResultsPage}
-      />
     </AssessmentTrackerLayout>
   );
 };
@@ -53,10 +48,6 @@ export const query = graphql`
     contentfulResultsPage(title: { eq: $title }) {
       title
       retakeDescription
-    }
-    contentfulHomePage {
-      testimonial
-      testimonialParticipant
     }
   }
 `;

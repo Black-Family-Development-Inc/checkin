@@ -63,13 +63,6 @@ export type ContentfulAssessment = {
   title: string;
 };
 
-export type RetakeSectionType = {
-  retakeDescription: string;
-  testimonial: string;
-  testimonialParticipant: string;
-  title: string;
-};
-
 export type TestimonialSectionType = {
   testimonial: string;
   testimonialParticipant: string;
