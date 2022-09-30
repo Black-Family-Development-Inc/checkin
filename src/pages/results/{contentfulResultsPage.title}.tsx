@@ -47,7 +47,6 @@ export const query = graphql`
   query ($title: String!) {
     contentfulResultsPage(title: { eq: $title }) {
       title
-      retakeDescription
     }
   }
 `;

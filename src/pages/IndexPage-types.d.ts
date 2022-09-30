@@ -23,7 +23,6 @@ export type ContentfulHomePage = {
   assessmentButtons: AssessmentButton[];
   universalBottomSubHeader: string;
   universalBottomHeader: string;
-  retakeDescription: string;
 };
 
 export type ContentfulImage = {
