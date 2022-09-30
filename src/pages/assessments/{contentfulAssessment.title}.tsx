@@ -43,6 +43,8 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
   }, [questions]);
 
   const currentQuestion = questions[currentQuestionIdx];
+  const questionsLength = questions.length;
+  const nextDisabled = !usersSavedQuestions?.[currentQuestionIdx]?.answer;
   const resultsDisabled = usersSavedQuestions.some(
     (saved) => saved.answer === "",
   );
@@ -96,10 +98,11 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
 
           <AssessmentPrevNext
             currentQuestionIdx={currentQuestionIdx}
-            questions={questions}
+            questionsLength={questionsLength}
             setCurrentQuestionIdx={setCurrentQuestionIdx}
             handleResultsClick={navigateToResultsPage}
             resultsDisabled={resultsDisabled}
+            nextDisabled={nextDisabled}
           />
         </FormControl>
       </AssessmentPageStyled>

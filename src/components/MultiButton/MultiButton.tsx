@@ -23,7 +23,7 @@ const MultiButton = (props: MultiButtonPropType) => {
       </AnswerStyled>
     ),
     next: <NextStyled onClick={props.onClick}>{props.label}</NextStyled>,
-    result: <ResultStyled onClick={props.onClick}>{props.label}</ResultStyled>,
+    results: <ResultStyled onClick={props.onClick}>{props.label}</ResultStyled>,
     previous: (
       <PreviousStyled onClick={props.onClick}>{props.label}</PreviousStyled>
     ),

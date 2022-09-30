@@ -24,6 +24,6 @@ type Versions =
   | "assessment"
   | "next"
   | "previous"
-  | "result"
+  | "results"
   | "answer"
   | "universal";

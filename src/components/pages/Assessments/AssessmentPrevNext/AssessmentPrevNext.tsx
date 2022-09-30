@@ -1,54 +1,45 @@
 import React from "react";
 import MultiButton from "../../../MultiButton/MultiButton";
-import {
-  NextResultButtonStyled,
-  PreviousButtonStyled,
-  PrevNextContainerStyled,
-} from "./AssessmentPrevNext.styles";
+import { PrevNextContainerStyled } from "./AssessmentPrevNext.styles";
 import { AssessmentPrevNextProps } from "./assessmentPrevNext-types";
 
 const AssessmentPrevNext = ({
   currentQuestionIdx,
-  questions,
+  questionsLength,
   setCurrentQuestionIdx,
   resultsDisabled,
+  nextDisabled,
   handleResultsClick,
 }: AssessmentPrevNextProps) => {
   const clamp = (num: number) =>
-    Math.min(Math.max(num, 0), questions.length - 1);
+    Math.min(Math.max(num, 0), questionsLength - 1);
 
   const handleNextClick = () => {
     setCurrentQuestionIdx(clamp(currentQuestionIdx + 1));
   };
 
+  const lastQuestion = currentQuestionIdx === questionsLength - 1;
+  const lastQuestionAnswered = lastQuestion && !resultsDisabled;
+  const nextButtonDisabled = !nextDisabled && !lastQuestion;
+
   return (
     <PrevNextContainerStyled>
       {currentQuestionIdx !== 0 && (
-        <PreviousButtonStyled
-          bgColor={currentQuestionIdx === 0 ? "gray" : "black"}
-          cursor={currentQuestionIdx === 0 ? "default" : "pointer"}
+        <MultiButton
+          version="previous"
+          label="Previous"
           onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
-        >
-          Previous
-        </PreviousButtonStyled>
+        />
       )}
-      {currentQuestionIdx === questions.length - 1 ? (
-        <NextResultButtonStyled
-          bgColor={resultsDisabled ? "gray" : "black"}
-          cursor={resultsDisabled ? "default" : "pointer"}
-          onClick={resultsDisabled ? () => {} : handleResultsClick}
-        >
-          Submit
-        </NextResultButtonStyled>
-      ) : (
+      {lastQuestionAnswered && (
+        <MultiButton
+          version="results"
+          label="Submit"
+          onClick={handleResultsClick}
+        />
+      )}
+      {nextButtonDisabled && (
         <MultiButton version="next" label="Next" onClick={handleNextClick} />
-        // <NextResultButtonStyled
-        //   bgColor={nextDisabled ? "gray" : "black"}
-        //   cursor={nextDisabled ? "default" : "pointer"}
-        //   onClick={nextDisabled ? () => {} : handleNextClick}
-        // >
-        //   Next
-        // </NextResultButtonStyled>
       )}
     </PrevNextContainerStyled>
   );
