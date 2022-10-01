@@ -18,7 +18,11 @@ const MultiButton = (props: MultiButtonPropType) => {
       <AssessmentStyled onClick={props.onClick}>{props.label}</AssessmentStyled>
     ),
     answer: (
-      <AnswerStyled answer={props.answer} currentAnswer={props.currentAnswer}>
+      <AnswerStyled
+        onClick={props.onClick}
+        label={props.label}
+        usersCurrentAnswer={props.usersCurrentAnswer}
+      >
         {props.label}
       </AnswerStyled>
     ),

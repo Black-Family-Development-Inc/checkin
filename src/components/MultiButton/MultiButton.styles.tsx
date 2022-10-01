@@ -2,9 +2,6 @@ import { Button } from "@mui/material";
 import { styled } from "@mui/system";
 import { AnswerStyledProps } from "./MultiButton-types";
 
-const preventDomList = (prop: string | number | symbol) =>
-  prop !== "cursor" && prop !== "answer" && prop !== "currentAnswer";
-
 const answerAssessUniversal: Object = {
   padding: 10,
   margin: 10,
@@ -35,14 +32,18 @@ export const UniversalStyled = styled(Button)({
   },
 });
 
+const preventDomList = (prop: string | number | symbol) =>
+  prop !== "label" && prop !== "usersCurrentAnswer";
+
 export const AnswerStyled = styled(Button, {
   shouldForwardProp: (prop) => preventDomList(prop),
 })<AnswerStyledProps>((props) => ({
   ...answerAssessUniversal,
-  backgroundColor: props.currentAnswer === props.answer ? "#b8b4b7" : "#E6E1E5",
+  backgroundColor:
+    props.usersCurrentAnswer === props.label ? "#b8b4b7" : "#E6E1E5",
   ":hover": {
     backgroundColor:
-      props.currentAnswer === props.answer ? "#b8b4b7" : "#E6E1E5",
+      props.usersCurrentAnswer === props.label ? "#b8b4b7" : "#E6E1E5",
   },
 }));
 

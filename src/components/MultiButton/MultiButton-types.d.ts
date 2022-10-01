@@ -2,10 +2,18 @@ export type MultiButtonPropType = {
   version: Versions;
   onClick?: () => void;
   answer?: string;
-  currentAnswer?: string;
+  usersCurrentAnswer?: string;
   backgroundColor?: string;
   label: string;
 };
+
+type Versions =
+  | "assessment"
+  | "next"
+  | "previous"
+  | "results"
+  | "answer"
+  | "universal";
 
 export type AnswerButtonType = {
   answer?: {
@@ -16,14 +24,6 @@ export type AnswerButtonType = {
 };
 
 export type AnswerStyledProps = {
-  currentAnswer?: string;
-  answer?: string;
+  usersCurrentAnswer?: string;
+  label: string;
 };
-
-type Versions =
-  | "assessment"
-  | "next"
-  | "previous"
-  | "results"
-  | "answer"
-  | "universal";
