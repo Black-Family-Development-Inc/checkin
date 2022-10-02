@@ -4,13 +4,13 @@ import React, { useEffect, useState } from "react";
 import {
   AssessmentAnswers,
   AssessmentPrevNext,
-} from "../../components/pages/Assessments";
+} from "../../components/pages/AssessmentsPage";
 import {
   AssessmentHeaderContainer,
   AssessmentPageStyled,
   AssessmentTitleStyled,
   QuestionStyled,
-} from "../../components/pages/Assessments/AssessmentPage/AssessmentPage.styles";
+} from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import {
   AssessmentPageProps,

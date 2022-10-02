@@ -1,5 +1,6 @@
-import { Button, Link } from "@mui/material";
+import { Button } from "@mui/material";
 import { styled } from "@mui/system";
+import { Link } from "gatsby";
 import { AnswerStyledProps } from "./MultiButton-types";
 
 const answerAssessUniversal: Object = {
@@ -17,7 +18,7 @@ const answerAssessUniversal: Object = {
   textDecorationLine: "none",
   ":hover": {
     backgroundColor: "#E6E1E5",
-    border: "1px solid black",
+    border: "2px solid black",
   },
 };
 
@@ -45,11 +46,13 @@ export const AnswerStyled = styled(Button, {
   shouldForwardProp: (prop) => preventDomList(prop),
 })<AnswerStyledProps>((props) => ({
   ...answerAssessUniversal,
+  margin: "10px",
   backgroundColor:
     props.usersCurrentAnswer === props.label ? "#b8b4b7" : "#E6E1E5",
   ":hover": {
     backgroundColor:
       props.usersCurrentAnswer === props.label ? "#b8b4b7" : "#E6E1E5",
+    border: "2px solid black",
   },
 }));
 

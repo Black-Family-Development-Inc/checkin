@@ -13,10 +13,12 @@ import { MultiButtonPropType } from "./MultiButton-types";
 const MultiButton = (props: MultiButtonPropType) => {
   const buttons = {
     universal: (
-      <UniversalStyled onClick={props.onClick}>{props.label}</UniversalStyled>
+      <LinkStyled to={props.link ? props.link : "/"}>
+        <UniversalStyled onClick={props.onClick}>{props.label}</UniversalStyled>
+      </LinkStyled>
     ),
     assessment: (
-      <LinkStyled to={props.link}>
+      <LinkStyled to={props.link ? props.link : "/"}>
         <AssessmentStyled onClick={props.onClick}>
           {props.label}
         </AssessmentStyled>

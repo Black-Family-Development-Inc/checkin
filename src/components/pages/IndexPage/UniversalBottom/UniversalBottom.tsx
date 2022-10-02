@@ -1,8 +1,7 @@
-import { Link } from "gatsby";
 import React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
+import MultiButton from "../../../MultiButton/MultiButton";
 import {
-  ButtonStyled,
   UniversalBottomHeader,
   UniversalBottomSubHeader,
 } from "./UniversalBottom.styles";
@@ -18,9 +17,11 @@ const UniversalBottom = ({
       <UniversalBottomSubHeader>
         {universalBottomSubHeader}
       </UniversalBottomSubHeader>
-      <Link to={"/assessments/" + assessment.title.toLowerCase()}>
-        <ButtonStyled> {assessmentButtonLabel}</ButtonStyled>
-      </Link>
+      <MultiButton
+        version="universal"
+        label={assessmentButtonLabel}
+        link={"/assessments/" + assessment.title.toLowerCase()}
+      />
     </>
   );
 };
