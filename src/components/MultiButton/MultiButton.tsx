@@ -2,6 +2,7 @@ import React from "react";
 import {
   AnswerStyled,
   AssessmentStyled,
+  LinkStyled,
   NextStyled,
   PreviousStyled,
   ResultStyled,
@@ -15,7 +16,11 @@ const MultiButton = (props: MultiButtonPropType) => {
       <UniversalStyled onClick={props.onClick}>{props.label}</UniversalStyled>
     ),
     assessment: (
-      <AssessmentStyled onClick={props.onClick}>{props.label}</AssessmentStyled>
+      <LinkStyled to={props.link}>
+        <AssessmentStyled onClick={props.onClick}>
+          {props.label}
+        </AssessmentStyled>
+      </LinkStyled>
     ),
     answer: (
       <AnswerStyled

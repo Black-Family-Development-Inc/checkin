@@ -1,18 +1,20 @@
-import { Button } from "@mui/material";
+import { Button, Link } from "@mui/material";
 import { styled } from "@mui/system";
 import { AnswerStyledProps } from "./MultiButton-types";
 
 const answerAssessUniversal: Object = {
-  padding: 10,
-  margin: 10,
   width: "343px",
+  height: "44px",
+  padding: "10px 24px",
   fontSize: "18px",
+  fontWeight: 600,
   color: "black",
   borderRadius: "8px",
   backgroundColor: "#E6E1E5",
-  border: "1px solid black",
+  border: "2px solid black",
   fontFamily: "Roboto",
   textTransform: "none",
+  textDecorationLine: "none",
   ":hover": {
     backgroundColor: "#E6E1E5",
     border: "1px solid black",
@@ -30,6 +32,10 @@ export const UniversalStyled = styled(Button)({
   ":hover": {
     backgroundColor: "black",
   },
+});
+
+export const LinkStyled = styled(Link)({
+  textDecoration: "none",
 });
 
 const preventDomList = (prop: string | number | symbol) =>

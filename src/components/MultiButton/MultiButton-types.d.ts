@@ -1,10 +1,10 @@
 export type MultiButtonPropType = {
   version: Versions;
+  label: string;
   onClick?: () => void;
   answer?: string;
   usersCurrentAnswer?: string;
-  backgroundColor?: string;
-  label: string;
+  link?: string;
 };
 
 type Versions =
