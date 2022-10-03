@@ -1,28 +1,9 @@
-import { Button } from "@mui/material";
 import { styled } from "@mui/system";
 import { Link } from "gatsby";
 
 export const IntroSectionLinkStyled = styled(Link)({
   textDecoration: "none",
 
-  "@media(max-width: 375px)": {
-    width: "100%",
-  },
-});
-
-export const IntroSectionButtonStyled = styled(Button)({
-  padding: "10px 24px",
-  background: "#000",
-  borderRadius: "8px",
-  width: "320px",
-  height: "44px",
-  color: "#fff",
-  textDecoration: "none",
-  marginTop: "20px",
-  marginBottom: "66px",
-  fontWeight: "600",
-  fontSize: "18px",
-  textTransform: "none",
   "@media(max-width: 375px)": {
     width: "100%",
   },

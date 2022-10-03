@@ -20,6 +20,9 @@ const answerAssessUniversal: Object = {
     backgroundColor: "#E6E1E5",
     border: "2px solid black",
   },
+  "@media(max-width: 375px)": {
+    width: "280px",
+  },
 };
 
 export const AssessmentStyled = styled(Button)({
@@ -28,6 +31,8 @@ export const AssessmentStyled = styled(Button)({
 
 export const UniversalStyled = styled(Button)({
   ...answerAssessUniversal,
+  marginTop: "36px",
+  marginBottom: "66px",
   color: "white",
   backgroundColor: "black",
   ":hover": {
@@ -36,6 +41,8 @@ export const UniversalStyled = styled(Button)({
 });
 
 export const LinkStyled = styled(Link)({
+  display: "flex",
+  justifyContent: "center",
   textDecoration: "none",
 });
 

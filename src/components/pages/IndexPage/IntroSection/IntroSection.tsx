@@ -2,12 +2,8 @@ import React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
 import { HR } from "../../../HR";
 import { ImageStyled } from "../../../Image/img.styles";
-import {
-  IntroContent,
-  IntroSectionButtonStyled,
-  IntroSectionLinkStyled,
-  IntroSectionTitleStyled,
-} from "./IntroSection.styles";
+import MultiButton from "../../../MultiButton/MultiButton";
+import { IntroContent, IntroSectionTitleStyled } from "./IntroSection.styles";
 
 const IntroSection = ({
   introSectionHeader,
@@ -20,14 +16,11 @@ const IntroSection = ({
       <IntroSectionTitleStyled>{introSectionHeader}</IntroSectionTitleStyled>
       <HR />
       <IntroContent>{introSectionSubheader}</IntroContent>
-      {/* This Link/Button area should later become the <LinkButton /> component pending BFDI-91 as is not getting styles at this moment */}
-      <IntroSectionLinkStyled
-        to={"/assessments/" + assessment.title.toLowerCase()}
-      >
-        <IntroSectionButtonStyled>
-          {assessmentButtonLabel}
-        </IntroSectionButtonStyled>
-      </IntroSectionLinkStyled>
+      <MultiButton
+        version="universal"
+        label={assessmentButtonLabel}
+        link={"/assessments/" + assessment.title.toLowerCase()}
+      />
       <div>
         <ImageStyled
           srcSet={introSectionImage.gatsbyImageData.images.sources[0].srcSet}
