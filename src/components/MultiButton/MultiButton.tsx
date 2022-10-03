@@ -5,6 +5,7 @@ import {
   LinkStyled,
   NextStyled,
   PreviousStyled,
+  ResultsPageSmallStyled,
   ResultStyled,
   UniversalStyled,
 } from "./MultiButton.styles";
@@ -37,6 +38,20 @@ const MultiButton = (props: MultiButtonPropType) => {
     results: <ResultStyled onClick={props.onClick}>{props.label}</ResultStyled>,
     previous: (
       <PreviousStyled onClick={props.onClick}>{props.label}</PreviousStyled>
+    ),
+    retake: (
+      <LinkStyled to={props.link ? props.link : "/"}>
+        <ResultsPageSmallStyled onClick={props.onClick}>
+          {props.label}
+        </ResultsPageSmallStyled>
+      </LinkStyled>
+    ),
+    startOver: (
+      <LinkStyled to={props.link ? props.link : "/"}>
+        <ResultsPageSmallStyled onClick={props.onClick}>
+          {props.label}
+        </ResultsPageSmallStyled>
+      </LinkStyled>
     ),
   };
   return buttons[props.version as keyof typeof buttons];

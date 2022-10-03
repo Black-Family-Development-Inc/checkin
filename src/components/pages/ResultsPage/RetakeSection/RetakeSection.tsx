@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import React from "react";
-import AssessmentButton from "../../IndexPage/AssessmentButton/AssessmentButton";
+import MultiButton from "../../../MultiButton/MultiButton";
 import { TestimonialSection } from "../../IndexPage/Testimonial";
 import { RetakeSectionType } from "./RetakeSection-types";
 
@@ -14,8 +14,16 @@ const RetakeSection = (props: RetakeSectionType) => {
   return (
     <>
       <Typography paragraph>{retakeDescription}</Typography>
-      <AssessmentButton text={retakeBtnLabel} link={retakeBtnLink} />
-      <AssessmentButton text={startOverBtnLabel} link={scrollToLink} />
+      <MultiButton
+        version="retake"
+        label={retakeBtnLabel}
+        link={retakeBtnLink}
+      />
+      <MultiButton
+        version="startOver"
+        label={startOverBtnLabel}
+        link={scrollToLink}
+      />
       <TestimonialSection
         testimonial={resultsTestimonial.testimonialQuote}
         testimonialParticipant={resultsTestimonial.testimonialAuthor}

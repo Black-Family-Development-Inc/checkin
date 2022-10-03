@@ -13,7 +13,9 @@ type Versions =
   | "previous"
   | "results"
   | "answer"
-  | "universal";
+  | "universal"
+  | "retake"
+  | "startOver";
 
 export type AnswerButtonType = {
   answer?: {

@@ -100,3 +100,12 @@ export const PreviousStyled = styled(Button)({
     textDecorationLine: "underline",
   },
 });
+
+export const ResultsPageSmallStyled = styled(Button)({
+  ...answerAssessUniversal,
+  width: "162px",
+  "@media(max-width: 375px)": {
+    //this only overides media query from the spread opreator for now.
+    width: "162px",
+  },
+});
