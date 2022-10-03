@@ -1,6 +1,7 @@
 import React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
 import MultiButton from "../../../MultiButton/MultiButton";
+import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
 import {
   ButtonContainerStyled,
   UniversalBottomHeader,
@@ -19,11 +20,9 @@ const UniversalBottom = ({
         {universalBottomSubHeader}
       </UniversalBottomSubHeader>
       <ButtonContainerStyled>
-        <MultiButton
-          version="universal"
-          label={assessmentButtonLabel}
-          link={"/assessments/" + assessment.title.toLowerCase()}
-        />
+        <LinkStyled to={"/assessments/" + assessment.title.toLowerCase()}>
+          <MultiButton version="universal" label={assessmentButtonLabel} />
+        </LinkStyled>
       </ButtonContainerStyled>
     </>
   );

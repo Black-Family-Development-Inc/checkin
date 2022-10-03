@@ -2,7 +2,6 @@ import React from "react";
 import {
   AnswerStyled,
   AssessmentStyled,
-  LinkStyled,
   NextAndResultStyled,
   PreviousStyled,
   ResultsPageSmallStyled,
@@ -12,17 +11,9 @@ import { MultiButtonPropType } from "./MultiButton-types";
 
 const MultiButton = (props: MultiButtonPropType) => {
   const buttons = {
-    universal: (
-      <LinkStyled to={props.link ? props.link : "/"}>
-        <UniversalStyled>{props.label}</UniversalStyled>
-      </LinkStyled>
-    ),
+    universal: <UniversalStyled>{props.label}</UniversalStyled>,
     assessment: (
-      <LinkStyled to={props.link ? props.link : "/"}>
-        <AssessmentStyled onClick={props.onClick}>
-          {props.label}
-        </AssessmentStyled>
-      </LinkStyled>
+      <AssessmentStyled onClick={props.onClick}>{props.label}</AssessmentStyled>
     ),
     answer: (
       <AnswerStyled
@@ -47,18 +38,14 @@ const MultiButton = (props: MultiButtonPropType) => {
       <PreviousStyled onClick={props.onClick}>{props.label}</PreviousStyled>
     ),
     retake: (
-      <LinkStyled to={props.link ? props.link : "/"}>
-        <ResultsPageSmallStyled onClick={props.onClick}>
-          {props.label}
-        </ResultsPageSmallStyled>
-      </LinkStyled>
+      <ResultsPageSmallStyled onClick={props.onClick}>
+        {props.label}
+      </ResultsPageSmallStyled>
     ),
     startOver: (
-      <LinkStyled to={props.link ? props.link : "/"}>
-        <ResultsPageSmallStyled onClick={props.onClick}>
-          {props.label}
-        </ResultsPageSmallStyled>
-      </LinkStyled>
+      <ResultsPageSmallStyled onClick={props.onClick}>
+        {props.label}
+      </ResultsPageSmallStyled>
     ),
   };
   return buttons[props.version as keyof typeof buttons];

@@ -3,7 +3,7 @@ import { styled } from "@mui/system";
 import { Link } from "gatsby";
 import { AnswerStyledProps } from "./MultiButton-types";
 
-const answerAssessUniversal: Object = {
+const generalButtonStyles: Object = {
   width: "343px",
   height: "44px",
   padding: "10px 24px",
@@ -23,11 +23,11 @@ const answerAssessUniversal: Object = {
 };
 
 export const AssessmentStyled = styled(Button)({
-  ...answerAssessUniversal,
+  ...generalButtonStyles,
 });
 
 export const UniversalStyled = styled(Button)({
-  ...answerAssessUniversal,
+  ...generalButtonStyles,
   color: "white",
   backgroundColor: "black",
   ":hover": {
@@ -47,7 +47,7 @@ const preventDomList = (prop: string | number | symbol) =>
 export const AnswerStyled = styled(Button, {
   shouldForwardProp: (prop) => preventDomList(prop),
 })<AnswerStyledProps>((props) => ({
-  ...answerAssessUniversal,
+  ...generalButtonStyles,
   margin: "10px",
   backgroundColor:
     props.usersCurrentAnswer === props.label ? "#b8b4b7" : "#E6E1E5",
@@ -76,7 +76,7 @@ export const PreviousStyled = styled(Button)({
   width: "55px",
   height: "24px",
   fontSize: "14px",
-  marginRight: "20px",
+  marginRight: "28px",
   color: "black",
   borderRadius: "8px",
   fontFamily: "Roboto",
@@ -89,6 +89,6 @@ export const PreviousStyled = styled(Button)({
 });
 
 export const ResultsPageSmallStyled = styled(Button)({
-  ...answerAssessUniversal,
+  ...generalButtonStyles,
   width: "162px",
 });
