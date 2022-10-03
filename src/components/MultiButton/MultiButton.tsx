@@ -14,7 +14,7 @@ const MultiButton = (props: MultiButtonPropType) => {
   const buttons = {
     universal: (
       <LinkStyled to={props.link ? props.link : "/"}>
-        <UniversalStyled onClick={props.onClick}>{props.label}</UniversalStyled>
+        <UniversalStyled>{props.label}</UniversalStyled>
       </LinkStyled>
     ),
     assessment: (

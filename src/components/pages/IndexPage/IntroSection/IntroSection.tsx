@@ -3,7 +3,11 @@ import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
 import { HR } from "../../../HR";
 import { ImageStyled } from "../../../Image/img.styles";
 import MultiButton from "../../../MultiButton/MultiButton";
-import { IntroContent, IntroSectionTitleStyled } from "./IntroSection.styles";
+import {
+  ButtonContainerStyled,
+  IntroContent,
+  IntroSectionTitleStyled,
+} from "./IntroSection.styles";
 
 const IntroSection = ({
   introSectionHeader,
@@ -16,11 +20,13 @@ const IntroSection = ({
       <IntroSectionTitleStyled>{introSectionHeader}</IntroSectionTitleStyled>
       <HR />
       <IntroContent>{introSectionSubheader}</IntroContent>
-      <MultiButton
-        version="universal"
-        label={assessmentButtonLabel}
-        link={"/assessments/" + assessment.title.toLowerCase()}
-      />
+      <ButtonContainerStyled>
+        <MultiButton
+          version="universal"
+          label={assessmentButtonLabel}
+          link={"/assessments/" + assessment.title.toLowerCase()}
+        />
+      </ButtonContainerStyled>
       <div>
         <ImageStyled
           srcSet={introSectionImage.gatsbyImageData.images.sources[0].srcSet}

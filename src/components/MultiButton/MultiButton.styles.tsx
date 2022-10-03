@@ -20,9 +20,6 @@ const answerAssessUniversal: Object = {
     backgroundColor: "#E6E1E5",
     border: "2px solid black",
   },
-  "@media(max-width: 375px)": {
-    width: "280px",
-  },
 };
 
 export const AssessmentStyled = styled(Button)({
@@ -31,8 +28,6 @@ export const AssessmentStyled = styled(Button)({
 
 export const UniversalStyled = styled(Button)({
   ...answerAssessUniversal,
-  marginTop: "36px",
-  marginBottom: "66px",
   color: "white",
   backgroundColor: "black",
   ":hover": {
@@ -85,7 +80,7 @@ export const PreviousStyled = styled(Button)({
   color: "black",
   borderRadius: "8px",
   fontFamily: "Roboto",
-  fontWeight: 600,
+  fontWeight: 500,
   textTransform: "none",
   textDecorationLine: "underline",
   ":hover": {
@@ -96,8 +91,4 @@ export const PreviousStyled = styled(Button)({
 export const ResultsPageSmallStyled = styled(Button)({
   ...answerAssessUniversal,
   width: "162px",
-  "@media(max-width: 375px)": {
-    //this only overides media query from the spread opreator for now.
-    width: "162px",
-  },
 });

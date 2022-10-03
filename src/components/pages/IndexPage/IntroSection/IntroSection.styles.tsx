@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 import { Link } from "gatsby";
 
@@ -29,4 +30,9 @@ export const IntroContent = styled("p")({
   letterSpacing: "0.5px",
   color: "rgba(0, 0, 0, 0.87);",
   fontWeight: "400",
+});
+
+export const ButtonContainerStyled = styled(Box)({
+  marginTop: "36px",
+  marginBottom: "66px",
 });
