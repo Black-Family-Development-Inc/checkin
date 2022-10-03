@@ -3,10 +3,9 @@ import {
   AnswerStyled,
   AssessmentStyled,
   LinkStyled,
-  NextStyled,
+  NextAndResultStyled,
   PreviousStyled,
   ResultsPageSmallStyled,
-  ResultStyled,
   UniversalStyled,
 } from "./MultiButton.styles";
 import { MultiButtonPropType } from "./MultiButton-types";
@@ -34,8 +33,16 @@ const MultiButton = (props: MultiButtonPropType) => {
         {props.label}
       </AnswerStyled>
     ),
-    next: <NextStyled onClick={props.onClick}>{props.label}</NextStyled>,
-    results: <ResultStyled onClick={props.onClick}>{props.label}</ResultStyled>,
+    next: (
+      <NextAndResultStyled onClick={props.onClick}>
+        {props.label}
+      </NextAndResultStyled>
+    ),
+    results: (
+      <NextAndResultStyled onClick={props.onClick}>
+        {props.label}
+      </NextAndResultStyled>
+    ),
     previous: (
       <PreviousStyled onClick={props.onClick}>{props.label}</PreviousStyled>
     ),

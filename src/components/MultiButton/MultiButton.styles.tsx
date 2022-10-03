@@ -63,7 +63,7 @@ export const AnswerStyled = styled(Button, {
   },
 }));
 
-const nextAndResult: Object = {
+export const NextAndResultStyled = styled(Button)({
   width: "120px",
   fontSize: "18px",
   color: "white",
@@ -75,14 +75,6 @@ const nextAndResult: Object = {
   ":hover": {
     backgroundColor: "black",
   },
-};
-
-export const NextStyled = styled(Button)({
-  ...nextAndResult,
-});
-
-export const ResultStyled = styled(Button)({
-  ...nextAndResult,
 });
 
 export const PreviousStyled = styled(Button)({
