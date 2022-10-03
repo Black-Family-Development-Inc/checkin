@@ -7,8 +7,8 @@ const AssessmentPrevNext = ({
   currentQuestionIdx,
   questionsLength,
   setCurrentQuestionIdx,
-  resultsDisabled,
   nextDisabled,
+  resultsDisabled,
   handleResultsClick,
 }: AssessmentPrevNextProps) => {
   const clamp = (num: number) =>
@@ -19,8 +19,6 @@ const AssessmentPrevNext = ({
   };
 
   const lastQuestion = currentQuestionIdx === questionsLength - 1;
-  const lastQuestionAnswered = lastQuestion && !resultsDisabled;
-  const nextButtonDisabled = !nextDisabled && !lastQuestion;
 
   return (
     <PrevNextContainerStyled>
@@ -31,15 +29,18 @@ const AssessmentPrevNext = ({
           onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
         />
       )}
-      {lastQuestionAnswered && (
+      {lastQuestion ? (
         <MultiButton
           version="results"
           label="Submit"
-          onClick={handleResultsClick}
+          onClick={resultsDisabled ? () => {} : handleResultsClick}
         />
-      )}
-      {nextButtonDisabled && (
-        <MultiButton version="next" label="Next" onClick={handleNextClick} />
+      ) : (
+        <MultiButton
+          version="next"
+          label="Next"
+          onClick={nextDisabled ? () => {} : handleNextClick}
+        />
       )}
     </PrevNextContainerStyled>
   );
