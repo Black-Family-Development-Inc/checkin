@@ -21,7 +21,7 @@ export default function Accordion(props: AccordionPropTypes) {
 
   return (
     <CardStyled square={true}>
-      <AccordionHeaderContainerStyled className="Hello">
+      <AccordionHeaderContainerStyled>
         <CardHeader title={props.title} />
         {props.summary && <Typography paragraph>{props.summary}</Typography>}
         <CardActions>
