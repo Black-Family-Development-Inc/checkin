@@ -1,5 +1,5 @@
 import { FormControl, Typography } from "@mui/material";
-import { graphql, navigate } from "gatsby";
+import { graphql, navigate, PageProps } from "gatsby";
 import React, { useEffect, useState } from "react";
 import {
   AssessmentAnswers,
@@ -14,16 +14,22 @@ import {
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import {
   AssessmentPageProps,
+  LocationState,
   UsersSavedQuestion,
 } from "./AssessmentPage-types";
 
-const AssessmentPage = ({ data }: AssessmentPageProps) => {
+const AssessmentPage = ({
+  data,
+  location: { state },
+}: PageProps<AssessmentPageProps, object, LocationState>) => {
   const {
     contentfulAssessment: {
       title,
       assessment: { answers, questions, severityRubric },
     },
   } = data;
+
+  const { numOfSteps } = state || {};
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
@@ -71,7 +77,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
     usersSavedQuestions.reduce((prev, curr) => prev + curr.score, 0);
 
   return (
-    <AssessmentTrackerLayout>
+    <AssessmentTrackerLayout numOfSteps={numOfSteps}>
       <AssessmentPageStyled>
         <AssessmentHeaderContainer>
           <AssessmentTitleStyled>

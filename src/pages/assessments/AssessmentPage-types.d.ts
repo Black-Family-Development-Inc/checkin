@@ -1,3 +1,5 @@
+import { NumOfSteps } from "../../components/pages/Assessments/AssessmentStepper/AssessmentStepper-types";
+
 export type AssessmentStep = {
   label: string;
   isComplete: boolean;
@@ -51,9 +53,7 @@ export type ContentfulButton = {
 };
 
 export type AssessmentPageProps = {
-  data: {
-    contentfulAssessment: { title: string; assessment: Assessment };
-  };
+  contentfulAssessment: { title: string; assessment: Assessment };
 };
 
 export type UsersSavedQuestion = {
@@ -61,4 +61,8 @@ export type UsersSavedQuestion = {
   answer: string;
   score: number;
   triggered: boolean;
+};
+
+export type LocationState = {
+  numOfSteps: NumOfSteps;
 };
