@@ -1,13 +1,12 @@
 import Step from "@mui/material/Step";
-import StepButton from "@mui/material/StepButton";
+import StepLabel from "@mui/material/StepLabel";
 import Stepper from "@mui/material/Stepper";
-import React, { useState } from "react";
+import React from "react";
 import { AssessmentStep } from "../../../../pages/assessments/AssessmentPage-types";
 import { AssessmentStepperPropTypes } from "./AssessmentStepper-types";
 
 const AssessmentStepper = ({ steps }: AssessmentStepperPropTypes) => {
-  const [assessmentActiveStep, setAssessmentActiveStep] = useState<number>(0);
-
+  const assessmentActiveStep = 0;
   const isStepComplete = (step: AssessmentStep) => {
     const stepIdx = steps.findIndex(({ label }) => label === step.label);
     return stepIdx === assessmentActiveStep ? false : step.isComplete;
@@ -27,9 +26,7 @@ const AssessmentStepper = ({ steps }: AssessmentStepperPropTypes) => {
             completed={isStepComplete(step)}
             disabled={!step.isComplete}
           >
-            <StepButton onClick={() => setAssessmentActiveStep(idx)}>
-              {step.label}
-            </StepButton>
+            <StepLabel key={idx}>{step.label}</StepLabel>
           </Step>
         ))}
       </Stepper>
