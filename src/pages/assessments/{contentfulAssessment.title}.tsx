@@ -9,6 +9,7 @@ import {
   AssessmentHeaderContainer,
   AssessmentPageStyled,
   AssessmentTitleStyled,
+  DirectionsStyled,
   QuestionStyled,
 } from "../../components/pages/Assessments/AssessmentPage/AssessmentPage.styles";
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
@@ -21,7 +22,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
   const {
     contentfulAssessment: {
       title,
-      assessment: { answers, questions, severityRubric },
+      assessment: { answers, questions, description, severityRubric },
     },
   } = data;
 
@@ -78,6 +79,14 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
             {titles[title.toLocaleLowerCase() as keyof typeof titles]}{" "}
             Assessment
           </AssessmentTitleStyled>
+          {currentQuestionIdx === 0 && description && (
+            <DirectionsStyled>
+              <Typography sx={{ fontWeight: "700", marginBottom: "12px" }}>
+                Directions
+              </Typography>
+              <Typography>{description}</Typography>
+            </DirectionsStyled>
+          )}
           <QuestionStyled>
             <Typography>{currentQuestion.text}</Typography>
             <Typography sx={{ paddingLeft: "35px" }}>
