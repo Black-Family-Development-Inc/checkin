@@ -51,8 +51,8 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
 
   const titles = {
     "phq-9": "Depression",
-    "dast-10": "Anxiety",
-    "gad-7": "Substance Use",
+    "dast-10": "Substance Use",
+    "gad-7": "Anxiety",
     universal: "Universal",
   };
 
