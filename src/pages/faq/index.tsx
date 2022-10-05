@@ -4,6 +4,7 @@ import React from "react";
 import Accordion from "../../components/Accordion/Accordion";
 import { Header } from "../../components/Header";
 import { HR } from "../../components/HR";
+import NavigationButton from "../../components/NavigationButton/NavigationButton";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
 import { FaqAccordion, FaqPagePropTypes } from "./FaqPage-types";
 
@@ -17,6 +18,7 @@ const FaqPage = ({
 
   return (
     <DefaultLayout>
+      <NavigationButton />
       <Header text={headerText} />
       <HR />
       <Typography paragraph>{subHeader}</Typography>
