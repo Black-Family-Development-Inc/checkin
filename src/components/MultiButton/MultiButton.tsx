@@ -1,8 +1,10 @@
 import React from "react";
 import {
+  AllArticlesStyled,
   AnswerStyled,
   AssessmentStyled,
   NextAndResultStyled,
+  PhoneNumberStyled,
   PreviousStyled,
   ResultsPageSmallStyled,
   UniversalStyled,
@@ -47,8 +49,16 @@ const MultiButton = (props: MultiButtonPropType) => {
         {props.label}
       </ResultsPageSmallStyled>
     ),
-    phoneNumber: <button id={props.phoneNumber}>{props.label}</button>,
-    allArticles: <button onClick={props.onClick}>{props.label}</button>,
+    phoneNumber: (
+      <PhoneNumberStyled id={props.phoneNumber}>
+        {props.label}
+      </PhoneNumberStyled>
+    ), //id is just a placeholder for what needs to be done with phoneNumber in a future card web/mobile functionality
+    allArticles: (
+      <AllArticlesStyled onClick={props.onClick}>
+        {props.label}
+      </AllArticlesStyled>
+    ),
   };
   return buttons[props.version as keyof typeof buttons];
 };

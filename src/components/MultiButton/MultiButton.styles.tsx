@@ -92,3 +92,7 @@ export const ResultsPageSmallStyled = styled(Button)({
   ...generalButtonStyles,
   width: "162px",
 });
+
+export const PhoneNumberStyled = styled(Button)``;
+
+export const AllArticlesStyled = styled(Button)``;
