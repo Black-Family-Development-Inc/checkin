@@ -1,5 +1,5 @@
 import React from "react";
-import { AssessmentStepper } from "../../../components/pages/Assessments";
+import { AssessmentStepper } from "../../../components/pages/AssessmentsPage";
 
 const Stepper = () => {
   return (

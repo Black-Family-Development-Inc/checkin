@@ -4,8 +4,8 @@ import {
   AnswerOption,
   AnswerTypes,
 } from "../../../../pages/assessments/AssessmentPage-types";
-import AnswerButton from "../AnswerButton/AnswerButton";
-import { AnswerButtonGroupStyled } from "../AnswerButton/AnswerButton.styles";
+import MultiButton from "../../../MultiButton/MultiButton";
+import { AnswerButtonGroupStyled } from "./AssessmentAnswers.styles";
 import { AssessmentAnswersProps } from "./assessmentAnswers-types";
 
 const AssessmentAnswers = ({
@@ -42,9 +42,10 @@ const AssessmentAnswers = ({
     <AnswerButtonGroupStyled>
       {getAppropriateAnswers()?.map((answer: AnswerOption) => (
         <Box key={answer.text}>
-          <AnswerButton
-            answer={answer}
-            handleAnswerClick={handleAnswerClick}
+          <MultiButton
+            version="answer"
+            label={answer.text}
+            onClick={() => handleAnswerClick(answer)}
             usersCurrentAnswer={usersCurrentAnswer}
           />
         </Box>

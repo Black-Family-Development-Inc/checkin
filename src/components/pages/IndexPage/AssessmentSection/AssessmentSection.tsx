@@ -5,7 +5,8 @@ import {
   ContentfulHomePage,
 } from "../../../../pages/IndexPage-types";
 import { HR } from "../../../HR";
-import AssessmentButton from "../AssessmentButton/AssessmentButton";
+import MultiButton from "../../../MultiButton/MultiButton";
+import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
 import {
   AssessmentQuestionStyled,
   AssessmentQuestionWrapperStyled,
@@ -38,7 +39,9 @@ const AssessmentSection = (props: ContentfulHomePage) => {
               {button.assessmentDescription}
             </AssessmentQuestionStyled>
             <Box key={button.buttonText}>
-              <AssessmentButton text={button.buttonText} link={link} />
+              <LinkStyled to={link}>
+                <MultiButton version="assessment" label={button.buttonText} />
+              </LinkStyled>
             </Box>
           </AssessmentQuestionWrapperStyled>
         );
