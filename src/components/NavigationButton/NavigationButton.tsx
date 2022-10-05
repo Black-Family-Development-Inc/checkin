@@ -6,7 +6,7 @@ const handleGoBack = () => {
   history.back();
 };
 
-const BackButton = () => {
+const NavigationButton = () => {
   return (
     <>
       <Button onClick={handleGoBack}>
@@ -16,4 +16,4 @@ const BackButton = () => {
   );
 };
 
-export default BackButton;
+export default NavigationButton;
