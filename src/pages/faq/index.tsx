@@ -18,8 +18,7 @@ const FaqPage = ({
 
   return (
     <DefaultLayout>
-      // Add NavigationButton component For Testing purposes remove component
-      when working on navigational card
+      {/*Add NavigationButton component For Testing purposes remove component when working on navigational card */}
       <NavigationButton />
       <Header text={headerText} />
       <HR />
