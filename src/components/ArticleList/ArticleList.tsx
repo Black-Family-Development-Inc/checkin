@@ -14,7 +14,7 @@ const ArticleList = ({ articles }: { articles: ArticleType[] }) => {
         ) => {
           return (
             <a
-              id={articleTitle}
+              key={articleTitle + index}
               href={articleLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -23,8 +23,15 @@ const ArticleList = ({ articles }: { articles: ArticleType[] }) => {
                 {articleTitle}
                 <br />
                 {articleSubTitle}
-                <br />
-                This articles color code is {articleType}
+                {
+                  articleType && (
+                    <>
+                      <br />
+                      `This articles color code is ${articleType}`
+                    </>
+                  )
+                  // this code block {} should be removed once this component is merged with results pages, starting at "articleType"
+                }
               </StyledListItem>
               {articles.length !== index + 1 && <hr />}
             </a>
