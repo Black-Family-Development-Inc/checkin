@@ -3,7 +3,6 @@ import React from "react";
 import Accordion from "../../components/Accordion/Accordion";
 import { Header } from "../../components/Header";
 import { HR } from "../../components/HR";
-import NavigationButton from "../../components/NavigationButton/NavigationButton";
 import { Paragraph } from "../../components/Paragraph";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
 import { FaqAccordion, FaqPagePropTypes } from "./FaqPage-types";
@@ -18,8 +17,6 @@ const FaqPage = ({
 
   return (
     <DefaultLayout>
-      {/*Add NavigationButton component For Testing purposes remove component when working on navigational card */}
-      <NavigationButton />
       <Header text={headerText} />
       <HR />
       <Paragraph>{subHeader}</Paragraph>

@@ -47,6 +47,11 @@ const MultiButton = (props: MultiButtonPropType) => {
         {props.label}
       </ResultsPageSmallStyled>
     ),
+    navButton: (
+      <button onClick={props.onClick}>
+        {props.children} {props.label}
+      </button>
+    ),
   };
   return buttons[props.version as keyof typeof buttons];
 };
