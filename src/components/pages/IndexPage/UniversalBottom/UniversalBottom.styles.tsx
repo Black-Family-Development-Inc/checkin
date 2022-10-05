@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Box } from "@mui/material";
 
 export const UniversalBottomHeader = styled("h4")({
   fontSize: "26px",
@@ -15,24 +16,12 @@ export const UniversalBottomHeader = styled("h4")({
   },
 });
 
+export const ButtonContainerStyled = styled(Box)({
+  marginTop: "36px",
+  marginBottom: "66px",
+});
+
 export const UniversalBottomSubHeader = styled("p")({
   fontSize: "16px",
   marginBottom: "36px",
-});
-
-export const ButtonStyled = styled("button")({
-  padding: "10px 24px",
-  background: "#000",
-  borderRadius: "8px",
-  width: "320px",
-  height: "44px",
-  color: "#fff",
-  textDecoration: "none",
-  marginTop: "20px",
-  fontSize: "18px",
-  textTransform: "none",
-  fontWeight: "600",
-  "@media(max-width: 375px)": {
-    width: "100%",
-  },
 });

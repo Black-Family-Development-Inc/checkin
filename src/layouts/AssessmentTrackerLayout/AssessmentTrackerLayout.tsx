@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
-import { AssessmentStepper } from "../../components/pages/Assessments";
+import { AssessmentStepper } from "../../components/pages/AssessmentsPage";
 import { AssessmentStep } from "../../pages/assessments/AssessmentPage-types";
 import { AssessmentTrackerLayoutPropTypes } from "./AssessmentTrackerLayout-types";
 
