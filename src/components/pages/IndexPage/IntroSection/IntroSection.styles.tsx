@@ -1,28 +1,10 @@
-import { Button } from "@mui/material";
+import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 import { Link } from "gatsby";
 
 export const IntroSectionLinkStyled = styled(Link)({
   textDecoration: "none",
 
-  "@media(max-width: 375px)": {
-    width: "100%",
-  },
-});
-
-export const IntroSectionButtonStyled = styled(Button)({
-  padding: "10px 24px",
-  background: "#000",
-  borderRadius: "8px",
-  width: "320px",
-  height: "44px",
-  color: "#fff",
-  textDecoration: "none",
-  marginTop: "20px",
-  marginBottom: "66px",
-  fontWeight: "600",
-  fontSize: "18px",
-  textTransform: "none",
   "@media(max-width: 375px)": {
     width: "100%",
   },
@@ -48,4 +30,9 @@ export const IntroContent = styled("p")({
   letterSpacing: "0.5px",
   color: "rgba(0, 0, 0, 0.87);",
   fontWeight: "400",
+});
+
+export const ButtonContainerStyled = styled(Box)({
+  marginTop: "36px",
+  marginBottom: "66px",
 });

@@ -1,10 +1,10 @@
 import { graphql, PageProps } from "gatsby";
 import * as React from "react";
-import UniversalBottom from "../components/pages/home/UniversalBottom/UniversalBottom";
 import AssessmentSection from "../components/pages/IndexPage/AssessmentSection/AssessmentSection";
 import { IntroSection } from "../components/pages/IndexPage/IntroSection";
 import AssessmentInstructions from "../components/pages/IndexPage/IntroSection/AssessmentInstructions";
 import { TestimonialSection } from "../components/pages/IndexPage/Testimonial";
+import UniversalBottom from "../components/pages/IndexPage/UniversalBottom/UniversalBottom";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
 

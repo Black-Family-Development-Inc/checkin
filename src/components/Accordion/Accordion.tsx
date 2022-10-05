@@ -2,7 +2,6 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   Button,
-  Card,
   CardActions,
   CardContent,
   CardHeader,
@@ -10,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import * as React from "react";
+import { AccordionHeaderContainerStyled, CardStyled } from "./Accordion.styles";
 import { AccordionPropTypes } from "./Accordion-types";
 
 export default function Accordion(props: AccordionPropTypes) {
@@ -20,18 +20,21 @@ export default function Accordion(props: AccordionPropTypes) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardHeader title={props.title} />
-      {props.summary && <Typography paragraph>{props.summary}</Typography>}
-      <CardActions>
-        <Button onClick={handleExpandClick}>
-          {expanded ? (
-            <ExpandLessIcon aria-expanded={expanded} aria-label="show more" />
-          ) : (
-            <ExpandMoreIcon aria-expanded={expanded} aria-label="show less" />
-          )}
-        </Button>
-      </CardActions>
+    <CardStyled square={true}>
+      <AccordionHeaderContainerStyled>
+        <CardHeader title={props.title} />
+        {props.summary && <Typography paragraph>{props.summary}</Typography>}
+        <CardActions>
+          <Button onClick={handleExpandClick}>
+            {expanded ? (
+              <ExpandLessIcon aria-expanded={expanded} aria-label="show more" />
+            ) : (
+              <ExpandMoreIcon aria-expanded={expanded} aria-label="show less" />
+            )}
+          </Button>
+        </CardActions>
+      </AccordionHeaderContainerStyled>
+
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           {props.assessmentScore && props.assessmentSeverity && (
@@ -43,6 +46,6 @@ export default function Accordion(props: AccordionPropTypes) {
           <Typography paragraph>{props.body}</Typography>
         </CardContent>
       </Collapse>
-    </Card>
+    </CardStyled>
   );
 }
