@@ -36,7 +36,7 @@ export type Question = {
 
 export type Assessment = {
   questions: Question[];
-  headings: Heading[];
+  headings: Heading;
   description: Description;
   severityRubric: Severity[];
   answers: {

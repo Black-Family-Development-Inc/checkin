@@ -1,6 +1,7 @@
 import { FormControl, Typography } from "@mui/material";
 import { graphql, navigate } from "gatsby";
 import React, { useEffect, useState } from "react";
+import { HR } from "../../components/HR";
 import {
   AssessmentAnswers,
   AssessmentPrevNext,
@@ -11,6 +12,7 @@ import {
   AssessmentTitleStyled,
   QuestionStyled,
 } from "../../components/pages/Assessments/AssessmentPage/AssessmentPage.styles";
+import { AssessmentHeaderStyled } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import {
   AssessmentPageProps,
@@ -21,7 +23,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
   const {
     contentfulAssessment: {
       title,
-      assessment: { answers, questions, severityRubric },
+      assessment: { answers, questions, severityRubric, headings },
     },
   } = data;
 
@@ -78,6 +80,8 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
             {titles[title.toLocaleLowerCase() as keyof typeof titles]}{" "}
             Assessment
           </AssessmentTitleStyled>
+          <HR />
+          <AssessmentHeaderStyled>{headings.scale}</AssessmentHeaderStyled>
           <QuestionStyled>
             <Typography>{currentQuestion.text}</Typography>
             <Typography sx={{ paddingLeft: "35px" }}>
