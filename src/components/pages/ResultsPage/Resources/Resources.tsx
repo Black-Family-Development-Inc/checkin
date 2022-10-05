@@ -3,6 +3,7 @@ import { navigate } from "gatsby";
 import React from "react";
 import { ResourcesTypes } from "../../../../pages/components/results/resources-section-{contentfulResultsPage.title}";
 import ArticleList from "../../../ArticleList/ArticleList";
+import MultiButton from "../../../MultiButton/MultiButton";
 
 const Resources = ({
   header,
@@ -25,18 +26,28 @@ const Resources = ({
     <>
       <Typography variant="h2">{header}</Typography>
       <Typography paragraph>{bfdiButtonDescription}</Typography>
-      <button id={bfdiIntakeNumber}>{bfdiButtonText}</button>
+      <MultiButton
+        version="phoneNumber"
+        phoneNumber={bfdiIntakeNumber}
+        label={bfdiButtonText}
+      />
       {renderCrisisButton && (
         <div>
           <Typography paragraph>{crisisLineDescription}</Typography>
-          <button id={crisisLineNumber}>{crisisLineButtonText}</button>
+          <MultiButton
+            version="phoneNumber"
+            phoneNumber={crisisLineNumber}
+            label={crisisLineButtonText}
+          />
         </div>
       )}
       <Typography paragraph>{headingForArticles}</Typography>
       <ArticleList articles={articles} />
-      <button onClick={() => navigate(allResourcesLink)}>
-        {allResourcesText}
-      </button>
+      <MultiButton
+        version="allArticles"
+        onClick={() => navigate(allResourcesLink)}
+        label={allResourcesText}
+      />
       <hr />
     </>
   );

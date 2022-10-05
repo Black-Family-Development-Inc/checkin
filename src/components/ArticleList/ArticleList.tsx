@@ -27,7 +27,7 @@ const ArticleList = ({ articles }: { articles: ArticleType[] }) => {
                   articleType && (
                     <>
                       <br />
-                      `This articles color code is ${articleType}`
+                      {`This articles color code is ${articleType}`}
                     </>
                   )
                   // this code block {} should be removed once this component is merged with results pages, starting at "articleType"

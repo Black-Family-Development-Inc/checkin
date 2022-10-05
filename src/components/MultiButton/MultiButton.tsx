@@ -47,6 +47,8 @@ const MultiButton = (props: MultiButtonPropType) => {
         {props.label}
       </ResultsPageSmallStyled>
     ),
+    phoneNumber: <button id={props.phoneNumber}>{props.label}</button>,
+    allArticles: <button onClick={props.onClick}>{props.label}</button>,
   };
   return buttons[props.version as keyof typeof buttons];
 };

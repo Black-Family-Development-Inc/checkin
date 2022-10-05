@@ -4,6 +4,7 @@ export type MultiButtonPropType = {
   onClick?: () => void;
   answer?: string;
   usersCurrentAnswer?: string;
+  phoneNumber?: string;
 };
 
 type Versions =
@@ -14,7 +15,9 @@ type Versions =
   | "answer"
   | "universal"
   | "retake"
-  | "startOver";
+  | "startOver"
+  | "phoneNumber"
+  | "allArticles";
 
 export type AnswerStyledProps = {
   usersCurrentAnswer?: string;

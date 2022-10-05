@@ -36,7 +36,7 @@ const ResourcesPage = ({ data }: PageProps<ResourcesPageTypes>) => {
 
 export default ResourcesPage;
 
-//remove "title" from line 42 inside the resources object once merged with actual results pages
+//remove "title" from line 44 inside the resources object once merged with actual results pages
 export const query = graphql`
   query ($title: String) {
     contentfulResultsPage(title: { eq: $title }) {
