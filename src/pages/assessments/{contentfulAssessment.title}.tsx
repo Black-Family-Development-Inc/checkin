@@ -4,13 +4,13 @@ import React, { useEffect, useState } from "react";
 import {
   AssessmentAnswers,
   AssessmentPrevNext,
-} from "../../components/pages/Assessments";
+} from "../../components/pages/AssessmentsPage";
 import {
   AssessmentHeaderContainer,
   AssessmentPageStyled,
   AssessmentTitleStyled,
   QuestionStyled,
-} from "../../components/pages/Assessments/AssessmentPage/AssessmentPage.styles";
+} from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import {
   AssessmentPageProps,
@@ -43,6 +43,7 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
   }, [questions]);
 
   const currentQuestion = questions[currentQuestionIdx];
+  const questionsLength = questions.length;
   const nextDisabled = !usersSavedQuestions?.[currentQuestionIdx]?.answer;
   const resultsDisabled = usersSavedQuestions.some(
     (saved) => saved.answer === "",
@@ -97,11 +98,11 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
 
           <AssessmentPrevNext
             currentQuestionIdx={currentQuestionIdx}
-            questions={questions}
+            questionsLength={questionsLength}
             setCurrentQuestionIdx={setCurrentQuestionIdx}
-            nextDisabled={nextDisabled}
-            resultsDisabled={resultsDisabled}
             handleResultsClick={navigateToResultsPage}
+            resultsDisabled={resultsDisabled}
+            nextDisabled={nextDisabled}
           />
         </FormControl>
       </AssessmentPageStyled>

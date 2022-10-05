@@ -13,7 +13,7 @@ export const ContainerStyled = styled(Box)({
   backgroundColor: "rgba(0, 0, 0, 0.8);",
   margin: "0",
   position: "relative",
-  marginTop: "66px",
+  marginTop: "11px",
   marginBottom: "36px",
   "@media(max-width: 375px)": {
     width: "100%",

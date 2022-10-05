@@ -1,10 +1,10 @@
-import { Typography } from "@mui/material";
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import Accordion from "../../components/Accordion/Accordion";
 import { Header } from "../../components/Header";
 import { HR } from "../../components/HR";
 import NavigationButton from "../../components/NavigationButton/NavigationButton";
+import { Paragraph } from "../../components/Paragraph";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
 import { FaqAccordion, FaqPagePropTypes } from "./FaqPage-types";
 
@@ -22,7 +22,7 @@ const FaqPage = ({
       <NavigationButton />
       <Header text={headerText} />
       <HR />
-      <Typography paragraph>{subHeader}</Typography>
+      <Paragraph>{subHeader}</Paragraph>
       {contentfulFaqPage.faqAccordion.map((accordion: FaqAccordion) => {
         const {
           title,
