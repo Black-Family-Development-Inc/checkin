@@ -16,14 +16,22 @@ const Resources = ({
   allResourcesLink,
   allResourcesText,
   articles,
+  title, // remove title once merged with results pages, its only for testing purposes
+  severity,
 }: ResourcesTypes) => {
+  const renderCrisisButton =
+    severity === "High" || title === "Resources for DAST-10"; //this will need to be changed once merged with the actual results pages
   return (
     <>
       <Typography variant="h2">{header}</Typography>
       <Typography paragraph>{bfdiButtonDescription}</Typography>
       <button id={bfdiIntakeNumber}>{bfdiButtonText}</button>
-      <Typography paragraph>{crisisLineDescription}</Typography>
-      <button id={crisisLineNumber}>{crisisLineButtonText}</button>
+      {renderCrisisButton && (
+        <div>
+          <Typography paragraph>{crisisLineDescription}</Typography>
+          <button id={crisisLineNumber}>{crisisLineButtonText}</button>
+        </div>
+      )}
       <Typography paragraph>{headingForArticles}</Typography>
       <ArticleList articles={articles} />
       <button onClick={() => navigate(allResourcesLink)}>
