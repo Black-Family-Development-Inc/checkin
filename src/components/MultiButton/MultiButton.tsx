@@ -2,6 +2,7 @@ import React from "react";
 import {
   AnswerStyled,
   AssessmentStyled,
+  NavButtonStyled,
   NextAndResultStyled,
   PreviousStyled,
   ResultsPageSmallStyled,
@@ -48,9 +49,9 @@ const MultiButton = (props: MultiButtonPropType) => {
       </ResultsPageSmallStyled>
     ),
     navButton: (
-      <button onClick={props.onClick}>
+      <NavButtonStyled onClick={props.onClick}>
         {props.children} {props.label}
-      </button>
+      </NavButtonStyled>
     ),
   };
   return buttons[props.version as keyof typeof buttons];
