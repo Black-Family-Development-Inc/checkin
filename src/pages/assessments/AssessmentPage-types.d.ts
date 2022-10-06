@@ -25,6 +25,7 @@ export type Severity = {
 export type Heading = {
   scale: string;
   binary: string;
+  custom: string;
 };
 
 export type Question = {

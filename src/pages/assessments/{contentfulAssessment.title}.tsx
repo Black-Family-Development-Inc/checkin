@@ -58,9 +58,6 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
     universal: "Universal",
   };
 
-  const getAppropriateHeading = () =>
-    currentQuestion.questionType === "scale" ? headings.scale : headings.binary;
-
   const checkTriggerQuestions = () =>
     usersSavedQuestions.some((question) => question.triggered);
 
@@ -85,9 +82,11 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
             Assessment
           </AssessmentTitleStyled>
           <HR />
-          <AssessmentHeaderStyled>
-            {getAppropriateHeading()}
-          </AssessmentHeaderStyled>
+          {headings && (
+            <AssessmentHeaderStyled>
+              {headings[currentQuestion?.questionType]}
+            </AssessmentHeaderStyled>
+          )}
           <QuestionStyled>
             <Typography>{currentQuestion.text}</Typography>
             <Typography sx={{ paddingLeft: "35px" }}>
