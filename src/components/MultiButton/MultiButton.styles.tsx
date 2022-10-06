@@ -93,6 +93,6 @@ export const ResultsPageSmallStyled = styled(Button)({
   width: "162px",
 });
 
-export const PhoneNumberStyled = styled(Button)``;
+export const PhoneNumberStyled = styled(Link)``;
 
-export const AllArticlesStyled = styled(Button)``;
+export const AllArticlesStyled = styled(Link)``;

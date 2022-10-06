@@ -1,44 +1,47 @@
+import SquareIcon from "@mui/icons-material/Square";
+import Divider from "@mui/material/Divider";
+import Link from "@mui/material/Link";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 import React from "react";
-import { StyledListItem } from "./ArticleList.styles";
 import { ArticleType } from "./Articles-types";
 
 const ArticleList = ({ articles }: { articles: ArticleType[] }) => {
   const getArticleColorCode = (articleType: string): string =>
     articleType.split("-").pop() || "";
   return (
-    <ul>
+    <List>
       {articles.map(
         (
           { articleLink, articleSubTitle, articleTitle, articleType },
           index,
         ) => {
           return (
-            <a
+            <Link
               key={articleTitle + index}
               href={articleLink}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <StyledListItem bgColor={getArticleColorCode(articleType)}>
-                {articleTitle}
-                <br />
-                {articleSubTitle}
-                {
-                  articleType && (
-                    <>
-                      <br />
-                      {`This articles color code is ${articleType}`}
-                    </>
-                  )
-                  // this code block {} should be removed once this component is merged with results pages, starting at "articleType"
-                }
-              </StyledListItem>
-              {articles.length !== index + 1 && <hr />}
-            </a>
+              <ListItem>
+                <ListItemIcon>
+                  <SquareIcon
+                    sx={{ color: getArticleColorCode(articleType) }}
+                  />
+                </ListItemIcon>
+                <ListItemText
+                  primary={articleTitle}
+                  secondary={`${articleSubTitle} - This articles color code is ${articleType}`}
+                />
+              </ListItem>
+              {articles.length !== index + 1 && <Divider />}
+            </Link>
           );
         },
       )}
-    </ul>
+    </List>
   );
 };
 

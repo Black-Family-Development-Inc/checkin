@@ -1,5 +1,4 @@
 import Typography from "@mui/material/Typography";
-import { navigate } from "gatsby";
 import React from "react";
 import { ResourcesTypes } from "../../../../pages/components/results/resources-section-{contentfulResultsPage.title}";
 import ArticleList from "../../../ArticleList/ArticleList";
@@ -45,7 +44,7 @@ const Resources = ({
       <ArticleList articles={articles} />
       <MultiButton
         version="allArticles"
-        onClick={() => navigate(allResourcesLink)}
+        link={allResourcesLink}
         label={allResourcesText}
       />
       <hr />

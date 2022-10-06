@@ -5,6 +5,7 @@ export type MultiButtonPropType = {
   answer?: string;
   usersCurrentAnswer?: string;
   phoneNumber?: string;
+  link?: string;
 };
 
 type Versions =

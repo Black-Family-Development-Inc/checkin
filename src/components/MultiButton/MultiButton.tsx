@@ -50,14 +50,12 @@ const MultiButton = (props: MultiButtonPropType) => {
       </ResultsPageSmallStyled>
     ),
     phoneNumber: (
-      <PhoneNumberStyled id={props.phoneNumber}>
+      <PhoneNumberStyled to={`tel:${props.phoneNumber}`}>
         {props.label}
       </PhoneNumberStyled>
-    ), //id is just a placeholder for what needs to be done with phoneNumber in a future card web/mobile functionality
+    ),
     allArticles: (
-      <AllArticlesStyled onClick={props.onClick}>
-        {props.label}
-      </AllArticlesStyled>
+      <AllArticlesStyled to={props.link || ""}>{props.label}</AllArticlesStyled>
     ),
   };
   return buttons[props.version as keyof typeof buttons];
