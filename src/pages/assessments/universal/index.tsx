@@ -53,13 +53,13 @@ const UniversalAssessmentPage = () => {
             to="/assessments/universal/results"
             state={{ assessment }}
           >
-            <MultiButton version="answer" label={label}></MultiButton>
+            <MultiButton version="answer" label={label} />
           </Link>
         ))}
 
         {buttonsData.faqButtons.map(({ label }) => (
           <Link key={label} to="/faq">
-            <MultiButton version="answer" label={label}></MultiButton>
+            <MultiButton version="answer" label={label} />
           </Link>
         ))}
       </AssessmentTrackerLayout>
