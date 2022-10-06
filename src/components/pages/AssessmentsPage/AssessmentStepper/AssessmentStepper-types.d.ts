@@ -1,5 +1,6 @@
-export type AssessmentStepperPropTypes = {
-  numOfSteps: NumOfSteps;
-};
+import { AssessmentStep } from "../../../../pages/assessments/AssessmentPage-types";
 
-export type NumOfSteps = 2 | 3;
+export type AssessmentStepperPropTypes = {
+  steps: AssessmentStep[];
+  activeStep: number;
+};
