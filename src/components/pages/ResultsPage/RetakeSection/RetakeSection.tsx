@@ -1,6 +1,6 @@
-import { Link } from "gatsby";
 import React from "react";
 import MultiButton from "../../../MultiButton/MultiButton";
+import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
 import { TestimonialSection } from "../../IndexPage/Testimonial";
 import { RetakeAndStartOverStyled, TextStyled } from "./RetakeSection.styles";
 import { RetakeSectionType } from "./RetakeSection-types";
@@ -16,12 +16,12 @@ const RetakeSection = (props: RetakeSectionType) => {
     <>
       <TextStyled>{retakeDescription}</TextStyled>
       <RetakeAndStartOverStyled>
-        <Link to={retakeBtnLink}>
+        <LinkStyled to={retakeBtnLink}>
           <MultiButton version="retake" label={retakeBtnLabel} />
-        </Link>
-        <Link to={scrollToLink}>
+        </LinkStyled>
+        <LinkStyled to={scrollToLink}>
           <MultiButton version="startOver" label={startOverBtnLabel} />
-        </Link>
+        </LinkStyled>
       </RetakeAndStartOverStyled>
       <TestimonialSection
         testimonial={resultsTestimonial.testimonialQuote}
