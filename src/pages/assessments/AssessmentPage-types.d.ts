@@ -1,5 +1,3 @@
-import { NumOfSteps } from "../../components/pages/Assessments/AssessmentStepper/AssessmentStepper-types";
-
 export type AssessmentStep = {
   label: string;
   isComplete: boolean;
@@ -63,6 +61,16 @@ export type UsersSavedQuestion = {
   triggered: boolean;
 };
 
-export type LocationState = {
-  numOfSteps: NumOfSteps;
+export type UniversalPageButtonsData = {
+  assessmentButtons: AssessmentButtonsData[];
+  faqButtons: FaqButtonsData[];
+};
+
+export type AssessmentButtonsData = {
+  label: string;
+  assessment: "phq-9" | "gad-7" | "dast-10";
+};
+
+export type FaqButtonsData = {
+  label: string;
 };
