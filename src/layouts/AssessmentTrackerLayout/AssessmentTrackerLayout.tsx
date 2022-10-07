@@ -6,12 +6,32 @@ import { AssessmentTrackerLayoutPropTypes } from "./AssessmentTrackerLayout-type
 
 const AssessmentTrackerLayout = ({
   children,
-  numOfSteps,
 }: AssessmentTrackerLayoutPropTypes) => {
+  const steps = {
+    universal: [
+      {
+        label: "Universal Question",
+        isComplete: false,
+      },
+    ],
+    default: [
+      {
+        label: "Assessment Questions",
+        isComplete: false,
+      },
+      {
+        label: "Results & Resources",
+        isComplete: false,
+      },
+    ],
+  };
+
+  const activeStep = 0;
+
   return (
     <>
       <NavBar />
-      <AssessmentStepper {...{ numOfSteps }} />
+      <AssessmentStepper {...{ activeStep, steps: steps.default }} />
       {children}
       <Footer />
     </>

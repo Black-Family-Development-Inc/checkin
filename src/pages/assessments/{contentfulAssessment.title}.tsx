@@ -14,22 +14,16 @@ import {
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import {
   AssessmentPageProps,
-  LocationState,
   UsersSavedQuestion,
 } from "./AssessmentPage-types";
 
-const AssessmentPage = ({
-  data,
-  location: { state },
-}: PageProps<AssessmentPageProps, object, LocationState>) => {
+const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
   const {
     contentfulAssessment: {
       title,
       assessment: { answers, questions, severityRubric },
     },
   } = data;
-
-  const { numOfSteps } = state || {};
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
@@ -78,7 +72,7 @@ const AssessmentPage = ({
     usersSavedQuestions.reduce((prev, curr) => prev + curr.score, 0);
 
   return (
-    <AssessmentTrackerLayout numOfSteps={numOfSteps}>
+    <AssessmentTrackerLayout>
       <AssessmentPageStyled>
         <AssessmentHeaderContainer>
           <AssessmentTitleStyled>
