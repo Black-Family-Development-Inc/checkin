@@ -8,7 +8,9 @@ export const UpperParagraphContainer = styled(Box)({
 
 export const BottomParagraphContainer = styled(Box)({
   display: "flex",
+  justifyContent: "center",
   marginTop: "18.5px",
+  width: "100%",
 });
 
 export const IconContainer = styled(Box)({
@@ -16,7 +18,6 @@ export const IconContainer = styled(Box)({
   justifyContent: "center",
   alignItems: "center",
   marginRight: "15px",
-  marginLeft: "8px",
   opacity: "0.52",
 });
 
