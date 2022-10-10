@@ -2,10 +2,8 @@ import { TypographyProps } from "@mui/material";
 import React from "react";
 import { TypographyStyled } from "./Paragraph.styles";
 
-const Paragraph = (props: TypographyProps) => (
-  <TypographyStyled paragraph className={props.className}>
-    {props.children}
-  </TypographyStyled>
+const Paragraph = ({ children }: TypographyProps) => (
+  <TypographyStyled paragraph>{children}</TypographyStyled>
 );
 
 export default Paragraph;
