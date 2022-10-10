@@ -29,7 +29,6 @@ type AccordionBody = {
 };
 
 const ResultsSectionPage = ({ data }: PageProps<ResultsSectionPageTypes>) => {
-  console.log(data);
   return <ResultsSection {...data.contentfulResultsPage} />;
 };
 
