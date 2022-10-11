@@ -33,8 +33,8 @@ const ResultsPage = ({
           {/* remove above line concerning trigger question once its properly used */}
           <ResultsSection {...data.contentfulResultsPage} />
           <Resources {...data.contentfulResultsPage.resources} />
-          <OtherResources {...data.contentfulResultsPage.otherResources} />
           <RetakeSection {...data.contentfulResultsPage} />
+          <OtherResources {...data.contentfulResultsPage.otherResources} />
         </>
       ) : (
         <>
