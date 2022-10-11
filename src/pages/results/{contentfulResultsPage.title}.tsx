@@ -1,6 +1,8 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
-import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
+import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
+import { CurrentPage } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
+import AssessmentLayout from "../../layouts/AssessmentTrackerLayout/AssessmentLayout";
 import { LocationState, ResultsPagePropTypes } from "./ResultsPage-types";
 
 const ResultsPage = ({
@@ -19,7 +21,7 @@ const ResultsPage = ({
   const assessmentResults = determineAssessmentSeverity();
 
   return (
-    <AssessmentTrackerLayout>
+    <AssessmentLayout currentPage={stepperPages.results as CurrentPage}>
       <h1>{data.contentfulResultsPage.title}</h1>
       {assessmentScore > -1 ? (
         <>
@@ -37,7 +39,7 @@ const ResultsPage = ({
           </p>
         </>
       )}
-    </AssessmentTrackerLayout>
+    </AssessmentLayout>
   );
 };
 

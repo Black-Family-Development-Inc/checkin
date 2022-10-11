@@ -34,7 +34,7 @@ const TwoStepper = () => {
 
   return (
     <Box>
-      <AssessmentStepper steps={twoSteps} activeStep={activeStep} />
+      <AssessmentStepper />
 
       <Box>
         <Button onClick={() => handleChangeSteps(false, -1)}>Prev</Button>
@@ -58,7 +58,7 @@ const ThreeStepper = () => {
 
   return (
     <Box>
-      <AssessmentStepper steps={threeSteps} activeStep={activeStep} />
+      <AssessmentStepper />
 
       <Box>
         <Button onClick={() => handleChangeSteps(false, -1)}>Prev</Button>

@@ -1,6 +1,8 @@
-import { AssessmentStep } from "../../../../pages/assessments/AssessmentPage-types";
-
 export type AssessmentStepperPropTypes = {
-  steps: AssessmentStep[];
-  activeStep: number;
+  currentPage?: CurrentPage;
 };
+
+export type CurrentPage =
+  | "Assessment Questions"
+  | "Results & Resources"
+  | "Universal Question";

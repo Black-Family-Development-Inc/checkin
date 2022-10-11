@@ -1,11 +1,13 @@
 import { Link } from "gatsby";
 import React from "react";
-import { Header } from "../../../components/Header";
-import { HR } from "../../../components/HR";
-import MultiButton from "../../../components/MultiButton/MultiButton";
-import { Paragraph } from "../../../components/Paragraph";
-import AssessmentTrackerLayout from "../../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
-import { UniversalPageButtonsData } from "../AssessmentPage-types";
+import { Header } from "../../components/Header";
+import { HR } from "../../components/HR";
+import MultiButton from "../../components/MultiButton/MultiButton";
+import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
+import { CurrentPage } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
+import { Paragraph } from "../../components/Paragraph";
+import AssessmentLayout from "../../layouts/AssessmentTrackerLayout/AssessmentLayout";
+import { UniversalPageButtonsData } from "../assessments/AssessmentPage-types";
 
 const UniversalAssessmentPage = () => {
   const buttonsData: UniversalPageButtonsData = {
@@ -29,10 +31,10 @@ const UniversalAssessmentPage = () => {
       { label: "I just want to learn more about BFDI." },
     ],
   };
-
+  console.log("U page");
   return (
     <>
-      <AssessmentTrackerLayout>
+      <AssessmentLayout currentPage={stepperPages.universal as CurrentPage}>
         <Header text="Universal Assessment" />
 
         <HR />
@@ -62,7 +64,7 @@ const UniversalAssessmentPage = () => {
             <MultiButton version="answer" label={label} />
           </Link>
         ))}
-      </AssessmentTrackerLayout>
+      </AssessmentLayout>
     </>
   );
 };

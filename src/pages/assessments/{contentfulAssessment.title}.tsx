@@ -12,7 +12,9 @@ import {
   DirectionsStyled,
   QuestionStyled,
 } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
-import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
+import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
+import { CurrentPage } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
+import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentLayout";
 import {
   AssessmentPageProps,
   UsersSavedQuestion,
@@ -73,7 +75,9 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
     usersSavedQuestions.reduce((prev, curr) => prev + curr.score, 0);
 
   return (
-    <AssessmentTrackerLayout>
+    <AssessmentTrackerLayout
+      currentPage={stepperPages.assessment as CurrentPage}
+    >
       <AssessmentPageStyled>
         <AssessmentHeaderContainer>
           <AssessmentTitleStyled>
