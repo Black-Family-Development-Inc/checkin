@@ -22,21 +22,15 @@ const OtherResources = ({
       <HR />
       <Paragraph>
         {faqResourcesParagraph + " "}
-        <LinkStyled>
-          <InternalLink to={faqLink}>{faqLinkText}</InternalLink>
-        </LinkStyled>
+        <InternalLink to={faqLink}>
+          <LinkStyled>{faqLinkText}</LinkStyled>
+        </InternalLink>
       </Paragraph>
       <Paragraph sx={{ marginBottom: "44px" }}>
         {bfdiResourcesParagraph + " "}
-        <LinkStyled>
-          <ExternalLink
-            href={bfdiLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {bfdiLinkText}
-          </ExternalLink>
-        </LinkStyled>
+        <ExternalLink href={bfdiLink} target="_blank" rel="noopener noreferrer">
+          <LinkStyled>{bfdiLinkText}</LinkStyled>
+        </ExternalLink>
       </Paragraph>
     </>
   );

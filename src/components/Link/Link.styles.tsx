@@ -3,5 +3,12 @@ import { Link } from "@mui/material";
 
 export const LinkStyled = styled(Link)({
   fontWeight: 500,
-  marginBottom: "44px",
+  color: "black",
+  textDecorationColor: "black",
+  ":hover": {
+    color: "green",
+  },
+  ":active": {
+    color: "blue",
+  },
 });
