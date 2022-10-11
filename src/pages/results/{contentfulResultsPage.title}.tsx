@@ -1,5 +1,9 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
+import { OtherResources } from "../../components/pages/ResultsPage/OtherResources";
+import { Resources } from "../../components/pages/ResultsPage/Resources";
+import { ResultsSection } from "../../components/pages/ResultsPage/ResultsSection";
+import { RetakeSection } from "../../components/pages/ResultsPage/RetakeSection";
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import { LocationState, ResultsPagePropTypes } from "./ResultsPage-types";
 
@@ -27,6 +31,10 @@ const ResultsPage = ({
           <p>Severity: {assessmentResults?.severity}</p>
           <p>Did you trip a trigger question: {triggered ? "Yes" : "No"}</p>
           {/* remove above line concerning trigger question once its properly used */}
+          <ResultsSection {...data.contentfulResultsPage} />
+          <Resources {...data.contentfulResultsPage.resources} />
+          <OtherResources {...data.contentfulResultsPage.otherResources} />
+          <RetakeSection {...data.contentfulResultsPage} />
         </>
       ) : (
         <>
@@ -47,6 +55,50 @@ export const query = graphql`
   query ($title: String!) {
     contentfulResultsPage(title: { eq: $title }) {
       title
+      resultsHeaderText
+      resultsSummaryText
+      retakeDescription
+      resultsTestimonial {
+        testimonialAuthor
+        testimonialQuote
+      }
+      resultsAccordionData {
+        id
+        title
+        summary
+        scoreRange
+        body {
+          body
+        }
+      }
+      otherResources {
+        title
+        bfdiLink
+        bfdiLinkText
+        bfdiResourcesParagraph
+        faqLink
+        faqLinkText
+        faqResourcesParagraph
+      }
+      resources {
+        title
+        header
+        bfdiButtonDescription
+        bfdiButtonText
+        bfdiIntakeNumber
+        crisisLineButtonText
+        crisisLineDescription
+        crisisLineNumber
+        headingForArticles
+        allResourcesLink
+        allResourcesText
+        articles {
+          articleLink
+          articleSubTitle
+          articleTitle
+          articleType
+        }
+      }
     }
   }
 `;
