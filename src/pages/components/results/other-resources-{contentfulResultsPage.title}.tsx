@@ -32,12 +32,12 @@ export const query = graphql`
     contentfulResultsPage(title: { eq: $title }) {
       otherResources {
         title
+        bfdiResourcesParagraph
         bfdiLink
         bfdiLinkText
-        bfdiResourcesParagraph
+        faqResourcesParagraph
         faqLink
         faqLinkText
-        faqResourcesParagraph
       }
     }
   }

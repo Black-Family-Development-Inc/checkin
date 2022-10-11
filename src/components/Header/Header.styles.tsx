@@ -2,7 +2,11 @@ import styled from "@emotion/styled";
 import { Typography } from "@mui/material";
 
 export const HeaderStyled = styled(Typography)({
-  fontSize: "1.5rem",
+  fontFamily: "Rubik",
+  fontSize: "24px",
   fontWeight: 600,
+  lineHeight: "28px",
+  letterSpacing: "0px",
+  textAlign: "left",
   marginBottom: 8,
 });

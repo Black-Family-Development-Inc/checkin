@@ -1,6 +1,11 @@
-import { Typography } from "@mui/material";
+import { Link as ExternalLink } from "@mui/material";
+import { Link as InternalLink } from "gatsby";
 import React from "react";
 import { OtherResourcesTypes } from "../../../../pages/components/results/other-resources-{contentfulResultsPage.title}";
+import { Header } from "../../../Header";
+import { HR } from "../../../HR";
+import { LinkStyled } from "../../../Link/Link.styles";
+import { Paragraph } from "../../../Paragraph";
 
 const OtherResources = ({
   title,
@@ -13,17 +18,26 @@ const OtherResources = ({
 }: OtherResourcesTypes) => {
   return (
     <>
-      <Typography variant="h2">{title}</Typography>
-      <Typography paragraph>
+      <Header text={title} />
+      <HR />
+      <Paragraph>
         {faqResourcesParagraph + " "}
-        <a href={faqLink}>{faqLinkText}</a>
-      </Typography>
-      <Typography paragraph>
+        <LinkStyled>
+          <InternalLink to={faqLink}>{faqLinkText}</InternalLink>
+        </LinkStyled>
+      </Paragraph>
+      <Paragraph sx={{ marginBottom: "44px" }}>
         {bfdiResourcesParagraph + " "}
-        <a href={bfdiLink} target="_blank" rel="noopener noreferrer">
-          {bfdiLinkText}
-        </a>
-      </Typography>
+        <LinkStyled>
+          <ExternalLink
+            href={bfdiLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {bfdiLinkText}
+          </ExternalLink>
+        </LinkStyled>
+      </Paragraph>
     </>
   );
 };
