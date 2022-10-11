@@ -88,7 +88,16 @@ export const PreviousStyled = styled(Button)({
   },
 });
 
+export const NavButtonStyled = styled(Button)({
+  ...generalButtonStyles,
+  width: "162px",
+});
+
 export const ResultsPageSmallStyled = styled(Button)({
   ...generalButtonStyles,
   width: "162px",
 });
+
+export const PhoneNumberStyled = styled(Link)``;
+
+export const AllArticlesStyled = styled(Link)``;

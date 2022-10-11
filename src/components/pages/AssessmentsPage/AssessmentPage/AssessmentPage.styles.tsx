@@ -32,6 +32,13 @@ export const AssessmentHeaderContainer = styled(Box)({
   width: "350px",
 });
 
+export const DirectionsStyled = styled(Box)({
+  fontFamily: "inter",
+  fontWeight: "400",
+  fontSize: "16px",
+  lineHeight: "20px",
+});
+
 export const QuestionStyled = styled(Box)({
   display: "flex",
   justifyContent: "space-between",
