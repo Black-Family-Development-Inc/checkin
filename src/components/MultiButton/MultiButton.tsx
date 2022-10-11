@@ -1,9 +1,11 @@
 import React from "react";
 import {
+  AllArticlesStyled,
   AnswerStyled,
   AssessmentStyled,
   NavButtonStyled,
   NextAndResultStyled,
+  PhoneNumberStyled,
   PreviousStyled,
   ResultsPageSmallStyled,
   UniversalStyled,
@@ -52,6 +54,14 @@ const MultiButton = (props: MultiButtonPropType) => {
       <NavButtonStyled onClick={props.onClick}>
         {props.children} {props.label}
       </NavButtonStyled>
+    ),
+    phoneNumber: (
+      <PhoneNumberStyled to={`tel:${props.phoneNumber}`}>
+        {props.label}
+      </PhoneNumberStyled>
+    ),
+    allArticles: (
+      <AllArticlesStyled to={props.link || ""}>{props.label}</AllArticlesStyled>
     ),
   };
   return buttons[props.version as keyof typeof buttons];

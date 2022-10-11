@@ -62,3 +62,17 @@ export type UsersSavedQuestion = {
   score: number;
   triggered: boolean;
 };
+
+export type UniversalPageButtonsData = {
+  assessmentButtons: AssessmentButtonsData[];
+  faqButtons: FaqButtonsData[];
+};
+
+export type AssessmentButtonsData = {
+  label: string;
+  assessment: "phq-9" | "gad-7" | "dast-10";
+};
+
+export type FaqButtonsData = {
+  label: string;
+};
