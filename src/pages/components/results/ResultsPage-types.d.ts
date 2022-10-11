@@ -2,7 +2,7 @@ export type ResultsPageTypes = {
   contentfulResultsPage: ContentfulResultsPage;
   otherResourcesTypes: OtherResourcesTypes;
   resources: ResourcesTypes;
-  resultsAccordionTypes: ResultsAccordionTypes;
+  resultsPageResultsSection: ResultsPageResultsSection;
 };
 
 // Other Resources
@@ -32,23 +32,20 @@ export type ResourcesTypes = {
   allResourcesText: string;
   articles: ArticleType[];
   severity?: string; //this doesn't need an optional type once merged with results pages as it should be passed from parent component
-  title: string; //remove once mereged with actual results pages
 };
 
 // Results Section
 
-export type ResultsPageResultsSectionTypes = {
+export type ResultsPageResultsSection = {
   resultsHeaderText: string;
   resultsSummaryText: string;
   resultsAccordionData: ResultsAccordion[];
 };
 
-type ResultsAccordionTypes = {
+type ResultsAccordion = {
   id: string;
   title: string;
   summary: string;
   scoreRange: string;
   body: string;
 };
-
-// Retake Section types

@@ -12,10 +12,9 @@ const ResultsPage = ({ data }: PageProps<ResultsPageTypes>) => {
   return (
     <>
       <DefaultLayout>
-        <h1>Testing!</h1>
-        <OtherResources {...data.contentfulResultsPage.otherResources} />
-        <Resources {...data.contentfulResultsPage.resources} />
         <ResultsSection {...data.contentfulResultsPage} />
+        <Resources {...data.contentfulResultsPage.resources} />
+        <OtherResources {...data.contentfulResultsPage.otherResources} />
         <RetakeSection {...data.contentfulResultsPage} />
       </DefaultLayout>
     </>
