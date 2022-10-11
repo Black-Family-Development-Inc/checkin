@@ -28,7 +28,7 @@ const UniversalQuestionResultsPage = ({
         You are in control. If you’d like to take the universal question
         screening again, start over.
       </Paragraph>
-      <Link to="/assessments/universal/phq-9">
+      <Link to="/assessments/universal/">
         <MultiButton version="answer" label="Start Over" />
       </Link>
 
