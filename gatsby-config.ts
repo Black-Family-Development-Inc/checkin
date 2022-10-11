@@ -31,7 +31,11 @@ const config: GatsbyConfig = {
           {
             name: `Roboto`,
             file: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap%27);"
-          }
+          },
+          {
+            name: `Rubik`,
+            file: `https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap`,
+          },
         ],
       },
     },
@@ -68,19 +72,6 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         policy: [{ userAgent: `*`, disallow: [`/`] }],
-      },
-    },
-    {
-      resolve: `gatsby-omni-font-loader`,
-      options: {
-        enableListener: true,
-        preconnect: [`https://fonts.googleapis.com`, `https://fonts.gstatic.com`],
-        web: [
-          {
-            name: `Rubik`,
-            file: `https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap`,
-          },
-        ],
       },
     },
   ],
