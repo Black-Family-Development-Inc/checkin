@@ -1,22 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import { AssessmentStepper } from "../../components/pages/AssessmentsPage";
-import { AssessmentStep } from "../../pages/assessments/AssessmentPage-types";
 import { AssessmentTrackerLayoutPropTypes } from "./AssessmentTrackerLayout-types";
 
 const AssessmentTrackerLayout = ({
   children,
 }: AssessmentTrackerLayoutPropTypes) => {
-  const [steps, setSteps] = useState<AssessmentStep[]>([
-    { label: "Preliminary Questions", isComplete: false },
-    { label: "Assessment Questions", isComplete: false },
-    { label: "Results & Resources", isComplete: false },
-  ]);
+  const steps = {
+    universal: [
+      {
+        label: "Universal Question",
+        isComplete: false,
+      },
+    ],
+    default: [
+      {
+        label: "Assessment Questions",
+        isComplete: false,
+      },
+      {
+        label: "Results & Resources",
+        isComplete: false,
+      },
+    ],
+  };
+
+  const activeStep = 0;
+
   return (
     <>
       <NavBar />
-      <AssessmentStepper {...{ steps, setSteps }} />
+      <AssessmentStepper {...{ activeStep, steps: steps.default }} />
       {children}
       <Footer />
     </>
