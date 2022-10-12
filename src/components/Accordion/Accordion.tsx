@@ -1,15 +1,14 @@
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import {
-  Button,
-  CardActions,
-  CardContent,
-  CardHeader,
-  Collapse,
-  Typography,
-} from "@mui/material";
+import { Button, CardActions, CardContent, Collapse } from "@mui/material";
 import * as React from "react";
-import { AccordionHeaderContainerStyled, CardStyled } from "./Accordion.styles";
+import { Paragraph } from "../Paragraph";
+import {
+  AccordionHeaderContainerStyled,
+  CardHeaderStyled,
+  CardStyled,
+  SummaryContainer,
+} from "./Accordion.styles";
 import { AccordionPropTypes } from "./Accordion-types";
 
 export default function Accordion(props: AccordionPropTypes) {
@@ -22,8 +21,12 @@ export default function Accordion(props: AccordionPropTypes) {
   return (
     <CardStyled square={true}>
       <AccordionHeaderContainerStyled>
-        <CardHeader title={props.title} />
-        {props.summary && <Typography paragraph>{props.summary}</Typography>}
+        <CardHeaderStyled>{props.title}</CardHeaderStyled>
+        {props.summary && (
+          <SummaryContainer>
+            <Paragraph>{props.summary}</Paragraph>
+          </SummaryContainer>
+        )}
         <CardActions>
           <Button onClick={handleExpandClick}>
             {expanded ? (
@@ -38,12 +41,12 @@ export default function Accordion(props: AccordionPropTypes) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           {props.assessmentScore && props.assessmentSeverity && (
-            <Typography paragraph>
+            <Paragraph>
               Score: {props.assessmentScore} [{props.assessmentSeverity}
               -Symptoms]
-            </Typography>
+            </Paragraph>
           )}
-          <Typography paragraph>{props.body}</Typography>
+          <Paragraph>{props.body}</Paragraph>
         </CardContent>
       </Collapse>
     </CardStyled>
