@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
-import AssessmentLayout from "../../layouts/AssessmentTrackerLayout/AssessmentLayout";
+import { AssessmentLayout } from "../../layouts/AssessmentLayout";
 
 const UniversalResultsPage = () => {
   return (

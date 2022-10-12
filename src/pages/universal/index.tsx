@@ -5,7 +5,7 @@ import { HR } from "../../components/HR";
 import MultiButton from "../../components/MultiButton/MultiButton";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { Paragraph } from "../../components/Paragraph";
-import AssessmentLayout from "../../layouts/AssessmentTrackerLayout/AssessmentLayout";
+import { AssessmentLayout } from "../../layouts/AssessmentLayout";
 import { UniversalPageButtonsData } from "../assessments/AssessmentPage-types";
 
 const UniversalAssessmentPage = () => {

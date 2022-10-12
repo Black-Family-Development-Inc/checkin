@@ -2,7 +2,7 @@ import { graphql, PageProps } from "gatsby";
 import React from "react";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
-import AssessmentLayout from "../../layouts/AssessmentTrackerLayout/AssessmentLayout";
+import { AssessmentLayout } from "../../layouts/AssessmentLayout";
 import {
   ResultsPageLocationState,
   ResultsPagePropTypes,

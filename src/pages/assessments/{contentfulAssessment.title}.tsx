@@ -14,7 +14,7 @@ import {
 } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
-import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentLayout";
+import { AssessmentLayout } from "../../layouts/AssessmentLayout";
 import {
   AssessmentLocationState,
   AssessmentPageProps,
@@ -79,7 +79,7 @@ const AssessmentPage = ({
     usersSavedQuestions.reduce((prev, curr) => prev + curr.score, 0);
 
   return (
-    <AssessmentTrackerLayout
+    <AssessmentLayout
       currentPage={stepperPages.assessment as StepperPagesType}
       startingPage={location.state.startingPage}
     >
@@ -124,7 +124,7 @@ const AssessmentPage = ({
           />
         </FormControl>
       </AssessmentPageStyled>
-    </AssessmentTrackerLayout>
+    </AssessmentLayout>
   );
 };
 
