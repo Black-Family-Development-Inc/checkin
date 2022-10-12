@@ -23,7 +23,7 @@ import {
 
 const AssessmentPage = ({
   data,
-  location,
+  location: { state },
 }: PageProps<AssessmentPageProps, object, AssessmentLocationState>) => {
   const {
     contentfulAssessment: {
@@ -31,6 +31,7 @@ const AssessmentPage = ({
       assessment: { answers, questions, description, severityRubric },
     },
   } = data;
+  const { startingPage } = state;
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
@@ -48,7 +49,7 @@ const AssessmentPage = ({
     });
     setUsersSavedQuestions(unansweredQuestions);
   }, [questions]);
-  const startingPage = location.state.startingPage;
+
   const currentQuestion = questions[currentQuestionIdx];
   const questionsLength = questions.length;
   const nextDisabled = !usersSavedQuestions?.[currentQuestionIdx]?.answer;
@@ -81,7 +82,7 @@ const AssessmentPage = ({
   return (
     <AssessmentLayout
       currentPage={stepperPages.assessment as StepperPagesType}
-      startingPage={location.state.startingPage}
+      startingPage={startingPage}
     >
       <AssessmentPageStyled>
         <AssessmentHeaderContainer>
