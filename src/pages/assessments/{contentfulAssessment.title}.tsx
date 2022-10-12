@@ -13,14 +13,18 @@ import {
   QuestionStyled,
 } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
-import { CurrentPage } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
+import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentLayout";
 import {
+  AssessmentLocationState,
   AssessmentPageProps,
   UsersSavedQuestion,
 } from "./AssessmentPage-types";
 
-const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
+const AssessmentPage = ({
+  data,
+  location,
+}: PageProps<AssessmentPageProps, object, AssessmentLocationState>) => {
   const {
     contentfulAssessment: {
       title,
@@ -44,7 +48,7 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
     });
     setUsersSavedQuestions(unansweredQuestions);
   }, [questions]);
-
+  const startingPage = location.state.startingPage;
   const currentQuestion = questions[currentQuestionIdx];
   const questionsLength = questions.length;
   const nextDisabled = !usersSavedQuestions?.[currentQuestionIdx]?.answer;
@@ -67,7 +71,7 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
     const triggered = checkTriggerQuestions();
     const assessmentScore = accumulateAssessmentScore();
     navigate(resultsPage, {
-      state: { assessmentScore, severityRubric, triggered },
+      state: { assessmentScore, severityRubric, triggered, startingPage },
     });
   };
 
@@ -76,7 +80,8 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
 
   return (
     <AssessmentTrackerLayout
-      currentPage={stepperPages.assessment as CurrentPage}
+      currentPage={stepperPages.assessment as StepperPagesType}
+      startingPage={location.state.startingPage}
     >
       <AssessmentPageStyled>
         <AssessmentHeaderContainer>

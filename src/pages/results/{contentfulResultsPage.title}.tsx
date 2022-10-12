@@ -1,15 +1,19 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
-import { CurrentPage } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
+import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
 import AssessmentLayout from "../../layouts/AssessmentTrackerLayout/AssessmentLayout";
-import { LocationState, ResultsPagePropTypes } from "./ResultsPage-types";
+import {
+  ResultsPageLocationState,
+  ResultsPagePropTypes,
+} from "./ResultsPage-types";
 
 const ResultsPage = ({
   data,
   location: { state },
-}: PageProps<ResultsPagePropTypes, object, LocationState>) => {
-  const { assessmentScore, severityRubric, triggered } = state || {};
+}: PageProps<ResultsPagePropTypes, object, ResultsPageLocationState>) => {
+  const { assessmentScore, severityRubric, triggered, startingPage } =
+    state || {};
 
   const determineAssessmentSeverity = () => {
     return severityRubric?.find(({ min, max }) => {
@@ -21,7 +25,10 @@ const ResultsPage = ({
   const assessmentResults = determineAssessmentSeverity();
 
   return (
-    <AssessmentLayout currentPage={stepperPages.results as CurrentPage}>
+    <AssessmentLayout
+      currentPage={stepperPages.results}
+      startingPage={startingPage as StepperPagesType}
+    >
       <h1>{data.contentfulResultsPage.title}</h1>
       {assessmentScore > -1 ? (
         <>

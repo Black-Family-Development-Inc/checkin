@@ -1,13 +1,17 @@
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Stepper from "@mui/material/Stepper";
-import React, { useEffect, useState } from "react";
-import { AssessmentStepperPropTypes } from "./AssessmentStepper-types";
+import React from "react";
+import {
+  AssessmentStepperPropTypes,
+  StepperPagesType,
+  StepType,
+} from "./AssessmentStepper-types";
 
 export const stepperPages = {
-  assessment: "Assessment Questions",
-  results: "Results & Resources",
-  universal: "Universal Question",
+  assessment: "Assessment Questions" as StepperPagesType,
+  results: "Results & Resources" as StepperPagesType,
+  universal: "Universal Question" as StepperPagesType,
 };
 
 const allSteps = [
@@ -25,37 +29,34 @@ const allSteps = [
   },
 ];
 
-const AssessmentStepper = ({ currentPage }: AssessmentStepperPropTypes) => {
-  const [startingPage, setStartingPage] = useState("");
-  const [steps, setSteps] = useState(allSteps);
-  console.log(currentPage);
-  useEffect(() => {
-    if (!startingPage && currentPage) {
-      setStartingPage(currentPage);
-      if (startingPage !== stepperPages.universal) {
-        setSteps(steps.filter((step) => step.label !== stepperPages.universal));
-      }
-    }
-    console.log(steps, startingPage);
-  }, [currentPage, startingPage, steps]);
+const AssessmentStepper = ({
+  currentPage,
+  startingPage,
+}: AssessmentStepperPropTypes) => {
+  const isStartPageUniversal =
+    startingPage === stepperPages.universal ||
+    currentPage === stepperPages.universal;
 
-  useEffect(
-    () => () => {
-      setStartingPage("");
-      setSteps(allSteps);
-    },
-    [],
+  const stepsToRender = isStartPageUniversal
+    ? allSteps
+    : allSteps.filter((step) => step.label !== stepperPages.universal);
+
+  const currentStep = stepsToRender.findIndex(
+    (step) => step.label === currentPage,
   );
+
+  const checkForCompleteSteps = (steps: StepType[]) =>
+    steps.map((step, index) => ({ ...step, isComplete: currentStep > index }));
 
   return (
     <>
       <Stepper
         sx={{ marginBottom: 5, marginTop: 5 }}
-        activeStep={0}
+        activeStep={currentStep}
         alternativeLabel
         nonLinear
       >
-        {steps.map((step, idx) => (
+        {checkForCompleteSteps(stepsToRender).map((step, idx) => (
           <Step
             key={step.label}
             completed={step.isComplete}

@@ -1,8 +1,15 @@
 export type AssessmentStepperPropTypes = {
-  currentPage?: CurrentPage;
+  currentPage: StepperPagesType;
+  startingPage: StepperPagesType;
 };
 
-export type CurrentPage =
+export type StepperPagesType =
   | "Assessment Questions"
   | "Results & Resources"
-  | "Universal Question";
+  | "Universal Question"
+  | "";
+
+export type StepType = {
+  label: string;
+  isComplete: boolean;
+};

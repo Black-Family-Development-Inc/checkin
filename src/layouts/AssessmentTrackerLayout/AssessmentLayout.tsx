@@ -7,12 +7,17 @@ import { AssessmentLayoutPropTypes } from "./AssessmentLayout-types";
 const AssessmentLayout = ({
   children,
   currentPage,
+  startingPage,
 }: AssessmentLayoutPropTypes) => {
+  const startingPageProp = startingPage || "";
   return (
     <>
       <NavBar />
       <LayoutContainerStyled>
-        <AssessmentStepper currentPage={currentPage} />
+        <AssessmentStepper
+          currentPage={currentPage}
+          startingPage={startingPageProp}
+        />
         {children}
       </LayoutContainerStyled>
       <Footer />

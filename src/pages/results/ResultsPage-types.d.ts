@@ -6,8 +6,9 @@ type ResultsPagePropTypes = {
   };
 };
 
-type LocationState = {
+type ResultsPageLocationState = {
   assessmentScore: number;
   severityRubric: Severity[];
   triggered: boolean;
+  startingPage: string;
 };

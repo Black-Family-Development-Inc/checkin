@@ -1,3 +1,5 @@
+import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
+
 export type AssessmentStep = {
   label: string;
   isComplete: boolean;
@@ -73,4 +75,8 @@ export type AssessmentButtonsData = {
 
 export type FaqButtonsData = {
   label: string;
+};
+
+export type AssessmentLocationState = {
+  startingPage?: StepperPagesType;
 };
