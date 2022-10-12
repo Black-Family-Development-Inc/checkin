@@ -9,7 +9,7 @@ import { RetakeSectionType } from "../../../components/pages/ResultsPage/RetakeS
  */
 
 type RetakeSectionPageTypes = {
-  contentfulResultsPage: { retakeSection: RetakeSectionType };
+  contentfulResultsPage: RetakeSectionType;
 };
 
 const RetakeSectionPage = ({ data }: PageProps<RetakeSectionPageTypes>) => {
