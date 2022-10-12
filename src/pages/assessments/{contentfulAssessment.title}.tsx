@@ -31,7 +31,7 @@ const AssessmentPage = ({
       assessment: { answers, questions, description, severityRubric },
     },
   } = data;
-  const { startingPage } = state;
+  const startingPage = state?.startingPage;
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
