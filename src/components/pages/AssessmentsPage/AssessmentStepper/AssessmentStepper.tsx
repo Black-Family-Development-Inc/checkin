@@ -9,9 +9,9 @@ import {
 } from "./AssessmentStepper-types";
 
 export const stepperPages = {
+  universal: "Universal Question" as StepperPagesType,
   assessment: "Assessment Questions" as StepperPagesType,
   results: "Results & Resources" as StepperPagesType,
-  universal: "Universal Question" as StepperPagesType,
 };
 
 const allSteps = [
@@ -33,9 +33,7 @@ const AssessmentStepper = ({
   currentPage,
   startingPage,
 }: AssessmentStepperPropTypes) => {
-  const isStartPageUniversal =
-    startingPage === stepperPages.universal ||
-    currentPage === stepperPages.universal;
+  const isStartPageUniversal = startingPage === stepperPages.universal;
 
   const stepsToRender = isStartPageUniversal
     ? allSteps

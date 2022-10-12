@@ -32,7 +32,10 @@ const UniversalAssessmentPage = () => {
   };
   return (
     <>
-      <AssessmentLayout currentPage={stepperPages.universal}>
+      <AssessmentLayout
+        currentPage={stepperPages.universal}
+        startingPage={stepperPages.universal}
+      >
         <Header text="Universal Assessment" />
 
         <HR />

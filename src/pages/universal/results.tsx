@@ -5,7 +5,10 @@ import AssessmentLayout from "../../layouts/AssessmentTrackerLayout/AssessmentLa
 
 const UniversalResultsPage = () => {
   return (
-    <AssessmentLayout currentPage={stepperPages.universal}>
+    <AssessmentLayout
+      currentPage={stepperPages.universal}
+      startingPage={stepperPages.universal}
+    >
       <h1>Universal Results Page</h1>
       <Link
         to="/assessments/gad-7/"
