@@ -1,12 +1,38 @@
-import { Tab, Tabs } from "@mui/material";
+import { Box, Tab, Tabs } from "@mui/material";
 import React, { useState } from "react";
+import ArticleList from "../../components/ArticleList/ArticleList";
 import { Header } from "../../components/Header";
 import { HR } from "../../components/HR";
 import { Paragraph } from "../../components/Paragraph";
 
 const ArticlesPage = () => {
   const [currentTab, setCurrentTab] = useState<number>(0);
-  const tabLabels = ["Anxiety", "Depression", "Substance Use"];
+  const articles = {
+    Anxiety: [
+      {
+        articleTitle: "Anxiety Article Title",
+        articleSubTitle: "Anxiety Article Subtital",
+        articleType: "Anxiety - Blue",
+        articleLink: "google.com",
+      },
+    ],
+    Depression: [
+      {
+        articleTitle: "Depression Article Title",
+        articleSubTitle: "Depression Article Subtitle",
+        articleType: "Depression - Red",
+        articleLink: "google.com",
+      },
+    ],
+    "Substance Use": [
+      {
+        articleTitle: "Substance Use Article Title",
+        articleSubTitle: "Substance Use Article Subtitle",
+        articleType: "Substance Use - Green",
+        articleLink: "google.com",
+      },
+    ],
+  };
 
   return (
     <>
@@ -19,18 +45,19 @@ const ArticlesPage = () => {
 
       <Tabs
         value={currentTab}
-        onChange={(e, selectedTab) => setCurrentTab(selectedTab)}
+        onChange={(_e, selectedTab) => setCurrentTab(selectedTab)}
       >
-        {tabLabels.map((label) => (
+        {Object.keys(articles).map((label) => (
           <Tab key={label} label={label} />
         ))}
       </Tabs>
 
-      {tabLabels.map((label, idx) => {
+      {Object.keys(articles).map((label, idx) => {
+        const currentTabArticles = articles[label as keyof typeof articles];
         return (
-          <div key={label} hidden={currentTab !== idx}>
-            {label}
-          </div>
+          <Box hidden={currentTab !== idx}>
+            <ArticleList key={label} articles={currentTabArticles} />
+          </Box>
         );
       })}
     </>
