@@ -16,6 +16,7 @@ const config: GatsbyConfig = {
       options: {
         spaceId: process.env.SPACE_ID,
         accessToken: process.env.ACCESS_TOKEN,
+        environment: process.env.ENVIRONMENT_ID ?? `master`
       },
     },
     {
@@ -31,6 +32,10 @@ const config: GatsbyConfig = {
           {
             name: `Roboto`,
             file: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap%27);"
+          },
+          {
+            name: `Rubik`,
+            file: "https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap%27);"
           }
         ],
       },
