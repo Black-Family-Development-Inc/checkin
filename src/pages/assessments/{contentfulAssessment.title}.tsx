@@ -1,5 +1,5 @@
 import { FormControl, Typography } from "@mui/material";
-import { graphql, navigate } from "gatsby";
+import { graphql, navigate, PageProps } from "gatsby";
 import React, { useEffect, useState } from "react";
 import {
   AssessmentAnswers,
@@ -18,7 +18,7 @@ import {
   UsersSavedQuestion,
 } from "./AssessmentPage-types";
 
-const AssessmentPage = ({ data }: AssessmentPageProps) => {
+const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
   const {
     contentfulAssessment: {
       title,
