@@ -5,10 +5,13 @@ import { IntroSection } from "../components/pages/IndexPage/IntroSection";
 import AssessmentInstructions from "../components/pages/IndexPage/IntroSection/AssessmentInstructions";
 import { TestimonialSection } from "../components/pages/IndexPage/Testimonial";
 import UniversalBottom from "../components/pages/IndexPage/UniversalBottom/UniversalBottom";
+import { useStorePath } from "../hooks/useStorePath";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
 
 const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
+  useStorePath();
+
   return (
     <>
       <DefaultLayout>
