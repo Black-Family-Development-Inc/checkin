@@ -4,7 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import NavButton from "../../components/NavButton/NavButton";
 import { AssessmentStepper } from "../../components/pages/AssessmentsPage";
-import { getStoredLocation } from "../../hooks/useStorePath";
+import { getStoredPath } from "../../hooks/useStorePath";
 import { AssessmentTrackerLayoutPropTypes } from "./AssessmentTrackerLayout-types";
 
 const AssessmentTrackerLayout = ({
@@ -32,8 +32,7 @@ const AssessmentTrackerLayout = ({
   const activeStep = 0;
 
   const universalQuestionsPath = "/assessments/universal";
-  const cameFromUniversalQuestions =
-    getStoredLocation() === universalQuestionsPath;
+  const cameFromUniversalQuestions = getStoredPath() === universalQuestionsPath;
 
   return (
     <>

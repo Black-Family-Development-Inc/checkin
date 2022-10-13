@@ -26,6 +26,10 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
     },
   } = data;
 
+  const savedAssessmentpath = "savedAssessmentPath";
+  localStorage.removeItem(savedAssessmentpath);
+  localStorage.setItem(savedAssessmentpath, location.pathname);
+
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
     UsersSavedQuestion[]

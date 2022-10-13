@@ -1,11 +1,11 @@
+const currentPath = window.location.pathname;
 const savedPage = "savedPage";
 
 export const useStorePath = () => {
-  const currentPath = window.location.pathname;
   localStorage.removeItem(savedPage);
   localStorage.setItem(savedPage, currentPath);
 };
 
-export const getStoredLocation = () => {
+export const getStoredPath = () => {
   return localStorage.getItem(savedPage);
 };
