@@ -1,9 +1,11 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
+import {
+  Resources,
+  ResultsSection,
+  RetakeSection,
+} from "../../components/pages/ResultsPage";
 import { OtherResources } from "../../components/pages/ResultsPage/OtherResources";
-import { Resources } from "../../components/pages/ResultsPage/Resources";
-import { ResultsSection } from "../../components/pages/ResultsPage/ResultsSection";
-import { RetakeSection } from "../../components/pages/ResultsPage/RetakeSection";
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import { LocationState, ResultsPagePropTypes } from "./ResultsPage-types";
 
@@ -12,6 +14,26 @@ const ResultsPage = ({
   location: { state },
 }: PageProps<ResultsPagePropTypes, object, LocationState>) => {
   const { assessmentScore, severityRubric, triggered } = state || {};
+  const {
+    resultsSummaryText,
+    resultsHeaderText,
+    resultsAccordionData,
+    title,
+    retakeDescription,
+    resultsTestimonial,
+  } = data.contentfulResultsPage;
+
+  const resultsSectionProps = {
+    resultsSummaryText,
+    resultsHeaderText,
+    resultsAccordionData,
+  };
+
+  const retakeSectionProps = {
+    title,
+    retakeDescription,
+    resultsTestimonial,
+  };
 
   const determineAssessmentSeverity = () => {
     return severityRubric?.find(({ min, max }) => {
@@ -31,9 +53,9 @@ const ResultsPage = ({
           <p>Severity: {assessmentResults?.severity}</p>
           <p>Did you trip a trigger question: {triggered ? "Yes" : "No"}</p>
           {/* remove above line concerning trigger question once its properly used */}
-          <ResultsSection {...data.contentfulResultsPage} />
+          <ResultsSection {...resultsSectionProps} />
           <Resources {...data.contentfulResultsPage.resources} />
-          <RetakeSection {...data.contentfulResultsPage} />
+          <RetakeSection {...retakeSectionProps} />
           <OtherResources {...data.contentfulResultsPage.otherResources} />
         </>
       ) : (
