@@ -1,11 +1,11 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import {
+  OtherResources,
   Resources,
   ResultsSection,
   RetakeSection,
 } from "../../components/pages/ResultsPage";
-import { OtherResources } from "../../components/pages/ResultsPage/OtherResources";
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import { LocationState, ResultsPagePropTypes } from "./ResultsPage-types";
 
