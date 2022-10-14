@@ -16,11 +16,10 @@ const Resources = ({
   allResourcesLink,
   allResourcesText,
   articles,
-  title, // remove title once merged with results pages, its only for testing purposes
   severity,
 }: ResourcesTypes) => {
-  const renderCrisisButton =
-    severity === "High" || title === "Resources for DAST-10"; //this will need to be changed once merged with the actual results pages
+  const shouldRenderCrisisButton =
+    severity === "Severe" || severity === "Severe Level";
   return (
     <>
       <Typography variant="h2">{header}</Typography>
@@ -30,7 +29,7 @@ const Resources = ({
         phoneNumber={bfdiIntakeNumber}
         label={bfdiButtonText}
       />
-      {renderCrisisButton && (
+      {shouldRenderCrisisButton && (
         <div>
           <Typography paragraph>{crisisLineDescription}</Typography>
           <MultiButton

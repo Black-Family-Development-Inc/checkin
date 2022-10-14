@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export const AssessmentPageStyled = styled(Box)({
   display: "flex",
@@ -16,6 +16,16 @@ export const AssessmentTitleStyled = styled(Box)({
   fontWeight: "600",
   width: "100%",
   fontFamily: "Inter",
+  marginBottom: "8px",
+});
+
+export const AssessmentHeaderStyled = styled(Typography)({
+  fontSize: "16px",
+  fontWeight: "500",
+  width: "100%",
+  fontFamily: "Roboto",
+  marginTop: "36px",
+  marginBottom: "36px",
 });
 
 export const AssessmentHeaderContainer = styled(Box)({
