@@ -1,14 +1,17 @@
 import { FormControl, Typography } from "@mui/material";
-import { graphql, navigate } from "gatsby";
+import { graphql, navigate, PageProps } from "gatsby";
 import React, { useEffect, useState } from "react";
+import { HR } from "../../components/HR";
 import {
   AssessmentAnswers,
   AssessmentPrevNext,
 } from "../../components/pages/AssessmentsPage";
 import {
   AssessmentHeaderContainer,
+  AssessmentHeaderStyled,
   AssessmentPageStyled,
   AssessmentTitleStyled,
+  DirectionsStyled,
   QuestionStyled,
 } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
@@ -17,11 +20,11 @@ import {
   UsersSavedQuestion,
 } from "./AssessmentPage-types";
 
-const AssessmentPage = ({ data }: AssessmentPageProps) => {
+const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
   const {
     contentfulAssessment: {
       title,
-      assessment: { answers, questions, severityRubric },
+      assessment: { answers, questions, description, severityRubric, headings },
     },
   } = data;
 
@@ -51,8 +54,8 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
 
   const titles = {
     "phq-9": "Depression",
-    "dast-10": "Anxiety",
-    "gad-7": "Substance Use",
+    "dast-10": "Substance Use",
+    "gad-7": "Anxiety",
     universal: "Universal",
   };
 
@@ -79,6 +82,20 @@ const AssessmentPage = ({ data }: AssessmentPageProps) => {
             {titles[title.toLocaleLowerCase() as keyof typeof titles]}{" "}
             Assessment
           </AssessmentTitleStyled>
+          <HR />
+          {headings && (
+            <AssessmentHeaderStyled>
+              {headings[currentQuestion?.questionType]}
+            </AssessmentHeaderStyled>
+          )}
+          {currentQuestionIdx === 0 && description && (
+            <DirectionsStyled>
+              <Typography sx={{ fontWeight: "700", marginBottom: "12px" }}>
+                Directions
+              </Typography>
+              <Typography>{description}</Typography>
+            </DirectionsStyled>
+          )}
           <QuestionStyled>
             <Typography>{currentQuestion.text}</Typography>
             <Typography sx={{ paddingLeft: "35px" }}>
