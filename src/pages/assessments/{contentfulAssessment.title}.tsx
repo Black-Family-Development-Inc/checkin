@@ -1,12 +1,14 @@
 import { FormControl, Typography } from "@mui/material";
 import { graphql, navigate, PageProps } from "gatsby";
 import React, { useEffect, useState } from "react";
+import { HR } from "../../components/HR";
 import {
   AssessmentAnswers,
   AssessmentPrevNext,
 } from "../../components/pages/AssessmentsPage";
 import {
   AssessmentHeaderContainer,
+  AssessmentHeaderStyled,
   AssessmentPageStyled,
   AssessmentTitleStyled,
   DirectionsStyled,
@@ -28,7 +30,7 @@ const AssessmentPage = ({
   const {
     contentfulAssessment: {
       title,
-      assessment: { answers, questions, description, severityRubric },
+      assessment: { answers, questions, description, severityRubric, headings },
     },
   } = data;
   const { startingPage } = state || {};
@@ -90,6 +92,12 @@ const AssessmentPage = ({
             {titles[title.toLocaleLowerCase() as keyof typeof titles]}{" "}
             Assessment
           </AssessmentTitleStyled>
+          <HR />
+          {headings && (
+            <AssessmentHeaderStyled>
+              {headings[currentQuestion?.questionType]}
+            </AssessmentHeaderStyled>
+          )}
           {currentQuestionIdx === 0 && description && (
             <DirectionsStyled>
               <Typography sx={{ fontWeight: "700", marginBottom: "12px" }}>
