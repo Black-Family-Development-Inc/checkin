@@ -55,8 +55,8 @@ const ArticlesPage = () => {
       {Object.keys(articles).map((label, idx) => {
         const currentTabArticles = articles[label as keyof typeof articles];
         return (
-          <Box hidden={currentTab !== idx}>
-            <ArticleList key={label} articles={currentTabArticles} />
+          <Box key={label} hidden={currentTab !== idx}>
+            <ArticleList articles={currentTabArticles} />
           </Box>
         );
       })}
