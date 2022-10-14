@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Link as MuiLink } from "@mui/material";
 import { styled } from "@mui/system";
 import { Link } from "gatsby";
 import { AnswerStyledProps } from "./MultiButton-types";
@@ -98,6 +98,6 @@ export const ResultsPageSmallStyled = styled(Button)({
   width: "162px",
 });
 
-export const PhoneNumberStyled = styled(Link)``;
+export const PhoneNumberStyled = styled(MuiLink)``;
 
 export const AllArticlesStyled = styled(Link)``;
