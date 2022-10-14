@@ -1,8 +1,8 @@
-import { Typography } from "@mui/material";
-import { Link } from "gatsby";
 import React from "react";
 import MultiButton from "../../../MultiButton/MultiButton";
+import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
 import { TestimonialSection } from "../../IndexPage/Testimonial";
+import { RetakeAndStartOverStyled, TextStyled } from "./RetakeSection.styles";
 import { RetakeSectionType } from "./RetakeSection-types";
 
 const RetakeSection = (props: RetakeSectionType) => {
@@ -14,13 +14,15 @@ const RetakeSection = (props: RetakeSectionType) => {
 
   return (
     <>
-      <Typography paragraph>{retakeDescription}</Typography>
-      <Link to={retakeBtnLink}>
-        <MultiButton version="retake" label={retakeBtnLabel} />
-      </Link>
-      <Link to={scrollToLink}>
-        <MultiButton version="startOver" label={startOverBtnLabel} />
-      </Link>
+      <TextStyled>{retakeDescription}</TextStyled>
+      <RetakeAndStartOverStyled>
+        <LinkStyled to={retakeBtnLink}>
+          <MultiButton version="retake" label={retakeBtnLabel} />
+        </LinkStyled>
+        <LinkStyled to={scrollToLink}>
+          <MultiButton version="startOver" label={startOverBtnLabel} />
+        </LinkStyled>
+      </RetakeAndStartOverStyled>
       <TestimonialSection
         testimonial={resultsTestimonial.testimonialQuote}
         testimonialParticipant={resultsTestimonial.testimonialAuthor}

@@ -1,8 +1,17 @@
-import { Typography } from "@mui/material";
+import CropOriginalIcon from "@mui/icons-material/CropOriginal";
 import React from "react";
 import { ResultsPageResultsSection } from "../../../../pages/components/results/results-section-{contentfulResultsPage.title}";
 import Accordion from "../../../Accordion/Accordion";
+import { Header } from "../../../Header";
 import { HR } from "../../../HR";
+import { Paragraph } from "../../../Paragraph";
+import {
+  BottomParagraphContainer,
+  ExternalLinkStyled,
+  IconContainer,
+  TextContainer,
+  UpperParagraphContainer,
+} from "./ResultsSection.styles";
 
 const ResultsSection = ({
   resultsHeaderText,
@@ -11,10 +20,11 @@ const ResultsSection = ({
 }: ResultsPageResultsSection) => {
   return (
     <>
-      <Typography variant="h2">{resultsHeaderText}</Typography>
+      <Header text={resultsHeaderText} />
       <HR />
-      <Typography paragraph>{resultsSummaryText}</Typography>
-
+      <UpperParagraphContainer>
+        <Paragraph>{resultsSummaryText}</Paragraph>
+      </UpperParagraphContainer>
       {resultsAccordionData?.map((accordion) => {
         return (
           <Accordion
@@ -25,12 +35,20 @@ const ResultsSection = ({
           />
         );
       })}
-
-      <Typography paragraph>
-        Take a screenshot or{" "}
-        <a href="mailto:?subject=Test testing&body=This is the body!">Email</a>{" "}
-        your results
-      </Typography>
+      <BottomParagraphContainer>
+        <IconContainer>
+          <CropOriginalIcon />
+        </IconContainer>
+        <TextContainer>
+          <Paragraph>
+            Take a screenshot or{" "}
+            <ExternalLinkStyled href="mailto:?subject=Test testing&body=This is the body!">
+              Email
+            </ExternalLinkStyled>{" "}
+            your results.
+          </Paragraph>
+        </TextContainer>
+      </BottomParagraphContainer>
     </>
   );
 };
