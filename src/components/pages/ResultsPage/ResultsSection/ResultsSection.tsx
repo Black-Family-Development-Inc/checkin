@@ -4,7 +4,6 @@ import { ResultsPageResultsSection } from "../../../../pages/components/results/
 import Accordion from "../../../Accordion/Accordion";
 import { Header } from "../../../Header";
 import { HR } from "../../../HR";
-import NavButton from "../../../NavButton/NavButton";
 import { Paragraph } from "../../../Paragraph";
 import {
   BottomParagraphContainer,
@@ -19,14 +18,8 @@ const ResultsSection = ({
   resultsSummaryText,
   resultsAccordionData,
 }: ResultsPageResultsSection) => {
-  const savedAssessmentPath = localStorage.getItem("savedAssessmentPath");
-
   return (
     <>
-      <NavButton
-        label="Assessment Questions"
-        link={savedAssessmentPath ? savedAssessmentPath : "/"}
-      />
       <Header text={resultsHeaderText} />
       <HR />
       <UpperParagraphContainer>

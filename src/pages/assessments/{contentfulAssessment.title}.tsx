@@ -12,6 +12,7 @@ import {
   DirectionsStyled,
   QuestionStyled,
 } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
+import { localSavedAssessmentKey } from "../../global-variables";
 import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import {
   AssessmentPageProps,
@@ -25,10 +26,6 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
       assessment: { answers, questions, description, severityRubric },
     },
   } = data;
-
-  const savedAssessmentpath = "savedAssessmentPath";
-  localStorage.removeItem(savedAssessmentpath);
-  localStorage.setItem(savedAssessmentpath, location.pathname);
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
@@ -65,6 +62,11 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
     usersSavedQuestions.some((question) => question.triggered);
 
   const navigateToResultsPage = () => {
+    const pageData = {
+      path: location.pathname,
+    };
+    localStorage.setItem(localSavedAssessmentKey, JSON.stringify(pageData));
+
     const resultsPage = "/results/" + title.toLowerCase();
     const triggered = checkTriggerQuestions();
     const assessmentScore = accumulateAssessmentScore();

@@ -95,10 +95,9 @@ export const NavButtonStyled = styled(Button)({
   fontSize: "16px",
   letterSpacing: ".15px",
   height: "30px",
-  padding: "0 3px 0 0",
-  marginTop: "45px",
+  padding: "0 8px 0 0",
+  margin: "45px 0",
   textTransform: "none",
-  marginBottom: "45px",
 });
 
 export const ResultsPageSmallStyled = styled(Button)({

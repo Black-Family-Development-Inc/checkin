@@ -1,9 +1,10 @@
 import { Link } from "gatsby";
-import React from "react";
+import React, { useEffect } from "react";
 import { Header } from "../../../components/Header";
 import { HR } from "../../../components/HR";
 import MultiButton from "../../../components/MultiButton/MultiButton";
 import { Paragraph } from "../../../components/Paragraph";
+import { localSavedPageKey } from "../../../global-variables";
 import AssessmentTrackerLayout from "../../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
 import { UniversalPageButtonsData } from "../AssessmentPage-types";
 
@@ -30,6 +31,13 @@ const UniversalAssessmentPage = () => {
     ],
   };
 
+  useEffect(() => {
+    const pageData = {
+      cameFromUniversal: true,
+    };
+    localStorage.setItem(localSavedPageKey, JSON.stringify(pageData));
+  }, []);
+
   return (
     <>
       <AssessmentTrackerLayout>
@@ -50,7 +58,7 @@ const UniversalAssessmentPage = () => {
         {buttonsData.assessmentButtons.map(({ assessment, label }) => (
           <Link
             key={assessment}
-            to="/assessments/universal/results"
+            to="/assessments/universals/results"
             state={{ assessment }}
           >
             <MultiButton version="answer" label={label} />
