@@ -96,7 +96,7 @@ export const NavButtonStyled = styled(Button)({
   letterSpacing: ".15px",
   height: "30px",
   padding: "0 8px 0 0",
-  margin: "45px 0",
+  margin: "42px 0 30px 0",
   textTransform: "none",
 });
 
