@@ -1,7 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
 import { Header } from "../../../components/Header";
-import { HR } from "../../../components/HR";
 import MultiButton from "../../../components/MultiButton/MultiButton";
 import { Paragraph } from "../../../components/Paragraph";
 import AssessmentTrackerLayout from "../../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
@@ -33,9 +32,7 @@ const UniversalAssessmentPage = () => {
   return (
     <>
       <AssessmentTrackerLayout>
-        <Header text="Universal Assessment" />
-
-        <HR />
+        <Header text="Universal Question" variant="h2" />
 
         <Paragraph>
           This is a universal assessment to help you identify specific
