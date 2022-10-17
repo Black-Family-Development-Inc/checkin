@@ -1,16 +1,6 @@
 import styled from "@emotion/styled";
 import { StepLabel, Stepper } from "@mui/material";
 
-export const AssessmentInstructionsTitleStyled = styled("h2")({
-  fontSize: "24px",
-  fontWeight: "600",
-  lineHeight: "28px",
-  color: "#000",
-  marginBottom: "8px",
-  marginTop: "66px",
-  fontFamily: "Roboto, Inter",
-});
-
 export const StepperStyled = styled(Stepper)({
   marginTop: "36px",
   marginBottom: "66px",

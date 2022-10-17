@@ -1,10 +1,10 @@
 import React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
+import { Header } from "../../../Header";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
 import {
   ButtonContainerStyled,
-  UniversalBottomHeader,
   UniversalBottomSubHeader,
 } from "./UniversalBottom.styles";
 
@@ -15,7 +15,7 @@ const UniversalBottom = ({
 }: ContentfulHomePage) => {
   return (
     <>
-      <UniversalBottomHeader>{universalBottomHeader}</UniversalBottomHeader>
+      <Header text={universalBottomHeader} variant="h2" />
       <UniversalBottomSubHeader>
         {universalBottomSubHeader}
       </UniversalBottomSubHeader>
