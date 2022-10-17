@@ -42,25 +42,26 @@ const AssessmentTrackerLayout = ({
   const localStorageAssessmentData =
     isBrowser && localStorage.getItem(localSavedAssessmentKey);
 
-  const assessmentData = JSON.parse(
-    localStorageAssessmentData ? localStorageAssessmentData : '{"path": "/"}',
-  );
   const pageData = JSON.parse(
     localStoragePageData
       ? localStoragePageData
       : '{"cameFromUniversal": false}',
   );
+  const assessmentData = JSON.parse(
+    localStorageAssessmentData ? localStorageAssessmentData : '{"path": "/"}',
+  );
 
   const cameFromUniversalQuestions = pageData.cameFromUniversal;
-
   const splitPath = assessmentData.path.split("/");
-  const assessment = splitPath[splitPath.length - 1];
+  const assessment = splitPath[splitPath.length - 2];
+
   const onResultsPage =
     isBrowser && location.pathname === `/results/${assessment}`;
+
   const onAssessmentPage =
     isBrowser &&
     location.pathname ===
-      `/assessments/${assessmentTitle?.toLocaleLowerCase()}`;
+      `/assessments/${assessmentTitle?.toLocaleLowerCase()}/`;
 
   const universalQuestionsNavButton =
     cameFromUniversalQuestions && !onResultsPage && onAssessmentPage;
@@ -75,7 +76,7 @@ const AssessmentTrackerLayout = ({
         {onResultsPage && (
           <NavButton label="Assessment Questions" link={assessmentData.path} />
         )}
-        {!cameFromUniversalQuestions && !onResultsPage && (
+        {!onAssessmentPage && !onResultsPage && (
           <NavButton label="Home" link="/" />
         )}
       </Box>
