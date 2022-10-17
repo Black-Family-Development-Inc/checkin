@@ -98,6 +98,17 @@ export const ResultsPageSmallStyled = styled(Button)({
   width: "162px",
 });
 
-export const PhoneNumberStyled = styled(MuiLink)``;
+export const PhoneNumberStyled = styled(MuiLink)({
+  ...generalButtonStyles,
+  background: "black",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  color: "white",
+  height: 40,
+  marginBottom: 32,
+  padding: 0,
+  width: "100%",
+});
 
 export const AllArticlesStyled = styled(Link)``;

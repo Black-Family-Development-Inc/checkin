@@ -31,7 +31,11 @@ export type ResourcesTypes = {
 };
 
 const ResourcesPage = ({ data }: PageProps<ResourcesPageTypes>) => {
-  return <Resources {...data.contentfulResultsPage.resources} />;
+  return (
+    <div style={{ padding: "0 16px" }}>
+      <Resources {...data.contentfulResultsPage.resources} />
+    </div>
+  );
 };
 
 export default ResourcesPage;
