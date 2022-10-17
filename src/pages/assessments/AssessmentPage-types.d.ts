@@ -25,6 +25,7 @@ export type Severity = {
 export type Heading = {
   scale: string;
   binary: string;
+  custom: string;
 };
 
 export type Question = {
@@ -36,7 +37,7 @@ export type Question = {
 
 export type Assessment = {
   questions: Question[];
-  headings: Heading[];
+  headings: Heading;
   description: Description;
   severityRubric: Severity[];
   answers: {
