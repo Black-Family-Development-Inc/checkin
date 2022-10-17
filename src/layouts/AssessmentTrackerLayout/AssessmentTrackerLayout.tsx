@@ -35,11 +35,12 @@ const AssessmentTrackerLayout = ({
 
   const activeStep = 0;
 
+  const isBrowser = typeof window !== "undefined";
+
   const localStoragePageData =
-    typeof window !== "undefined" && localStorage.getItem(localSavedPageKey);
+    isBrowser && localStorage.getItem(localSavedPageKey);
   const localStorageAssessmentData =
-    typeof window !== "undefined" &&
-    localStorage.getItem(localSavedAssessmentKey);
+    isBrowser && localStorage.getItem(localSavedAssessmentKey);
 
   const assessmentData = JSON.parse(
     localStorageAssessmentData ? localStorageAssessmentData : '{"path": "/"}',
@@ -49,15 +50,17 @@ const AssessmentTrackerLayout = ({
       ? localStoragePageData
       : '{"cameFromUniversal": false}',
   );
-  // how do we tell if we are on an assessment page?
+
   const cameFromUniversalQuestions = pageData.cameFromUniversal;
 
   const splitPath = assessmentData.path.split("/");
   const assessment = splitPath[splitPath.length - 1];
-  const onResultsPage = location.pathname === `/results/${assessment}`;
+  const onResultsPage =
+    isBrowser && location.pathname === `/results/${assessment}`;
   const onAssessmentPage =
+    isBrowser &&
     location.pathname ===
-    `/assessments/${assessmentTitle?.toLocaleLowerCase()}`;
+      `/assessments/${assessmentTitle?.toLocaleLowerCase()}`;
 
   const universalQuestionsNavButton =
     cameFromUniversalQuestions && !onResultsPage && onAssessmentPage;
