@@ -12,6 +12,7 @@ import { AssessmentTrackerLayoutPropTypes } from "./AssessmentTrackerLayout-type
 
 const AssessmentTrackerLayout = ({
   children,
+  assessmentTitle,
 }: AssessmentTrackerLayoutPropTypes) => {
   const steps = {
     universal: [
@@ -47,22 +48,26 @@ const AssessmentTrackerLayout = ({
       ? localStoragePageData
       : '{"cameFromUniversal": false}',
   );
-
+  // how do we tell if we are on an assessment page?
   const cameFromUniversalQuestions = pageData.cameFromUniversal;
 
   const splitPath = assessmentData.path.split("/");
   const assessment = splitPath[splitPath.length - 1];
   const onResultsPage = location.pathname === `/results/${assessment}`;
+  const onAssessmentPage =
+    location.pathname ===
+    `/assessments/${assessmentTitle?.toLocaleLowerCase()}`;
+
+  const universalQuestionsNavButton =
+    cameFromUniversalQuestions && !onResultsPage && onAssessmentPage;
+  console.log(universalQuestionsNavButton);
 
   return (
     <>
       <NavBar />
       <Box sx={{ marginLeft: "20px" }}>
-        {cameFromUniversalQuestions && !onResultsPage && (
-          <NavButton
-            label="Universal Assessment"
-            link={"/assessments/universals"}
-          />
+        {universalQuestionsNavButton && (
+          <NavButton label="Universal Assessment" link={"/universal"} />
         )}
         {onResultsPage && (
           <NavButton label="Assessment Questions" link={assessmentData.path} />

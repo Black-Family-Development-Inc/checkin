@@ -1,12 +1,12 @@
 import { Link } from "gatsby";
-import React, { useEffect } from "react";
-import { Header } from "../../../components/Header";
-import { HR } from "../../../components/HR";
-import MultiButton from "../../../components/MultiButton/MultiButton";
-import { Paragraph } from "../../../components/Paragraph";
-import { localSavedPageKey } from "../../../global-variables";
-import AssessmentTrackerLayout from "../../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
-import { UniversalPageButtonsData } from "../AssessmentPage-types";
+import React from "react";
+import { Header } from "../../components/Header";
+import { HR } from "../../components/HR";
+import MultiButton from "../../components/MultiButton/MultiButton";
+import { Paragraph } from "../../components/Paragraph";
+import { localSavedPageKey } from "../../global-variables";
+import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
+import { UniversalPageButtonsData } from "../assessments/AssessmentPage-types";
 
 const UniversalAssessmentPage = () => {
   const buttonsData: UniversalPageButtonsData = {
@@ -31,12 +31,12 @@ const UniversalAssessmentPage = () => {
     ],
   };
 
-  useEffect(() => {
+  const assessmentButtonClick = () => {
     const pageData = {
       cameFromUniversal: true,
     };
     localStorage.setItem(localSavedPageKey, JSON.stringify(pageData));
-  }, []);
+  };
 
   return (
     <>
@@ -58,8 +58,9 @@ const UniversalAssessmentPage = () => {
         {buttonsData.assessmentButtons.map(({ assessment, label }) => (
           <Link
             key={assessment}
-            to="/assessments/universals/results"
+            to="/universal/results"
             state={{ assessment }}
+            onClick={assessmentButtonClick}
           >
             <MultiButton version="answer" label={label} />
           </Link>

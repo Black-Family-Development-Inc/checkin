@@ -79,7 +79,7 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
     usersSavedQuestions.reduce((prev, curr) => prev + curr.score, 0);
 
   return (
-    <AssessmentTrackerLayout>
+    <AssessmentTrackerLayout assessmentTitle={title}>
       <AssessmentPageStyled>
         <AssessmentHeaderContainer>
           <AssessmentTitleStyled>
