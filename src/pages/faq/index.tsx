@@ -2,7 +2,6 @@ import { graphql, PageProps } from "gatsby";
 import React from "react";
 import Accordion from "../../components/Accordion/Accordion";
 import { Header } from "../../components/Header";
-import { HR } from "../../components/HR";
 import { Paragraph } from "../../components/Paragraph";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
 import { FaqAccordion, FaqPagePropTypes } from "./FaqPage-types";
@@ -17,8 +16,7 @@ const FaqPage = ({
 
   return (
     <DefaultLayout>
-      <Header text={headerText} />
-      <HR />
+      <Header text={headerText} variant="h2" />
       <Paragraph>{subHeader}</Paragraph>
       {contentfulFaqPage.faqAccordion.map((accordion: FaqAccordion) => {
         const {
