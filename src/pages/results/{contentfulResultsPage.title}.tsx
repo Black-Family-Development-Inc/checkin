@@ -1,5 +1,6 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
+import { Header } from "../../components/Header";
 import {
   OtherResources,
   Resources,
@@ -46,7 +47,7 @@ const ResultsPage = ({
 
   return (
     <AssessmentTrackerLayout>
-      <h1>{data.contentfulResultsPage.title}</h1>
+      <Header text={data.contentfulResultsPage.title} variant="h2" />
       {assessmentScore > -1 ? (
         <>
           <p>Score: {assessmentScore}</p>

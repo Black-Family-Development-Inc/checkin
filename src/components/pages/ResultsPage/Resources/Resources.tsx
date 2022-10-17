@@ -2,6 +2,7 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import { ResourcesTypes } from "../../../../pages/components/results/resources-section-{contentfulResultsPage.title}";
 import ArticleList from "../../../ArticleList/ArticleList";
+import { Header } from "../../../Header";
 import MultiButton from "../../../MultiButton/MultiButton";
 
 const Resources = ({
@@ -22,7 +23,7 @@ const Resources = ({
     severity === "Severe" || severity === "Severe Level";
   return (
     <>
-      <Typography variant="h2">{header}</Typography>
+      <Header text={header} variant="h2" />
       <Typography paragraph>{bfdiButtonDescription}</Typography>
       <MultiButton
         version="phoneNumber"

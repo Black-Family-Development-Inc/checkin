@@ -3,7 +3,6 @@ import React from "react";
 import { ResultsPageResultsSection } from "../../../../pages/components/results/results-section-{contentfulResultsPage.title}";
 import Accordion from "../../../Accordion/Accordion";
 import { Header } from "../../../Header";
-import { HR } from "../../../HR";
 import { Paragraph } from "../../../Paragraph";
 import {
   BottomParagraphContainer,
@@ -20,8 +19,7 @@ const ResultsSection = ({
 }: ResultsPageResultsSection) => {
   return (
     <>
-      <Header text={resultsHeaderText} />
-      <HR />
+      <Header text={resultsHeaderText} variant="h2" />
       <UpperParagraphContainer>
         <Paragraph>{resultsSummaryText}</Paragraph>
       </UpperParagraphContainer>
