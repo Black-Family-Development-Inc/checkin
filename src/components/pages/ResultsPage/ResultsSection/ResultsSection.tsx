@@ -29,7 +29,7 @@ const ResultsSection = ({
             key={accordion.id}
             title={accordion.title}
             summary={accordion.summary}
-            body={accordion.body.body}
+            body={accordion.body}
           />
         );
       })}
