@@ -35,10 +35,11 @@ const AssessmentTrackerLayout = ({
 
   const activeStep = 0;
 
-  const localStoragePageData = localStorage.getItem(localSavedPageKey);
-  const localStorageAssessmentData = localStorage.getItem(
-    localSavedAssessmentKey,
-  );
+  const localStoragePageData =
+    typeof window !== "undefined" && localStorage.getItem(localSavedPageKey);
+  const localStorageAssessmentData =
+    typeof window !== "undefined" &&
+    localStorage.getItem(localSavedAssessmentKey);
 
   const assessmentData = JSON.parse(
     localStorageAssessmentData ? localStorageAssessmentData : '{"path": "/"}',
@@ -60,7 +61,6 @@ const AssessmentTrackerLayout = ({
 
   const universalQuestionsNavButton =
     cameFromUniversalQuestions && !onResultsPage && onAssessmentPage;
-  console.log(universalQuestionsNavButton);
 
   return (
     <>
