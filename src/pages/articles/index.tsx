@@ -2,7 +2,6 @@ import { Box, Tab, Tabs } from "@mui/material";
 import React, { useState } from "react";
 import ArticleList from "../../components/ArticleList/ArticleList";
 import { Header } from "../../components/Header";
-import { HR } from "../../components/HR";
 import { Paragraph } from "../../components/Paragraph";
 
 const ArticlesPage = () => {
@@ -36,8 +35,7 @@ const ArticlesPage = () => {
 
   return (
     <>
-      <Header text="All Articles" />
-      <HR />
+      <Header text="All Articles" variant="h2" />
       <Paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.
