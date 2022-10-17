@@ -92,11 +92,12 @@ export const NavButtonStyled = styled(Button)({
   color: "#3D348B",
   fontFamily: "Roboto",
   fontWeight: 500,
-  fontSize: "16px",
+  fontSize: "14px",
   letterSpacing: ".15px",
+  lineHeight: "16px",
   height: "30px",
   padding: "0 8px 0 0",
-  margin: "42px 0 30px 0",
+  margin: "45px 0 32px 0",
   textTransform: "none",
 });
 
