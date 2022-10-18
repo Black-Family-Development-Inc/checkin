@@ -1,6 +1,11 @@
 import styled from "@emotion/styled";
-import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
-import { Link } from "gatsby";
+import {
+  Link,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 
 export const ListStyled = styled(List)({
   marginBottom: 38,
