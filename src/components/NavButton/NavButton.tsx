@@ -4,9 +4,9 @@ import MultiButton from "../MultiButton/MultiButton";
 import { LinkStyled } from "./NavButton.styles";
 import { NavButtonPropTypes } from "./NavButton-types";
 
-const NavButton = ({ label, link }: NavButtonPropTypes) => {
+const NavButton = ({ label, link, startingPage }: NavButtonPropTypes) => {
   return (
-    <LinkStyled to={link}>
+    <LinkStyled to={link} state={{ startingPage }}>
       <MultiButton version="navButton" label={label}>
         <ArrowBackIcon sx={{ marginRight: "12px" }} />
       </MultiButton>

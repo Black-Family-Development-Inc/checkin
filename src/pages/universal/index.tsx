@@ -5,7 +5,6 @@ import { HR } from "../../components/HR";
 import MultiButton from "../../components/MultiButton/MultiButton";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { Paragraph } from "../../components/Paragraph";
-import { localSavedPageKey } from "../../global-variables";
 import { AssessmentLayout } from "../../layouts/AssessmentLayout";
 import { UniversalPageButtonsData } from "../assessments/AssessmentPage-types";
 
@@ -32,13 +31,6 @@ const UniversalAssessmentPage = () => {
     ],
   };
 
-  const assessmentButtonClick = () => {
-    const pageData = {
-      cameFromUniversal: true,
-    };
-    localStorage.setItem(localSavedPageKey, JSON.stringify(pageData));
-  };
-
   return (
     <>
       <AssessmentLayout
@@ -63,7 +55,6 @@ const UniversalAssessmentPage = () => {
           <Link
             key={assessment}
             to="/universal/results"
-            onClick={assessmentButtonClick}
             state={{ assessment, startingPage: stepperPages.universal }}
           >
             <MultiButton version="answer" label={label} />

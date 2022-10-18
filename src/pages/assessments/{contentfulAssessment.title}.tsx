@@ -16,7 +16,6 @@ import {
 } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
-import { localSavedAssessmentKey } from "../../global-variables";
 import { AssessmentLayout } from "../../layouts/AssessmentLayout";
 import {
   AssessmentLocationState,
@@ -71,11 +70,6 @@ const AssessmentPage = ({
     usersSavedQuestions.some((question) => question.triggered);
 
   const navigateToResultsPage = () => {
-    const pageData = {
-      path: location.pathname,
-    };
-    localStorage.setItem(localSavedAssessmentKey, JSON.stringify(pageData));
-
     const resultsPage = "/results/" + title.toLowerCase();
     const triggered = checkTriggerQuestions();
     const assessmentScore = accumulateAssessmentScore();

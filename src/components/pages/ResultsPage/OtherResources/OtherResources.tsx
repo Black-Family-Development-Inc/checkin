@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import React from "react";
-import { OtherResourcesTypes } from "../../../../pages/components/results/other-resources-{contentfulResultsPage.title}";
+import { OtherResourcesTypes } from "../../../../pages/results/ResultsPage-types";
 
 const OtherResources = ({
   title,
