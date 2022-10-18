@@ -1,5 +1,6 @@
+import { MenuItem, Select } from "@mui/material";
 import { graphql, PageProps } from "gatsby";
-import React from "react";
+import React, { useState } from "react";
 import { ArticleType } from "../../../components/ArticleList/Articles-types";
 import { Resources } from "../../../components/pages/ResultsPage/Resources";
 
@@ -26,22 +27,67 @@ export type ResourcesTypes = {
   allResourcesLink: string;
   allResourcesText: string;
   articles: ArticleType[];
-  severity?: string; //this doesn't need an optional type once merged with results pages as it should be passed from parent component
-  title: string; //remove once mereged with actual results pages
+  severity: Severity;
 };
 
+type Severity =
+  | "None-Minimal"
+  | "Mild"
+  | "Moderate"
+  | "Moderately Severe"
+  | "Severe"
+  | "No Problems Reported"
+  | "Low Level"
+  | "Moderate Level"
+  | "Substantial Level"
+  | "Severe Level";
+
+const severities = [
+  "None-Minimal",
+  "Mild",
+  "Moderate",
+  "Moderately Severe",
+  "Severe",
+  "No Problems Reported",
+  "Low Level",
+  "Moderate Level",
+  "Substantial Level",
+  "Severe Level",
+];
+
 const ResourcesPage = ({ data }: PageProps<ResourcesPageTypes>) => {
-  return <Resources {...data.contentfulResultsPage.resources} />;
+  const [severity, setSeverity] = useState<Severity>("None-Minimal");
+
+  return (
+    <>
+      <Select
+        label="Severity"
+        value={severity}
+        onChange={(e) => setSeverity(e.target.value as Severity)}
+      >
+        {severities.map((severity) => (
+          <MenuItem key={severity} value={severity}>
+            {severity}
+          </MenuItem>
+        ))}
+      </Select>
+
+      <div style={{ padding: "0 16px" }}>
+        <Resources
+          {...data.contentfulResultsPage.resources}
+          severity={severity}
+        />
+      </div>
+    </>
+  );
 };
 
 export default ResourcesPage;
 
-//remove "title" from line 44 inside the resources object once merged with actual results pages
 export const query = graphql`
   query ($title: String) {
     contentfulResultsPage(title: { eq: $title }) {
       resources {
-        title
         header
         bfdiButtonDescription
         bfdiButtonText

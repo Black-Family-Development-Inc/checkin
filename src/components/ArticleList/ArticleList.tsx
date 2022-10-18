@@ -1,47 +1,50 @@
-import SquareIcon from "@mui/icons-material/Square";
+import { SquareRounded } from "@mui/icons-material";
 import Divider from "@mui/material/Divider";
-import Link from "@mui/material/Link";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import React from "react";
+import {
+  LinkStyled,
+  ListItemIconStyled,
+  ListItemStyled,
+  ListItemTextStyled,
+  ListStyled,
+} from "./ArticleList.styles";
 import { ArticleType } from "./Articles-types";
 
 const ArticleList = ({ articles }: { articles: ArticleType[] }) => {
   const getArticleColorCode = (articleType: string): string =>
     articleType.split("-").pop() || "";
+
   return (
-    <List>
+    <ListStyled>
       {articles.map(
         (
           { articleLink, articleSubTitle, articleTitle, articleType },
           index,
         ) => {
           return (
-            <Link
+            <LinkStyled
               key={articleTitle + index}
-              href={articleLink}
+              to={articleLink}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <ListItem>
-                <ListItemIcon>
-                  <SquareIcon
+              <ListItemStyled>
+                <ListItemIconStyled>
+                  <SquareRounded
                     sx={{ color: getArticleColorCode(articleType) }}
                   />
-                </ListItemIcon>
-                <ListItemText
+                </ListItemIconStyled>
+                <ListItemTextStyled
                   primary={articleTitle}
                   secondary={`${articleSubTitle} - This articles color code is ${articleType}`}
                 />
-              </ListItem>
+              </ListItemStyled>
               {articles.length !== index + 1 && <Divider />}
-            </Link>
+            </LinkStyled>
           );
         },
       )}
-    </List>
+    </ListStyled>
   );
 };
 
