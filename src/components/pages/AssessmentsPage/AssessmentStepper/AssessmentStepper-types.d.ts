@@ -1,6 +1,15 @@
-import { AssessmentStep } from "../../../../pages/assessments/AssessmentPage-types";
-
 export type AssessmentStepperPropTypes = {
-  steps: AssessmentStep[];
-  activeStep: number;
+  currentPage: StepperPagesType;
+  startingPage: StepperPagesType;
+};
+
+export type StepperPagesType =
+  | "Assessment Questions"
+  | "Results & Resources"
+  | "Universal Question"
+  | "";
+
+export type StepType = {
+  label: string;
+  isComplete: boolean;
 };

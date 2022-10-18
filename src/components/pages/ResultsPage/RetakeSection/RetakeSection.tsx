@@ -1,7 +1,7 @@
 import React from "react";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
-import { TestimonialSection } from "../../IndexPage/Testimonial";
+import { TestimonialSection } from "../../../Testimonial";
 import { RetakeAndStartOverStyled, TextStyled } from "./RetakeSection.styles";
 import { RetakeSectionType } from "./RetakeSection-types";
 
