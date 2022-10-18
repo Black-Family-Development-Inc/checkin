@@ -7,10 +7,11 @@ type ResultsPagePropTypes = {
   resultsPageResultsSection: ResultsPageResultsSection;
 };
 
-type LocationState = {
+type ResultsPageLocationState = {
   assessmentScore: number;
   severityRubric: Severity[];
   triggered: boolean;
+  startingPage: string;
 };
 
 export type OtherResourcesTypes = {

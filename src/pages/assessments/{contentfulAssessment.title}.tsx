@@ -13,19 +13,26 @@ import {
   DirectionsStyled,
   QuestionStyled,
 } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
-import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
+import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
+import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
+import { AssessmentLayout } from "../../layouts/AssessmentLayout";
 import {
+  AssessmentLocationState,
   AssessmentPageProps,
   UsersSavedQuestion,
 } from "./AssessmentPage-types";
 
-const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
+const AssessmentPage = ({
+  data,
+  location: { state },
+}: PageProps<AssessmentPageProps, object, AssessmentLocationState>) => {
   const {
     contentfulAssessment: {
       title,
       assessment: { answers, questions, description, severityRubric, headings },
     },
   } = data;
+  const { startingPage } = state || {};
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
@@ -66,7 +73,7 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
     const triggered = checkTriggerQuestions();
     const assessmentScore = accumulateAssessmentScore();
     navigate(resultsPage, {
-      state: { assessmentScore, severityRubric, triggered },
+      state: { assessmentScore, severityRubric, triggered, startingPage },
     });
   };
 
@@ -74,7 +81,10 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
     usersSavedQuestions.reduce((prev, curr) => prev + curr.score, 0);
   const headerTitle = titles[title.toLocaleLowerCase() as keyof typeof titles];
   return (
-    <AssessmentTrackerLayout>
+    <AssessmentLayout
+      currentPage={stepperPages.assessment as StepperPagesType}
+      startingPage={startingPage}
+    >
       <AssessmentPageStyled>
         <AssessmentHeaderContainer>
           <Header text={`${headerTitle} Assessment`} variant="h2" />
@@ -118,7 +128,7 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
           />
         </FormControl>
       </AssessmentPageStyled>
-    </AssessmentTrackerLayout>
+    </AssessmentLayout>
   );
 };
 
