@@ -20,13 +20,13 @@ const OtherResources = ({
     <>
       <Header text={title} />
       <HR />
-      <Paragraph>
+      <Paragraph sx={{ margin: "12px 0px 36px" }}>
         {faqResourcesParagraph + " "}
         <InternalLink to={faqLink}>
           <LinkStyled>{faqLinkText}</LinkStyled>
         </InternalLink>
       </Paragraph>
-      <Paragraph sx={{ marginBottom: "44px" }}>
+      <Paragraph>
         {bfdiResourcesParagraph + " "}
         <ExternalLink href={bfdiLink} target="_blank" rel="noopener noreferrer">
           <LinkStyled>{bfdiLinkText}</LinkStyled>
