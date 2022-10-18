@@ -37,8 +37,10 @@ export const query = graphql`
       universalAssessmentButton {
         text
         assessment {
-          id
-          title
+          ... on ContentfulUniversalQuestionPage {
+            id
+            title
+          }
         }
       }
       introSectionImage {
