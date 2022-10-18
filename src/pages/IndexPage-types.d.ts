@@ -61,8 +61,3 @@ export type ContentfulAssessment = {
   id: string;
   title: string;
 };
-
-export type TestimonialSectionType = {
-  testimonial: string;
-  testimonialParticipant: string;
-};

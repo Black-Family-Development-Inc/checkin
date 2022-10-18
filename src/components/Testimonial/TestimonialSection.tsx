@@ -1,11 +1,11 @@
 import React from "react";
-import QuoteSVG from "../../../../images/Vector.svg";
-import { TestimonialSectionType } from "../../../../pages/IndexPage-types";
+import QuoteSVG from "../../images/Vector.svg";
 import {
   BoxStyled,
   ContainerStyled,
   ImageStyled,
 } from "./TestimonialSection.styles";
+import { TestimonialSectionType } from "./TestimonialSection-types";
 
 const TestimonialSection = (props: TestimonialSectionType) => {
   const { testimonial, testimonialParticipant } = props;
