@@ -79,7 +79,9 @@ const AssessmentPage = ({
 
   const accumulateAssessmentScore = () =>
     usersSavedQuestions.reduce((prev, curr) => prev + curr.score, 0);
+
   const headerTitle = titles[title.toLocaleLowerCase() as keyof typeof titles];
+
   return (
     <AssessmentLayout
       currentPage={stepperPages.assessment as StepperPagesType}
