@@ -14,20 +14,27 @@ import {
   DirectionsStyled,
   QuestionStyled,
 } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
+import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
+import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
 import { localSavedAssessmentKey } from "../../global-variables";
-import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
+import { AssessmentLayout } from "../../layouts/AssessmentLayout";
 import {
+  AssessmentLocationState,
   AssessmentPageProps,
   UsersSavedQuestion,
 } from "./AssessmentPage-types";
 
-const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
+const AssessmentPage = ({
+  data,
+  location: { state },
+}: PageProps<AssessmentPageProps, object, AssessmentLocationState>) => {
   const {
     contentfulAssessment: {
       title,
       assessment: { answers, questions, description, severityRubric, headings },
     },
   } = data;
+  const { startingPage } = state || {};
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
@@ -73,7 +80,7 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
     const triggered = checkTriggerQuestions();
     const assessmentScore = accumulateAssessmentScore();
     navigate(resultsPage, {
-      state: { assessmentScore, severityRubric, triggered },
+      state: { assessmentScore, severityRubric, triggered, startingPage },
     });
   };
 
@@ -81,7 +88,11 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
     usersSavedQuestions.reduce((prev, curr) => prev + curr.score, 0);
 
   return (
-    <AssessmentTrackerLayout assessmentTitle={title}>
+    <AssessmentLayout
+      currentPage={stepperPages.assessment as StepperPagesType}
+      startingPage={startingPage}
+      assessmentTitle={title}
+    >
       <AssessmentPageStyled>
         <AssessmentHeaderContainer>
           <AssessmentTitleStyled>
@@ -129,7 +140,7 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
           />
         </FormControl>
       </AssessmentPageStyled>
-    </AssessmentTrackerLayout>
+    </AssessmentLayout>
   );
 };
 

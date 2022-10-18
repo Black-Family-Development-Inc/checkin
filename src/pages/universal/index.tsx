@@ -3,9 +3,10 @@ import React from "react";
 import { Header } from "../../components/Header";
 import { HR } from "../../components/HR";
 import MultiButton from "../../components/MultiButton/MultiButton";
+import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { Paragraph } from "../../components/Paragraph";
 import { localSavedPageKey } from "../../global-variables";
-import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
+import { AssessmentLayout } from "../../layouts/AssessmentLayout";
 import { UniversalPageButtonsData } from "../assessments/AssessmentPage-types";
 
 const UniversalAssessmentPage = () => {
@@ -40,7 +41,10 @@ const UniversalAssessmentPage = () => {
 
   return (
     <>
-      <AssessmentTrackerLayout>
+      <AssessmentLayout
+        currentPage={stepperPages.universal}
+        startingPage={stepperPages.universal}
+      >
         <Header text="Universal Assessment" />
 
         <HR />
@@ -59,19 +63,23 @@ const UniversalAssessmentPage = () => {
           <Link
             key={assessment}
             to="/universal/results"
-            state={{ assessment }}
             onClick={assessmentButtonClick}
+            state={{ assessment, startingPage: stepperPages.universal }}
           >
             <MultiButton version="answer" label={label} />
           </Link>
         ))}
 
         {buttonsData.faqButtons.map(({ label }) => (
-          <Link key={label} to="/faq">
+          <Link
+            key={label}
+            to="/faq"
+            state={{ startingPage: stepperPages.universal }}
+          >
             <MultiButton version="answer" label={label} />
           </Link>
         ))}
-      </AssessmentTrackerLayout>
+      </AssessmentLayout>
     </>
   );
 };
