@@ -17,7 +17,7 @@ const IntroSection = ({
       <Header variant="h2" text={introSectionHeader} />
       <IntroContent>{introSectionSubheader}</IntroContent>
       <ButtonContainerStyled>
-        <LinkStyled to={"/assessments/" + assessment.title.toLowerCase()}>
+        <LinkStyled to={assessment.title.toLowerCase()}>
           <MultiButton version="universal" label={assessmentButtonLabel} />
         </LinkStyled>
       </ButtonContainerStyled>
