@@ -72,10 +72,12 @@ const ResourcesPage = ({ data }: PageProps<ResourcesPageTypes>) => {
         ))}
       </Select>
 
-      <Resources
-        {...data.contentfulResultsPage.resources}
-        severity={severity}
-      />
+      <div style={{ padding: "0 16px" }}>
+        <Resources
+          {...data.contentfulResultsPage.resources}
+          severity={severity}
+        />
+      </div>
     </>
   );
 };

@@ -8,4 +8,5 @@ export const TypographyStyled = styled(Typography)({
   lineHeight: "19px",
   letterSpacing: "0.15px",
   margin: 0,
+  marginBottom: 24,
 });
