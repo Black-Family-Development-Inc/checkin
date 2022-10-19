@@ -2,7 +2,6 @@ import { Link as MuiLink } from "@mui/material";
 import { graphql, Link, PageProps } from "gatsby";
 import React from "react";
 import { Header } from "../../../components/Header";
-import { HR } from "../../../components/HR";
 import MultiButton from "../../../components/MultiButton/MultiButton";
 import { Paragraph } from "../../../components/Paragraph";
 import { UniversalQuestionResultsPagePropTypes } from "./UniversalQuestionResultsPage-types";
@@ -14,8 +13,7 @@ const UniversalQuestionResultsPage = ({
 }: PageProps<UniversalQuestionResultsPagePropTypes>) => {
   return (
     <>
-      <Header text={title} />
-      <HR />
+      <Header text={title} variant="h2" />
       <Paragraph>
         Based on your universal assessment screening, you should proceed with
         the following assessment. Keep in mind that you will not be able to

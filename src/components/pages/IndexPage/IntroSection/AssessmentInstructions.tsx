@@ -2,10 +2,9 @@ import Step from "@mui/material/Step";
 import StepContent from "@mui/material/StepContent";
 import * as React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
-import { HR } from "../../../HR";
+import { Header } from "../../../Header";
 import { ImageStyled } from "../../../Image/img.styles";
 import {
-  AssessmentInstructionsTitleStyled,
   StepContentStyled,
   StepLabelStyled,
   StepperStyled,
@@ -37,10 +36,7 @@ const AssessmentInstructions = ({
   ];
   return (
     <div>
-      <AssessmentInstructionsTitleStyled>
-        {assessmentInstructionsHeader}
-      </AssessmentInstructionsTitleStyled>
-      <HR />
+      <Header text={assessmentInstructionsHeader} variant="h2" />
       <StepperStyled activeStep={-1} orientation="vertical">
         {steps.map((step) => (
           <Step key={step.label} expanded={true}>
