@@ -3,8 +3,8 @@ import * as React from "react";
 import AssessmentSection from "../components/pages/IndexPage/AssessmentSection/AssessmentSection";
 import { IntroSection } from "../components/pages/IndexPage/IntroSection";
 import AssessmentInstructions from "../components/pages/IndexPage/IntroSection/AssessmentInstructions";
-import { TestimonialSection } from "../components/pages/IndexPage/Testimonial";
 import UniversalBottom from "../components/pages/IndexPage/UniversalBottom/UniversalBottom";
+import { TestimonialSection } from "../components/Testimonial";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
 
@@ -37,8 +37,10 @@ export const query = graphql`
       universalAssessmentButton {
         text
         assessment {
-          id
-          title
+          ... on ContentfulUniversalQuestionPage {
+            id
+            title
+          }
         }
       }
       introSectionImage {

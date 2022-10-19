@@ -1,8 +1,11 @@
-import Typography from "@mui/material/Typography";
 import React from "react";
 import { ResourcesTypes } from "../../../../pages/components/results/resources-section-{contentfulResultsPage.title}";
 import ArticleList from "../../../ArticleList/ArticleList";
+import { Header } from "../../../Header";
+import { HR } from "../../../HR";
 import MultiButton from "../../../MultiButton/MultiButton";
+import { Paragraph } from "../../../Paragraph";
+import { AllArticlesContainerStyled } from "./Resources.styles";
 
 const Resources = ({
   header,
@@ -22,8 +25,10 @@ const Resources = ({
     severity === "Severe" || severity === "Severe Level";
   return (
     <>
-      <Typography variant="h2">{header}</Typography>
-      <Typography paragraph>{bfdiButtonDescription}</Typography>
+      <Header text={header} />
+      <HR />
+      <Paragraph paragraph>{bfdiButtonDescription}</Paragraph>
+
       <MultiButton
         version="phoneNumber"
         phoneNumber={bfdiIntakeNumber}
@@ -31,7 +36,7 @@ const Resources = ({
       />
       {shouldRenderCrisisButton && (
         <div>
-          <Typography paragraph>{crisisLineDescription}</Typography>
+          <Paragraph paragraph>{crisisLineDescription}</Paragraph>
           <MultiButton
             version="phoneNumber"
             phoneNumber={crisisLineNumber}
@@ -39,13 +44,16 @@ const Resources = ({
           />
         </div>
       )}
-      <Typography paragraph>{headingForArticles}</Typography>
+      <Paragraph paragraph>{headingForArticles}</Paragraph>
       <ArticleList articles={articles} />
-      <MultiButton
-        version="allArticles"
-        link={allResourcesLink}
-        label={allResourcesText}
-      />
+
+      <AllArticlesContainerStyled>
+        <MultiButton
+          version="allArticles"
+          link={allResourcesLink}
+          label={allResourcesText}
+        />
+      </AllArticlesContainerStyled>
       <hr />
     </>
   );
