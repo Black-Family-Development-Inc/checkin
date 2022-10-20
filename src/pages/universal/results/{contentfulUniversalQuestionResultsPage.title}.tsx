@@ -8,30 +8,31 @@ import { UniversalQuestionResultsPagePropTypes } from "./UniversalQuestionResult
 
 const UniversalQuestionResultsPage = ({
   data: {
-    contentfulUniversalQuestionResultsPage: { title },
+    contentfulUniversalQuestionResultsPage: {
+      title,
+      header,
+      pageDescription,
+      firstStaticButtonDescription,
+      firstStaticButton,
+      secondStaticButtonDescription,
+      secondStaticButton,
+    },
   },
 }: PageProps<UniversalQuestionResultsPagePropTypes>) => {
   return (
     <>
-      <Header text={title} variant="h2" />
-      <Paragraph>
-        Based on your universal assessment screening, you should proceed with
-        the following assessment. Keep in mind that you will not be able to
-        return back to this page as you move forward.
-      </Paragraph>
+      <Header text={header} variant="h2" />
+      <Paragraph>{pageDescription}</Paragraph>
 
-      <MultiButton version="next" label={title + " Assessment"} />
+      <MultiButton version="universal" label={title + " Assessment"} />
 
-      <Paragraph>
-        You are in control. If you’d like to take the universal question
-        screening again, start over.
-      </Paragraph>
-      <Link to="/assessments/universal/">
-        <MultiButton version="answer" label="Start Over" />
+      <Paragraph>{firstStaticButtonDescription}</Paragraph>
+      <Link to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}>
+        <MultiButton version="answer" label={firstStaticButton?.buttonText} />
       </Link>
 
-      <Paragraph>If you would like support right now, contact BFDI.</Paragraph>
-      <MuiLink href="tel:5555555555">
+      <Paragraph>{secondStaticButtonDescription}</Paragraph>
+      <MuiLink href={`tel:${secondStaticButton?.phoneNumber}`}>
         <MultiButton version="answer" label="Call BFDI" />
       </MuiLink>
     </>
@@ -44,6 +45,22 @@ export const query = graphql`
   query ($title: String!) {
     contentfulUniversalQuestionResultsPage(title: { eq: $title }) {
       title
+      header
+      pageDescription
+      firstStaticButtonDescription
+      firstStaticButton {
+        buttonText
+        linkToPage {
+          ... on ContentfulUniversalQuestionPage {
+            title
+          }
+        }
+      }
+      secondStaticButtonDescription
+      secondStaticButton {
+        text
+        phoneNumber
+      }
     }
   }
 `;
