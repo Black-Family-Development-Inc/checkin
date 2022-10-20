@@ -3,7 +3,10 @@ import React from "react";
 import { Header } from "../../../components/Header";
 import MultiButton from "../../../components/MultiButton/MultiButton";
 import { LinkStyled } from "../../../components/MultiButton/MultiButton.styles";
-import { MuiLinkStyled } from "../../../components/pages/UniversalQuestions/UniversalQuestionsResultsPage.styles";
+import {
+  ButtonContainer,
+  MuiLinkStyled,
+} from "../../../components/pages/UniversalQuestions/UniversalQuestionsResultsPage.styles";
 import { Paragraph } from "../../../components/Paragraph";
 import { UniversalQuestionResultsPagePropTypes } from "./UniversalQuestionResultsPage-types";
 
@@ -29,37 +32,49 @@ const UniversalQuestionResultsPage = ({
       <Header text={header} variant="h2" />
       <Paragraph>{pageDescription}</Paragraph>
 
-      {isExternalLink ? (
-        <MuiLinkStyled
-          href={dynamicButton?.buttonLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <MultiButton version="universal" label={dynamicButton?.buttonText} />
-        </MuiLinkStyled>
-      ) : (
-        <LinkStyled
-          to={
-            isFaq
-              ? "/faq"
-              : `/assessments/${dynamicButton.assessmentPage.title.toLocaleLowerCase()}`
-          }
-        >
-          <MultiButton version="universal" label={dynamicButton?.buttonText} />
-        </LinkStyled>
-      )}
+      <ButtonContainer>
+        {isExternalLink ? (
+          <MuiLinkStyled
+            href={dynamicButton?.buttonLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MultiButton
+              version="universal"
+              label={dynamicButton?.buttonText}
+            />
+          </MuiLinkStyled>
+        ) : (
+          <LinkStyled
+            to={
+              isFaq
+                ? "/faq"
+                : `/assessments/${dynamicButton.assessmentPage.title.toLocaleLowerCase()}`
+            }
+          >
+            <MultiButton
+              version="universal"
+              label={dynamicButton?.buttonText}
+            />
+          </LinkStyled>
+        )}
+      </ButtonContainer>
 
       <Paragraph>{firstStaticButtonDescription}</Paragraph>
-      <LinkStyled
-        to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}
-      >
-        <MultiButton version="answer" label={firstStaticButton?.buttonText} />
-      </LinkStyled>
+      <ButtonContainer>
+        <LinkStyled
+          to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}
+        >
+          <MultiButton version="answer" label={firstStaticButton?.buttonText} />
+        </LinkStyled>
+      </ButtonContainer>
 
       <Paragraph>{secondStaticButtonDescription}</Paragraph>
-      <MuiLinkStyled href={`tel:${secondStaticButton?.phoneNumber}`}>
-        <MultiButton version="answer" label="Call BFDI" />
-      </MuiLinkStyled>
+      <ButtonContainer>
+        <MuiLinkStyled href={`tel:${secondStaticButton?.phoneNumber}`}>
+          <MultiButton version="answer" label="Call BFDI" />
+        </MuiLinkStyled>
+      </ButtonContainer>
     </>
   );
 };
