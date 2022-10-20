@@ -10,9 +10,9 @@ import { UniversalQuestionResultsPagePropTypes } from "./UniversalQuestionResult
 const UniversalQuestionResultsPage = ({
   data: {
     contentfulUniversalQuestionResultsPage: {
-      title,
       header,
       pageDescription,
+      dynamicButton,
       firstStaticButtonDescription,
       firstStaticButton,
       secondStaticButtonDescription,
@@ -20,12 +20,34 @@ const UniversalQuestionResultsPage = ({
     },
   },
 }: PageProps<UniversalQuestionResultsPagePropTypes>) => {
+  const isExternalLink = dynamicButton.buttonLink;
+  const isFaq = dynamicButton?.linkToPage;
+  console.log(isFaq);
+
   return (
     <>
       <Header text={header} variant="h2" />
       <Paragraph>{pageDescription}</Paragraph>
 
-      <MultiButton version="universal" label={title + " Assessment"} />
+      {isExternalLink ? (
+        <MuiLinkStyled
+          href={dynamicButton?.buttonLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <MultiButton version="universal" label={dynamicButton?.buttonText} />
+        </MuiLinkStyled>
+      ) : (
+        <LinkStyled
+          to={
+            isFaq
+              ? "/faq"
+              : `/assessments/${dynamicButton.assessmentPage.title.toLocaleLowerCase()}`
+          }
+        >
+          <MultiButton version="universal" label={dynamicButton?.buttonText} />
+        </LinkStyled>
+      )}
 
       <Paragraph>{firstStaticButtonDescription}</Paragraph>
       <LinkStyled
