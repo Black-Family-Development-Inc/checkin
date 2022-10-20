@@ -1,8 +1,9 @@
-import { Link as MuiLink } from "@mui/material";
-import { graphql, Link, PageProps } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import React from "react";
 import { Header } from "../../../components/Header";
 import MultiButton from "../../../components/MultiButton/MultiButton";
+import { LinkStyled } from "../../../components/MultiButton/MultiButton.styles";
+import { MuiLinkStyled } from "../../../components/pages/UniversalQuestions/UniversalQuestionsResultsPage.styles";
 import { Paragraph } from "../../../components/Paragraph";
 import { UniversalQuestionResultsPagePropTypes } from "./UniversalQuestionResultsPage-types";
 
@@ -27,14 +28,16 @@ const UniversalQuestionResultsPage = ({
       <MultiButton version="universal" label={title + " Assessment"} />
 
       <Paragraph>{firstStaticButtonDescription}</Paragraph>
-      <Link to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}>
+      <LinkStyled
+        to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}
+      >
         <MultiButton version="answer" label={firstStaticButton?.buttonText} />
-      </Link>
+      </LinkStyled>
 
       <Paragraph>{secondStaticButtonDescription}</Paragraph>
-      <MuiLink href={`tel:${secondStaticButton?.phoneNumber}`}>
+      <MuiLinkStyled href={`tel:${secondStaticButton?.phoneNumber}`}>
         <MultiButton version="answer" label="Call BFDI" />
-      </MuiLink>
+      </MuiLinkStyled>
     </>
   );
 };
