@@ -47,6 +47,26 @@ export const query = graphql`
       title
       header
       pageDescription
+      dynamicButton {
+        ... on ContentfulAssessmentButton {
+          buttonText
+          assessmentPage {
+            title
+          }
+        }
+        ... on ContentfulButtonInternalLink {
+          buttonText
+          linkToPage {
+            ... on ContentfulFaqPage {
+              title
+            }
+          }
+        }
+        ... on ContentfulButtonExternalLink {
+          buttonText
+          buttonLink
+        }
+      }
       firstStaticButtonDescription
       firstStaticButton {
         buttonText
