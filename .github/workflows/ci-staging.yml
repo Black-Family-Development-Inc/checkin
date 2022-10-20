@@ -3,10 +3,6 @@ env:
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
   SPACE_ID: ${{ secrets.SPACE_ID }}
   PROJECT_ID: bfdi-afac
-  SERVICE: frontend
-  DEPLOYMENT_ENVIRONMENT: staging
-  CLUSTER_NAME: non-prod
-  CLUSTER_ZONE: us-central1-a
   SITE_NAME: ${{ secrets.SITE_NAME_STAGING }}
 on: workflow_dispatch
 jobs:
@@ -21,27 +17,13 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm run test
-      - name: Generate Container Name
-        run: |-
-          echo "CONTAINER_NAME=gcr.io/$PROJECT_ID/$SERVICE" >> $GITHUB_ENV
-      - name: Build and Tag Container
-        run: |-
-          docker build . -t $CONTAINER_NAME:${{ github.sha }}
-          docker tag $CONTAINER_NAME:${{ github.sha }} $CONTAINER_NAME:latest
       - uses: 'google-github-actions/auth@v0'
         name: Login to Google Cloud
         with:
           credentials_json: '${{ secrets.GCLOUD_SERVICE_AUTH }}'
-      - name: Set up Cloud SDK
-        uses: 'google-github-actions/setup-gcloud@v0'
-      - name: Authorize Docker push
-        run: gcloud --quiet auth configure-docker
-      - name: Push Container
-        run: |-
-          docker push $CONTAINER_NAME:${{ github.sha }}
-          docker push $CONTAINER_NAME:latest
-      - name: Get Kubernetes Cluster Credentials
-        run: gcloud container clusters get-credentials ${{ env.CLUSTER_NAME }} --project=${{ env.PROJECT_ID }} --zone=${{ env.CLUSTER_ZONE }}
-      - name: Deploy to Kubernetes
-        run: kubectl set image deployment ${{ env.SERVICE }}-${{ env.DEPLOYMENT_ENVIRONMENT }} ${{ env.SERVICE }}=$CONTAINER_NAME:${{ github.sha }} --all --record=true
-
+      - uses: 'google-github-actions/upload-cloud-storage@v0'
+        name: Deploy to Google Cloud Storage
+        with:
+          path: 'public'
+          destination: 'bfdi-staging'
+          parent: false
