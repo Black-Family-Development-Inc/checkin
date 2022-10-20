@@ -1,7 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
 import { Header } from "../../components/Header";
-import { HR } from "../../components/HR";
 import MultiButton from "../../components/MultiButton/MultiButton";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { Paragraph } from "../../components/Paragraph";
@@ -36,9 +35,7 @@ const UniversalAssessmentPage = () => {
         currentPage={stepperPages.universal}
         startingPage={stepperPages.universal}
       >
-        <Header text="Universal Assessment" />
-
-        <HR />
+        <Header text="Universal Question" variant="h2" />
 
         <Paragraph>
           This is a universal assessment to help you identify specific

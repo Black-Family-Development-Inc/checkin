@@ -18,7 +18,7 @@ const OtherResources = ({
 }: OtherResourcesTypes) => {
   return (
     <>
-      <Header text={title} />
+      <Header variant="h2" text={title} />
       <HR />
       <Paragraph sx={{ margin: "12px 0px 36px" }}>
         {faqResourcesParagraph + " "}

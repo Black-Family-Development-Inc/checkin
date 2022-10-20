@@ -4,14 +4,13 @@ import {
   AssessmentButtonType,
   ContentfulHomePage,
 } from "../../../../pages/IndexPage-types";
-import { HR } from "../../../HR";
+import { Header } from "../../../Header";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
 import {
   AssessmentQuestionStyled,
   AssessmentQuestionWrapperStyled,
   AssessmentSectionContent,
-  AssessmentSectionTitleStyled,
 } from "./AssessmentSection.styles";
 
 const AssessmentSection = (props: ContentfulHomePage) => {
@@ -23,11 +22,7 @@ const AssessmentSection = (props: ContentfulHomePage) => {
 
   return (
     <Box>
-      <AssessmentSectionTitleStyled>
-        {" "}
-        {assessmentSectionHeader}
-      </AssessmentSectionTitleStyled>
-      <HR />
+      <Header text={assessmentSectionHeader} variant="h2" />
       <AssessmentSectionContent>
         {assessmentSectionSubheader}
       </AssessmentSectionContent>
