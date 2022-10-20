@@ -33,7 +33,7 @@ export type ContentfulImage = {
 export type AssessmentButtonType = {
   buttonText: string;
   assessmentDescription: string;
-  assessment: ContentfulAssessment;
+  assessmentPage: ContentfulAssessmentPage;
 };
 
 export type UniversalAssessmentButton = {
@@ -57,7 +57,7 @@ export type AllContentfulAssessment = {
   nodes: ContentfulAssessment[];
 };
 
-export type ContentfulAssessment = {
+export type ContentfulAssessmentPage = {
   id: string;
   title: string;
 };
