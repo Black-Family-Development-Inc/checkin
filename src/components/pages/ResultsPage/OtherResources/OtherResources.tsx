@@ -7,6 +7,7 @@ import { LinkStyled } from "../../../Link/Link.styles";
 import { Paragraph } from "../../../Paragraph";
 
 const OtherResources = ({
+  title,
   bfdiLink,
   bfdiLinkText,
   bfdiResourcesParagraph,
@@ -16,6 +17,7 @@ const OtherResources = ({
 }: OtherResourcesTypes) => {
   return (
     <>
+      <Header variant="h2" text={title} />
       <HR />
       <Paragraph sx={{ margin: "12px 0px 36px" }}>
         {faqResourcesParagraph + " "}
