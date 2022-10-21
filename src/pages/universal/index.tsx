@@ -50,7 +50,7 @@ const UniversalAssessmentPage = () => {
         {buttonsData.assessmentButtons.map(({ assessment, label }) => (
           <Link
             key={assessment}
-            to="/universal/results"
+            to={`/universal/results/${assessment}`}
             state={{ assessment, startingPage: stepperPages.universal }}
           >
             <MultiButton version="answer" label={label} />

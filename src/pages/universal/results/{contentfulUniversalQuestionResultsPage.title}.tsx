@@ -3,11 +3,13 @@ import React from "react";
 import { Header } from "../../../components/Header";
 import MultiButton from "../../../components/MultiButton/MultiButton";
 import { LinkStyled } from "../../../components/MultiButton/MultiButton.styles";
+import { stepperPages } from "../../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import {
   ButtonContainer,
   MuiLinkStyled,
 } from "../../../components/pages/UniversalQuestions/UniversalQuestionsResultsPage.styles";
 import { Paragraph } from "../../../components/Paragraph";
+import { AssessmentLayout } from "../../../layouts/AssessmentLayout";
 import { UniversalQuestionResultsPagePropTypes } from "./UniversalQuestionResultsPage-types";
 
 const UniversalQuestionResultsPage = ({
@@ -25,10 +27,12 @@ const UniversalQuestionResultsPage = ({
 }: PageProps<UniversalQuestionResultsPagePropTypes>) => {
   const isExternalLink = dynamicButton.buttonLink;
   const isFaq = dynamicButton?.linkToPage;
-  console.log(isFaq);
 
   return (
-    <>
+    <AssessmentLayout
+      currentPage={stepperPages.universal}
+      startingPage={stepperPages.universal}
+    >
       <Header text={header} variant="h2" />
       <Paragraph>{pageDescription}</Paragraph>
 
@@ -51,6 +55,7 @@ const UniversalQuestionResultsPage = ({
                 ? "/faq"
                 : `/assessments/${dynamicButton.assessmentPage.title.toLocaleLowerCase()}`
             }
+            state={{ startingPage: stepperPages.universal }}
           >
             <MultiButton
               version="universal"
@@ -75,7 +80,7 @@ const UniversalQuestionResultsPage = ({
           <MultiButton version="answer" label="Call BFDI" />
         </MuiLinkStyled>
       </ButtonContainer>
-    </>
+    </AssessmentLayout>
   );
 };
 
