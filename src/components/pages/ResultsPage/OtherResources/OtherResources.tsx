@@ -1,11 +1,7 @@
-import { Link as ExternalLink } from "@mui/material";
-import { Link as InternalLink } from "gatsby";
+import { Typography } from "@mui/material";
 import React from "react";
-import { OtherResourcesTypes } from "../../../../pages/components/results/other-resources-{contentfulResultsPage.title}";
+import { OtherResourcesTypes } from "../../../../pages/results/ResultsPage-types";
 import { Header } from "../../../Header";
-import { HR } from "../../../HR";
-import { LinkStyled } from "../../../Link/Link.styles";
-import { Paragraph } from "../../../Paragraph";
 
 const OtherResources = ({
   title,
@@ -19,19 +15,16 @@ const OtherResources = ({
   return (
     <>
       <Header variant="h2" text={title} />
-      <HR />
-      <Paragraph sx={{ margin: "12px 0px 36px" }}>
+      <Typography paragraph>
         {faqResourcesParagraph + " "}
-        <InternalLink to={faqLink}>
-          <LinkStyled>{faqLinkText}</LinkStyled>
-        </InternalLink>
-      </Paragraph>
-      <Paragraph>
+        <a href={faqLink}>{faqLinkText}</a>
+      </Typography>
+      <Typography paragraph>
         {bfdiResourcesParagraph + " "}
-        <ExternalLink href={bfdiLink} target="_blank" rel="noopener noreferrer">
-          <LinkStyled>{bfdiLinkText}</LinkStyled>
-        </ExternalLink>
-      </Paragraph>
+        <a href={bfdiLink} target="_blank" rel="noopener noreferrer">
+          {bfdiLinkText}
+        </a>
+      </Typography>
     </>
   );
 };
