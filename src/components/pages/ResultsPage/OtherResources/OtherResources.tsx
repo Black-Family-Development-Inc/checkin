@@ -1,8 +1,8 @@
 import { Link as ExternalLink } from "@mui/material";
 import { Link as InternalLink } from "gatsby";
 import React from "react";
-import { OtherResourcesTypes } from "../../../../pages/components/results/other-resources-{contentfulResultsPage.title}";
-import { HR } from "../../../HR";
+import { OtherResourcesTypes } from "../../../../pages/results/ResultsPage-types";
+import { Header } from "../../../Header";
 import { LinkStyled } from "../../../Link/Link.styles";
 import { Paragraph } from "../../../Paragraph";
 
@@ -18,7 +18,6 @@ const OtherResources = ({
   return (
     <>
       <Header variant="h2" text={title} />
-      <HR />
       <Paragraph sx={{ margin: "12px 0px 36px" }}>
         {faqResourcesParagraph + " "}
         <InternalLink to={faqLink}>
