@@ -5,7 +5,8 @@ import MultiButton from "../../../components/MultiButton/MultiButton";
 import { LinkStyled } from "../../../components/MultiButton/MultiButton.styles";
 import { stepperPages } from "../../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import {
-  ButtonContainer,
+  DividerStyled,
+  FlexCenterContainer,
   MuiLinkStyled,
 } from "../../../components/pages/UniversalQuestions/UniversalQuestionsResultsPage.styles";
 import { Paragraph } from "../../../components/Paragraph";
@@ -36,7 +37,7 @@ const UniversalQuestionResultsPage = ({
       <Header text={header} variant="h2" />
       <Paragraph>{pageDescription}</Paragraph>
 
-      <ButtonContainer>
+      <FlexCenterContainer>
         {isExternalLink ? (
           <MuiLinkStyled
             href={dynamicButton?.buttonLink}
@@ -63,23 +64,27 @@ const UniversalQuestionResultsPage = ({
             />
           </LinkStyled>
         )}
-      </ButtonContainer>
+      </FlexCenterContainer>
+
+      <FlexCenterContainer>
+        <DividerStyled />
+      </FlexCenterContainer>
 
       <Paragraph>{firstStaticButtonDescription}</Paragraph>
-      <ButtonContainer>
+      <FlexCenterContainer>
         <LinkStyled
           to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}
         >
           <MultiButton version="answer" label={firstStaticButton?.buttonText} />
         </LinkStyled>
-      </ButtonContainer>
+      </FlexCenterContainer>
 
       <Paragraph>{secondStaticButtonDescription}</Paragraph>
-      <ButtonContainer>
+      <FlexCenterContainer>
         <MuiLinkStyled href={`tel:${secondStaticButton?.phoneNumber}`}>
           <MultiButton version="answer" label="Call BFDI" />
         </MuiLinkStyled>
-      </ButtonContainer>
+      </FlexCenterContainer>
     </AssessmentLayout>
   );
 };
