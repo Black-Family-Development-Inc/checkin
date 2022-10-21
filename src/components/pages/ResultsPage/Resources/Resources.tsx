@@ -2,7 +2,6 @@ import React from "react";
 import { ResourcesTypes } from "../../../../pages/components/results/resources-section-{contentfulResultsPage.title}";
 import ArticleList from "../../../ArticleList/ArticleList";
 import { Header } from "../../../Header";
-import { HR } from "../../../HR";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { Paragraph } from "../../../Paragraph";
 import { AllArticlesContainerStyled } from "./Resources.styles";
@@ -25,8 +24,7 @@ const Resources = ({
     severity === "Severe" || severity === "Severe Level";
   return (
     <>
-      <Header text={header} />
-      <HR />
+      <Header text={header} variant="h2" />
       <Paragraph paragraph>{bfdiButtonDescription}</Paragraph>
 
       <MultiButton

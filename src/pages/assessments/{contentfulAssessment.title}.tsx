@@ -1,7 +1,7 @@
 import { FormControl, Typography } from "@mui/material";
 import { graphql, navigate, PageProps } from "gatsby";
 import React, { useEffect, useState } from "react";
-import { HR } from "../../components/HR";
+import { Header } from "../../components/Header";
 import {
   AssessmentAnswers,
   AssessmentPrevNext,
@@ -10,7 +10,6 @@ import {
   AssessmentHeaderContainer,
   AssessmentHeaderStyled,
   AssessmentPageStyled,
-  AssessmentTitleStyled,
   DirectionsStyled,
   QuestionStyled,
 } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
@@ -81,6 +80,8 @@ const AssessmentPage = ({
   const accumulateAssessmentScore = () =>
     usersSavedQuestions.reduce((prev, curr) => prev + curr.score, 0);
 
+  const headerTitle = titles[title.toLocaleLowerCase() as keyof typeof titles];
+
   return (
     <AssessmentLayout
       currentPage={stepperPages.assessment as StepperPagesType}
@@ -89,11 +90,7 @@ const AssessmentPage = ({
     >
       <AssessmentPageStyled>
         <AssessmentHeaderContainer>
-          <AssessmentTitleStyled>
-            {titles[title.toLocaleLowerCase() as keyof typeof titles]}{" "}
-            Assessment
-          </AssessmentTitleStyled>
-          <HR />
+          <Header text={`${headerTitle} Assessment`} variant="h2" />
           {headings && (
             <AssessmentHeaderStyled>
               {headings[currentQuestion?.questionType]}

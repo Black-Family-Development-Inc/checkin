@@ -1,14 +1,10 @@
 import React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
-import { HR } from "../../../HR";
+import { Header } from "../../../Header";
 import { ImageStyled } from "../../../Image/img.styles";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
-import {
-  ButtonContainerStyled,
-  IntroContent,
-  IntroSectionTitleStyled,
-} from "./IntroSection.styles";
+import { ButtonContainerStyled, IntroContent } from "./IntroSection.styles";
 
 const IntroSection = ({
   introSectionHeader,
@@ -18,8 +14,7 @@ const IntroSection = ({
 }: ContentfulHomePage) => {
   return (
     <>
-      <IntroSectionTitleStyled>{introSectionHeader}</IntroSectionTitleStyled>
-      <HR />
+      <Header variant="h2" text={introSectionHeader} />
       <IntroContent>{introSectionSubheader}</IntroContent>
       <ButtonContainerStyled>
         <LinkStyled to={assessment.title.toLowerCase()}>

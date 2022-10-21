@@ -9,16 +9,6 @@ export const AssessmentPageStyled = styled(Box)({
   padding: "10px",
 });
 
-export const AssessmentTitleStyled = styled(Box)({
-  display: "flex",
-  justifyContent: "flex-start",
-  fontSize: "24px",
-  fontWeight: "600",
-  width: "100%",
-  fontFamily: "Inter",
-  marginBottom: "8px",
-});
-
 export const AssessmentHeaderStyled = styled(Typography)({
   fontSize: "16px",
   fontWeight: "500",
