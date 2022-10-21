@@ -25,7 +25,7 @@ const UniversalQuestionResultsPage = ({
     },
   },
 }: PageProps<UniversalQuestionResultsPagePropTypes>) => {
-  const isExternalLink = dynamicButton.buttonLink;
+  const isExternalLink = dynamicButton?.buttonLink;
   const isFaq = dynamicButton?.linkToPage;
 
   const getDynamicButton = () => {
