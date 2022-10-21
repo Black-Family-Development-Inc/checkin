@@ -1,11 +1,11 @@
 import { Link } from "gatsby";
 import React from "react";
-import { Header } from "../../../components/Header";
-import { HR } from "../../../components/HR";
-import MultiButton from "../../../components/MultiButton/MultiButton";
-import { Paragraph } from "../../../components/Paragraph";
-import AssessmentTrackerLayout from "../../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
-import { UniversalPageButtonsData } from "../AssessmentPage-types";
+import { Header } from "../../components/Header";
+import MultiButton from "../../components/MultiButton/MultiButton";
+import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
+import { Paragraph } from "../../components/Paragraph";
+import { AssessmentLayout } from "../../layouts/AssessmentLayout";
+import { UniversalPageButtonsData } from "../assessments/AssessmentPage-types";
 
 const UniversalAssessmentPage = () => {
   const buttonsData: UniversalPageButtonsData = {
@@ -29,13 +29,13 @@ const UniversalAssessmentPage = () => {
       { label: "I just want to learn more about BFDI." },
     ],
   };
-
   return (
     <>
-      <AssessmentTrackerLayout>
-        <Header text="Universal Assessment" />
-
-        <HR />
+      <AssessmentLayout
+        currentPage={stepperPages.universal}
+        startingPage={stepperPages.universal}
+      >
+        <Header text="Universal Question" variant="h2" />
 
         <Paragraph>
           This is a universal assessment to help you identify specific
@@ -50,19 +50,23 @@ const UniversalAssessmentPage = () => {
         {buttonsData.assessmentButtons.map(({ assessment, label }) => (
           <Link
             key={assessment}
-            to="/assessments/universal/results"
-            state={{ assessment }}
+            to="/universal/results"
+            state={{ assessment, startingPage: stepperPages.universal }}
           >
             <MultiButton version="answer" label={label} />
           </Link>
         ))}
 
         {buttonsData.faqButtons.map(({ label }) => (
-          <Link key={label} to="/faq">
+          <Link
+            key={label}
+            to="/faq"
+            state={{ startingPage: stepperPages.universal }}
+          >
             <MultiButton version="answer" label={label} />
           </Link>
         ))}
-      </AssessmentTrackerLayout>
+      </AssessmentLayout>
     </>
   );
 };

@@ -56,7 +56,7 @@ const MultiButton = (props: MultiButtonPropType) => {
       </NavButtonStyled>
     ),
     phoneNumber: (
-      <PhoneNumberStyled to={`tel:${props.phoneNumber}`}>
+      <PhoneNumberStyled href={`tel:${props.phoneNumber}`}>
         {props.label}
       </PhoneNumberStyled>
     ),

@@ -10,16 +10,6 @@ export const IntroSectionLinkStyled = styled(Link)({
   },
 });
 
-export const IntroSectionTitleStyled = styled("h2")({
-  fontSize: "24px",
-  fontWeight: "600",
-  fontFamily: "Roboto, Inter",
-  lineHeight: "28px",
-  color: "#000",
-  marginBottom: "8px",
-  marginTop: "36px",
-});
-
 export const ImageStyled = styled("img")({
   width: "100%",
 });

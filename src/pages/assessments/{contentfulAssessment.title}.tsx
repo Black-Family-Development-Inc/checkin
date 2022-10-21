@@ -1,7 +1,7 @@
 import { FormControl, Typography } from "@mui/material";
 import { graphql, navigate, PageProps } from "gatsby";
 import React, { useEffect, useState } from "react";
-import { HR } from "../../components/HR";
+import { Header } from "../../components/Header";
 import {
   AssessmentAnswers,
   AssessmentPrevNext,
@@ -10,23 +10,29 @@ import {
   AssessmentHeaderContainer,
   AssessmentHeaderStyled,
   AssessmentPageStyled,
-  AssessmentTitleStyled,
   DirectionsStyled,
   QuestionStyled,
 } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
-import AssessmentTrackerLayout from "../../layouts/AssessmentTrackerLayout/AssessmentTrackerLayout";
+import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
+import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
+import { AssessmentLayout } from "../../layouts/AssessmentLayout";
 import {
+  AssessmentLocationState,
   AssessmentPageProps,
   UsersSavedQuestion,
 } from "./AssessmentPage-types";
 
-const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
+const AssessmentPage = ({
+  data,
+  location: { state },
+}: PageProps<AssessmentPageProps, object, AssessmentLocationState>) => {
   const {
     contentfulAssessment: {
       title,
       assessment: { answers, questions, description, severityRubric, headings },
     },
   } = data;
+  const { startingPage } = state || {};
 
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
@@ -67,22 +73,23 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
     const triggered = checkTriggerQuestions();
     const assessmentScore = accumulateAssessmentScore();
     navigate(resultsPage, {
-      state: { assessmentScore, severityRubric, triggered },
+      state: { assessmentScore, severityRubric, triggered, startingPage },
     });
   };
 
   const accumulateAssessmentScore = () =>
     usersSavedQuestions.reduce((prev, curr) => prev + curr.score, 0);
 
+  const headerTitle = titles[title.toLocaleLowerCase() as keyof typeof titles];
+
   return (
-    <AssessmentTrackerLayout>
+    <AssessmentLayout
+      currentPage={stepperPages.assessment as StepperPagesType}
+      startingPage={startingPage}
+    >
       <AssessmentPageStyled>
         <AssessmentHeaderContainer>
-          <AssessmentTitleStyled>
-            {titles[title.toLocaleLowerCase() as keyof typeof titles]}{" "}
-            Assessment
-          </AssessmentTitleStyled>
-          <HR />
+          <Header text={`${headerTitle} Assessment`} variant="h2" />
           {headings && (
             <AssessmentHeaderStyled>
               {headings[currentQuestion?.questionType]}
@@ -123,7 +130,7 @@ const AssessmentPage = ({ data }: PageProps<AssessmentPageProps>) => {
           />
         </FormControl>
       </AssessmentPageStyled>
-    </AssessmentTrackerLayout>
+    </AssessmentLayout>
   );
 };
 
