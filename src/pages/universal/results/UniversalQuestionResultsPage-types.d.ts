@@ -12,7 +12,7 @@ type UniversalQuestionResultsPage = {
     linkToPage?: {
       title: string;
     };
-    assessmentPage: {
+    assessmentPage?: {
       title: string;
     };
   };

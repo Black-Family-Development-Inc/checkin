@@ -7,7 +7,6 @@ import { stepperPages } from "../../../components/pages/AssessmentsPage/Assessme
 import {
   DividerStyled,
   FlexCenterContainer,
-  MuiLinkStyled,
 } from "../../../components/pages/UniversalQuestions/UniversalQuestionsResultsPage.styles";
 import { Paragraph } from "../../../components/Paragraph";
 import { AssessmentLayout } from "../../../layouts/AssessmentLayout";
@@ -29,6 +28,30 @@ const UniversalQuestionResultsPage = ({
   const isExternalLink = dynamicButton.buttonLink;
   const isFaq = dynamicButton?.linkToPage;
 
+  const getDynamicButton = () => {
+    if (isExternalLink) {
+      return (
+        <MultiButton
+          version="externalLink"
+          link={dynamicButton?.buttonLink}
+          label={dynamicButton?.buttonText}
+        />
+      );
+    }
+    return (
+      <LinkStyled
+        to={
+          isFaq
+            ? "/faq"
+            : `/assessments/${dynamicButton.assessmentPage?.title.toLocaleLowerCase()}`
+        }
+        state={{ startingPage: stepperPages.universal }}
+      >
+        <MultiButton version="universal" label={dynamicButton?.buttonText} />
+      </LinkStyled>
+    );
+  };
+
   return (
     <AssessmentLayout
       currentPage={stepperPages.universal}
@@ -37,34 +60,7 @@ const UniversalQuestionResultsPage = ({
       <Header text={header} variant="h2" />
       <Paragraph>{pageDescription}</Paragraph>
 
-      <FlexCenterContainer>
-        {isExternalLink ? (
-          <MuiLinkStyled
-            href={dynamicButton?.buttonLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <MultiButton
-              version="universal"
-              label={dynamicButton?.buttonText}
-            />
-          </MuiLinkStyled>
-        ) : (
-          <LinkStyled
-            to={
-              isFaq
-                ? "/faq"
-                : `/assessments/${dynamicButton.assessmentPage.title.toLocaleLowerCase()}`
-            }
-            state={{ startingPage: stepperPages.universal }}
-          >
-            <MultiButton
-              version="universal"
-              label={dynamicButton?.buttonText}
-            />
-          </LinkStyled>
-        )}
-      </FlexCenterContainer>
+      <FlexCenterContainer>{getDynamicButton()}</FlexCenterContainer>
 
       <FlexCenterContainer>
         <DividerStyled />
@@ -81,9 +77,12 @@ const UniversalQuestionResultsPage = ({
 
       <Paragraph>{secondStaticButtonDescription}</Paragraph>
       <FlexCenterContainer>
-        <MuiLinkStyled href={`tel:${secondStaticButton?.phoneNumber}`}>
-          <MultiButton version="answer" label="Call BFDI" />
-        </MuiLinkStyled>
+        <MultiButton
+          version="phoneNumber"
+          label="Call BFDI"
+          phoneNumber={secondStaticButton?.phoneNumber}
+          type="light"
+        />
       </FlexCenterContainer>
     </AssessmentLayout>
   );
