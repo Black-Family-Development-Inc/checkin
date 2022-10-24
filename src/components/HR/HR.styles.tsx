@@ -1,10 +1,20 @@
 import { styled } from "@mui/system";
+import { breakpoints, color } from "../../styles/theme";
 
 export const HRStyled = styled("hr")({
   margin: 0,
-  marginBottom: 12,
   width: 80,
   height: 4,
-  background: "#000",
-  borderRadius: "10px",
+  background: color.teal.two,
+  borderRadius: 1,
+  borderStyle: "none",
+  borderWidth: 0,
+
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    width: 120,
+    height: 6,
+  },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    width: 140,
+  },
 });
