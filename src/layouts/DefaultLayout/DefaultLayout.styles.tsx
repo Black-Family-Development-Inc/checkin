@@ -1,7 +1,17 @@
 import styled from "@emotion/styled";
-import { color } from "../../styles/colors";
+import { breakpoints, color, maxWidths } from "../../styles/theme";
+
+export const LayoutContainerWrapper = styled.div({
+  display: "flex",
+  justifyContent: "center",
+});
 
 export const LayoutContainerStyled = styled("div")({
   margin: "0px 16px",
   background: color.teal.five,
+  width: "100%",
+  maxWidth: maxWidths.mobile.content,
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    maxWidth: maxWidths.desktop.content,
+  },
 });

@@ -1,5 +1,4 @@
 import React from "react";
-import QuoteSVG from "../../images/Vector.svg";
 import {
   BoxStyled,
   ContainerStyled,
@@ -7,14 +6,16 @@ import {
 } from "./TestimonialSection.styles";
 import { TestimonialSectionType } from "./TestimonialSection-types";
 
-const TestimonialSection = (props: TestimonialSectionType) => {
-  const { testimonial, testimonialParticipant } = props;
-
+const TestimonialSection = ({
+  testimonialQuote,
+  testimonialAuthor,
+  quoteImage,
+}: TestimonialSectionType) => {
   return (
     <ContainerStyled>
-      <ImageStyled src={QuoteSVG} alt="" />
-      <BoxStyled>{`"${testimonial}"`}</BoxStyled>
-      <BoxStyled>{testimonialParticipant}</BoxStyled>
+      <ImageStyled src={quoteImage.url} alt="" />
+      <BoxStyled>{`"${testimonialQuote}"`}</BoxStyled>
+      <BoxStyled>{testimonialAuthor}</BoxStyled>
     </ContainerStyled>
   );
 };

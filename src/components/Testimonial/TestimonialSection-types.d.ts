@@ -1,4 +1,9 @@
 export type TestimonialSectionType = {
-  testimonial: string;
-  testimonialParticipant: string;
+  testimonialQuote: string;
+  testimonialAuthor: string;
+  quoteImage: QuoteImage;
+};
+
+type QuoteImage = {
+  url: string;
 };

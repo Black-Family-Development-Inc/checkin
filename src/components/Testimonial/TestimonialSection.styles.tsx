@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import { styled } from "@mui/system";
+import { breakpoints, color } from "../../styles/theme";
 
 export const ContainerStyled = styled(Box)({
   display: "flex",
@@ -7,16 +8,18 @@ export const ContainerStyled = styled(Box)({
   justifyContent: "center",
   flexDirection: "column",
   boxSizing: "border-box",
-  width: "343px",
   height: "384px",
   padding: "102px 48px",
-  backgroundColor: "rgba(0, 0, 0, 0.8);",
+  backgroundColor: color.purple.four,
   margin: "0",
   position: "relative",
   marginTop: "11px",
   marginBottom: "36px",
-  "@media(max-width: 375px)": {
-    width: "100%",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    height: 310,
+  },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    height: 296,
   },
 });
 
@@ -26,8 +29,11 @@ export const BoxStyled = styled(Box)({
   fontSize: "16px",
   fontFamily: "'Times New Roman', Times, serif",
   fontStyle: "italic",
-  color: "#fff",
+  color: color.gray.one,
   marginBottom: "10px",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    fontSize: 18,
+  },
 });
 
 export const ImageStyled = styled("img")({

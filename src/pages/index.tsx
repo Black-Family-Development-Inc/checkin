@@ -9,6 +9,7 @@ import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
 
 const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
+  console.log(data.contentfulHomePage);
   return (
     <>
       <DefaultLayout>
@@ -16,7 +17,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
         <AssessmentInstructions {...data.contentfulHomePage} />
         <AssessmentSection {...data.contentfulHomePage} />
         <UniversalBottom {...data.contentfulHomePage} />
-        <TestimonialSection {...data.contentfulHomePage} />
+        <TestimonialSection {...data.contentfulHomePage.testimonialSection} />
       </DefaultLayout>
     </>
   );
@@ -70,6 +71,13 @@ export const query = graphql`
             title
             id
           }
+        }
+      }
+      testimonialSection {
+        testimonialQuote
+        testimonialAuthor
+        quoteImage {
+          url
         }
       }
     }
