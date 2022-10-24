@@ -29,6 +29,7 @@ const AssessmentPage = ({
   const {
     contentfulAssessment: {
       title,
+      pageTitle,
       assessment: { answers, questions, description, severityRubric, headings },
     },
   } = data;
@@ -58,13 +59,6 @@ const AssessmentPage = ({
     (saved) => saved.answer === "",
   );
 
-  const titles = {
-    "phq-9": "Depression",
-    "dast-10": "Substance Use",
-    "gad-7": "Anxiety",
-    universal: "Universal",
-  };
-
   const checkTriggerQuestions = () =>
     usersSavedQuestions.some((question) => question.triggered);
 
@@ -80,8 +74,6 @@ const AssessmentPage = ({
   const accumulateAssessmentScore = () =>
     usersSavedQuestions.reduce((prev, curr) => prev + curr.score, 0);
 
-  const headerTitle = titles[title.toLocaleLowerCase() as keyof typeof titles];
-
   return (
     <AssessmentLayout
       currentPage={stepperPages.assessment as StepperPagesType}
@@ -89,7 +81,7 @@ const AssessmentPage = ({
     >
       <AssessmentPageStyled>
         <AssessmentHeaderContainer>
-          <Header text={`${headerTitle} Assessment`} variant="h2" />
+          <Header text={pageTitle + " Assessment"} variant="h2" />
           {headings && (
             <AssessmentHeaderStyled>
               {headings[currentQuestion?.questionType]}
@@ -141,6 +133,7 @@ export const query = graphql`
     contentfulAssessment(title: { eq: $title }) {
       id
       title
+      pageTitle
       assessment {
         answers {
           binary {
