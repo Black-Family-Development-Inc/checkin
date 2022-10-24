@@ -117,6 +117,12 @@ export const PhoneNumberStyled = styled(MuiLink, {
 
 export const ExternalLinkStyled = styled(MuiLink)({
   ...generalButtonStyles,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: 0,
+  color: "white",
+  backgroundColor: "black",
 });
 
 export const AllArticlesStyled = styled(Link)``;
