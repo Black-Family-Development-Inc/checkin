@@ -3,9 +3,9 @@ import { Typography } from "@mui/material";
 import { breakpoints } from "../../styles/theme";
 
 export const HeaderStyled = styled(Typography)({
+  fontFamily: "Rubik",
   fontSize: "24px",
   fontWeight: 600,
-  fontFamily: "Rubik",
   lineHeight: "28.44px",
   marginBottom: "8px",
   width: "100%",
