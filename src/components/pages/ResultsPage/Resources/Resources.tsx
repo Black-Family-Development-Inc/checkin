@@ -1,5 +1,5 @@
 import React from "react";
-import { ResourcesTypes } from "../../../../pages/components/results/resources-section-{contentfulResultsPage.title}";
+import { ResourcesTypes } from "../../../../pages/results/ResultsPage-types";
 import ArticleList from "../../../ArticleList/ArticleList";
 import { Header } from "../../../Header";
 import MultiButton from "../../../MultiButton/MultiButton";
@@ -31,6 +31,7 @@ const Resources = ({
         version="phoneNumber"
         phoneNumber={bfdiIntakeNumber}
         label={bfdiButtonText}
+        type="light"
       />
       {shouldRenderCrisisButton && (
         <div>
