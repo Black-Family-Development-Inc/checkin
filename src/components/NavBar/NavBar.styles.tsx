@@ -38,6 +38,9 @@ const textStyles = {
 export const NavBarText = styled(Typography)({
   ...textStyles,
   marginLeft: "8px",
+  "@media(min-width: 370px)": {
+    marginLeft: "16px",
+  },
 });
 
 export const NavBarLink = styled(Link)({
