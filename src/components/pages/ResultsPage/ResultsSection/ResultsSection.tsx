@@ -5,7 +5,7 @@ import { Header } from "../../../Header";
 import { Paragraph } from "../../../Paragraph";
 import {
   BottomParagraphContainer,
-  ExternalLinkStyled,
+  EmailExternalLinkStyled,
   IconContainer,
   TextContainer,
   UpperParagraphContainer,
@@ -44,9 +44,9 @@ const ResultsSection = ({
         <TextContainer>
           <Paragraph>
             Take a screenshot or{" "}
-            <ExternalLinkStyled href="mailto:?subject=Test testing&body=This is the body!">
+            <EmailExternalLinkStyled href="mailto:?subject=Test testing&body=This is the body!">
               Email
-            </ExternalLinkStyled>{" "}
+            </EmailExternalLinkStyled>{" "}
             your results.
           </Paragraph>
         </TextContainer>
