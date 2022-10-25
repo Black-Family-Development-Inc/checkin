@@ -28,6 +28,7 @@ const Resources = ({
         version="phoneNumber"
         phoneNumber={bfdiIntakeNumber}
         label={bfdiButtonText}
+        type="light"
       />
       {shouldRenderCrisisButton && (
         <div>
