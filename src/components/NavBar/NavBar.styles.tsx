@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
 import { Box, Typography } from "@mui/material";
 import { Link } from "gatsby";
+import { breakpoints, color, maxWidths } from "../../styles/theme";
 
 export const NavBarContainerStyled = styled(Box)({
   display: "flex",
   justifyContent: "center",
   padding: "10px 16px",
-  background: "#633378",
+  background: color.purple.two,
 });
 
 export const NavBarContentStyled = styled(Box)({
@@ -14,8 +15,8 @@ export const NavBarContentStyled = styled(Box)({
   justifyContent: "space-between",
   alignItems: "center",
   width: "100%",
-  "@media(min-width: 700px)": {
-    width: "700px",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    maxWidth: maxWidths.desktop.content,
   },
 });
 
@@ -25,12 +26,12 @@ export const NavBarLogoContainer = styled(Box)({
 });
 
 const textStyles = {
-  color: "white",
+  color: color.white,
   fontSize: "16px",
   fontWeight: "500",
   lineHeight: "19px",
   letterSpacing: "0.15px",
-  "@media(max-width: 370px)": {
+  [`@media(max-width: ${breakpoints.tablet}px)`]: {
     fontSize: "14px",
   },
 };
@@ -38,7 +39,7 @@ const textStyles = {
 export const NavBarText = styled(Typography)({
   ...textStyles,
   marginLeft: "8px",
-  "@media(min-width: 370px)": {
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
     marginLeft: "16px",
   },
 });
