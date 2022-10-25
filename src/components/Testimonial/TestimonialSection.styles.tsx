@@ -27,7 +27,6 @@ export const BoxStyled = styled(Box)({
   margin: "0px",
   lineHeight: "20px",
   fontSize: "16px",
-  fontFamily: "'Times New Roman', Times, serif",
   fontStyle: "italic",
   color: color.gray.one,
   marginBottom: "10px",
