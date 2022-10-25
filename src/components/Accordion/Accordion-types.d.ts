@@ -1,7 +1,8 @@
 export type AccordionPropTypes = {
+  key: string;
   title: string;
   summary?: string;
-  body: string;
+  description: string;
   assessmentScore?: number;
   assessmentSeverity?: string;
 };

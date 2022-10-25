@@ -1,6 +1,5 @@
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
 import React from "react";
-import { ResultsPageResultsSection } from "../../../../pages/results/ResultsPage-types";
 import Accordion from "../../../Accordion/Accordion";
 import { Header } from "../../../Header";
 import { Paragraph } from "../../../Paragraph";
@@ -11,25 +10,30 @@ import {
   TextContainer,
   UpperParagraphContainer,
 } from "./ResultsSection.styles";
+import { ResultsTypes } from "./ResultsSection-types";
 
 const ResultsSection = ({
-  resultsHeaderText,
-  resultsSummaryText,
-  resultsAccordionData,
-}: ResultsPageResultsSection) => {
+  resultsHeader,
+  resultsDescription,
+  allResultsAccordions,
+  assessmentScore,
+  assessmentSeverity,
+}: ResultsTypes) => {
   return (
     <>
-      <Header text={resultsHeaderText} variant="h2" />
+      <Header text={resultsHeader} variant="h2" />
       <UpperParagraphContainer>
-        <Paragraph>{resultsSummaryText}</Paragraph>
+        <Paragraph>{resultsDescription}</Paragraph>
       </UpperParagraphContainer>
-      {resultsAccordionData?.map((accordion) => {
+      {allResultsAccordions?.map((accordion) => {
         return (
           <Accordion
             key={accordion.id}
             title={accordion.title}
             summary={accordion.summary}
-            body={accordion.body}
+            description={accordion.description.raw}
+            assessmentScore={assessmentScore}
+            assessmentSeverity={assessmentSeverity}
           />
         );
       })}

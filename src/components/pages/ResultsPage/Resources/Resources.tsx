@@ -1,57 +1,46 @@
 import React from "react";
-import { ResourcesTypes } from "../../../../pages/components/results/resources-section-{contentfulResultsPage.title}";
-import ArticleList from "../../../ArticleList/ArticleList";
+// import ArticleList from "../../../ArticleList/ArticleList";
 import { Header } from "../../../Header";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { Paragraph } from "../../../Paragraph";
-import { AllArticlesContainerStyled } from "./Resources.styles";
+import { ResourcesTypes } from "./Resources-types";
 
 const Resources = ({
-  header,
-  bfdiButtonDescription,
-  bfdiButtonText,
-  bfdiIntakeNumber,
-  crisisLineButtonText,
+  resourcesHeader,
+  bookAppointmentDescription,
+  bookAppointmentButtonText,
+  bookAppointmentPhoneNumber,
   crisisLineDescription,
-  crisisLineNumber,
-  headingForArticles,
-  allResourcesLink,
-  allResourcesText,
-  articles,
-  severity,
+  crisisLineButtonText,
+  crisisLinePhoneNumber,
+  articlesDescription,
+  // allArticles,
+  assessmentSeverity,
 }: ResourcesTypes) => {
   const shouldRenderCrisisButton =
-    severity === "Severe" || severity === "Severe Level";
+    assessmentSeverity === "Severe" || assessmentSeverity === "Severe Level";
   return (
     <>
-      <Header text={header} variant="h2" />
-      <Paragraph paragraph>{bfdiButtonDescription}</Paragraph>
+      <Header text={resourcesHeader} variant="h2" />
+      <Paragraph paragraph>{bookAppointmentDescription}</Paragraph>
 
       <MultiButton
         version="phoneNumber"
-        phoneNumber={bfdiIntakeNumber}
-        label={bfdiButtonText}
+        phoneNumber={bookAppointmentPhoneNumber}
+        label={bookAppointmentButtonText}
       />
       {shouldRenderCrisisButton && (
         <div>
           <Paragraph paragraph>{crisisLineDescription}</Paragraph>
           <MultiButton
             version="phoneNumber"
-            phoneNumber={crisisLineNumber}
+            phoneNumber={crisisLinePhoneNumber}
             label={crisisLineButtonText}
           />
         </div>
       )}
-      <Paragraph paragraph>{headingForArticles}</Paragraph>
-      <ArticleList articles={articles} />
-
-      <AllArticlesContainerStyled>
-        <MultiButton
-          version="allArticles"
-          link={allResourcesLink}
-          label={allResourcesText}
-        />
-      </AllArticlesContainerStyled>
+      <Paragraph paragraph>{articlesDescription}</Paragraph>
+      {/* <ArticleList articles={allArticles} /> */}
       <hr />
     </>
   );

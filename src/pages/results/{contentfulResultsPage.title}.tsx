@@ -7,7 +7,7 @@ import {
   OtherResources,
   Resources,
   ResultsSection,
-  RetakeSection,
+  Retake,
 } from "../../components/pages/ResultsPage";
 import AssessmentLayout from "../../layouts/AssessmentLayout/AssessmentLayout";
 import {
@@ -22,25 +22,24 @@ const ResultsPage = ({
   const { assessmentScore, severityRubric, triggered, startingPage } =
     state || {};
   const {
-    resultsSummaryText,
-    resultsHeaderText,
-    resultsAccordionData,
     title,
+    resultsHeader,
+    resultsDescription,
+    allResultsAccordions,
+    resourcesHeader,
+    bookAppointmentDescription,
+    bookAppointmentButtonText,
+    bookAppointmentPhoneNumber,
+    crisisLineDescription,
+    crisisLineButtonText,
+    crisisLinePhoneNumber,
+    articlesDescription,
+    allArticles,
     retakeDescription,
-    resultsTestimonial,
+    resultsTestimonial: { testimonialQuote, testimonialAuthor },
+    otherResourcesHeader,
+    otherResourcesDescription,
   } = data.contentfulResultsPage;
-
-  const resultsSectionProps = {
-    resultsSummaryText,
-    resultsHeaderText,
-    resultsAccordionData,
-  };
-
-  const retakeSectionProps = {
-    title,
-    retakeDescription,
-    resultsTestimonial,
-  };
 
   const determineAssessmentSeverity = () => {
     return severityRubric?.find(({ min, max }) => {
@@ -49,24 +48,64 @@ const ResultsPage = ({
     });
   };
 
-  const assessmentResults = determineAssessmentSeverity();
+  const assessmentSeverity = determineAssessmentSeverity()?.severity;
+
+  const resultsSectionProps = {
+    resultsDescription,
+    resultsHeader,
+    allResultsAccordions,
+    assessmentScore,
+    assessmentSeverity,
+  };
+
+  const resourcesSectionProps = {
+    resourcesHeader,
+    bookAppointmentDescription,
+    bookAppointmentButtonText,
+    bookAppointmentPhoneNumber,
+    crisisLineDescription,
+    crisisLineButtonText,
+    crisisLinePhoneNumber,
+    articlesDescription,
+    allArticles,
+    retakeDescription,
+    resultsTestimonial: {
+      testimonialQuote,
+      testimonialAuthor,
+    },
+    assessmentSeverity,
+  };
+
+  const retakeSectionProps = {
+    title,
+    retakeDescription,
+    resultsTestimonial: {
+      testimonialQuote,
+      testimonialAuthor,
+    },
+  };
+
+  const otherResourcesProps = {
+    otherResourcesHeader,
+    otherResourcesDescription,
+  };
 
   return (
     <AssessmentLayout
       currentPage={stepperPages.results}
       startingPage={startingPage as StepperPagesType}
     >
-      <Header text={data.contentfulResultsPage.title} variant="h2" />
+      <Header text={resultsHeader} variant="h2" />
       {assessmentScore > -1 ? (
         <>
           <p>Score: {assessmentScore}</p>
-          <p>Severity: {assessmentResults?.severity}</p>
+          <p>Severity: {assessmentSeverity}</p>
           <p>Did you trip a trigger question: {triggered ? "Yes" : "No"}</p>
           {/* remove above line concerning trigger question once its properly used */}
           <ResultsSection {...resultsSectionProps} />
-          <Resources {...data.contentfulResultsPage.resources} />
-          <RetakeSection {...retakeSectionProps} />
-          <OtherResources {...data.contentfulResultsPage.otherResources} />
+          <Resources {...resourcesSectionProps} />
+          <Retake {...retakeSectionProps} />
+          <OtherResources {...otherResourcesProps} />
         </>
       ) : (
         <>
@@ -84,52 +123,44 @@ const ResultsPage = ({
 export default ResultsPage;
 
 export const query = graphql`
-  query ($title: String!) {
-    contentfulResultsPage(title: { eq: $title }) {
+  query MyQuery {
+    contentfulResultsPage(title: { eq: "Results Page" }) {
       title
-      resultsHeaderText
-      resultsSummaryText
-      retakeDescription
-      resultsTestimonial {
-        testimonialAuthor
-        testimonialQuote
-      }
-      resultsAccordionData {
+      resultsHeader
+      resultsDescription
+      allResultsAccordions {
         id
         title
         summary
         scoreRange
-        body {
-          body
+        description {
+          raw
         }
       }
-      otherResources {
-        title
-        bfdiLink
-        bfdiLinkText
-        bfdiResourcesParagraph
-        faqLink
-        faqLinkText
-        faqResourcesParagraph
-      }
-      resources {
-        title
-        header
-        bfdiButtonDescription
-        bfdiButtonText
-        bfdiIntakeNumber
-        crisisLineButtonText
-        crisisLineDescription
-        crisisLineNumber
-        headingForArticles
-        allResourcesLink
-        allResourcesText
+      resourcesHeader
+      bookAppointmentDescription
+      bookAppointmentButtonText
+      bookAppointmentPhoneNumber
+      crisisLineDescription
+      crisisLineButtonText
+      crisisLinePhoneNumber
+      articlesDescription
+      allArticles {
+        type
         articles {
-          articleLink
-          articleSubTitle
-          articleTitle
-          articleType
+          title
+          source
+          link
         }
+      }
+      retakeDescription
+      resultsTestimonial {
+        testimonialQuote
+        testimonialAuthor
+      }
+      otherResourcesHeader
+      otherResourcesDescription {
+        raw
       }
     }
   }

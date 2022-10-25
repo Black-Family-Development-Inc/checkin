@@ -46,7 +46,7 @@ export default function Accordion(props: AccordionPropTypes) {
               -Symptoms]
             </Paragraph>
           )}
-          <Paragraph>{props.body}</Paragraph>
+          <Paragraph>{props.description}</Paragraph>
         </CardContent>
       </Collapse>
     </CardStyled>

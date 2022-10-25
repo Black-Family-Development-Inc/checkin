@@ -2,11 +2,14 @@ import React from "react";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
 import { TestimonialSection } from "../../../Testimonial";
-import { RetakeAndStartOverStyled, TextStyled } from "./RetakeSection.styles";
-import { RetakeSectionType } from "./RetakeSection-types";
+import { RetakeAndStartOverStyled, TextStyled } from "./Retake.styles";
+import { RetakeTypes } from "./Retake-types";
 
-const RetakeSection = (props: RetakeSectionType) => {
-  const { title, retakeDescription, resultsTestimonial } = props;
+const RetakeSection = ({
+  title,
+  retakeDescription,
+  resultsTestimonial,
+}: RetakeTypes) => {
   const retakeBtnLabel = "Retake";
   const startOverBtnLabel = "Start Over";
   const retakeBtnLink = "/assessments/" + title?.toLowerCase();
