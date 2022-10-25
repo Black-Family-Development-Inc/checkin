@@ -27,19 +27,18 @@ const UniversalAssessmentPage = ({
         <Paragraph>{description}</Paragraph>
 
         {buttons.map(({ label, universalResultPage }) => (
-          <Link
-            key={label}
-            to={
-              "/results/universal/" +
-              universalResultPage.title.toLocaleLowerCase()
-            }
-            state={{
-              assessment: universalResultPage.title,
-              startingPage: stepperPages.universal,
-            }}
-          >
-            <MultiButton version="answer" label={label} />
-          </Link>
+          <>
+            <Link
+              key={label}
+              to={`/universal/results/${universalResultPage.title.toLocaleLowerCase()}`}
+              state={{
+                assessment: universalResultPage.title,
+                startingPage: stepperPages.universal,
+              }}
+            >
+              <MultiButton version="answer" label={label} />
+            </Link>
+          </>
         ))}
       </AssessmentLayout>
     </>
