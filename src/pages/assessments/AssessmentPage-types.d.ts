@@ -54,7 +54,13 @@ export type ContentfulButton = {
 };
 
 export type AssessmentPageProps = {
-  contentfulAssessment: { title: string; assessment: Assessment };
+  contentfulAssessment: ContentfulAssessment;
+};
+
+export type ContentfulAssessment = {
+  title: string;
+  pageTitle: string;
+  assessment: Assessment;
 };
 
 export type UsersSavedQuestion = {
@@ -62,11 +68,6 @@ export type UsersSavedQuestion = {
   answer: string;
   score: number;
   triggered: boolean;
-};
-
-export type UniversalPageButtonsData = {
-  assessmentButtons: AssessmentButtonsData[];
-  faqButtons: FaqButtonsData[];
 };
 
 export type AssessmentButtonsData = {
