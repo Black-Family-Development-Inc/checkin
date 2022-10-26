@@ -1,4 +1,4 @@
-import { FormControl, Typography } from "@mui/material";
+import { FormControl } from "@mui/material";
 import { graphql, navigate, PageProps } from "gatsby";
 import React, { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
@@ -8,13 +8,12 @@ import {
 } from "../../components/pages/AssessmentsPage";
 import {
   AssessmentHeaderContainer,
-  AssessmentHeaderStyled,
   AssessmentPageStyled,
-  DirectionsStyled,
   QuestionStyled,
 } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
+import { Paragraph } from "../../components/Paragraph";
 import { AssessmentLayout } from "../../layouts/AssessmentLayout";
 import {
   AssessmentLocationState,
@@ -83,23 +82,18 @@ const AssessmentPage = ({
         <AssessmentHeaderContainer>
           <Header text={pageTitle + " Assessment"} variant="h2" />
           {headings && (
-            <AssessmentHeaderStyled>
+            <Paragraph sx={{ fontWeight: 500 }}>
               {headings[currentQuestion?.questionType]}
-            </AssessmentHeaderStyled>
+            </Paragraph>
           )}
           {currentQuestionIdx === 0 && description && (
-            <DirectionsStyled>
-              <Typography sx={{ fontWeight: "700", marginBottom: "12px" }}>
-                Directions
-              </Typography>
-              <Typography>{description}</Typography>
-            </DirectionsStyled>
+            <Paragraph sx={{ fontWeight: 500 }}>{description}</Paragraph>
           )}
           <QuestionStyled>
-            <Typography>{currentQuestion.text}</Typography>
-            <Typography sx={{ paddingLeft: "35px" }}>
+            <Paragraph>{currentQuestion.text}</Paragraph>
+            <Paragraph sx={{ paddingLeft: "35px" }}>
               {currentQuestionIdx + 1}/{questions.length}
-            </Typography>
+            </Paragraph>
           </QuestionStyled>
         </AssessmentHeaderContainer>
 

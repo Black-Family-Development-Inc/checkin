@@ -21,6 +21,17 @@ const ResultsPage = ({
 }: PageProps<ResultsPagePropTypes, object, ResultsPageLocationState>) => {
   const { assessmentScore, severityRubric, triggered, startingPage } =
     state || {};
+
+  const determineAssessmentSeverity = () => {
+    return severityRubric?.find(({ min, max }) => {
+      const isScoreInRange: boolean =
+        assessmentScore >= min && assessmentScore <= max;
+      return isScoreInRange;
+    });
+  };
+
+  const assessmentResults = determineAssessmentSeverity();
+
   const {
     resultsSummaryText,
     resultsHeaderText,
@@ -34,6 +45,8 @@ const ResultsPage = ({
     resultsSummaryText,
     resultsHeaderText,
     resultsAccordionData,
+    assessmentScore,
+    assessmentSeverity: assessmentResults?.severity,
   };
 
   const retakeSectionProps = {
@@ -41,16 +54,6 @@ const ResultsPage = ({
     retakeDescription,
     resultsTestimonial,
   };
-
-  const determineAssessmentSeverity = () => {
-    return severityRubric?.find(({ min, max }) => {
-      const isScoreInRange: boolean =
-        assessmentScore >= min && assessmentScore <= max;
-      return isScoreInRange;
-    });
-  };
-
-  const assessmentResults = determineAssessmentSeverity();
 
   return (
     <AssessmentLayout
