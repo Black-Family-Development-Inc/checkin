@@ -8,6 +8,13 @@ export const NavBarContainerStyled = styled(Box)({
   justifyContent: "center",
   padding: "10px 16px",
   background: color.purple.two,
+  height: "64px",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    height: "86px",
+  },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    height: "108px",
+  },
 });
 
 export const NavBarContentStyled = styled(Box)({
@@ -23,6 +30,19 @@ export const NavBarContentStyled = styled(Box)({
 export const NavBarLogoContainer = styled(Box)({
   display: "flex",
   alignItems: "center",
+});
+
+export const NavBarSVG = styled(Box)({
+  width: "36px",
+  height: "31px",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    width: "45px",
+    height: "39px",
+  },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    width: "65px",
+    height: "56px",
+  },
 });
 
 const textStyles = {

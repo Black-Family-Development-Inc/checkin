@@ -6,6 +6,7 @@ import {
   NavBarContentStyled,
   NavBarLink,
   NavBarLogoContainer,
+  NavBarSVG,
   NavBarText,
 } from "./NavBar.styles";
 
@@ -14,9 +15,11 @@ const NavBar = () => {
     <NavBarContainerStyled>
       <NavBarContentStyled>
         <NavBarLogoContainer>
-          <NavBarLink to="/">
-            <ImageStyled src={logo} alt="BFDI LOGO" />
-          </NavBarLink>
+          <NavBarSVG>
+            <NavBarLink to="/">
+              <ImageStyled src={logo} alt="BFDI LOGO" />
+            </NavBarLink>
+          </NavBarSVG>
 
           <NavBarLink to="/">
             <NavBarText>Black Family Development, Inc.</NavBarText>
