@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import React from "react";
 import logo from "../../images/logo.svg";
 import { ImageStyled } from "../Image/img.styles";
@@ -16,9 +17,9 @@ const NavBar = () => {
       <NavBarContentStyled>
         <NavBarLogoContainer>
           <NavBarSVG>
-            <NavBarLink to="/">
+            <Link to="/">
               <ImageStyled src={logo} alt="BFDI LOGO" />
-            </NavBarLink>
+            </Link>
           </NavBarSVG>
 
           <NavBarLink to="/">

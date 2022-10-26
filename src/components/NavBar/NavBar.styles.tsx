@@ -47,13 +47,10 @@ export const NavBarSVG = styled(Box)({
 
 const textStyles = {
   color: color.white,
-  fontSize: "16px",
+  fontSize: "14px",
   fontWeight: "500",
   lineHeight: "19px",
   letterSpacing: "0.15px",
-  [`@media(max-width: ${breakpoints.tablet}px)`]: {
-    fontSize: "14px",
-  },
 };
 
 export const NavBarText = styled(Typography)({
@@ -61,6 +58,7 @@ export const NavBarText = styled(Typography)({
   marginLeft: "8px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     marginLeft: "16px",
+    fontSize: "16px",
   },
 });
 
