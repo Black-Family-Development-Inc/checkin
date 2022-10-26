@@ -1,4 +1,5 @@
 import React from "react";
+import { Paragraph } from "../Paragraph";
 import {
   BoxStyled,
   ContainerStyled,
@@ -14,8 +15,14 @@ const TestimonialSection = ({
   return (
     <ContainerStyled>
       <ImageStyled src={quoteImage.url} alt="" />
-      <BoxStyled>{`"${testimonialQuote}"`}</BoxStyled>
-      <BoxStyled>{testimonialAuthor}</BoxStyled>
+      <BoxStyled>
+        <Paragraph sx={{ fontStyle: "italic" }}>
+          {`"${testimonialQuote}"`}
+        </Paragraph>
+      </BoxStyled>
+      <BoxStyled>
+        <Paragraph>{testimonialAuthor}</Paragraph>
+      </BoxStyled>
     </ContainerStyled>
   );
 };

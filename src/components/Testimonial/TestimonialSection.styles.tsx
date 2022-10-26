@@ -24,12 +24,12 @@ export const ContainerStyled = styled(Box)({
 });
 
 export const BoxStyled = styled(Box)({
-  margin: "0px",
-  lineHeight: "20px",
-  fontSize: "16px",
-  fontStyle: "italic",
   color: color.gray.one,
+  fontSize: "16px",
+  lineHeight: "18.75px",
+  margin: "0px",
   marginBottom: "10px",
+  textAlign: "center",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     fontSize: 18,
   },
@@ -40,7 +40,4 @@ export const ImageStyled = styled("img")({
   top: "0",
   left: "0",
   width: "auto",
-  "@media(max-width: 340px)": {
-    width: "30%",
-  },
 });
