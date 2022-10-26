@@ -28,7 +28,7 @@ export const TextContainer = styled(Box)({
   color: "black",
 });
 
-export const ExternalLinkStyled = styled(Link)({
+export const EmailExternalLinkStyled = styled(Link)({
   color: "black",
   textDecorationColor: "black",
 });

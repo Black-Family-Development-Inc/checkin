@@ -1,7 +1,7 @@
 import { Button, Link as MuiLink } from "@mui/material";
 import { styled } from "@mui/system";
 import { Link } from "gatsby";
-import { AnswerStyledProps } from "./MultiButton-types";
+import { AnswerStyledProps, PhoneNumberStyledProps } from "./MultiButton-types";
 
 const generalButtonStyles: Object = {
   width: "343px",
@@ -42,7 +42,10 @@ export const LinkStyled = styled(Link)({
 });
 
 const preventDomList = (prop: string | number | symbol) =>
-  prop !== "label" && prop !== "usersCurrentAnswer";
+  prop !== "label" &&
+  prop !== "usersCurrentAnswer" &&
+  prop !== "light" &&
+  prop !== "dark";
 
 export const AnswerStyled = styled(Button, {
   shouldForwardProp: (prop) => preventDomList(prop),
@@ -106,17 +109,28 @@ export const ResultsPageSmallStyled = styled(Button)({
   width: "162px",
 });
 
-export const PhoneNumberStyled = styled(MuiLink)({
+export const PhoneNumberStyled = styled(MuiLink, {
+  shouldForwardProp: (prop) => preventDomList(prop),
+})<PhoneNumberStyledProps>((props) => ({
   ...generalButtonStyles,
-  background: "black",
+  background: props.type === "dark" ? "black" : "#E6E1E5",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  color: "white",
+  color: props.type === "dark" ? "white" : "black",
   height: 40,
   marginBottom: 32,
   padding: 0,
-  width: "100%",
+}));
+
+export const ExternalLinkStyled = styled(MuiLink)({
+  ...generalButtonStyles,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: 0,
+  color: "white",
+  backgroundColor: "black",
 });
 
 export const AllArticlesStyled = styled(Link)``;
