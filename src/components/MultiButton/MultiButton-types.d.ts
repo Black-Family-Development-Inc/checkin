@@ -7,6 +7,7 @@ export type MultiButtonPropType = {
   children?: element;
   phoneNumber?: string;
   link?: string;
+  type?: "light" | "dark";
 };
 
 type Versions =
@@ -20,9 +21,14 @@ type Versions =
   | "startOver"
   | "navButton"
   | "phoneNumber"
-  | "allArticles";
+  | "allArticles"
+  | "externalLink";
 
 export type AnswerStyledProps = {
   usersCurrentAnswer?: string;
   label: string;
+};
+
+export type PhoneNumberStyledProps = {
+  type?: "light" | "dark";
 };
