@@ -21,3 +21,23 @@ export const color = {
   depression: "#656189",
   substance: "#52A6CA",
 };
+
+export const breakpoints = {
+  tablet: 768,
+  desktop: 1024,
+};
+
+export const maxWidths = {
+  mobile: {
+    content: 544,
+    buttons: 343,
+  },
+  tablet: {
+    content: 544,
+    buttons: 360,
+  },
+  desktop: {
+    content: 700,
+    buttons: 400,
+  },
+};
