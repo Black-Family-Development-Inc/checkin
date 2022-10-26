@@ -9,7 +9,7 @@ export const ContainerStyled = styled(Box)({
   flexDirection: "column",
   boxSizing: "border-box",
   height: "384px",
-  padding: "102px 48px",
+  padding: "77px 48px",
   backgroundColor: color.purple.four,
   margin: "0",
   position: "relative",
