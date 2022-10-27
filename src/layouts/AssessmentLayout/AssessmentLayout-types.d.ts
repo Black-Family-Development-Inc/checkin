@@ -5,4 +5,5 @@ export type AssessmentLayoutPropTypes = {
   children: ReactNode;
   currentPage: StepperPagesType;
   startingPage?: StepperPagesType;
+  assessmentTitle?: string;
 };
