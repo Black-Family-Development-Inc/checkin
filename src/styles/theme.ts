@@ -30,7 +30,7 @@ export const breakpoints = {
 export const maxWidths = {
   mobile: {
     content: 544,
-    buttons: 343, // this may not be enough for the buttons. Text may be squished
+    buttons: 343,
   },
   tablet: {
     content: 544,
