@@ -22,9 +22,7 @@ export const NavBarContentStyled = styled(Box)({
   justifyContent: "space-between",
   alignItems: "center",
   width: "100%",
-  [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    maxWidth: maxWidths.desktop.content,
-  },
+  maxWidth: maxWidths.desktop.content,
 });
 
 export const NavBarLogoContainer = styled(Box)({
