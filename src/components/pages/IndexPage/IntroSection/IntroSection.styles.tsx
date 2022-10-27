@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 import { Link } from "gatsby";
 
@@ -21,6 +22,7 @@ export const IntroContent = styled("p")({
   fontWeight: "400",
 });
 
-export const ButtonContainerStyled = styled("div")({
+export const ButtonContainerStyled = styled(Box)({
   marginTop: "36px",
+  marginBottom: "66px",
 });
