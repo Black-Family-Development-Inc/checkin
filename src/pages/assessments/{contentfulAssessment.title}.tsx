@@ -78,6 +78,7 @@ const AssessmentPage = ({
     <AssessmentLayout
       currentPage={stepperPages.assessment as StepperPagesType}
       startingPage={startingPage}
+      assessmentTitle={title}
     >
       <AssessmentPageStyled>
         <AssessmentHeaderContainer>
