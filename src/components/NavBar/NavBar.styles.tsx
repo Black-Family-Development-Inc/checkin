@@ -6,11 +6,12 @@ import { breakpoints, color, maxWidths } from "../../styles/theme";
 export const NavBarContainerStyled = styled(Box)({
   display: "flex",
   justifyContent: "center",
-  padding: "10px 16px",
+  padding: "0 16px",
   background: color.purple.two,
   height: "64px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     height: "86px",
+    padding: "0 48px",
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     height: "108px",
@@ -22,7 +23,9 @@ export const NavBarContentStyled = styled(Box)({
   justifyContent: "space-between",
   alignItems: "center",
   width: "100%",
-  maxWidth: maxWidths.desktop.content,
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    maxWidth: maxWidths.desktop.content,
+  },
 });
 
 export const NavBarLogoContainer = styled(Box)({
