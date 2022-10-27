@@ -56,6 +56,7 @@ const ResultsPage = ({
     <AssessmentLayout
       currentPage={stepperPages.results}
       startingPage={startingPage as StepperPagesType}
+      assessmentTitle={title}
     >
       <Header text={data.contentfulResultsPage.title} variant="h2" />
       {assessmentScore > -1 ? (
