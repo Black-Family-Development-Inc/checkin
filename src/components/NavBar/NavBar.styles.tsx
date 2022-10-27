@@ -11,7 +11,6 @@ export const NavBarContainerStyled = styled(Box)({
   height: "64px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     height: "86px",
-    padding: "0 48px",
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     height: "108px",
@@ -23,6 +22,10 @@ export const NavBarContentStyled = styled(Box)({
   justifyContent: "space-between",
   alignItems: "center",
   width: "100%",
+  maxWidth: maxWidths.mobile.content,
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    maxWidth: maxWidths.tablet.content,
+  },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     maxWidth: maxWidths.desktop.content,
   },
