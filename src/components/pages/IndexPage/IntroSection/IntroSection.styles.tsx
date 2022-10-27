@@ -24,5 +24,4 @@ export const IntroContent = styled("p")({
 
 export const ButtonContainerStyled = styled(Box)({
   marginTop: "36px",
-  marginBottom: "66px",
 });
