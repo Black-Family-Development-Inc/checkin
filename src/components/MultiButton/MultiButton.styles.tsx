@@ -1,6 +1,7 @@
 import { Button, Link as MuiLink } from "@mui/material";
 import { styled } from "@mui/system";
 import { Link } from "gatsby";
+import { breakpoints } from "../../styles/theme";
 import { AnswerStyledProps, PhoneNumberStyledProps } from "./MultiButton-types";
 
 const generalButtonStyles: Object = {
@@ -92,16 +93,25 @@ export const PreviousStyled = styled(Button)({
 });
 
 export const NavButtonStyled = styled(Button)({
-  color: "#3D348B",
+  color: "#633378",
   fontFamily: "Roboto",
   fontWeight: 500,
   fontSize: "14px",
-  letterSpacing: ".15px",
+  letterSpacing: "0.1px",
   lineHeight: "16px",
   height: "30px",
   padding: "0 8px 0 0",
   margin: "45px 0 32px 0",
   textTransform: "none",
+  [`@media(min-width: ${breakpoints.mobile}px)`]: {
+    fontSize: "14px",
+  },
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    fontSize: "18px",
+  },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    fontSize: "18px",
+  },
 });
 
 export const ResultsPageSmallStyled = styled(Button)({

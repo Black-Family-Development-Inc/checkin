@@ -8,7 +8,10 @@ const NavButton = ({ label, link, startingPage }: NavButtonPropTypes) => {
   return (
     <LinkStyled to={link} state={{ startingPage }}>
       <MultiButton version="navButton" label={label}>
-        <ArrowBackIcon sx={{ marginRight: "12px" }} />
+        <ArrowBackIcon
+          className="nav-icon"
+          sx={{ marginRight: "12px", width: "14px", height: "14px" }}
+        />
       </MultiButton>
     </LinkStyled>
   );
