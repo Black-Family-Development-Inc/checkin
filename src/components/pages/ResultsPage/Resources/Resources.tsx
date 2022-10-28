@@ -4,8 +4,6 @@ import { Header } from "../../../Header";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { Paragraph } from "../../../Paragraph";
 import { ResourcesTypes } from "./Resources-types";
-import { Paragraph } from "../../../Paragraph";
-
 
 const Resources = ({
   resourcesHeader,
@@ -30,7 +28,6 @@ const Resources = ({
         version="phoneNumber"
         phoneNumber={bookAppointmentPhoneNumber}
         label={bookAppointmentButtonText}
-        type="light"
       />
       {shouldRenderCrisisButton && (
         <div>

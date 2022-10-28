@@ -19,13 +19,18 @@ const ResultsPage = ({
   data,
   location: { state },
 }: PageProps<ResultsPagePropTypes, object, ResultsPageLocationState>) => {
-  const { assessmentScore, severityRubric, triggered, startingPage } =
-    state || {};
   const {
+    assessmentScore,
+    severityRubric,
+    triggered,
+    startingPage,
     title,
+    maxScore,
+  } = state || {};
+  const {
     resultsHeader,
     resultsDescription,
-    allResultsAccordions,
+    allAccordions,
     resourcesHeader,
     bookAppointmentDescription,
     bookAppointmentButtonText,
@@ -47,17 +52,20 @@ const ResultsPage = ({
       return isScoreInRange;
     });
   };
-
   const assessmentSeverity = determineAssessmentSeverity()?.severity;
+  console.log("assessmentSeverity = " + assessmentSeverity);
+  const accordionGroup = allAccordions?.find(
+    (accordion) => accordion.type === title,
+  );
 
   const resultsSectionProps = {
     resultsDescription,
     resultsHeader,
-    allResultsAccordions,
+    accordionGroup,
     assessmentScore,
     assessmentSeverity,
+    maxScore,
   };
-
   const resourcesSectionProps = {
     resourcesHeader,
     bookAppointmentDescription,
@@ -75,7 +83,6 @@ const ResultsPage = ({
     },
     assessmentSeverity,
   };
-
   const retakeSectionProps = {
     title,
     retakeDescription,
@@ -84,7 +91,6 @@ const ResultsPage = ({
       testimonialAuthor,
     },
   };
-
   const otherResourcesProps = {
     otherResourcesHeader,
     otherResourcesDescription,
@@ -123,18 +129,22 @@ const ResultsPage = ({
 export default ResultsPage;
 
 export const query = graphql`
-  query MyQuery {
+  query {
     contentfulResultsPage(title: { eq: "Results Page" }) {
-      title
       resultsHeader
       resultsDescription
-      allResultsAccordions {
-        id
-        title
-        summary
-        scoreRange
-        description {
-          raw
+      allAccordions {
+        type
+        label
+        scoreTable
+        accordions {
+          id
+          title
+          summary
+          severity
+          description {
+            raw
+          }
         }
       }
       resourcesHeader
@@ -148,6 +158,7 @@ export const query = graphql`
       allArticles {
         type
         articles {
+          id
           title
           source
           link

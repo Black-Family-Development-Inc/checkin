@@ -1,7 +1,7 @@
 import React from "react";
 import { Header } from "../../../Header";
-import { OtherResourcesTypes } from "./OtherResources-types";
 import { Paragraph } from "../../../Paragraph";
+import { OtherResourcesTypes } from "./OtherResources-types";
 
 const OtherResources = ({
   otherResourcesHeader,

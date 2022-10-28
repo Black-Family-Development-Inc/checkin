@@ -1,18 +1,28 @@
 export type ResultsTypes = {
   resultsHeader: string;
   resultsDescription: string;
-  allResultsAccordions: ResultsAccordion[];
+  allAccordions?: AccordionGroup[];
+  accordionGroup: AccordionGroup | undefined;
   assessmentScore: number;
   assessmentSeverity?: string;
+  maxScore: number;
 };
 
-type resultsAccordion = {
-  id: string;
-  title: string;
+type AccordionGroup = {
+  type: string;
+  label: string;
+  scoreTable: string[];
+  accordions: Accordions[];
+};
+
+type Accordions = {
+  id?: string;
+  title?: string;
+  severity?: string;
+  maxScore: number;
+  assessmentSeverity?: string;
   summary?: string;
-  description: {
+  description?: {
     raw: string;
   };
-  assessmentScore?: number;
-  assessmentSeverity?: string;
 };

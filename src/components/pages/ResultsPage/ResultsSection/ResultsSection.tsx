@@ -15,28 +15,33 @@ import { ResultsTypes } from "./ResultsSection-types";
 const ResultsSection = ({
   resultsHeader,
   resultsDescription,
-  allResultsAccordions,
+  accordionGroup,
   assessmentScore,
   assessmentSeverity,
+  maxScore,
 }: ResultsTypes) => {
+  const title = accordionGroup?.label;
+  const accordion = accordionGroup?.accordions?.find(
+    (accordion) => accordion.severity === assessmentSeverity,
+  );
+  console.log("assessmentScore = " + assessmentScore);
+  console.log("maxScore = " + maxScore);
+  console.log("assessmentSeverity = " + assessmentSeverity);
   return (
     <>
       <Header text={resultsHeader} variant="h2" />
       <UpperParagraphContainer>
         <Paragraph>{resultsDescription}</Paragraph>
       </UpperParagraphContainer>
-      {allResultsAccordions?.map((accordion) => {
-        return (
-          <Accordion
-            key={accordion.id}
-            title={accordion.title}
-            summary={accordion.summary}
-            description={accordion.description.raw}
-            assessmentScore={assessmentScore}
-            assessmentSeverity={assessmentSeverity}
-          />
-        );
-      })}
+      <Accordion
+        key={accordion?.id}
+        title={title}
+        summary={accordion?.summary}
+        description={accordion?.description?.raw}
+        assessmentScore={assessmentScore}
+        maxScore={maxScore}
+        assessmentSeverity={assessmentSeverity}
+      />
       <BottomParagraphContainer>
         <IconContainer>
           <CropOriginalIcon />

@@ -21,7 +21,7 @@ export default function Accordion(props: AccordionPropTypes) {
   return (
     <CardStyled square={true}>
       <AccordionHeaderContainerStyled>
-        <CardHeaderStyled>{props.title}</CardHeaderStyled>
+        {props.title && <CardHeaderStyled>{props.title}</CardHeaderStyled>}
         {props.summary && (
           <SummaryContainer>
             <Paragraph>{props.summary}</Paragraph>
@@ -40,13 +40,15 @@ export default function Accordion(props: AccordionPropTypes) {
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          {props.assessmentScore && props.assessmentSeverity && (
-            <Paragraph>
-              Score: {props.assessmentScore} [{props.assessmentSeverity}
-              -Symptoms]
-            </Paragraph>
-          )}
-          <Paragraph>{props.description}</Paragraph>
+          {typeof props.assessmentScore === "number" &&
+            props.assessmentSeverity && (
+              <Paragraph>
+                Score: {props.assessmentScore}/{props.maxScore} [
+                {props.assessmentSeverity}
+                -Symptoms]
+              </Paragraph>
+            )}
+          {props.description && <Paragraph>{props.description}</Paragraph>}
         </CardContent>
       </Collapse>
     </CardStyled>
