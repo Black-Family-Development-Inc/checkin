@@ -58,7 +58,6 @@ const AssessmentPage = ({
   const resultsDisabled = usersSavedQuestions.some(
     (saved) => saved.answer === "",
   );
-  const maxScore = severityRubric[severityRubric.length - 1].max;
 
   const checkTriggerQuestions = () =>
     usersSavedQuestions.some((question) => question.triggered);
@@ -66,6 +65,7 @@ const AssessmentPage = ({
   const navigateToResultsPage = () => {
     const resultsPage = "/results/";
     const assessmentType = title;
+    const maxScore = severityRubric[severityRubric.length - 1].max;
     const triggered = checkTriggerQuestions();
     const assessmentScore = accumulateAssessmentScore();
     navigate(resultsPage, {
