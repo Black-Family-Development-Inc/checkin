@@ -24,9 +24,6 @@ const Results = ({
   const accordion = accordionGroup?.accordions?.find(
     (accordion) => accordion.severity === assessmentSeverity,
   );
-  console.log("assessmentScore = " + assessmentScore);
-  console.log("maxScore = " + maxScore);
-  console.log("assessmentSeverity = " + assessmentSeverity);
   return (
     <>
       <Header text={resultsHeader} variant="h2" />

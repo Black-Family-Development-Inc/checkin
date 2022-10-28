@@ -1,8 +1,9 @@
 import React from "react";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
+import { Paragraph } from "../../../Paragraph";
 import { TestimonialSection } from "../../../Testimonial";
-import { RetakeAndStartOverStyled, TextStyled } from "./Retake.styles";
+import { RetakeAndStartOverStyled } from "./Retake.styles";
 import { RetakeTypes } from "./Retake-types";
 
 const RetakeSection = ({
@@ -16,7 +17,7 @@ const RetakeSection = ({
 }: RetakeTypes) => {
   return (
     <>
-      <TextStyled>{retakeDescription}</TextStyled>
+      <Paragraph>{retakeDescription}</Paragraph>
       <RetakeAndStartOverStyled>
         <LinkStyled to={retakeButtonLink + assessmentType?.toLowerCase()}>
           <MultiButton version="retake" label={retakeButtonText} />

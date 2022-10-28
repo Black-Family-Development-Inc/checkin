@@ -5,7 +5,6 @@ import * as React from "react";
 import { Paragraph } from "../Paragraph";
 import {
   AccordionHeaderContainerStyled,
-  CardHeaderStyled,
   CardStyled,
   SummaryContainer,
 } from "./Accordion.styles";
@@ -17,11 +16,14 @@ export default function Accordion(props: AccordionPropTypes) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
   return (
     <CardStyled square={true}>
       <AccordionHeaderContainerStyled>
-        {props.title && <CardHeaderStyled>{props.title}</CardHeaderStyled>}
+        {props.title && (
+          <Paragraph sx={{ fontWeight: 700, margin: "31px 0 31px 16px" }}>
+            {props.title}
+          </Paragraph>
+        )}
         {props.summary && (
           <SummaryContainer>
             <Paragraph>{props.summary}</Paragraph>

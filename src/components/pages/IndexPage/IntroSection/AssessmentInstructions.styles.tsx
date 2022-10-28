@@ -19,11 +19,3 @@ export const StepLabelStyled = styled(StepLabel)({
     color: "rgba(0, 0, 0, 0.87);",
   },
 });
-
-export const StepContentStyled = styled("p")({
-  margin: "0px",
-  fontSize: "16px",
-  letterSpacing: "0.5px",
-  color: "rgba(0, 0, 0, 0.87);",
-  fontWeight: "400",
-});

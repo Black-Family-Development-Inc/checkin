@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { Link } from "gatsby";
 import React from "react";
 import logo from "../../images/bfdi-logo.png";
@@ -17,7 +18,9 @@ const NavBar = () => {
 
         <NavBarLink>
           <Link to="/" className="nav-link">
-            <span className="logo-text">Black Family Development, Inc.</span>
+            <Typography className="logo-text">
+              Black Family Development, Inc.
+            </Typography>
           </Link>
         </NavBarLink>
       </NavBarLogoContainer>
