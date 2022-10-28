@@ -92,8 +92,16 @@ export const PreviousStyled = styled(Button)({
 });
 
 export const NavButtonStyled = styled(Button)({
-  ...generalButtonStyles,
-  width: "162px",
+  color: "#3D348B",
+  fontFamily: "Roboto",
+  fontWeight: 500,
+  fontSize: "14px",
+  letterSpacing: ".15px",
+  lineHeight: "16px",
+  height: "30px",
+  padding: "0 8px 0 0",
+  margin: "45px 0 32px 0",
+  textTransform: "none",
 });
 
 export const ResultsPageSmallStyled = styled(Button)({

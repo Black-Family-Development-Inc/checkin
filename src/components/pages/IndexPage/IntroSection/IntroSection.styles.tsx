@@ -14,14 +14,6 @@ export const ImageStyled = styled("img")({
   width: "100%",
 });
 
-export const IntroContent = styled("p")({
-  fontSize: "16px",
-  lineHeight: "24px",
-  letterSpacing: "0.5px",
-  color: "rgba(0, 0, 0, 0.87);",
-  fontWeight: "400",
-});
-
 export const ButtonContainerStyled = styled(Box)({
   marginTop: "36px",
   marginBottom: "66px",
