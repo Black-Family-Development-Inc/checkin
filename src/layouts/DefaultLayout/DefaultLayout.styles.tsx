@@ -3,7 +3,8 @@ import { breakpoints, color, maxWidths } from "../../styles/theme";
 
 export const LayoutContainerWrapper = styled.div({
   display: "flex",
-  justifyContent: "center",
+  flexDirection: "column",
+  alignItems: "center",
 });
 
 export const LayoutContainerStyled = styled("div")({
