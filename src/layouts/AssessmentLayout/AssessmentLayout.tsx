@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import React from "react";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
@@ -9,7 +8,9 @@ import {
   LayoutContainerStyled,
   LayoutContainerWrapper,
 } from "../DefaultLayout/DefaultLayout.styles";
+import { NavButtonContainerStyled } from "./AssessmentLayout.styles";
 import { AssessmentLayoutPropTypes } from "./AssessmentLayout-types";
+
 const AssessmentLayout = ({
   children,
   currentPage,
@@ -42,8 +43,8 @@ const AssessmentLayout = ({
     <>
       <NavBar />
       <LayoutContainerWrapper>
-        <Box sx={{ marginLeft: "20px" }}>{getNavButton()}</Box>
         <LayoutContainerStyled>
+          <NavButtonContainerStyled>{getNavButton()}</NavButtonContainerStyled>
           <AssessmentStepper
             currentPage={currentPage}
             startingPage={startingPageProp}
