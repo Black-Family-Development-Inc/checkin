@@ -6,7 +6,8 @@ export const TypographyStyled = styled(Typography)({
   color: color.gray.one,
   fontFamily: "Roboto",
   fontSize: "16px",
-  lineHeight: "19px",
+  lineHeight: "18.75px",
+  fontWeight: 400,
   letterSpacing: "0.15px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     fontSize: 18,
