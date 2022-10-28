@@ -18,6 +18,6 @@ export type ResultsPageLocationState = {
   severityRubric: Severity[];
   triggered: boolean;
   startingPage: string;
-  title: string;
+  assessmentType: string;
   maxScore: number;
 };

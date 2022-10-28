@@ -24,7 +24,7 @@ const ResultsPage = ({
     severityRubric,
     triggered,
     startingPage,
-    title,
+    assessmentType,
     maxScore,
   } = state || {};
   const {
@@ -41,6 +41,10 @@ const ResultsPage = ({
     articlesDescription,
     allArticles,
     retakeDescription,
+    retakeButtonText,
+    retakeButtonLink,
+    startOverButtonText,
+    startOverButtonLink,
     resultsTestimonial: { testimonialQuote, testimonialAuthor },
     otherResourcesHeader,
     otherResourcesDescription,
@@ -53,9 +57,8 @@ const ResultsPage = ({
     });
   };
   const assessmentSeverity = determineAssessmentSeverity()?.severity;
-  console.log("assessmentSeverity = " + assessmentSeverity);
   const accordionGroup = allAccordions?.find(
-    (accordion) => accordion.type === title,
+    (accordion) => accordion.type === assessmentType,
   );
 
   const resultsSectionProps = {
@@ -84,12 +87,16 @@ const ResultsPage = ({
     assessmentSeverity,
   };
   const retakeSectionProps = {
-    title,
+    assessmentType,
     retakeDescription,
     resultsTestimonial: {
       testimonialQuote,
       testimonialAuthor,
     },
+    retakeButtonText,
+    retakeButtonLink,
+    startOverButtonText,
+    startOverButtonLink,
   };
   const otherResourcesProps = {
     otherResourcesHeader,
@@ -165,6 +172,10 @@ export const query = graphql`
         }
       }
       retakeDescription
+      retakeButtonText
+      retakeButtonLink
+      startOverButtonText
+      startOverButtonLink
       resultsTestimonial {
         testimonialQuote
         testimonialAuthor

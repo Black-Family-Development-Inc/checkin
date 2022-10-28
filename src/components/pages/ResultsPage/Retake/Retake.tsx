@@ -6,24 +6,23 @@ import { RetakeAndStartOverStyled, TextStyled } from "./Retake.styles";
 import { RetakeTypes } from "./Retake-types";
 
 const RetakeSection = ({
-  title,
+  assessmentType,
   retakeDescription,
   resultsTestimonial,
+  retakeButtonText,
+  retakeButtonLink,
+  startOverButtonText,
+  startOverButtonLink,
 }: RetakeTypes) => {
-  const retakeBtnLabel = "Retake";
-  const startOverBtnLabel = "Start Over";
-  const retakeBtnLink = "/assessments/" + title?.toLowerCase();
-  const scrollToLink = "/#scroll";
-
   return (
     <>
       <TextStyled>{retakeDescription}</TextStyled>
       <RetakeAndStartOverStyled>
-        <LinkStyled to={retakeBtnLink}>
-          <MultiButton version="retake" label={retakeBtnLabel} />
+        <LinkStyled to={retakeButtonLink + assessmentType?.toLowerCase()}>
+          <MultiButton version="retake" label={retakeButtonText} />
         </LinkStyled>
-        <LinkStyled to={scrollToLink}>
-          <MultiButton version="startOver" label={startOverBtnLabel} />
+        <LinkStyled to={startOverButtonLink}>
+          <MultiButton version="startOver" label={startOverButtonText} />
         </LinkStyled>
       </RetakeAndStartOverStyled>
       <TestimonialSection

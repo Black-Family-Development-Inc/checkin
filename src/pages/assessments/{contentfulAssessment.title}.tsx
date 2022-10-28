@@ -65,6 +65,7 @@ const AssessmentPage = ({
 
   const navigateToResultsPage = () => {
     const resultsPage = "/results/";
+    const assessmentType = title;
     const triggered = checkTriggerQuestions();
     const assessmentScore = accumulateAssessmentScore();
     navigate(resultsPage, {
@@ -73,7 +74,7 @@ const AssessmentPage = ({
         severityRubric,
         triggered,
         startingPage,
-        title,
+        assessmentType,
         maxScore,
       },
     });

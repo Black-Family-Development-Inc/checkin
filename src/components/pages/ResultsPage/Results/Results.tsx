@@ -20,7 +20,7 @@ const Results = ({
   assessmentSeverity,
   maxScore,
 }: ResultsTypes) => {
-  const title = accordionGroup?.label;
+  const assessmentLabel = accordionGroup?.label;
   const accordion = accordionGroup?.accordions?.find(
     (accordion) => accordion.severity === assessmentSeverity,
   );
@@ -35,7 +35,7 @@ const Results = ({
       </UpperParagraphContainer>
       <Accordion
         key={accordion?.id}
-        title={title}
+        title={assessmentLabel}
         summary={accordion?.summary}
         description={accordion?.description?.raw}
         assessmentScore={assessmentScore}
