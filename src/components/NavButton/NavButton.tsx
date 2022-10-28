@@ -1,20 +1,16 @@
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { navigate } from "gatsby";
 import React from "react";
 import MultiButton from "../MultiButton/MultiButton";
+import { LinkStyled } from "./NavButton.styles";
 import { NavButtonPropTypes } from "./NavButton-types";
 
-const NavButton = ({ label, link }: NavButtonPropTypes) => {
+const NavButton = ({ label, link, startingPage }: NavButtonPropTypes) => {
   return (
-    <>
-      <MultiButton
-        version="navButton"
-        label={label}
-        onClick={() => navigate(link)}
-      >
-        <ArrowBackIcon />
+    <LinkStyled to={link} state={{ startingPage }}>
+      <MultiButton version="navButton" label={label}>
+        <ArrowBackIcon sx={{ marginRight: "12px" }} />
       </MultiButton>
-    </>
+    </LinkStyled>
   );
 };
 

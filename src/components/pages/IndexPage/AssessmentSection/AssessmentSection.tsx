@@ -7,11 +7,8 @@ import {
 import { Header } from "../../../Header";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
-import {
-  AssessmentQuestionStyled,
-  AssessmentQuestionWrapperStyled,
-  AssessmentSectionContent,
-} from "./AssessmentSection.styles";
+import { Paragraph } from "../../../Paragraph";
+import { AssessmentQuestionWrapperStyled } from "./AssessmentSection.styles";
 
 const AssessmentSection = (props: ContentfulHomePage) => {
   const {
@@ -23,16 +20,12 @@ const AssessmentSection = (props: ContentfulHomePage) => {
   return (
     <Box>
       <Header text={assessmentSectionHeader} variant="h2" />
-      <AssessmentSectionContent>
-        {assessmentSectionSubheader}
-      </AssessmentSectionContent>
+      <Paragraph>{assessmentSectionSubheader}</Paragraph>
       {assessmentButtons.map((button: AssessmentButtonType) => {
         const link = `/assessments/${button.assessmentPage.title.toLocaleLowerCase()}`;
         return (
           <AssessmentQuestionWrapperStyled key={button.buttonText}>
-            <AssessmentQuestionStyled id="scroll">
-              {button.assessmentDescription}
-            </AssessmentQuestionStyled>
+            <Paragraph id="scroll">{button.assessmentDescription}</Paragraph>
             <Box key={button.buttonText}>
               <LinkStyled to={link}>
                 <MultiButton version="assessment" label={button.buttonText} />
