@@ -6,7 +6,7 @@ import { StepperPagesType } from "../../components/pages/AssessmentsPage/Assessm
 import {
   OtherResources,
   Resources,
-  ResultsSection,
+  Results,
   Retake,
 } from "../../components/pages/ResultsPage";
 import AssessmentLayout from "../../layouts/AssessmentLayout/AssessmentLayout";
@@ -108,7 +108,7 @@ const ResultsPage = ({
           <p>Severity: {assessmentSeverity}</p>
           <p>Did you trip a trigger question: {triggered ? "Yes" : "No"}</p>
           {/* remove above line concerning trigger question once its properly used */}
-          <ResultsSection {...resultsSectionProps} />
+          <Results {...resultsSectionProps} />
           <Resources {...resourcesSectionProps} />
           <Retake {...retakeSectionProps} />
           <OtherResources {...otherResourcesProps} />

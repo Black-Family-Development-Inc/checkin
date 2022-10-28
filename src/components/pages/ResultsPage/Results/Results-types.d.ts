@@ -8,7 +8,7 @@ export type ResultsTypes = {
   maxScore: number;
 };
 
-type AccordionGroup = {
+export type AccordionGroup = {
   type: string;
   label: string;
   scoreTable: string[];

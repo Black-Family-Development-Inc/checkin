@@ -9,10 +9,10 @@ import {
   IconContainer,
   TextContainer,
   UpperParagraphContainer,
-} from "./ResultsSection.styles";
-import { ResultsTypes } from "./ResultsSection-types";
+} from "./Results.styles";
+import { ResultsTypes } from "./Results-types";
 
-const ResultsSection = ({
+const Results = ({
   resultsHeader,
   resultsDescription,
   accordionGroup,
@@ -60,4 +60,4 @@ const ResultsSection = ({
   );
 };
 
-export default ResultsSection;
+export default Results;
