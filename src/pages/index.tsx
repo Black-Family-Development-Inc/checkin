@@ -66,7 +66,7 @@ export const query = graphql`
         ... on ContentfulAssessmentButton {
           assessmentDescription
           buttonText
-          assessment {
+          assessmentPage {
             title
             id
           }

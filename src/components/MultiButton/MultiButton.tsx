@@ -3,6 +3,7 @@ import {
   AllArticlesStyled,
   AnswerStyled,
   AssessmentStyled,
+  ExternalLinkStyled,
   NavButtonStyled,
   NextAndResultStyled,
   PhoneNumberStyled,
@@ -56,12 +57,21 @@ const MultiButton = (props: MultiButtonPropType) => {
       </NavButtonStyled>
     ),
     phoneNumber: (
-      <PhoneNumberStyled href={`tel:${props.phoneNumber}`}>
+      <PhoneNumberStyled href={`tel:${props.phoneNumber}`} type={props.type}>
         {props.label}
       </PhoneNumberStyled>
     ),
     allArticles: (
       <AllArticlesStyled to={props.link || ""}>{props.label}</AllArticlesStyled>
+    ),
+    externalLink: (
+      <ExternalLinkStyled
+        href={props.link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {props.label}
+      </ExternalLinkStyled>
     ),
   };
   return buttons[props.version as keyof typeof buttons];

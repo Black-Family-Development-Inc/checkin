@@ -44,7 +44,8 @@ const ResultsPage = ({
 
   const determineAssessmentSeverity = () => {
     return severityRubric?.find(({ min, max }) => {
-      const isScoreInRange = assessmentScore >= min && assessmentScore <= max;
+      const isScoreInRange: boolean =
+        assessmentScore >= min && assessmentScore <= max;
       return isScoreInRange;
     });
   };
@@ -55,6 +56,7 @@ const ResultsPage = ({
     <AssessmentLayout
       currentPage={stepperPages.results}
       startingPage={startingPage as StepperPagesType}
+      assessmentTitle={title}
     >
       <Header text={data.contentfulResultsPage.title} variant="h2" />
       {assessmentScore > -1 ? (
@@ -122,8 +124,6 @@ export const query = graphql`
         crisisLineDescription
         crisisLineNumber
         headingForArticles
-        allResourcesLink
-        allResourcesText
         articles {
           articleLink
           articleSubTitle
