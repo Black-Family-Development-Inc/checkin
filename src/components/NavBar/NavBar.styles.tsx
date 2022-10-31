@@ -53,8 +53,8 @@ const textStyles = {
   color: color.white,
   fontSize: "14px",
   fontWeight: "500",
-  lineHeight: "19px",
-  letterSpacing: "0.15px",
+  lineHeight: "16.41px",
+  letterSpacing: "0.1px",
 };
 
 export const NavBarText = styled(Typography)({
@@ -62,7 +62,9 @@ export const NavBarText = styled(Typography)({
   marginLeft: "8px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     marginLeft: "16px",
-    fontSize: "16px",
+    fontSize: "18px",
+    lineHeight: "21.09px",
+    letterSpacing: "0.15px",
   },
 });
 
