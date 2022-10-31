@@ -43,6 +43,8 @@ export type ResultsPageResultsSection = {
   resultsHeaderText: string;
   resultsSummaryText: string;
   resultsAccordionData: ResultsAccordion[];
+  assessmentScore?: number;
+  assessmentSeverity?: string;
 };
 
 type ResultsAccordion = {
@@ -50,5 +52,5 @@ type ResultsAccordion = {
   title: string;
   summary: string;
   scoreRange: string;
-  body: string;
+  body: { body: string };
 };
