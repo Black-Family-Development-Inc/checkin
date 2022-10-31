@@ -5,5 +5,5 @@ export const PrevNextContainerStyled = styled(Box)({
   display: "flex",
   alignItems: "center",
   justifyContent: "flex-end",
-  padding: "10px",
+  padding: "10px 0",
 });

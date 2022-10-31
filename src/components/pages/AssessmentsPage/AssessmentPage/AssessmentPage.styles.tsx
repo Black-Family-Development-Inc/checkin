@@ -18,10 +18,6 @@ export const AssessmentHeaderStyled = styled(Typography)({
   marginBottom: "36px",
 });
 
-export const AssessmentHeaderContainer = styled(Box)({
-  width: "350px",
-});
-
 export const DirectionsStyled = styled(Box)({
   fontFamily: "inter",
   fontWeight: "400",

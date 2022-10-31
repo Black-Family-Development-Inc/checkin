@@ -1,6 +1,7 @@
-import { Button, Link as MuiLink } from "@mui/material";
+import { Box, Button, Link as MuiLink } from "@mui/material";
 import { styled } from "@mui/system";
 import { Link } from "gatsby";
+import { color } from "../../styles/theme";
 import { AnswerStyledProps, PhoneNumberStyledProps } from "./MultiButton-types";
 
 const generalButtonStyles: Object = {
@@ -21,6 +22,10 @@ const generalButtonStyles: Object = {
     border: "2px solid black",
   },
 };
+
+export const StyledBox = styled(Box)({
+  width: "100%",
+});
 
 export const AssessmentStyled = styled(Button)({
   ...generalButtonStyles,
@@ -51,13 +56,21 @@ export const AnswerStyled = styled(Button, {
   shouldForwardProp: (prop) => preventDomList(prop),
 })<AnswerStyledProps>((props) => ({
   ...generalButtonStyles,
-  margin: "10px",
+  width: "100%",
+  margin: "10px 0",
+  color:
+    props.usersCurrentAnswer === props.label ? color.white : color.teal.one,
+  border:
+    props.usersCurrentAnswer === props.label
+      ? "0"
+      : `2px solid ${color.teal.two}`,
   backgroundColor:
-    props.usersCurrentAnswer === props.label ? "#b8b4b7" : "#E6E1E5",
+    props.usersCurrentAnswer === props.label ? color.teal.one : color.white,
   ":hover": {
     backgroundColor:
-      props.usersCurrentAnswer === props.label ? "#b8b4b7" : "#E6E1E5",
-    border: "2px solid black",
+      props.usersCurrentAnswer === props.label
+        ? color.teal.one
+        : color.teal.four,
   },
 }));
 
@@ -66,13 +79,14 @@ export const NextAndResultStyled = styled(Button)({
   fontSize: "18px",
   color: "white",
   borderRadius: "8px",
-  backgroundColor: "black",
+  backgroundColor: color.purple.two,
   fontFamily: "Roboto",
   fontWeight: 600,
   textTransform: "none",
   ":hover": {
-    backgroundColor: "black",
+    backgroundColor: color.purple.one,
   },
+  alignSelf: "end",
 });
 
 export const PreviousStyled = styled(Button)({
@@ -80,7 +94,7 @@ export const PreviousStyled = styled(Button)({
   height: "24px",
   fontSize: "14px",
   marginRight: "28px",
-  color: "black",
+  color: color.purple.two,
   borderRadius: "8px",
   fontFamily: "Roboto",
   fontWeight: 500,
