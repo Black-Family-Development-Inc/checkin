@@ -71,4 +71,9 @@ export const NavBarText = styled(Typography)({
 export const NavBarLink = styled(Link)({
   ...textStyles,
   textDecoration: "none",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    fontSize: "18px",
+    lineHeight: "21.09px",
+    letterSpacing: "0.15px",
+  }
 });
