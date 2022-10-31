@@ -10,6 +10,7 @@ const generalButtonStyles: Object = {
   fontSize: "18px",
   fontWeight: 600,
   color: color.purple.two,
+  border: [`2px solid ${color.purple.two}`],
   backgroundColor: color.purple.four,
   borderRadius: "8px",
   lineHeight: "21.09px",
@@ -31,7 +32,6 @@ const generalButtonStyles: Object = {
 
 export const AssessmentStyled = styled(Button)({
   ...generalButtonStyles,
-  border: [`2px solid ${color.purple.two}`],
 });
 
 export const UniversalStyled = styled(Button)({
