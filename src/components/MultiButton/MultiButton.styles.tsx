@@ -6,19 +6,19 @@ import { AnswerStyledProps, PhoneNumberStyledProps } from "./MultiButton-types";
 
 const generalButtonStyles: Object = {
   width: "343px",
-  height: "44px",
-  padding: "10px 10px",
+  minHeight: "48px",
   fontSize: "18px",
   fontWeight: 600,
   color: color.purple.two,
-  borderRadius: "8px",
   backgroundColor: color.purple.four,
-  border: [`2px solid ${color.purple.two}`],
+  borderRadius: "8px",
+  lineHeight: "21.09px",
+  letterSpacing: "0.46px",
   fontFamily: "Roboto",
   textTransform: "none",
   textDecorationLine: "none",
   ":hover": {
-    backgroundColor: color.purple.four,
+    backgroundColor: color.purple.three,
     border: [`2px solid ${color.purple.two}`],
   },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
@@ -31,6 +31,7 @@ const generalButtonStyles: Object = {
 
 export const AssessmentStyled = styled(Button)({
   ...generalButtonStyles,
+  border: [`2px solid ${color.purple.two}`],
 });
 
 export const UniversalStyled = styled(Button)({
@@ -38,7 +39,7 @@ export const UniversalStyled = styled(Button)({
   color: color.white,
   backgroundColor: color.purple.two,
   ":hover": {
-    backgroundColor: color.purple.two,
+    backgroundColor: color.purple.one,
   },
 });
 
