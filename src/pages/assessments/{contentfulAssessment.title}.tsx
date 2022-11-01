@@ -14,7 +14,7 @@ import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentS
 import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
 import { Paragraph } from "../../components/Paragraph";
 import { AssessmentLayout } from "../../layouts/AssessmentLayout";
-import { StyledFormControl } from "./{contentfulAssessment.title}.styles";
+import { StyledFormControl } from "../../layouts/AssessmentLayout/AssessmentLayout.styles";
 import {
   AssessmentLocationState,
   AssessmentPageProps,
