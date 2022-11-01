@@ -1,12 +1,16 @@
-import { Box } from "@mui/material";
 import React from "react";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import NavButton from "../../components/NavButton/NavButton";
 import { AssessmentStepper } from "../../components/pages/AssessmentsPage";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
-import { LayoutContainerStyled } from "../DefaultLayout/DefaultLayout.styles";
+import {
+  LayoutContainerStyled,
+  LayoutContainerWrapper,
+} from "../DefaultLayout/DefaultLayout.styles";
+import { NavButtonContainerStyled } from "./AssessmentLayout.styles";
 import { AssessmentLayoutPropTypes } from "./AssessmentLayout-types";
+
 const AssessmentLayout = ({
   children,
   currentPage,
@@ -38,14 +42,16 @@ const AssessmentLayout = ({
   return (
     <>
       <NavBar />
-      <Box sx={{ marginLeft: "20px" }}>{getNavButton()}</Box>
-      <LayoutContainerStyled>
-        <AssessmentStepper
-          currentPage={currentPage}
-          startingPage={startingPageProp}
-        />
-        {children}
-      </LayoutContainerStyled>
+      <LayoutContainerWrapper>
+        <LayoutContainerStyled>
+          <NavButtonContainerStyled>{getNavButton()}</NavButtonContainerStyled>
+          <AssessmentStepper
+            currentPage={currentPage}
+            startingPage={startingPageProp}
+          />
+          {children}
+        </LayoutContainerStyled>
+      </LayoutContainerWrapper>
       <Footer />
     </>
   );
