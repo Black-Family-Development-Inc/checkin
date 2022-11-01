@@ -101,16 +101,15 @@ export const NavButtonStyled = styled(Button)({
   lineHeight: "16px",
   height: "30px",
   padding: "0 8px 0 0",
-  margin: "45px 0 32px 0",
+  margin: "48px 0 24px 0",
   textTransform: "none",
-  [`@media(min-width: ${breakpoints.mobile}px)`]: {
-    fontSize: "14px",
-  },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     fontSize: "18px",
+    margin: "64px 0 40px 0",
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     fontSize: "18px",
+    margin: "64px 0 40px 0",
   },
 });
 
