@@ -16,6 +16,8 @@ const ResultsSection = ({
   resultsHeaderText,
   resultsSummaryText,
   resultsAccordionData,
+  assessmentScore,
+  assessmentSeverity,
 }: ResultsPageResultsSection) => {
   return (
     <>
@@ -26,10 +28,12 @@ const ResultsSection = ({
       {resultsAccordionData?.map((accordion) => {
         return (
           <Accordion
+            assessmentScore={assessmentScore}
+            assessmentSeverity={assessmentSeverity}
             key={accordion.id}
             title={accordion.title}
             summary={accordion.summary}
-            body={accordion.body}
+            body={accordion.body.body}
           />
         );
       })}
