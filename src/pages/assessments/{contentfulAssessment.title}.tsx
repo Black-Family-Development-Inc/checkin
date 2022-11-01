@@ -1,4 +1,4 @@
-import { Box, FormControl, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { graphql, navigate, PageProps } from "gatsby";
 import React, { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
@@ -7,7 +7,6 @@ import {
   AssessmentPrevNext,
 } from "../../components/pages/AssessmentsPage";
 import {
-  AssessmentHeaderStyled,
   AssessmentPageStyled,
   QuestionStyled,
 } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
