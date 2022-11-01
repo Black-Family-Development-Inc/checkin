@@ -14,7 +14,7 @@ const TestimonialSection = ({
 }: TestimonialSectionType) => {
   return (
     <ContainerStyled>
-      <ImageStyled src={quoteImage.url} alt="" />
+      <ImageStyled src={quoteImage?.url} alt="" />
       <BoxStyled>
         <Paragraph sx={{ fontStyle: "italic" }}>
           {`"${testimonialQuote}"`}
