@@ -19,8 +19,7 @@ const ResultsPage = ({
   data,
   location: { state },
 }: PageProps<ResultsPagePropTypes, object, ResultsPageLocationState>) => {
-  const { assessmentScore, severityRubric, triggered, startingPage } =
-    state || {};
+  const { assessmentScore, severityRubric, startingPage } = state || {};
 
   const determineAssessmentSeverity = () => {
     return severityRubric?.find(({ min, max }) => {
@@ -66,8 +65,6 @@ const ResultsPage = ({
         <>
           <p>Score: {assessmentScore}</p>
           <p>Severity: {assessmentResults?.severity}</p>
-          <p>Did you trip a trigger question: {triggered ? "Yes" : "No"}</p>
-          {/* remove above line concerning trigger question once its properly used */}
           <ResultsSection {...resultsSectionProps} />
           <Resources {...data.contentfulResultsPage.resources} />
           <RetakeSection {...retakeSectionProps} />
