@@ -4,8 +4,8 @@ import * as React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
 import { Header } from "../../../Header";
 import { ImageStyled } from "../../../Image/img.styles";
+import { Paragraph } from "../../../Paragraph";
 import {
-  StepContentStyled,
   StepLabelStyled,
   StepperStyled,
 } from "./AssessmentInstructions.styles";
@@ -42,7 +42,7 @@ const AssessmentInstructions = ({
           <Step key={step.label} expanded={true}>
             <StepLabelStyled>{step.label}</StepLabelStyled>
             <StepContent>
-              <StepContentStyled>{step.description}</StepContentStyled>
+              <Paragraph>{step.description}</Paragraph>
             </StepContent>
           </Step>
         ))}
