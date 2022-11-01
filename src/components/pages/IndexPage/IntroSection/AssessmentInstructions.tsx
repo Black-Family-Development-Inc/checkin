@@ -6,6 +6,7 @@ import { Header } from "../../../Header";
 import { ImageStyled } from "../../../Image/img.styles";
 import { Paragraph } from "../../../Paragraph";
 import {
+  ImageContainerStyled,
   StepLabelStyled,
   StepperStyled,
 } from "./AssessmentInstructions.styles";
@@ -35,7 +36,7 @@ const AssessmentInstructions = ({
     },
   ];
   return (
-    <div>
+    <ImageContainerStyled>
       <Header text={assessmentInstructionsHeader} variant="h2" />
       <StepperStyled activeStep={-1} orientation="vertical">
         {steps.map((step) => (
@@ -48,10 +49,11 @@ const AssessmentInstructions = ({
         ))}
       </StepperStyled>
       <ImageStyled
+        className="assessmentSectionImage"
         srcSet={assessmentStepsImage.gatsbyImageData.images.sources[0].srcSet}
         alt={assessmentStepsImage.description}
       />
-    </div>
+    </ImageContainerStyled>
   );
 };
 
