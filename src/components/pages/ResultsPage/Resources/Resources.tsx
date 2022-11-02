@@ -1,6 +1,6 @@
 import React from "react";
 import { ResourcesTypes } from "../../../../pages/results/ResultsPage-types";
-import ArticleList from "../../../ArticleList/ArticleList";
+// import ArticleList from "../../../ArticleList/ArticleList";
 import ArticleTabs from "../../../ArticleTabs/ArticleTabs";
 import { Header } from "../../../Header";
 import MultiButton from "../../../MultiButton/MultiButton";
@@ -15,7 +15,7 @@ const Resources = ({
   crisisLineDescription,
   crisisLineNumber,
   headingForArticles,
-  articles,
+  // articles,
   severity,
 }: ResourcesTypes) => {
   const shouldRenderCrisisButton =
@@ -42,7 +42,6 @@ const Resources = ({
         </div>
       )}
       <Paragraph paragraph>{headingForArticles}</Paragraph>
-      <ArticleList articles={articles} />
 
       <ArticleTabs />
       <hr />

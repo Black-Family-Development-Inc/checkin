@@ -1,5 +1,6 @@
 import { Box, Tab, Tabs, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { TabHRStyled } from "./ArticleTabs.styles";
 
 type TabPanelProps = {
   children?: React.ReactNode;
@@ -44,6 +45,8 @@ const ArticleTabs = ({}) => {
         <Tab label="Depression" />
         <Tab label="Substance Use" />
       </Tabs>
+
+      <TabHRStyled />
 
       <TabPanel index={0} selectedTabIndex={selectedTabIndex}>
         Stuff 1
