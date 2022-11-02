@@ -1,6 +1,7 @@
 import React from "react";
 import { ResourcesTypes } from "../../../../pages/results/ResultsPage-types";
 import ArticleList from "../../../ArticleList/ArticleList";
+import ArticleTabs from "../../../ArticleTabs/ArticleTabs";
 import { Header } from "../../../Header";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { Paragraph } from "../../../Paragraph";
@@ -42,6 +43,8 @@ const Resources = ({
       )}
       <Paragraph paragraph>{headingForArticles}</Paragraph>
       <ArticleList articles={articles} />
+
+      <ArticleTabs />
       <hr />
     </>
   );
