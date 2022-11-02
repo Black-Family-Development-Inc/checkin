@@ -1,3 +1,5 @@
+import { TestimonialSectionType } from "../components/Testimonial/TestimonialSection-types";
+
 export type IndexPageTypes = {
   contentfulHomePage: ContentfulHomePage;
   allContentfulAssessments: AllContentfulAssessment;
@@ -10,6 +12,7 @@ export type ContentfulHomePage = {
   universalAssessmentButton: UniversalAssessmentButton;
   testimonial: string;
   testimonialParticipant: string;
+  testimonialSection: TestimonialSectionType;
   assessmentInstructionsHeader: string;
   stepOneLabel: string;
   stepOneDescription: string;
