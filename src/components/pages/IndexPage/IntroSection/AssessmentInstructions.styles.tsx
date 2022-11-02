@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Box, StepLabel, Stepper } from "@mui/material";
-import { breakpoints } from "../../../../styles/theme";
+import { boxStyles } from "../../../../styles/reusableStyles";
 
 export const StepperStyled = styled(Stepper)({
   marginTop: "36px",
@@ -23,15 +23,6 @@ export const StepLabelStyled = styled(StepLabel)({
 
 export const ImageContainerStyled = styled(Box)({
   ".assessmentSectionImage": {
-    marginTop: "56px",
-    marginBottom: "56px",
-    [`@media(min-width: ${breakpoints.tablet}px)`]: {
-      marginTop: "80px",
-      marginBottom: "80px",
-    },
-    [`@media(min-width: ${breakpoints.desktop}px)`]: {
-      marginTop: "104px",
-      marginBottom: "104px",
-    },
+    ...boxStyles,
   },
 });
