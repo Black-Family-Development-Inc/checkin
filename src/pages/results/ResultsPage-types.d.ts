@@ -1,3 +1,7 @@
+import {
+  ContentfulRichTextGatsbyReference,
+  RenderRichTextData,
+} from "gatsby-source-contentful/rich-text";
 import { Severity } from "../assessments/AssessmentPage-types";
 
 type ResultsPagePropTypes = {
@@ -53,4 +57,5 @@ type ResultsAccordion = {
   summary: string;
   scoreRange: string;
   body: { body: string };
+  description: RenderRichTextData<ContentfulRichTextGatsbyReference>;
 };

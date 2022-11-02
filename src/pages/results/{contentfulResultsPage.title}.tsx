@@ -107,6 +107,9 @@ export const query = graphql`
         body {
           body
         }
+        description {
+          raw
+        }
       }
       otherResources {
         title

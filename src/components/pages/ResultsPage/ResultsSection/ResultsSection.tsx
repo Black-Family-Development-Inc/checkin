@@ -34,6 +34,7 @@ const ResultsSection = ({
             title={accordion.title}
             summary={accordion.summary}
             body={accordion.body.body}
+            description={accordion.description}
           />
         );
       })}

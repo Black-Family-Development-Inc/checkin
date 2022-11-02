@@ -1,3 +1,8 @@
+import {
+  ContentfulRichTextGatsbyReference,
+  RenderRichTextData,
+} from "gatsby-source-contentful/rich-text";
+
 export type FaqPagePropTypes = {
   contentfulFaqPage: ContentfulFaqPage;
 };
@@ -16,6 +21,7 @@ export type FaqAccordion = {
   id: string;
   title: string;
   body: FaqAccordionBody;
+  description: RenderRichTextData<ContentfulRichTextGatsbyReference>;
 };
 
 export type FaqAccordionBody = {
