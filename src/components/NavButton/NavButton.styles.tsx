@@ -13,10 +13,5 @@ export const LinkStyled = styled(Link)({
       height: "28px",
       marginRight: "8px",
     },
-    [`@media(min-width: ${breakpoints.desktop}px)`]: {
-      width: "28px",
-      height: "28px",
-      marginRight: "8px",
-    },
   },
 });

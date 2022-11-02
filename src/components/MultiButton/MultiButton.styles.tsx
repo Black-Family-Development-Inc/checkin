@@ -1,25 +1,32 @@
 import { Button, Link as MuiLink } from "@mui/material";
 import { styled } from "@mui/system";
 import { Link } from "gatsby";
-import { breakpoints } from "../../styles/theme";
+import { breakpoints, color } from "../../styles/theme";
 import { AnswerStyledProps, PhoneNumberStyledProps } from "./MultiButton-types";
 
 const generalButtonStyles: Object = {
   width: "343px",
-  height: "44px",
-  padding: "10px 24px",
+  minHeight: "48px",
   fontSize: "18px",
   fontWeight: 600,
-  color: "black",
+  color: color.purple.two,
+  border: [`2px solid ${color.purple.two}`],
+  backgroundColor: color.purple.four,
   borderRadius: "8px",
-  backgroundColor: "#E6E1E5",
-  border: "2px solid black",
+  lineHeight: "21.09px",
+  letterSpacing: "0.46px",
   fontFamily: "Roboto",
   textTransform: "none",
   textDecorationLine: "none",
   ":hover": {
-    backgroundColor: "#E6E1E5",
-    border: "2px solid black",
+    backgroundColor: color.purple.three,
+    border: [`2px solid ${color.purple.two}`],
+  },
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    width: "360px",
+  },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    width: "400px",
   },
 };
 
@@ -29,10 +36,10 @@ export const AssessmentStyled = styled(Button)({
 
 export const UniversalStyled = styled(Button)({
   ...generalButtonStyles,
-  color: "white",
-  backgroundColor: "black",
+  color: color.white,
+  backgroundColor: color.purple.two,
   ":hover": {
-    backgroundColor: "black",
+    backgroundColor: color.purple.one,
   },
 });
 
@@ -93,7 +100,7 @@ export const PreviousStyled = styled(Button)({
 });
 
 export const NavButtonStyled = styled(Button)({
-  color: "#633378",
+  color: color.purple.two,
   fontFamily: "Roboto",
   fontWeight: 500,
   fontSize: "14px",
@@ -104,10 +111,6 @@ export const NavButtonStyled = styled(Button)({
   margin: "48px 0 24px 0",
   textTransform: "none",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    fontSize: "18px",
-    margin: "64px 0 40px 0",
-  },
-  [`@media(min-width: ${breakpoints.desktop}px)`]: {
     fontSize: "18px",
     margin: "64px 0 40px 0",
   },
