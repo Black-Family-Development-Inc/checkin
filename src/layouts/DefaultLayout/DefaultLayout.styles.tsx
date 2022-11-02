@@ -5,10 +5,12 @@ export const LayoutContainerWrapper = styled.div({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  padding: "0px 16px",
+  background: color.teal.five,
+  paddingTop: "56px",
 });
 
 export const LayoutContainerStyled = styled("div")({
-  margin: "0px 16px",
   background: color.teal.five,
   width: "100%",
   maxWidth: maxWidths.mobile.content,

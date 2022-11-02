@@ -9,6 +9,7 @@ export const HRStyled = styled("hr")({
   borderRadius: 1,
   borderStyle: "none",
   borderWidth: 0,
+  marginBottom: "16px",
 
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     width: 120,

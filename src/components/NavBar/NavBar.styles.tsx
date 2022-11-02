@@ -75,5 +75,5 @@ export const NavBarLink = styled(Link)({
     fontSize: "18px",
     lineHeight: "21.09px",
     letterSpacing: "0.15px",
-  }
+  },
 });

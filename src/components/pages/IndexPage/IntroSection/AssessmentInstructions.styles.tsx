@@ -2,11 +2,13 @@ import styled from "@emotion/styled";
 import { StepLabel, Stepper } from "@mui/material";
 
 export const StepperStyled = styled(Stepper)({
-  marginTop: "36px",
-  marginBottom: "66px",
+  marginTop: "40px",
+  marginBottom: "0px",
   ".MuiStepLabel-iconContainer": {
     svg: {
-      fill: "#000",
+      fill: "#633378",
+      width: "28px",
+      height: "28px",
     },
   },
 });

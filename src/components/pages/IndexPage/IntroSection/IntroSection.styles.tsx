@@ -15,6 +15,6 @@ export const ImageStyled = styled("img")({
 });
 
 export const ButtonContainerStyled = styled(Box)({
-  marginTop: "36px",
-  marginBottom: "66px",
+  marginTop: "40px",
+  marginBottom: "0px",
 });

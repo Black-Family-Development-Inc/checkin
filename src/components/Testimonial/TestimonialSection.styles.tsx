@@ -13,8 +13,8 @@ export const ContainerStyled = styled(Box)({
   backgroundColor: color.purple.four,
   margin: "0",
   position: "relative",
-  marginTop: "11px",
-  marginBottom: "36px",
+  marginTop: "56px",
+  marginBottom: "56px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     height: 310,
   },
