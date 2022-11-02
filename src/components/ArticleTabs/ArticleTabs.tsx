@@ -1,6 +1,6 @@
-import { Box, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Tab, Typography } from "@mui/material";
 import React, { useState } from "react";
-import { TabHRStyled } from "./ArticleTabs.styles";
+import { TabHRStyled, TabsContainerStyled } from "./ArticleTabs.styles";
 
 type TabPanelProps = {
   children?: React.ReactNode;
@@ -34,17 +34,16 @@ const ArticleTabs = ({}) => {
     setSelectedTabIndex(newValue);
   };
   return (
-    <Box sx={{ borderBottom: 1, borderColor: "divider", margin: "300px 0" }}>
-      <Tabs
+    <Box sx={{ margin: "300px 0", justifyContent: "space-around" }}>
+      <TabsContainerStyled
         value={selectedTabIndex}
         onChange={handleChange}
         aria-label="accessibilty placeholder"
-        centered
       >
         <Tab label="Anxiety" />
         <Tab label="Depression" />
         <Tab label="Substance Use" />
-      </Tabs>
+      </TabsContainerStyled>
 
       <TabHRStyled />
 
