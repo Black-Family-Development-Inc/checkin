@@ -22,15 +22,3 @@ export type AccordionData = {
   maxScore: number;
   assessmentSeverity?: string;
 };
-
-// type Accordions = {
-//   id?: string;
-//   title?: string;
-//   severity?: string;
-//   maxScore: number;
-//   assessmentSeverity?: string;
-//   summary?: string;
-//   description?: {
-//     raw: string;
-//   };
-// };
