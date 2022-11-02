@@ -1,6 +1,9 @@
 import React from "react";
 import MultiButton from "../../../MultiButton/MultiButton";
-import { PrevNextContainerStyled } from "./AssessmentPrevNext.styles";
+import {
+  PrevNextContainerStyled,
+  StyledNextBox,
+} from "./AssessmentPrevNext.styles";
 import { AssessmentPrevNextProps } from "./assessmentPrevNext-types";
 
 const AssessmentPrevNext = ({
@@ -29,19 +32,21 @@ const AssessmentPrevNext = ({
           onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
         />
       )}
-      {lastQuestion ? (
-        <MultiButton
-          version="results"
-          label="Submit"
-          onClick={resultsDisabled ? () => {} : handleResultsClick}
-        />
-      ) : (
-        <MultiButton
-          version="next"
-          label="Next"
-          onClick={nextDisabled ? () => {} : handleNextClick}
-        />
-      )}
+      <StyledNextBox>
+        {lastQuestion ? (
+          <MultiButton
+            version="results"
+            label="Submit"
+            onClick={resultsDisabled ? () => {} : handleResultsClick}
+          />
+        ) : (
+          <MultiButton
+            version="next"
+            label="Next"
+            onClick={nextDisabled ? () => {} : handleNextClick}
+          />
+        )}
+      </StyledNextBox>
     </PrevNextContainerStyled>
   );
 };

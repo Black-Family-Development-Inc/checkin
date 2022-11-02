@@ -1,7 +1,7 @@
 import { Box, Button, Link as MuiLink } from "@mui/material";
 import { styled } from "@mui/system";
 import { Link } from "gatsby";
-import { breakpoints, color } from "../../styles/theme";
+import { breakpoints, color, maxWidths } from "../../styles/theme";
 import { AnswerStyledProps, PhoneNumberStyledProps } from "./MultiButton-types";
 
 const generalButtonStyles: Object = {
@@ -23,15 +23,17 @@ const generalButtonStyles: Object = {
     border: [`2px solid ${color.purple.two}`],
   },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    width: "360px",
+    width: maxWidths.tablet.buttons,
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
-    width: "400px",
+    width: maxWidths.tablet.buttons,
   },
 };
 
 export const StyledBox = styled(Box)({
   width: "100%",
+  display: "flex",
+  justifyContent: "center",
 });
 
 export const AssessmentStyled = styled(Button)({
@@ -64,6 +66,7 @@ export const AnswerStyled = styled(Button, {
 })<AnswerStyledProps>((props) => ({
   ...generalButtonStyles,
   width: "100%",
+  maxWidth: "343px",
   margin: "10px 0",
   color:
     props.usersCurrentAnswer === props.label ? color.white : color.teal.one,
@@ -78,6 +81,12 @@ export const AnswerStyled = styled(Button, {
       props.usersCurrentAnswer === props.label
         ? color.teal.one
         : color.teal.four,
+  },
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    maxWidth: maxWidths.tablet.buttons,
+  },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    maxWidth: maxWidths.desktop.buttons,
   },
 }));
 
@@ -94,6 +103,9 @@ export const NextAndResultStyled = styled(Button)({
     backgroundColor: color.purple.one,
   },
   alignSelf: "end",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    width: "172px",
+  },
 });
 
 export const PreviousStyled = styled(Button)({
