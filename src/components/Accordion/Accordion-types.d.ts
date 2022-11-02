@@ -3,6 +3,7 @@ export type AccordionPropTypes = {
   title?: string;
   summary?: string;
   description?: string;
+  scoreTable?: string[];
   assessmentScore?: number;
   maxScore: number;
   assessmentSeverity?: string;

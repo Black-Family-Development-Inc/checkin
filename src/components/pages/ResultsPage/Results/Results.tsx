@@ -15,15 +15,11 @@ import { ResultsTypes } from "./Results-types";
 const Results = ({
   resultsHeader,
   resultsDescription,
-  accordionGroup,
+  accordionData,
   assessmentScore,
   assessmentSeverity,
   maxScore,
 }: ResultsTypes) => {
-  const assessmentLabel = accordionGroup?.label;
-  const accordion = accordionGroup?.accordions?.find(
-    (accordion) => accordion.severity === assessmentSeverity,
-  );
   return (
     <>
       <Header text={resultsHeader} variant="h2" />
@@ -31,10 +27,11 @@ const Results = ({
         <Paragraph>{resultsDescription}</Paragraph>
       </UpperParagraphContainer>
       <Accordion
-        key={accordion?.id}
-        title={assessmentLabel}
-        summary={accordion?.summary}
-        description={accordion?.description?.raw}
+        key={accordionData?.id}
+        title={accordionData?.label}
+        summary={accordionData?.summary}
+        description={accordionData?.description?.raw}
+        scoreTable={accordionData?.scoreTable}
         assessmentScore={assessmentScore}
         maxScore={maxScore}
         assessmentSeverity={assessmentSeverity}

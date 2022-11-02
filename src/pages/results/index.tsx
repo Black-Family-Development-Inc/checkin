@@ -30,7 +30,7 @@ const ResultsPage = ({
   const {
     resultsHeader,
     resultsDescription,
-    allAccordions,
+    allAccordionContents,
     resourcesHeader,
     bookAppointmentDescription,
     bookAppointmentButtonText,
@@ -57,14 +57,14 @@ const ResultsPage = ({
     });
   };
   const assessmentSeverity = determineAssessmentSeverity()?.severity;
-  const accordionGroup = allAccordions?.find(
+  const accordionData = allAccordionContents?.find(
     (accordion) => accordion.type === assessmentType,
   );
 
   const resultsSectionProps = {
     resultsDescription,
     resultsHeader,
-    accordionGroup,
+    accordionData,
     assessmentScore,
     assessmentSeverity,
     maxScore,
@@ -140,19 +140,16 @@ export const query = graphql`
     contentfulResultsPage(title: { eq: "Results Page" }) {
       resultsHeader
       resultsDescription
-      allAccordions {
+      allAccordionContents {
+        id
+        title
         type
         label
-        scoreTable
-        accordions {
-          id
-          title
-          summary
-          severity
-          description {
-            raw
-          }
+        summary
+        description {
+          raw
         }
+        scoreTable
       }
       resourcesHeader
       bookAppointmentDescription
@@ -179,6 +176,9 @@ export const query = graphql`
       resultsTestimonial {
         testimonialQuote
         testimonialAuthor
+        quoteImage {
+          url
+        }
       }
       otherResourcesHeader
       otherResourcesDescription {
