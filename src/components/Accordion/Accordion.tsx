@@ -37,11 +37,7 @@ export default function Accordion(props: AccordionPropTypes) {
       </AccordionHeaderContainerStyled>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Paragraph>
-            Score: {props.assessmentScore}/{props.maxScore} [
-            {props.assessmentSeverity}
-            -Symptoms]
-          </Paragraph>
+          {props.children}
           <Paragraph>{props.description}</Paragraph>
         </CardContent>
       </Collapse>

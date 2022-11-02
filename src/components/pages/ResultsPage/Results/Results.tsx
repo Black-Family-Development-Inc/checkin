@@ -37,10 +37,12 @@ const Results = ({
             summary={accordionData?.summary}
             description={accordionData?.description?.raw}
             scoreTable={accordionData?.scoreTable}
-            assessmentScore={assessmentScore}
-            maxScore={maxScore}
-            assessmentSeverity={assessmentSeverity}
-          />
+          >
+            <Paragraph>
+              Score: {assessmentScore}/{maxScore} [{assessmentSeverity}
+              -Symptoms]
+            </Paragraph>
+          </Accordion>
         )}
       <BottomParagraphContainer>
         <IconContainer>
