@@ -9,7 +9,7 @@ import { RetakeTypes } from "./Retake-types";
 const RetakeSection = ({
   assessmentType,
   retakeDescription,
-  resultsTestimonial,
+  testimonialSection,
   retakeButtonText,
   retakeButtonLink,
   startOverButtonText,
@@ -26,10 +26,7 @@ const RetakeSection = ({
           <MultiButton version="startOver" label={startOverButtonText} />
         </LinkStyled>
       </RetakeAndStartOverStyled>
-      <TestimonialSection
-        testimonial={resultsTestimonial.testimonialQuote}
-        testimonialParticipant={resultsTestimonial.testimonialAuthor}
-      />
+      <TestimonialSection {...testimonialSection} />
     </>
   );
 };

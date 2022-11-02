@@ -19,16 +19,12 @@ export default function Accordion(props: AccordionPropTypes) {
   return (
     <CardStyled square={true}>
       <AccordionHeaderContainerStyled>
-        {props.title && (
-          <Paragraph sx={{ fontWeight: 700, margin: "31px 0 31px 16px" }}>
-            {props.title}
-          </Paragraph>
-        )}
-        {props.summary && (
-          <SummaryContainer>
-            <Paragraph>{props.summary}</Paragraph>
-          </SummaryContainer>
-        )}
+        <Paragraph sx={{ fontWeight: 700, margin: "31px 0 31px 16px" }}>
+          {props.title}
+        </Paragraph>
+        <SummaryContainer>
+          <Paragraph>{props.summary}</Paragraph>
+        </SummaryContainer>
         <CardActions>
           <Button onClick={handleExpandClick}>
             {expanded ? (
@@ -39,18 +35,14 @@ export default function Accordion(props: AccordionPropTypes) {
           </Button>
         </CardActions>
       </AccordionHeaderContainerStyled>
-
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          {typeof props.assessmentScore === "number" &&
-            props.assessmentSeverity && (
-              <Paragraph>
-                Score: {props.assessmentScore}/{props.maxScore} [
-                {props.assessmentSeverity}
-                -Symptoms]
-              </Paragraph>
-            )}
-          {props.description && <Paragraph>{props.description}</Paragraph>}
+          <Paragraph>
+            Score: {props.assessmentScore}/{props.maxScore} [
+            {props.assessmentSeverity}
+            -Symptoms]
+          </Paragraph>
+          <Paragraph>{props.description}</Paragraph>
         </CardContent>
       </Collapse>
     </CardStyled>

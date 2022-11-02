@@ -1,3 +1,5 @@
+import { TestimonialSectionType } from "../../../Testimonial/TestimonialSection-types";
+
 export type RetakeTypes = {
   assessmentType: string;
   retakeDescription: string;
@@ -5,8 +7,5 @@ export type RetakeTypes = {
   retakeButtonLink: string;
   startOverButtonText: string;
   startOverButtonLink: string;
-  resultsTestimonial: {
-    testimonialQuote: string;
-    testimonialAuthor: string;
-  };
+  testimonialSection: TestimonialSectionType;
 };

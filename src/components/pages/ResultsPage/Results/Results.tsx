@@ -26,16 +26,22 @@ const Results = ({
       <UpperParagraphContainer>
         <Paragraph>{resultsDescription}</Paragraph>
       </UpperParagraphContainer>
-      <Accordion
-        key={accordionData?.id}
-        title={accordionData?.label}
-        summary={accordionData?.summary}
-        description={accordionData?.description?.raw}
-        scoreTable={accordionData?.scoreTable}
-        assessmentScore={assessmentScore}
-        maxScore={maxScore}
-        assessmentSeverity={assessmentSeverity}
-      />
+      {accordionData?.title &&
+        accordionData?.summary &&
+        accordionData?.description &&
+        typeof assessmentScore === "number" &&
+        assessmentSeverity && (
+          <Accordion
+            key={accordionData?.id}
+            title={accordionData?.label}
+            summary={accordionData?.summary}
+            description={accordionData?.description?.raw}
+            scoreTable={accordionData?.scoreTable}
+            assessmentScore={assessmentScore}
+            maxScore={maxScore}
+            assessmentSeverity={assessmentSeverity}
+          />
+        )}
       <BottomParagraphContainer>
         <IconContainer>
           <CropOriginalIcon />

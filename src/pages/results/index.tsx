@@ -45,7 +45,7 @@ const ResultsPage = ({
     retakeButtonLink,
     startOverButtonText,
     startOverButtonLink,
-    resultsTestimonial: { testimonialQuote, testimonialAuthor },
+    testimonialSection,
     otherResourcesHeader,
     otherResourcesDescription,
   } = data.contentfulResultsPage;
@@ -80,19 +80,12 @@ const ResultsPage = ({
     articlesDescription,
     allArticles,
     retakeDescription,
-    resultsTestimonial: {
-      testimonialQuote,
-      testimonialAuthor,
-    },
     assessmentSeverity,
   };
   const retakeSectionProps = {
     assessmentType,
     retakeDescription,
-    resultsTestimonial: {
-      testimonialQuote,
-      testimonialAuthor,
-    },
+    testimonialSection,
     retakeButtonText,
     retakeButtonLink,
     startOverButtonText,
@@ -173,7 +166,7 @@ export const query = graphql`
       retakeButtonLink
       startOverButtonText
       startOverButtonLink
-      resultsTestimonial {
+      testimonialSection {
         testimonialQuote
         testimonialAuthor
         quoteImage {
