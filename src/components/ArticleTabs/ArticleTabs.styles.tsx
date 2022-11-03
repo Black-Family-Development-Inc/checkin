@@ -1,9 +1,9 @@
-import { Tabs } from "@mui/material";
+import { TabList } from "@mui/lab";
 import { styled } from "@mui/system";
 import { color } from "../../styles/theme";
 
-export const TabsContainerStyled = styled(Tabs)({
-  ".css-heg063-MuiTabs-flexContainer": {
+export const TabsListStyled = styled(TabList)({
+  ".MuiTabs-flexContainer": {
     display: "flex",
     width: "100%",
     justifyContent: "space-around",
