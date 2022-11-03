@@ -16,6 +16,7 @@ const ArticleTabs = ({}) => {
         <TabsListStyled
           onChange={handleChange}
           aria-label="articles selection tabs"
+          sx={{ minHeight: "30px" }}
         >
           <Tab label="Anxiety" value="0" />
           <Tab label="Depression" value="1" />
