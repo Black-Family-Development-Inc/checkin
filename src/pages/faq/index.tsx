@@ -21,15 +21,14 @@ const FaqPage = ({
       <Header text={headerText} variant="h2" />
       <Paragraph>{subHeader}</Paragraph>
       {contentfulFaqPage.faqAccordion.map((accordion: FaqAccordion) => {
-        const {
-          title,
-          body: { body },
-        } = accordion;
-        const accordionProps = {
-          title,
-          body,
-        };
-        return <Accordion key={accordion.id} {...accordionProps} />;
+        const { title, description } = accordion;
+        return (
+          <Accordion
+            key={accordion.id}
+            title={title}
+            description={description.raw}
+          />
+        );
       })}
     </DefaultLayout>
   );
@@ -47,8 +46,8 @@ export const query = graphql`
       faqAccordion {
         id
         title
-        body {
-          body
+        description {
+          raw
         }
       }
     }

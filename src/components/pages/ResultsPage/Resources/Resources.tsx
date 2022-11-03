@@ -1,47 +1,47 @@
 import React from "react";
-import { ResourcesTypes } from "../../../../pages/results/ResultsPage-types";
-import ArticleList from "../../../ArticleList/ArticleList";
+// import ArticleList from "../../../ArticleList/ArticleList";
 import { Header } from "../../../Header";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { Paragraph } from "../../../Paragraph";
+import { ResourcesTypes } from "./Resources-types";
 
 const Resources = ({
-  header,
-  bfdiButtonDescription,
-  bfdiButtonText,
-  bfdiIntakeNumber,
-  crisisLineButtonText,
+  resourcesHeader,
+  bookAppointmentDescription,
+  bookAppointmentButtonText,
+  bookAppointmentPhoneNumber,
   crisisLineDescription,
-  crisisLineNumber,
-  headingForArticles,
-  articles,
-  severity,
+  crisisLineButtonText,
+  crisisLinePhoneNumber,
+  articlesDescription,
+  allArticles,
+  assessmentSeverity,
 }: ResourcesTypes) => {
   const shouldRenderCrisisButton =
-    severity === "Severe" || severity === "Severe Level";
+    assessmentSeverity === "Severe" || assessmentSeverity === "Severe Level";
+  console.log(allArticles); // console logging articles for when they're added as a tabbed component
   return (
     <>
-      <Header text={header} variant="h2" />
-      <Paragraph paragraph>{bfdiButtonDescription}</Paragraph>
+      <Header text={resourcesHeader} variant="h2" />
+      <Paragraph paragraph>{bookAppointmentDescription}</Paragraph>
 
       <MultiButton
         version="phoneNumber"
-        phoneNumber={bfdiIntakeNumber}
-        label={bfdiButtonText}
-        type="light"
+        phoneNumber={bookAppointmentPhoneNumber}
+        label={bookAppointmentButtonText}
       />
       {shouldRenderCrisisButton && (
         <div>
           <Paragraph paragraph>{crisisLineDescription}</Paragraph>
           <MultiButton
             version="phoneNumber"
-            phoneNumber={crisisLineNumber}
+            phoneNumber={crisisLinePhoneNumber}
             label={crisisLineButtonText}
           />
         </div>
       )}
-      <Paragraph paragraph>{headingForArticles}</Paragraph>
-      <ArticleList articles={articles} />
+      <Paragraph paragraph>{articlesDescription}</Paragraph>
+      {/* <ArticleList articles={allArticles} /> */}
       <hr />
     </>
   );
