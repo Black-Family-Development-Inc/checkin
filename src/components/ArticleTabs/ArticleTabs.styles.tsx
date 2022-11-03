@@ -4,7 +4,6 @@ import { color } from "../../styles/theme";
 
 export const TabsListStyled = styled(TabList)({
   ".MuiTabs-flexContainer": {
-    display: "flex",
     width: "100%",
     justifyContent: "space-around",
   },
@@ -12,9 +11,9 @@ export const TabsListStyled = styled(TabList)({
     backgroundColor: color.teal.two,
     height: "100%",
     borderRadius: "4px 4px 0 0",
-    zIndex: -1,
   },
   ".MuiTab-root": {
+    flex: 1,
     textTransform: "none",
     fontSize: "14px",
     lineHeight: "16px",
@@ -23,6 +22,8 @@ export const TabsListStyled = styled(TabList)({
     fontWeight: 500,
     padding: "7px 24px",
     minHeight: "30px",
+    transition: "color 0s linear .10s",
+    zIndex: 1,
   },
   ".MuiTab-root.Mui-selected": {
     color: color.white,
