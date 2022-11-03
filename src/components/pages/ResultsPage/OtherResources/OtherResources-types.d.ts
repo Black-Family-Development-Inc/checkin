@@ -1,5 +1,6 @@
-export type GetParagraphWithLink = {
-  link: string;
-  linkText: string;
-  paragraph: string;
+export type OtherResourcesTypes = {
+  otherResourcesHeader: string;
+  otherResourcesDescription: {
+    raw: string;
+  };
 };

@@ -1,7 +1,8 @@
 export type AccordionPropTypes = {
-  title: string;
+  key?: string;
+  title?: string;
   summary?: string;
-  body: string;
-  assessmentScore?: number;
-  assessmentSeverity?: string;
+  description?: string;
+  scoreTable?: string[];
+  children?: JSX.Element;
 };

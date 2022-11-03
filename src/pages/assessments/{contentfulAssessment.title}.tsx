@@ -62,11 +62,20 @@ const AssessmentPage = ({
     usersSavedQuestions.some((question) => question.triggered);
 
   const navigateToResultsPage = () => {
-    const resultsPage = "/results/" + title.toLowerCase();
+    const resultsPage = "/results/";
+    const assessmentType = title;
+    const maxScore = severityRubric[severityRubric.length - 1].max;
     const triggered = checkTriggerQuestions();
     const assessmentScore = accumulateAssessmentScore();
     navigate(resultsPage, {
-      state: { assessmentScore, severityRubric, triggered, startingPage },
+      state: {
+        assessmentScore,
+        severityRubric,
+        triggered,
+        startingPage,
+        assessmentType,
+        maxScore,
+      },
     });
   };
 
