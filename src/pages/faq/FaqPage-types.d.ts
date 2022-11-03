@@ -23,7 +23,3 @@ export type FaqAccordion = {
   body: FaqAccordionBody;
   description: RenderRichTextData<ContentfulRichTextGatsbyReference>;
 };
-
-export type FaqAccordionBody = {
-  body: string;
-};
