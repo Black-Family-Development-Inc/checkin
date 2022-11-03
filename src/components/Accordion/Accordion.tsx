@@ -22,11 +22,9 @@ export default function Accordion(props: AccordionPropTypes) {
         <Paragraph sx={{ fontWeight: 700, margin: "31px 0 31px 16px" }}>
           {props.title}
         </Paragraph>
-        {props.summary && (
-          <SummaryContainer>
-            <Paragraph>{props.summary}</Paragraph>
-          </SummaryContainer>
-        )}
+        <SummaryContainer>
+          <Paragraph>{props.summary}</Paragraph>
+        </SummaryContainer>
         <CardActions>
           <Button onClick={handleExpandClick}>
             {expanded ? (
@@ -37,16 +35,10 @@ export default function Accordion(props: AccordionPropTypes) {
           </Button>
         </CardActions>
       </AccordionHeaderContainerStyled>
-
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          {props.assessmentScore && props.assessmentSeverity && (
-            <Paragraph>
-              Score: {props.assessmentScore} {props.assessmentSeverity}
-              -Symptoms
-            </Paragraph>
-          )}
-          <Paragraph>{props.body}</Paragraph>
+          {props.children}
+          <Paragraph>{props.description}</Paragraph>
         </CardContent>
       </Collapse>
     </CardStyled>
