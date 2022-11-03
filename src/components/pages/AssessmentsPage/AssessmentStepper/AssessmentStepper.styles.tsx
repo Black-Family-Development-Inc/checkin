@@ -48,6 +48,10 @@ export const NavStepLabelStyled = styled(StepLabel)({
       fontSize: 12,
       fontWeight: 400,
       fill: color.purple.two,
+      [`@media(min-width: ${breakpoints.tablet}px)`]: {
+        maxWidth: maxWidths.tablet.content,
+        fontSize: 14,
+      },
     },
   },
   ".Mui-active": {
