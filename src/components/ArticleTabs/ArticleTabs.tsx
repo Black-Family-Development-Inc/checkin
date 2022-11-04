@@ -13,6 +13,7 @@ const ArticleTabs = ({
   tabSubstanceUse,
 }: ArticleTabsProps) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(assessmentType);
+
   const anxietyArticles = allArticles.filter(
     (articles) => articles.type === "GAD-7",
   );
@@ -23,14 +24,12 @@ const ArticleTabs = ({
     (articles) => articles.type === "DAST-10",
   );
 
-  console.log(anxietyArticles);
-
   const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     setSelectedTabIndex(newValue);
   };
 
   return (
-    <Box sx={{ margin: "24px 0", justifyContent: "space-around" }}>
+    <Box sx={{ margin: "24px 0" }}>
       <TabContext value={selectedTabIndex}>
         <TabsListStyled
           onChange={handleChange}
