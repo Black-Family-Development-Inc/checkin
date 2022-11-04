@@ -2,16 +2,8 @@ import { TabContext, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import React, { useState } from "react";
 import ArticleList from "../ArticleList/ArticleList";
-import { ArticleGroup } from "../pages/ResultsPage/Resources/Resources-types";
 import { TabHRStyled, TabsListStyled } from "./ArticleTabs.styles";
-
-type ArticleTabsProps = {
-  allArticles: object;
-  assessmentType: string;
-  tabAnxiety: ArticleGroup;
-  tabDepression: ArticleGroup;
-  tabSubstanceUse: ArticleGroup;
-};
+import { ArticleTabsProps } from "./ArticleTabs-types";
 
 const ArticleTabs = ({
   allArticles,
@@ -21,9 +13,17 @@ const ArticleTabs = ({
   tabSubstanceUse,
 }: ArticleTabsProps) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(assessmentType);
-  const anxietyArticle = allArticles[0].articles;
-  const depressionArticle = allArticles[1].articles;
-  const substanceUseArticle = allArticles[2].articles;
+  const anxietyArticles = allArticles.filter(
+    (articles) => articles.type === "GAD-7",
+  );
+  const depressionArticles = allArticles.filter(
+    (articles) => articles.type === "PHQ-9",
+  );
+  const substanceUseArticles = allArticles.filter(
+    (articles) => articles.type === "DAST-10",
+  );
+
+  console.log(anxietyArticles);
 
   const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     setSelectedTabIndex(newValue);
@@ -45,13 +45,13 @@ const ArticleTabs = ({
         <TabHRStyled />
 
         <TabPanel value={tabAnxiety.type}>
-          <ArticleList articles={anxietyArticle} />
+          <ArticleList articles={anxietyArticles[0].articles} />
         </TabPanel>
         <TabPanel value={tabDepression.type}>
-          <ArticleList articles={depressionArticle} />
+          <ArticleList articles={depressionArticles[0].articles} />
         </TabPanel>
         <TabPanel value={tabSubstanceUse.type}>
-          <ArticleList articles={substanceUseArticle} />
+          <ArticleList articles={substanceUseArticles[0].articles} />
         </TabPanel>
       </TabContext>
     </Box>

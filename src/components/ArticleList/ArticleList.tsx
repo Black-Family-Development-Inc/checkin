@@ -1,5 +1,6 @@
 import Divider from "@mui/material/Divider";
 import React from "react";
+import { ArticleType } from "../ArticleTabs/ArticleTabs-types";
 import {
   LinkStyled,
   ListItemIconStyled,
@@ -7,7 +8,6 @@ import {
   ListItemTextStyled,
   ListStyled,
 } from "./ArticleList.styles";
-import { ArticleType } from "./Articles-types";
 
 const ArticleList = ({ articles }: { articles: ArticleType[] }) => {
   return (
