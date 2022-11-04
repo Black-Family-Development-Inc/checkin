@@ -8,6 +8,7 @@ export type ResourcesTypes = {
   crisisLinePhoneNumber: string;
   articlesDescription: string;
   allArticles: AllArticles[];
+  assessmentType: string;
   assessmentSeverity?: string;
 };
 

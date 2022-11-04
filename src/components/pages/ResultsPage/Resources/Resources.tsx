@@ -15,11 +15,11 @@ const Resources = ({
   crisisLinePhoneNumber,
   articlesDescription,
   allArticles,
+  assessmentType,
   assessmentSeverity,
 }: ResourcesTypes) => {
   const shouldRenderCrisisButton =
     assessmentSeverity === "Severe" || assessmentSeverity === "Severe Level";
-  console.log(allArticles); // console logging articles for when they're added as a tabbed component
   return (
     <>
       <Header text={resourcesHeader} variant="h2" />
@@ -41,8 +41,8 @@ const Resources = ({
         </div>
       )}
 
-      <ArticleTabs />
       <Paragraph paragraph>{articlesDescription}</Paragraph>
+      <ArticleTabs allArticles={allArticles} assessmentType={assessmentType} />
       {/* <ArticleList articles={allArticles} /> */}
       <hr />
     </>
