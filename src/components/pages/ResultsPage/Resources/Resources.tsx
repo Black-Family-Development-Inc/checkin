@@ -15,6 +15,9 @@ const Resources = ({
   crisisLinePhoneNumber,
   articlesDescription,
   allArticles,
+  tabAnxiety,
+  tabDepression,
+  tabSubstanceUse,
   assessmentType,
   assessmentSeverity,
 }: ResourcesTypes) => {
@@ -42,8 +45,13 @@ const Resources = ({
       )}
 
       <Paragraph paragraph>{articlesDescription}</Paragraph>
-      <ArticleTabs allArticles={allArticles} assessmentType={assessmentType} />
-      {/* <ArticleList articles={allArticles} /> */}
+      <ArticleTabs
+        allArticles={allArticles}
+        assessmentType={assessmentType}
+        tabAnxiety={tabAnxiety}
+        tabDepression={tabDepression}
+        tabSubstanceUse={tabSubstanceUse}
+      />
       <hr />
     </>
   );

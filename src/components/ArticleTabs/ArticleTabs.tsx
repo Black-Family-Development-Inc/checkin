@@ -1,14 +1,24 @@
 import { TabContext, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import React, { useState } from "react";
+import { ArticleGroup } from "../pages/ResultsPage/Resources/Resources-types";
 import { TabHRStyled, TabsListStyled } from "./ArticleTabs.styles";
 
 type ArticleTabsProps = {
   allArticles: object;
   assessmentType: string;
+  tabAnxiety: ArticleGroup;
+  tabDepression: ArticleGroup;
+  tabSubstanceUse: ArticleGroup;
 };
 
-const ArticleTabs = ({ allArticles, assessmentType }: ArticleTabsProps) => {
+const ArticleTabs = ({
+  allArticles,
+  assessmentType,
+  tabAnxiety,
+  tabDepression,
+  tabSubstanceUse,
+}: ArticleTabsProps) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(assessmentType);
   console.log(allArticles);
 
@@ -24,16 +34,16 @@ const ArticleTabs = ({ allArticles, assessmentType }: ArticleTabsProps) => {
           aria-label="articles selection tabs"
           sx={{ minHeight: "30px" }}
         >
-          <Tab label="Anxiety" value="GAD-7" />
-          <Tab label="Depression" value="PHQ-9" />
-          <Tab label="Substance Use" value="DAST-10" />
+          <Tab label={tabAnxiety.label} value={tabAnxiety.type} />
+          <Tab label={tabDepression.label} value={tabDepression.type} />
+          <Tab label={tabSubstanceUse.label} value={tabSubstanceUse.type} />
         </TabsListStyled>
 
         <TabHRStyled />
 
-        <TabPanel value="GAD-7">Anxiety Articles</TabPanel>
-        <TabPanel value="PHQ-9">Depression Articles</TabPanel>
-        <TabPanel value="DAST-10">Substance Use Articles</TabPanel>
+        <TabPanel value={tabAnxiety.type}>Anxiety Articles</TabPanel>
+        <TabPanel value={tabDepression.type}>Depression Articles</TabPanel>
+        <TabPanel value={tabSubstanceUse.type}>Substance Use Articles</TabPanel>
       </TabContext>
     </Box>
   );

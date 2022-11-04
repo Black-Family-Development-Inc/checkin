@@ -49,6 +49,7 @@ const ResultsPage = ({
     otherResourcesHeader,
     otherResourcesDescription,
   } = data.contentfulResultsPage;
+  const { tabAnxiety, tabDepression, tabSubstanceUse } = data;
 
   const determineAssessmentSeverity = () => {
     return severityRubric?.find(({ min, max }) => {
@@ -79,6 +80,9 @@ const ResultsPage = ({
     crisisLinePhoneNumber,
     articlesDescription,
     allArticles,
+    tabAnxiety,
+    tabDepression,
+    tabSubstanceUse,
     assessmentType,
     retakeDescription,
     assessmentSeverity,
@@ -178,6 +182,27 @@ export const query = graphql`
       otherResourcesHeader
       otherResourcesDescription {
         raw
+      }
+    }
+    tabAnxiety: contentfulArticleGroup(type: { eq: "GAD-7" }) {
+      type
+      label
+      icon {
+        url
+      }
+    }
+    tabDepression: contentfulArticleGroup(type: { eq: "PHQ-9" }) {
+      type
+      label
+      icon {
+        url
+      }
+    }
+    tabSubstanceUse: contentfulArticleGroup(type: { eq: "DAST-10" }) {
+      type
+      label
+      icon {
+        url
       }
     }
   }
