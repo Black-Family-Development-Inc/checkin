@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Box, StepLabel, Stepper } from "@mui/material";
-import { boxStyles } from "../../../../styles/reusableStyles";
+import { boxStyles } from "../IntroSection/IntroSection.styles";
 
 export const StepperStyled = styled(Stepper)({
   marginTop: "36px",
