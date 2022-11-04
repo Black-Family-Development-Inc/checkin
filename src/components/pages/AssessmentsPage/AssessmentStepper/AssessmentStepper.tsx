@@ -1,6 +1,6 @@
+import Step from "@mui/material/Step";
 import React from "react";
 import { NavStepLabelStyled } from "./AssessmentStepper.styles";
-import { NavStepStyled } from "./AssessmentStepper.styles";
 import { NavStepperStyled } from "./AssessmentStepper.styles";
 import {
   AssessmentStepperPropTypes,
@@ -55,7 +55,7 @@ const AssessmentStepper = ({
         nonLinear
       >
         {checkForCompleteSteps(stepsToRender).map((step, idx) => (
-          <NavStepStyled
+          <Step
             key={step.label}
             completed={step.isComplete}
             disabled={!step.isComplete}
@@ -64,7 +64,7 @@ const AssessmentStepper = ({
               {step.label}
               {/* <StepLabel key={idx}>{step.label}</StepLabel> */}
             </NavStepLabelStyled>
-          </NavStepStyled>
+          </Step>
         ))}
       </NavStepperStyled>
     </>

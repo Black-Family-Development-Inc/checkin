@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Stepper from "@mui/material/Stepper";
 import { breakpoints, color, maxWidths } from "../../../../styles/theme";
@@ -14,16 +13,8 @@ export const NavStepperStyled = styled(Stepper)({
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     maxWidth: maxWidths.desktop.content,
   },
-  marginLeft: "auto",
-  marginRight: "auto",
-});
-
-export const NavStepStyled = styled(Step)({
-  // paddingLeft: 0,
-  // paddingRight: 0,
-  // marginLeft: 0,
-  // marginRight: 0,
-  // width: "fit-content",
+  marginLeft: 0,
+  marginRight: 0,
 });
 
 export const NavStepLabelStyled = styled(StepLabel)({
@@ -69,5 +60,6 @@ export const NavStepLabelStyled = styled(StepLabel)({
       color: color.purple.two,
     },
     color: color.gray.two,
+    fontWeight: 400,
   },
 });
