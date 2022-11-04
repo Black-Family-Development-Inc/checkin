@@ -161,7 +161,6 @@ export const query = graphql`
       allArticles {
         type
         articles {
-          id
           title
           source
           link

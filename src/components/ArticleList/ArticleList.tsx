@@ -1,4 +1,3 @@
-import { SquareRounded } from "@mui/icons-material";
 import Divider from "@mui/material/Divider";
 import React from "react";
 import {
@@ -11,39 +10,24 @@ import {
 import { ArticleType } from "./Articles-types";
 
 const ArticleList = ({ articles }: { articles: ArticleType[] }) => {
-  const getArticleColorCode = (articleType: string): string =>
-    articleType.split("-").pop() || "";
-
   return (
     <ListStyled>
-      {articles.map(
-        (
-          { articleLink, articleSubTitle, articleTitle, articleType },
-          index,
-        ) => {
-          return (
-            <LinkStyled
-              key={articleTitle + index}
-              to={articleLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ListItemStyled>
-                <ListItemIconStyled>
-                  <SquareRounded
-                    sx={{ color: getArticleColorCode(articleType) }}
-                  />
-                </ListItemIconStyled>
-                <ListItemTextStyled
-                  primary={articleTitle}
-                  secondary={`${articleSubTitle} - This articles color code is ${articleType}`}
-                />
-              </ListItemStyled>
-              {articles.length !== index + 1 && <Divider />}
-            </LinkStyled>
-          );
-        },
-      )}
+      {articles.map(({ link, title, source }, index) => {
+        return (
+          <LinkStyled
+            key={title + index}
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ListItemStyled>
+              <ListItemIconStyled></ListItemIconStyled>
+              <ListItemTextStyled primary={title} secondary={`${source} -`} />
+            </ListItemStyled>
+            {articles.length !== index + 1 && <Divider />}
+          </LinkStyled>
+        );
+      })}
     </ListStyled>
   );
 };

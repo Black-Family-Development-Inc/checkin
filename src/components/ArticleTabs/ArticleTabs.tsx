@@ -1,6 +1,7 @@
 import { TabContext, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import React, { useState } from "react";
+import ArticleList from "../ArticleList/ArticleList";
 import { ArticleGroup } from "../pages/ResultsPage/Resources/Resources-types";
 import { TabHRStyled, TabsListStyled } from "./ArticleTabs.styles";
 
@@ -20,7 +21,9 @@ const ArticleTabs = ({
   tabSubstanceUse,
 }: ArticleTabsProps) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(assessmentType);
-  console.log(allArticles);
+  const anxietyArticle = allArticles[0].articles;
+  const depressionArticle = allArticles[1].articles;
+  const substanceUseArticle = allArticles[2].articles;
 
   const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     setSelectedTabIndex(newValue);
@@ -41,9 +44,15 @@ const ArticleTabs = ({
 
         <TabHRStyled />
 
-        <TabPanel value={tabAnxiety.type}>Anxiety Articles</TabPanel>
-        <TabPanel value={tabDepression.type}>Depression Articles</TabPanel>
-        <TabPanel value={tabSubstanceUse.type}>Substance Use Articles</TabPanel>
+        <TabPanel value={tabAnxiety.type}>
+          <ArticleList articles={anxietyArticle} />
+        </TabPanel>
+        <TabPanel value={tabDepression.type}>
+          <ArticleList articles={depressionArticle} />
+        </TabPanel>
+        <TabPanel value={tabSubstanceUse.type}>
+          <ArticleList articles={substanceUseArticle} />
+        </TabPanel>
       </TabContext>
     </Box>
   );
