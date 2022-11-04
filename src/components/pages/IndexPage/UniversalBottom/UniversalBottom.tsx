@@ -4,7 +4,10 @@ import { Header } from "../../../Header";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
 import { Paragraph } from "../../../Paragraph";
-import { ButtonContainerStyled } from "./UniversalBottom.styles";
+import {
+  ButtonContainerStyled,
+  ParagraphWrapperStyled,
+} from "./UniversalBottom.styles";
 
 const UniversalBottom = ({
   universalBottomSubHeader,
@@ -14,7 +17,11 @@ const UniversalBottom = ({
   return (
     <>
       <Header text={universalBottomHeader} variant="h2" />
-      <Paragraph>{universalBottomSubHeader}</Paragraph>
+      <ParagraphWrapperStyled>
+        <Paragraph className="universial-ass-desc">
+          {universalBottomSubHeader}
+        </Paragraph>
+      </ParagraphWrapperStyled>
       <ButtonContainerStyled>
         <LinkStyled to={assessment.title.toLowerCase()}>
           <MultiButton version="universal" label={assessmentButtonLabel} />

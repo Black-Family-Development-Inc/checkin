@@ -10,6 +10,7 @@ import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
 import { Paragraph } from "../../../Paragraph";
 import {
   AssessmentQuestionBoxStyled,
+  AssessmentQuestionParaStyled,
   AssessmentQuestionStyled,
   AssessmentQuestionWrapperStyled,
 } from "./AssessmentSection.styles";
@@ -29,7 +30,12 @@ const AssessmentSection = (props: ContentfulHomePage) => {
         const link = `/assessments/${button.assessmentPage.title.toLocaleLowerCase()}`;
         return (
           <AssessmentQuestionWrapperStyled key={button.buttonText}>
-            <Paragraph id="scroll">{button.assessmentDescription}</Paragraph>
+            <AssessmentQuestionParaStyled
+              className="assessment-desc"
+              id="scroll"
+            >
+              {button.assessmentDescription}
+            </AssessmentQuestionParaStyled>
             <AssessmentQuestionBoxStyled key={button.buttonText}>
               <LinkStyled to={link}>
                 <MultiButton version="assessment" label={button.buttonText} />

@@ -14,6 +14,7 @@ export const HRStyled = styled("hr")({
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     width: 120,
     height: 6,
+    marginBottom: "24px",
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     width: 140,
