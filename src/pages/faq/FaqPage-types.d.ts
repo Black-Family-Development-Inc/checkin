@@ -15,9 +15,9 @@ export type FaqSubHeader = {
 export type FaqAccordion = {
   id: string;
   title: string;
-  body: FaqAccordionBody;
+  description: FaqAccordionBody;
 };
 
 export type FaqAccordionBody = {
-  body: string;
+  raw: string;
 };
