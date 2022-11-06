@@ -1,19 +1,18 @@
-import { ArticleGroup } from "../pages/ResultsPage/Resources/Resources-types";
-
 type ArticleTabsProps = {
   allArticles: AllArticles[];
   assessmentType: string;
-  tabAnxiety: ArticleGroup;
-  tabDepression: ArticleGroup;
-  tabSubstanceUse: ArticleGroup;
 };
 
 type AllArticles = {
+  label: string;
   type: string;
-  articles: ArticleType[];
+  articles: Article[];
+  icon: {
+    url: string;
+  };
 };
 
-type ArticleType = {
+type Article = {
   link: string;
   title: string;
   source: string;

@@ -15,6 +15,7 @@ export const TabsListStyled = styled(TabList)({
   ".MuiTab-root": {
     flex: 1,
     textTransform: "none",
+    padding: 7,
     fontSize: "14px",
     lineHeight: "16px",
     letterSpacing: "0.1px",

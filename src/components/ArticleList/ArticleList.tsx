@@ -1,6 +1,5 @@
 import Divider from "@mui/material/Divider";
 import React from "react";
-import { ArticleType } from "../ArticleTabs/ArticleTabs-types";
 import {
   LinkStyled,
   ListItemIconStyled,
@@ -9,7 +8,7 @@ import {
   ListStyled,
 } from "./ArticleList.styles";
 
-const ArticleList = ({ articles }: { articles: ArticleType[] }) => {
+const ArticleList = ({ articles, icon }: ArticleListType) => {
   return (
     <ListStyled>
       {articles.map(({ link, title, source }, index) => {
@@ -21,7 +20,9 @@ const ArticleList = ({ articles }: { articles: ArticleType[] }) => {
             rel="noopener noreferrer"
           >
             <ListItemStyled>
-              <ListItemIconStyled></ListItemIconStyled>
+              <ListItemIconStyled>
+                <img src={icon.url} alt="icon" />
+              </ListItemIconStyled>
               <ListItemTextStyled primary={title} secondary={`${source} -`} />
             </ListItemStyled>
             {articles.length !== index + 1 && <Divider />}
