@@ -1,9 +1,7 @@
+import { Box } from "@mui/material";
 import React from "react";
 import MultiButton from "../../../MultiButton/MultiButton";
-import {
-  PrevNextContainerStyled,
-  StyledNextBox,
-} from "./AssessmentPrevNext.styles";
+import { PrevNextContainerStyled } from "./AssessmentPrevNext.styles";
 import { AssessmentPrevNextProps } from "./assessmentPrevNext-types";
 
 const AssessmentPrevNext = ({
@@ -32,7 +30,7 @@ const AssessmentPrevNext = ({
           onClick={() => setCurrentQuestionIdx(clamp(currentQuestionIdx - 1))}
         />
       )}
-      <StyledNextBox>
+      <Box>
         {lastQuestion ? (
           <MultiButton
             version="results"
@@ -46,7 +44,7 @@ const AssessmentPrevNext = ({
             onClick={nextDisabled ? () => {} : handleNextClick}
           />
         )}
-      </StyledNextBox>
+      </Box>
     </PrevNextContainerStyled>
   );
 };

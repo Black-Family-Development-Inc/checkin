@@ -7,7 +7,3 @@ export const PrevNextContainerStyled = styled(Box)({
   padding: "10px 0",
   width: "100%",
 });
-
-export const StyledNextBox = styled(Box)({
-  paddingRight: "7px",
-});

@@ -81,6 +81,10 @@ export const AnswerStyled = styled(Button, {
       props.usersCurrentAnswer === props.label
         ? color.teal.one
         : color.teal.four,
+    border:
+      props.usersCurrentAnswer === props.label
+        ? "0"
+        : `2px solid ${color.teal.two}`,
   },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     maxWidth: maxWidths.tablet.buttons,
@@ -92,6 +96,7 @@ export const AnswerStyled = styled(Button, {
 
 export const NextAndResultStyled = styled(Button)({
   width: "120px",
+  minHeight: "48px",
   fontSize: "18px",
   color: "white",
   borderRadius: "8px",
