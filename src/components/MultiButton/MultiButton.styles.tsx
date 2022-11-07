@@ -66,7 +66,7 @@ export const AnswerStyled = styled(Button, {
 })<AnswerStyledProps>((props) => ({
   ...generalButtonStyles,
   width: "100%",
-  maxWidth: "343px",
+  maxWidth: maxWidths.mobile.buttons,
   margin: "10px 0",
   color:
     props.usersCurrentAnswer === props.label ? color.white : color.teal.one,
