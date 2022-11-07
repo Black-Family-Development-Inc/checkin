@@ -43,7 +43,6 @@ const Resources = ({
 
       <Paragraph paragraph>{articlesDescription}</Paragraph>
       <ArticleTabs allArticles={allArticles} assessmentType={assessmentType} />
-      <hr />
     </>
   );
 };

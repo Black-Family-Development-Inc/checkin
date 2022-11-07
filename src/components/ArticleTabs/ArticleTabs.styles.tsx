@@ -1,8 +1,8 @@
-import { TabList } from "@mui/lab";
+import { Tabs } from "@mui/material";
 import { styled } from "@mui/system";
 import { color } from "../../styles/theme";
 
-export const TabsListStyled = styled(TabList)({
+export const TabsStyled = styled(Tabs)({
   ".MuiTabs-flexContainer": {
     width: "100%",
     justifyContent: "space-around",
@@ -22,7 +22,7 @@ export const TabsListStyled = styled(TabList)({
     color: color.gray.one,
     fontWeight: 500,
     top: "1px",
-    minHeight: "30px",
+    minHeight: "32px",
     transition: "color 0s linear .10s",
     zIndex: 1,
   },
@@ -39,4 +39,5 @@ export const TabHRStyled = styled("hr")({
   background: color.teal.two,
   borderStyle: "none",
   borderWidth: 0,
+  marginBottom: "32px",
 });

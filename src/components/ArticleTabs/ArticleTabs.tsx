@@ -1,45 +1,63 @@
-import { TabContext, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import React, { useState } from "react";
 import ArticleList from "../ArticleList/ArticleList";
-import { TabHRStyled, TabsListStyled } from "./ArticleTabs.styles";
+import { TabHRStyled, TabsStyled } from "./ArticleTabs.styles";
+
+type TabPanelProps = {
+  children?: React.ReactNode;
+  selectedTab: string;
+  tab: string;
+};
+
+function TabPanel(props: TabPanelProps) {
+  const { children, tab, selectedTab, ...other } = props;
+
+  return (
+    <Box
+      role="tabpanel"
+      hidden={tab !== selectedTab}
+      id={`simple-tabpanel-${selectedTab}`}
+      {...other}
+    >
+      {tab === selectedTab && <Box sx={{ padding: "16px 0" }}>{children}</Box>}
+    </Box>
+  );
+}
 
 const ArticleTabs = ({ allArticles, assessmentType }: ArticleTabsProps) => {
-  const [selectedTabIndex, setSelectedTabIndex] = useState(assessmentType);
+  const [selectedTab, setSelectedTabIndex] = useState(assessmentType);
 
   const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     setSelectedTabIndex(newValue);
   };
 
   return (
-    <Box sx={{ margin: "24px 0" }}>
-      <TabContext value={selectedTabIndex}>
-        <TabsListStyled
-          onChange={handleChange}
-          aria-label="articles selection tabs"
-          sx={{ minHeight: "30px" }}
-        >
-          {allArticles.map((tab) => {
-            return (
-              <Tab
-                label={tab.label}
-                value={tab.type}
-                key={`tab-${tab.label}`}
-              />
-            );
-          })}
-        </TabsListStyled>
-
-        <TabHRStyled />
-
-        {allArticles.map((article) => {
+    <Box sx={{ marginTop: "32px" }}>
+      <TabsStyled
+        value={selectedTab}
+        onChange={handleChange}
+        sx={{ minHeight: "32px" }}
+      >
+        {allArticles.map((tab) => {
           return (
-            <TabPanel value={article.type} key={`article-${article.type}`}>
-              <ArticleList articles={article.articles} icon={article.icon} />
-            </TabPanel>
+            <Tab label={tab.label} value={tab.type} key={`tab-${tab.label}`} />
           );
         })}
-      </TabContext>
+      </TabsStyled>
+
+      <TabHRStyled />
+
+      {allArticles.map((article) => {
+        return (
+          <TabPanel
+            selectedTab={selectedTab}
+            tab={article.type}
+            key={`article-${article.type}`}
+          >
+            <ArticleList articles={article.articles} icon={article.icon} />
+          </TabPanel>
+        );
+      })}
     </Box>
   );
 };
