@@ -5,7 +5,7 @@ import { breakpoints, color, maxWidths } from "../../styles/theme";
 import { AnswerStyledProps, PhoneNumberStyledProps } from "./MultiButton-types";
 
 const generalButtonStyles: Object = {
-  width: "343px",
+  width: maxWidths.mobile.buttons,
   minHeight: "48px",
   fontSize: "18px",
   fontWeight: 600,
