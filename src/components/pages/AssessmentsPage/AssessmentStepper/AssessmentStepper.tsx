@@ -43,8 +43,16 @@ const AssessmentStepper = ({
     (step) => step.label === currentPage,
   );
 
+  const lastStepIndex = allSteps.length - 1;
+
+  const isComplete = (index: number) =>
+    currentStep === lastStepIndex ? true : currentStep > index;
+
   const checkForCompleteSteps = (steps: StepType[]) =>
-    steps.map((step, index) => ({ ...step, isComplete: currentStep > index }));
+    steps.map((step, index) => ({
+      ...step,
+      isComplete: isComplete(index),
+    }));
 
   return (
     <>
