@@ -38,26 +38,32 @@ const ArticleTabs = ({ allArticles, assessmentType }: ArticleTabsProps) => {
         onChange={handleChange}
         sx={{ minHeight: "32px" }}
       >
-        {allArticles.map((tab) => {
-          return (
-            <Tab label={tab.label} value={tab.type} key={`tab-${tab.label}`} />
-          );
-        })}
+        {allArticles &&
+          allArticles.map((tab) => {
+            return (
+              <Tab
+                label={tab.label}
+                value={tab.type}
+                key={`tab-${tab.label}`}
+              />
+            );
+          })}
       </TabsStyled>
 
       <TabHRStyled />
 
-      {allArticles.map((article) => {
-        return (
-          <TabPanel
-            selectedTab={selectedTab}
-            tab={article.type}
-            key={`article-${article.type}`}
-          >
-            <ArticleList articles={article.articles} icon={article.icon} />
-          </TabPanel>
-        );
-      })}
+      {allArticles &&
+        allArticles.map((article) => {
+          return (
+            <TabPanel
+              selectedTab={selectedTab}
+              tab={article.type}
+              key={`article-${article.type}`}
+            >
+              <ArticleList articles={article.articles} icon={article.icon} />
+            </TabPanel>
+          );
+        })}
     </Box>
   );
 };
