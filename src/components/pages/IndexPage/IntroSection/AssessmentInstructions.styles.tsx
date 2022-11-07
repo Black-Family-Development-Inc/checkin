@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import { StepLabel, Stepper } from "@mui/material";
+import { Box, StepLabel, Stepper } from "@mui/material";
+import { boxStyles } from "../IntroSection/IntroSection.styles";
 
 export const StepperStyled = styled(Stepper)({
   marginTop: "36px",
@@ -17,5 +18,11 @@ export const StepLabelStyled = styled(StepLabel)({
     fontWeight: "600",
     lineHeight: "24px",
     color: "rgba(0, 0, 0, 0.87);",
+  },
+});
+
+export const ImageContainerStyled = styled(Box)({
+  ".assessmentSectionImage": {
+    ...boxStyles,
   },
 });
