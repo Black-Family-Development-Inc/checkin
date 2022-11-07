@@ -115,7 +115,7 @@ export const NextAndResultStyled = styled(Button)({
 
 export const PreviousStyled = styled(Button)({
   width: "55px",
-  height: "24px",
+  height: "48px",
   fontSize: "14px",
   marginRight: "28px",
   color: color.purple.two,
