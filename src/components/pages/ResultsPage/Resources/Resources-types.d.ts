@@ -11,7 +11,7 @@ export type ResourcesTypes = {
   assessmentSeverity?: string;
 };
 
-type AllArticles = {
+export type AllArticles = {
   type: string;
   articles: Articles[];
 };

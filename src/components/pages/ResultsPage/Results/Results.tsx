@@ -20,6 +20,8 @@ const Results = ({
   assessmentSeverity,
   maxScore,
 }: ResultsTypes) => {
+  const emailBody = resultsHeader + "%0D%0A" + resultsDescription;
+
   return (
     <>
       <Header text={resultsHeader} variant="h2" />
@@ -51,7 +53,9 @@ const Results = ({
         <TextContainer>
           <Paragraph>
             Take a screenshot or{" "}
-            <EmailExternalLinkStyled href="mailto:?subject=Test testing&body=This is the body!">
+            <EmailExternalLinkStyled
+              href={`mailto:?subject=Test testing&body=${emailBody}`}
+            >
               Email
             </EmailExternalLinkStyled>{" "}
             your results.

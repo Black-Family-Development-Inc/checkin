@@ -1,3 +1,4 @@
+// import { Email } from "@mui/icons-material";
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import { Header } from "../../components/Header";
@@ -9,6 +10,7 @@ import {
   Results,
   Retake,
 } from "../../components/pages/ResultsPage";
+// import { EmailLink } from "../../components/pages/ResultsPage/EmailLink";
 import AssessmentLayout from "../../layouts/AssessmentLayout/AssessmentLayout";
 import {
   ResultsPageLocationState,
@@ -22,7 +24,6 @@ const ResultsPage = ({
   const {
     assessmentScore,
     severityRubric,
-    triggered,
     startingPage,
     assessmentType,
     maxScore,
@@ -58,8 +59,10 @@ const ResultsPage = ({
   };
   const assessmentSeverity = determineAssessmentSeverity()?.severity;
   const accordionData = allAccordionContents?.find(
-    (accordion) => accordion.type === assessmentType,
+    (accordion: { type: string }) => accordion.type === assessmentType,
   );
+  // const scoreAndSeverity = `Score: ${assessmentScore}/${maxScore} [${assessmentSeverity}
+  //   -Symptoms]`;
 
   const resultsSectionProps = {
     resultsDescription,
@@ -69,6 +72,18 @@ const ResultsPage = ({
     assessmentSeverity,
     maxScore,
   };
+
+  // const emailLinkProps = {
+  //   resultsHeader,
+  //   scoreAndSeverity,
+  //   accordionData,
+  //   bookAppointmentButtonText,
+  //   bookAppointmentPhoneNumber,
+  //   crisisLineButtonText,
+  //   crisisLinePhoneNumber,
+  //   assessmentType,
+  //   allArticles,
+  // };
   const resourcesSectionProps = {
     resourcesHeader,
     bookAppointmentDescription,
@@ -107,10 +122,9 @@ const ResultsPage = ({
         <>
           <p>Score: {assessmentScore}</p>
           <p>Severity: {assessmentSeverity}</p>
-          <p>Did you trip a trigger question: {triggered ? "Yes" : "No"}</p>
-          {/* remove above line concerning trigger question once its properly used */}
           <Results {...resultsSectionProps} />
           <Resources {...resourcesSectionProps} />
+          {/* <EmailLink {...emailLinkProps} /> */}
           <Retake {...retakeSectionProps} />
           <OtherResources {...otherResourcesProps} />
         </>
