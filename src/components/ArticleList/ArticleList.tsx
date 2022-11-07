@@ -24,7 +24,7 @@ const ArticleList = ({ articles }: { articles: ArticleType[] }) => {
           return (
             <LinkStyled
               key={articleTitle + index}
-              to={articleLink}
+              href={articleLink}
               target="_blank"
               rel="noopener noreferrer"
             >
