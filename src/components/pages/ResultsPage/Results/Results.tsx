@@ -1,6 +1,5 @@
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
 import React from "react";
-import { ResultsPageResultsSection } from "../../../../pages/results/ResultsPage-types";
 import Accordion from "../../../Accordion/Accordion";
 import { Header } from "../../../Header";
 import { Paragraph } from "../../../Paragraph";
@@ -10,33 +9,41 @@ import {
   IconContainer,
   TextContainer,
   UpperParagraphContainer,
-} from "./ResultsSection.styles";
+} from "./Results.styles";
+import { ResultsTypes } from "./Results-types";
 
-const ResultsSection = ({
-  resultsHeaderText,
-  resultsSummaryText,
-  resultsAccordionData,
+const Results = ({
+  resultsHeader,
+  resultsDescription,
+  accordionData,
   assessmentScore,
   assessmentSeverity,
-}: ResultsPageResultsSection) => {
+  maxScore,
+}: ResultsTypes) => {
   return (
     <>
-      <Header text={resultsHeaderText} variant="h2" />
+      <Header text={resultsHeader} variant="h2" />
       <UpperParagraphContainer>
-        <Paragraph>{resultsSummaryText}</Paragraph>
+        <Paragraph>{resultsDescription}</Paragraph>
       </UpperParagraphContainer>
-      {resultsAccordionData?.map((accordion) => {
-        return (
+      {accordionData?.title &&
+        accordionData?.summary &&
+        accordionData?.description &&
+        typeof assessmentScore === "number" &&
+        assessmentSeverity && (
           <Accordion
-            assessmentScore={assessmentScore}
-            assessmentSeverity={assessmentSeverity}
-            key={accordion.id}
-            title={accordion.title}
-            summary={accordion.summary}
-            body={accordion.body.body}
-          />
-        );
-      })}
+            key={accordionData?.id}
+            title={accordionData?.label}
+            summary={accordionData?.summary}
+            description={accordionData?.description?.raw}
+            scoreTable={accordionData?.scoreTable}
+          >
+            <Paragraph>
+              Score: {assessmentScore}/{maxScore} [{assessmentSeverity}
+              -Symptoms]
+            </Paragraph>
+          </Accordion>
+        )}
       <BottomParagraphContainer>
         <IconContainer>
           <CropOriginalIcon />
@@ -55,4 +62,4 @@ const ResultsSection = ({
   );
 };
 
-export default ResultsSection;
+export default Results;
