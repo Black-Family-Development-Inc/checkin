@@ -1,11 +1,11 @@
-import { Button, Link as MuiLink } from "@mui/material";
+import { Box, Button, Link as MuiLink } from "@mui/material";
 import { styled } from "@mui/system";
 import { Link } from "gatsby";
-import { breakpoints, color } from "../../styles/theme";
+import { breakpoints, color, maxWidths } from "../../styles/theme";
 import { AnswerStyledProps, PhoneNumberStyledProps } from "./MultiButton-types";
 
 const generalButtonStyles: Object = {
-  width: "343px",
+  width: maxWidths.mobile.buttons,
   minHeight: "48px",
   fontSize: "18px",
   fontWeight: 600,
@@ -23,12 +23,18 @@ const generalButtonStyles: Object = {
     border: [`2px solid ${color.purple.two}`],
   },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    width: "360px",
+    width: maxWidths.tablet.buttons,
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
-    width: "400px",
+    width: maxWidths.tablet.buttons,
   },
 };
+
+export const StyledBox = styled(Box)({
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
+});
 
 export const AssessmentStyled = styled(Button)({
   ...generalButtonStyles,
@@ -59,36 +65,60 @@ export const AnswerStyled = styled(Button, {
   shouldForwardProp: (prop) => preventDomList(prop),
 })<AnswerStyledProps>((props) => ({
   ...generalButtonStyles,
-  margin: "10px",
+  width: "100%",
+  maxWidth: maxWidths.mobile.buttons,
+  margin: "10px 0",
+  color:
+    props.usersCurrentAnswer === props.label ? color.white : color.teal.one,
+  border:
+    props.usersCurrentAnswer === props.label
+      ? "0"
+      : `2px solid ${color.teal.two}`,
   backgroundColor:
-    props.usersCurrentAnswer === props.label ? "#b8b4b7" : "#E6E1E5",
+    props.usersCurrentAnswer === props.label ? color.teal.one : color.white,
   ":hover": {
     backgroundColor:
-      props.usersCurrentAnswer === props.label ? "#b8b4b7" : "#E6E1E5",
-    border: "2px solid black",
+      props.usersCurrentAnswer === props.label
+        ? color.teal.one
+        : color.teal.four,
+    border:
+      props.usersCurrentAnswer === props.label
+        ? "0"
+        : `2px solid ${color.teal.two}`,
+  },
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    maxWidth: maxWidths.tablet.buttons,
+  },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    maxWidth: maxWidths.desktop.buttons,
   },
 }));
 
 export const NextAndResultStyled = styled(Button)({
   width: "120px",
+  minHeight: "48px",
   fontSize: "18px",
   color: "white",
   borderRadius: "8px",
-  backgroundColor: "black",
+  backgroundColor: color.purple.two,
   fontFamily: "Roboto",
   fontWeight: 600,
   textTransform: "none",
   ":hover": {
-    backgroundColor: "black",
+    backgroundColor: color.purple.one,
+  },
+  alignSelf: "end",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    width: "172px",
   },
 });
 
 export const PreviousStyled = styled(Button)({
   width: "55px",
-  height: "24px",
+  height: "48px",
   fontSize: "14px",
   marginRight: "28px",
-  color: "black",
+  color: color.purple.two,
   borderRadius: "8px",
   fontFamily: "Roboto",
   fontWeight: 500,
