@@ -42,8 +42,14 @@ const Accordion = ({
           </Button>
         </CardActions>
       </AccordionHeaderContainerStyled>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
+
+      <Collapse
+        in={expanded}
+        timeout="auto"
+        unmountOnExit
+        sx={{ padding: "24px 16px 0 16px" }}
+      >
+        <CardContent sx={{ padding: 0 }}>
           <ScoreStyled>
             Score {score?.assessmentScore}/{score?.maxScore} [
             {score?.assessmentSeverity}-Symptoms]

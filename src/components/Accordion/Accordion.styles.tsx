@@ -20,7 +20,7 @@ export const SummaryContainer = styled(Box)({
 });
 
 export const ScoreStyled = styled(Typography)({
-  margin: "8px 0 24px 0",
+  marginBottom: "24px",
   fontFamily: "Roboto",
   fontWeight: 500,
   fontSize: "18px",
