@@ -32,17 +32,13 @@ const Results = ({
         typeof assessmentScore === "number" &&
         assessmentSeverity && (
           <Accordion
-            key={accordionData?.id}
-            title={accordionData?.label}
-            summary={accordionData?.summary}
-            description={accordionData?.description?.raw}
-            scoreTable={accordionData?.scoreTable}
-          >
-            <Paragraph>
-              Score: {assessmentScore}/{maxScore} [{assessmentSeverity}
-              -Symptoms]
-            </Paragraph>
-          </Accordion>
+            key={accordionData.id}
+            title={accordionData.label}
+            summary={accordionData.summary}
+            description={accordionData.description.raw}
+            scoreTable={accordionData.scoreTable}
+            score={{ assessmentScore, maxScore, assessmentSeverity }}
+          />
         )}
       <BottomParagraphContainer>
         <IconContainer>

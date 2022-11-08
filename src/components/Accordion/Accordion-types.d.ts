@@ -4,5 +4,9 @@ export type AccordionPropTypes = {
   summary?: string;
   description?: string;
   scoreTable?: string[];
-  children?: JSX.Element;
+  score?: {
+    assessmentScore: number;
+    maxScore: number;
+    assessmentSeverity: string;
+  };
 };
