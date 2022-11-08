@@ -5,11 +5,11 @@ export const LayoutContainerWrapper = styled.div({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  padding: "56px 16px 0px",
+  padding: "80px 16px 0px",
   background: color.teal.five,
 
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    padding: "80px 112px 0px",
+    padding: "88px 112px 0px",
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     padding: "104px 162px 0px",
