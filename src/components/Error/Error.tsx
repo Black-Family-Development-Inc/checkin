@@ -2,6 +2,7 @@ import React from "react";
 import ErrorSVG from "../../images/Error_page.svg";
 import { Header } from "../Header";
 import { ImageStyled } from "../Image/img.styles";
+import MultiButton from "../MultiButton/MultiButton";
 import { Paragraph } from "../Paragraph";
 
 const Error = () => {
@@ -18,9 +19,22 @@ const Error = () => {
       </Paragraph>
 
       <Paragraph>
-        If you are in crisis and need immediate help. Please call the Crisis
-        Hotline. Otherwise, visit the BFDI Homepage to learn more about what we
-        do.
+        {
+          <MultiButton
+            version="phoneNumberBasic"
+            label="Crisis Hotline"
+            link="tel:988"
+          />
+        }
+        . Otherwise, visit the{" "}
+        {
+          <MultiButton
+            version="externalLinkBasic"
+            label="BFDI Homepage"
+            link="https://www.blackfamilydevelopment.org/"
+          />
+        }
+        to learn more about what we do.
       </Paragraph>
     </>
   );

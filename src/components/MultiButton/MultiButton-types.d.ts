@@ -21,8 +21,10 @@ type Versions =
   | "startOver"
   | "navButton"
   | "phoneNumber"
+  | "phoneNumberBasic"
   | "allArticles"
-  | "externalLink";
+  | "externalLink"
+  | "externalLinkBasic";
 
 export type AnswerStyledProps = {
   usersCurrentAnswer?: string;
