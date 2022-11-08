@@ -1,13 +1,5 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { styled } from "@mui/system";
-
-export const TextStyled = styled(Typography)({
-  fontFamily: "Inter",
-  fontSize: "16px",
-  maxWidth: "349px",
-  fontWeight: 400,
-  lineHeight: "20px",
-});
 
 export const RetakeAndStartOverStyled = styled(Box)({
   display: "flex",

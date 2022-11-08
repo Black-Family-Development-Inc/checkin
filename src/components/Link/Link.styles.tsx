@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
-import { Link } from "@mui/material";
+import { Link as ExternalLink } from "@mui/material";
+import { Link as InternalLink } from "gatsby";
 
-export const LinkStyled = styled(Link)({
+const linkStyles = {
   fontWeight: 500,
   color: "black",
   textDecorationColor: "black",
@@ -11,4 +12,12 @@ export const LinkStyled = styled(Link)({
   ":active": {
     color: "blue",
   },
+};
+
+export const InternalLinkStyled = styled(InternalLink)({
+  ...linkStyles,
+});
+
+export const ExternalLinkStyled = styled(ExternalLink)({
+  ...linkStyles,
 });

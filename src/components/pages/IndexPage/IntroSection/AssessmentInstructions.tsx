@@ -4,8 +4,9 @@ import * as React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
 import { Header } from "../../../Header";
 import { ImageStyled } from "../../../Image/img.styles";
+import { Paragraph } from "../../../Paragraph";
 import {
-  StepContentStyled,
+  ImageContainerStyled,
   StepLabelStyled,
   StepperStyled,
 } from "./AssessmentInstructions.styles";
@@ -35,23 +36,24 @@ const AssessmentInstructions = ({
     },
   ];
   return (
-    <div>
+    <ImageContainerStyled>
       <Header text={assessmentInstructionsHeader} variant="h2" />
       <StepperStyled activeStep={-1} orientation="vertical">
         {steps.map((step) => (
           <Step key={step.label} expanded={true}>
             <StepLabelStyled>{step.label}</StepLabelStyled>
             <StepContent>
-              <StepContentStyled>{step.description}</StepContentStyled>
+              <Paragraph>{step.description}</Paragraph>
             </StepContent>
           </Step>
         ))}
       </StepperStyled>
       <ImageStyled
+        className="assessmentSectionImage"
         srcSet={assessmentStepsImage.gatsbyImageData.images.sources[0].srcSet}
         alt={assessmentStepsImage.description}
       />
-    </div>
+    </ImageContainerStyled>
   );
 };
 

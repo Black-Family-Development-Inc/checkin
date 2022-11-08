@@ -4,7 +4,11 @@ import { Header } from "../../../Header";
 import { ImageStyled } from "../../../Image/img.styles";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
-import { ButtonContainerStyled, IntroContent } from "./IntroSection.styles";
+import { Paragraph } from "../../../Paragraph";
+import {
+  ButtonContainerStyled,
+  ImageContainerStyled,
+} from "./IntroSection.styles";
 
 const IntroSection = ({
   introSectionHeader,
@@ -15,18 +19,19 @@ const IntroSection = ({
   return (
     <>
       <Header variant="h2" text={introSectionHeader} />
-      <IntroContent>{introSectionSubheader}</IntroContent>
+      <Paragraph>{introSectionSubheader}</Paragraph>
       <ButtonContainerStyled>
         <LinkStyled to={assessment.title.toLowerCase()}>
           <MultiButton version="universal" label={assessmentButtonLabel} />
         </LinkStyled>
       </ButtonContainerStyled>
-      <div>
+      <ImageContainerStyled>
         <ImageStyled
+          className="introSectionImage"
           srcSet={introSectionImage.gatsbyImageData.images.sources[0].srcSet}
           alt={introSectionImage.description}
         />
-      </div>
+      </ImageContainerStyled>
     </>
   );
 };

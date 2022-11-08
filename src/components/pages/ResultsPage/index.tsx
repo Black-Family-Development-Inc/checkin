@@ -1,4 +1,4 @@
 export { OtherResources } from "./OtherResources";
 export { Resources } from "./Resources";
-export { ResultsSection } from "./ResultsSection";
-export { RetakeSection } from "./RetakeSection";
+export { Results } from "./Results";
+export { Retake } from "./Retake";

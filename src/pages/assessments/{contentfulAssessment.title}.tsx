@@ -1,4 +1,4 @@
-import { FormControl, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { graphql, navigate, PageProps } from "gatsby";
 import React, { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
@@ -7,15 +7,14 @@ import {
   AssessmentPrevNext,
 } from "../../components/pages/AssessmentsPage";
 import {
-  AssessmentHeaderContainer,
-  AssessmentHeaderStyled,
   AssessmentPageStyled,
-  DirectionsStyled,
   QuestionStyled,
 } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
+import { Paragraph } from "../../components/Paragraph";
 import { AssessmentLayout } from "../../layouts/AssessmentLayout";
+import { StyledFormControl } from "../../layouts/AssessmentLayout/AssessmentLayout.styles";
 import {
   AssessmentLocationState,
   AssessmentPageProps,
@@ -63,11 +62,20 @@ const AssessmentPage = ({
     usersSavedQuestions.some((question) => question.triggered);
 
   const navigateToResultsPage = () => {
-    const resultsPage = "/results/" + title.toLowerCase();
+    const resultsPage = "/results/";
+    const assessmentType = title;
+    const maxScore = severityRubric[severityRubric.length - 1].max;
     const triggered = checkTriggerQuestions();
     const assessmentScore = accumulateAssessmentScore();
     navigate(resultsPage, {
-      state: { assessmentScore, severityRubric, triggered, startingPage },
+      state: {
+        assessmentScore,
+        severityRubric,
+        triggered,
+        startingPage,
+        assessmentType,
+        maxScore,
+      },
     });
   };
 
@@ -78,32 +86,28 @@ const AssessmentPage = ({
     <AssessmentLayout
       currentPage={stepperPages.assessment as StepperPagesType}
       startingPage={startingPage}
+      assessmentTitle={title}
     >
       <AssessmentPageStyled>
-        <AssessmentHeaderContainer>
+        <Box>
           <Header text={pageTitle + " Assessment"} variant="h2" />
           {headings && (
-            <AssessmentHeaderStyled>
+            <Paragraph sx={{ fontWeight: 500 }}>
               {headings[currentQuestion?.questionType]}
-            </AssessmentHeaderStyled>
+            </Paragraph>
           )}
           {currentQuestionIdx === 0 && description && (
-            <DirectionsStyled>
-              <Typography sx={{ fontWeight: "700", marginBottom: "12px" }}>
-                Directions
-              </Typography>
-              <Typography>{description}</Typography>
-            </DirectionsStyled>
+            <Paragraph sx={{ fontWeight: 500 }}>{description}</Paragraph>
           )}
           <QuestionStyled>
-            <Typography>{currentQuestion.text}</Typography>
-            <Typography sx={{ paddingLeft: "35px" }}>
+            <Paragraph>{currentQuestion.text}</Paragraph>
+            <Paragraph sx={{ paddingLeft: "35px" }}>
               {currentQuestionIdx + 1}/{questions.length}
-            </Typography>
+            </Paragraph>
           </QuestionStyled>
-        </AssessmentHeaderContainer>
+        </Box>
 
-        <FormControl>
+        <StyledFormControl>
           <AssessmentAnswers
             answers={answers}
             currentQuestion={currentQuestion}
@@ -120,7 +124,7 @@ const AssessmentPage = ({
             resultsDisabled={resultsDisabled}
             nextDisabled={nextDisabled}
           />
-        </FormControl>
+        </StyledFormControl>
       </AssessmentPageStyled>
     </AssessmentLayout>
   );
