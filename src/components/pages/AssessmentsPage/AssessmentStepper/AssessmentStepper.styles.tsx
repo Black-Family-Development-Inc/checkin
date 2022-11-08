@@ -26,17 +26,14 @@ export const NavStepperStyled = styled(Stepper)({
 export const NavStepLabelStyled = styled(StepLabel)({
   ".MuiStepLabel-labelContainer": {
     width: "fit-content",
-  },
-  ".MuiStep-root": {
-    fontWeight: 400,
-  },
-  ".MuiStepLabel-label": {
-    fontSize: 14,
-    letterSpacing: 0.1,
-    marginTop: 8,
-    color: color.gray.two,
-    width: 80,
-    textAlign: "center",
+    ".MuiStepLabel-label": {
+      fontSize: 14,
+      letterSpacing: 0.1,
+      marginTop: 8,
+      color: color.gray.two,
+      width: 80,
+      textAlign: "center",
+    },
   },
   ".MuiSvgIcon-root": {
     overflow: "visible",
