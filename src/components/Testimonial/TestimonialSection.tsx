@@ -3,18 +3,18 @@ import { Paragraph } from "../Paragraph";
 import {
   BoxStyled,
   ContainerStyled,
-  // ImageStyled,
+  ImageStyled,
 } from "./TestimonialSection.styles";
 import { TestimonialSectionType } from "./TestimonialSection-types";
 
 const TestimonialSection = ({
   testimonialQuote,
   testimonialAuthor,
-}: // quoteImage,
-TestimonialSectionType) => {
+  quoteImage,
+}: TestimonialSectionType) => {
   return (
     <ContainerStyled>
-      {/* <ImageStyled src={quoteImage.url} alt="" /> */}
+      <ImageStyled src={quoteImage?.url} alt="" />
       <BoxStyled>
         <Paragraph sx={{ fontStyle: "italic" }}>
           {`"${testimonialQuote}"`}

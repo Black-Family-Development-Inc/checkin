@@ -22,7 +22,6 @@ const ResultsPage = ({
   const {
     assessmentScore,
     severityRubric,
-    triggered,
     startingPage,
     assessmentType,
     maxScore,
@@ -108,8 +107,6 @@ const ResultsPage = ({
         <>
           <p>Score: {assessmentScore}</p>
           <p>Severity: {assessmentSeverity}</p>
-          <p>Did you trip a trigger question: {triggered ? "Yes" : "No"}</p>
-          {/* remove above line concerning trigger question once its properly used */}
           <Results {...resultsSectionProps} />
           <Resources {...resourcesSectionProps} />
           <Retake {...retakeSectionProps} />
