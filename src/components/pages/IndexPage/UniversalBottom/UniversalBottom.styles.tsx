@@ -9,13 +9,11 @@ export const ButtonContainerStyled = styled(Box)({
 });
 
 export const ParagraphWrapperStyled = styled(Paragraph)({
-  ".universial-ass-desc": {
+  fontWeight: "400",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    fontWeight: "500",
+  },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
     fontWeight: "400",
-    [`@media(min-width: ${breakpoints.tablet}px)`]: {
-      fontWeight: "500",
-    },
-    [`@media(min-width: ${breakpoints.desktop}px)`]: {
-      fontWeight: "400",
-    },
   },
 });

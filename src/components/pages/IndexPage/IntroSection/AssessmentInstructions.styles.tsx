@@ -1,13 +1,14 @@
 import styled from "@emotion/styled";
-import { StepContent, StepLabel, Stepper } from "@mui/material";
+import { Box, StepContent, StepLabel, Stepper } from "@mui/material";
 import { breakpoints, color } from "../../../../styles/theme";
+import { boxStyles } from "../IntroSection/IntroSection.styles";
 
 export const StepperStyled = styled(Stepper)({
-  marginTop: "40px",
+  marginTop: "32px",
   marginBottom: "0px",
   ".MuiStepLabel-iconContainer": {
     svg: {
-      fill: "#633378",
+      fill: color.purple.two,
       width: "28px",
       height: "28px",
     },
@@ -51,4 +52,10 @@ export const StepLabelStyled = styled(StepLabel)({
 
 export const StepContentStyled = styled(StepContent)({
   borderLeft: [`1px solid ${color.gray.two}`],
+});
+
+export const ImageContainerStyled = styled(Box)({
+  ".assessmentSectionImage": {
+    ...boxStyles,
+  },
 });

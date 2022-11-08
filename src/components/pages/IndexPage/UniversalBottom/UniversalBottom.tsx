@@ -3,7 +3,6 @@ import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
 import { Header } from "../../../Header";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
-import { Paragraph } from "../../../Paragraph";
 import {
   ButtonContainerStyled,
   ParagraphWrapperStyled,
@@ -17,10 +16,8 @@ const UniversalBottom = ({
   return (
     <>
       <Header text={universalBottomHeader} variant="h2" />
-      <ParagraphWrapperStyled>
-        <Paragraph className="universial-ass-desc">
-          {universalBottomSubHeader}
-        </Paragraph>
+      <ParagraphWrapperStyled className="universial-ass-desc">
+        {universalBottomSubHeader}
       </ParagraphWrapperStyled>
       <ButtonContainerStyled>
         <LinkStyled to={assessment.title.toLowerCase()}>
