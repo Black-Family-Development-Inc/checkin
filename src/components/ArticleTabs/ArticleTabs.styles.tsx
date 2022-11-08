@@ -8,9 +8,9 @@ export const TabsStyled = styled(Tabs)({
     justifyContent: "space-around",
   },
   ".MuiTabs-indicator": {
-    backgroundColor: color.teal.two,
-    height: "100%",
     borderRadius: "4px 4px 0 0",
+    backgroundColor: color.teal.two,
+    minHeight: "32px",
   },
   ".MuiTab-root": {
     flex: 1,
@@ -21,10 +21,10 @@ export const TabsStyled = styled(Tabs)({
     letterSpacing: "0.1px",
     color: color.gray.one,
     fontWeight: 500,
-    top: "1px",
-    minHeight: "32px",
+    height: "48px",
     transition: "color 0s linear .10s",
     zIndex: 1,
+    justifyContent: "flex-end",
   },
   ".MuiTab-root.Mui-selected": {
     color: color.white,
