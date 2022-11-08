@@ -4,23 +4,24 @@ import { breakpoints } from "../../styles/theme";
 
 export const LinkStyled = styled(Link)({
   textDecorationLine: "none",
-  display: "flex",
+  display: "inline-block",
   height: "48px",
-  alignItems: "center",
-  marginTop: "48px",
-  marginBottom: "24px",
+  marginTop: "24px",
+  marginBottom: "8px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    marginTop: "64px",
-    marginBottom: "40px",
+    marginTop: "32px",
   },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    marginTop: "48px",
+  },
+
   ".nav-icon": {
-    width: "14px",
-    height: "14px",
+    width: "16px",
+    height: "16px",
     marginRight: "8px",
     [`@media(min-width: ${breakpoints.tablet}px)`]: {
-      width: "28px",
-      height: "28px",
-      marginRight: "8px",
+      width: "24px",
+      height: "24px",
     },
   },
 });
