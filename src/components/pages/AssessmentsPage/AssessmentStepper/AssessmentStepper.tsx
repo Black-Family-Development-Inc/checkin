@@ -35,15 +35,15 @@ const AssessmentStepper = ({
 }: AssessmentStepperPropTypes) => {
   const isStartPageUniversal = startingPage === stepperPages.universal;
 
-  const stepsToRender = isStartPageUniversal
+  const stepsForPage = isStartPageUniversal
     ? allSteps
     : allSteps.filter((step) => step.label !== stepperPages.universal);
 
-  const currentStep = stepsToRender.findIndex(
+  const currentStep = stepsForPage.findIndex(
     (step) => step.label === currentPage,
   );
 
-  const lastStepIndex = allSteps.length - 1;
+  const lastStepIndex = stepsForPage.length - 1;
 
   const isComplete = (index: number) =>
     currentStep === lastStepIndex ? true : currentStep > index;
@@ -54,6 +54,8 @@ const AssessmentStepper = ({
       isComplete: isComplete(index),
     }));
 
+  const stepsToRender = checkForCompleteSteps(stepsForPage);
+
   return (
     <>
       <Stepper
@@ -62,7 +64,7 @@ const AssessmentStepper = ({
         alternativeLabel
         nonLinear
       >
-        {checkForCompleteSteps(stepsToRender).map((step, idx) => (
+        {stepsToRender.map((step, idx) => (
           <Step
             key={step.label}
             completed={step.isComplete}
