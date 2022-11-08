@@ -7,6 +7,11 @@ export const NavStepperStyled = styled(Stepper)({
   ".MuiStepConnector-line": {
     borderColor: color.gray.two,
   },
+  ".MuiStepConnector-root": {
+    top: 30,
+    left: "calc(-50% + 50px)",
+    right: "calc(50% + 50px)",
+  },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     maxWidth: maxWidths.tablet.content,
   },
@@ -15,14 +20,17 @@ export const NavStepperStyled = styled(Stepper)({
   },
   marginLeft: 0,
   marginRight: 0,
+  height: 64,
 });
 
 export const NavStepLabelStyled = styled(StepLabel)({
   ".MuiStepLabel-labelContainer": {
     width: "fit-content",
   },
-  ".MuiStepLabel-label": {
+  ".MuiStep-root": {
     fontWeight: 400,
+  },
+  ".MuiStepLabel-label": {
     fontSize: 14,
     letterSpacing: 0.1,
     marginTop: 8,
@@ -31,9 +39,10 @@ export const NavStepLabelStyled = styled(StepLabel)({
     textAlign: "center",
   },
   ".MuiSvgIcon-root": {
+    overflow: "visible",
     circle: {
-      stroke: color.purple.two,
       color: color.white,
+      stroke: color.purple.two,
     },
     text: {
       fontSize: 12,
@@ -56,10 +65,10 @@ export const NavStepLabelStyled = styled(StepLabel)({
     fontWeight: 500,
   },
   ".Mui-completed": {
+    fontWeight: 400,
     svg: {
       color: color.purple.two,
     },
     color: color.gray.two,
-    fontWeight: 400,
   },
 });
