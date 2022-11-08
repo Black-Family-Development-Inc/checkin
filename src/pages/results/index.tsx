@@ -1,6 +1,5 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
-import { Header } from "../../components/Header";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
 import {
@@ -22,7 +21,6 @@ const ResultsPage = ({
   const {
     assessmentScore,
     severityRubric,
-    triggered,
     startingPage,
     assessmentType,
     maxScore,
@@ -102,13 +100,8 @@ const ResultsPage = ({
       startingPage={startingPage as StepperPagesType}
       assessmentTitle={assessmentType}
     >
-      <Header text={resultsHeader} variant="h2" />
       {assessmentScore > -1 ? (
         <>
-          <p>Score: {assessmentScore}</p>
-          <p>Severity: {assessmentSeverity}</p>
-          <p>Did you trip a trigger question: {triggered ? "Yes" : "No"}</p>
-          {/* remove above line concerning trigger question once its properly used */}
           <Results {...resultsSectionProps} />
           <Resources {...resourcesSectionProps} />
           <Retake {...retakeSectionProps} />
@@ -135,7 +128,6 @@ export const query = graphql`
       resultsHeader
       resultsDescription
       allAccordionContents {
-        id
         title
         type
         label

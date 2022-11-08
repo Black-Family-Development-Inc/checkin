@@ -7,6 +7,7 @@ import { Paragraph } from "../Paragraph";
 import {
   AccordionHeaderContainerStyled,
   CardStyled,
+  ScoreStyled,
   SummaryContainer,
 } from "./Accordion.styles";
 import { AccordionPropTypes } from "./Accordion-types";
@@ -43,7 +44,10 @@ const Accordion = ({
       </AccordionHeaderContainerStyled>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Paragraph>{`Score ${score?.assessmentScore}/${score?.maxScore} [${score?.assessmentSeverity}-Symptoms]`}</Paragraph>
+          <ScoreStyled>
+            Score {score?.assessmentScore}/{score?.maxScore} [
+            {score?.assessmentSeverity}-Symptoms]
+          </ScoreStyled>
           <Paragraph>{description}</Paragraph>
         </CardContent>
       </Collapse>

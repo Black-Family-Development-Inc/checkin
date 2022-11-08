@@ -22,13 +22,7 @@ const FaqPage = ({
       <Paragraph>{subHeader}</Paragraph>
       {contentfulFaqPage.faqAccordion.map((accordion: FaqAccordion) => {
         const { title, description } = accordion;
-        return (
-          <Accordion
-            key={accordion.id}
-            title={title}
-            description={description.raw}
-          />
-        );
+        return <Accordion title={title} description={description.raw} />;
       })}
     </DefaultLayout>
   );
