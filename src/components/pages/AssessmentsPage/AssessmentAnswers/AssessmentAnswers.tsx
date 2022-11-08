@@ -1,10 +1,10 @@
-import { Box } from "@mui/material";
 import React from "react";
 import {
   AnswerOption,
   AnswerTypes,
 } from "../../../../pages/assessments/AssessmentPage-types";
 import MultiButton from "../../../MultiButton/MultiButton";
+import { StyledBox } from "../../../MultiButton/MultiButton.styles";
 import { AnswerButtonGroupStyled } from "./AssessmentAnswers.styles";
 import { AssessmentAnswersProps } from "./assessmentAnswers-types";
 
@@ -41,14 +41,14 @@ const AssessmentAnswers = ({
   return (
     <AnswerButtonGroupStyled>
       {getAppropriateAnswers()?.map((answer: AnswerOption) => (
-        <Box key={answer.text}>
+        <StyledBox key={answer.text}>
           <MultiButton
             version="answer"
             label={answer.text}
             onClick={() => handleAnswerClick(answer)}
             usersCurrentAnswer={usersCurrentAnswer}
           />
-        </Box>
+        </StyledBox>
       ))}
     </AnswerButtonGroupStyled>
   );
