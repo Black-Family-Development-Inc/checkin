@@ -8,12 +8,16 @@ export const NavStepperStyled = styled(Stepper)({
     borderColor: color.gray.two,
   },
   ".MuiStepConnector-root": {
-    top: 30,
-    left: "calc(-50% + 50px)",
-    right: "calc(50% + 50px)",
+    top: 34,
+    left: "calc(-50% + 36px)",
+    right: "calc(50% + 36px)",
   },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     maxWidth: maxWidths.tablet.content,
+    ".MuiStepConnector-root": {
+      left: "calc(-50% + 38px)",
+      right: "calc(50% + 40px)",
+    },
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     maxWidth: maxWidths.desktop.content,
