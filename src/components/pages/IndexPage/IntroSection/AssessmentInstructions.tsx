@@ -1,5 +1,4 @@
 import Step from "@mui/material/Step";
-import StepContent from "@mui/material/StepContent";
 import * as React from "react";
 import { ContentfulHomePage } from "../../../../pages/IndexPage-types";
 import { Header } from "../../../Header";
@@ -7,6 +6,7 @@ import { ImageStyled } from "../../../Image/img.styles";
 import { Paragraph } from "../../../Paragraph";
 import {
   ImageContainerStyled,
+  StepContentStyled,
   StepLabelStyled,
   StepperStyled,
 } from "./AssessmentInstructions.styles";
@@ -42,9 +42,9 @@ const AssessmentInstructions = ({
         {steps.map((step) => (
           <Step key={step.label} expanded={true}>
             <StepLabelStyled>{step.label}</StepLabelStyled>
-            <StepContent>
+            <StepContentStyled>
               <Paragraph>{step.description}</Paragraph>
-            </StepContent>
+            </StepContentStyled>
           </Step>
         ))}
       </StepperStyled>
