@@ -15,7 +15,7 @@ const Error = () => {
 
       <Paragraph>
         An error has occurred and we're working to fix the problem! We'll be up
-        and running shortly. Try to refresh the page in a moment.
+        and running shortly.
       </Paragraph>
 
       <Paragraph>
