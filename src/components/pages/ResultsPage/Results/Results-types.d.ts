@@ -1,3 +1,8 @@
+import {
+  ContentfulRichTextGatsbyReference,
+  RenderRichTextData,
+} from "gatsby-source-contentful/rich-text";
+
 export type ResultsTypes = {
   resultsHeader: string;
   resultsDescription: string;
@@ -14,9 +19,7 @@ export type AccordionData = {
   label?: string;
   severity?: string;
   summary?: string;
-  description?: {
-    raw: string;
-  };
+  description: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   scoreTable: string[];
   maxScore: number;
   assessmentSeverity?: string;

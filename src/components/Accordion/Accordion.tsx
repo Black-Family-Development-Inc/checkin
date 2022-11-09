@@ -1,12 +1,14 @@
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
+  Box,
   Button,
   CardActions,
   CardContent,
   Collapse,
   Typography,
 } from "@mui/material";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { useState } from "react";
 import React from "react";
 import { Paragraph } from "../Paragraph";
@@ -58,11 +60,13 @@ const Accordion = ({
         sx={{ padding: "24px 16px 0 16px" }}
       >
         <CardContent sx={{ padding: 0 }}>
-          <ScoreStyled>
-            Score {score?.assessmentScore}/{score?.maxScore} [
-            {score?.assessmentSeverity}-Symptoms]
-          </ScoreStyled>
-          <Paragraph>{description}</Paragraph>
+          {score && (
+            <ScoreStyled>
+              Score {score?.assessmentScore}/{score?.maxScore} [
+              {score?.assessmentSeverity}-Symptoms]
+            </ScoreStyled>
+          )}
+          <Box>{renderRichText(description)}</Box>
           {scoreTable && (
             <Typography>
               {type} ({title})

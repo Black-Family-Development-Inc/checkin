@@ -77,6 +77,7 @@ const ResultsPage = ({
     crisisLinePhoneNumber,
     articlesDescription,
     allArticles,
+    assessmentType,
     retakeDescription,
     assessmentSeverity,
   };
@@ -147,8 +148,11 @@ export const query = graphql`
       articlesDescription
       allArticles {
         type
+        label
+        icon {
+          url
+        }
         articles {
-          id
           title
           source
           link

@@ -20,26 +20,39 @@ const Results = ({
   assessmentSeverity,
   maxScore,
 }: ResultsTypes) => {
+  const shouldAccordionRender =
+    accordionData?.title &&
+    accordionData?.summary &&
+    accordionData?.description &&
+    typeof assessmentScore === "number" &&
+    assessmentSeverity;
+
+  const accordionProps = {
+    assessmentScore,
+    assessmentSeverity,
+    title: accordionData?.label,
+    summary: accordionData?.summary,
+    description: accordionData?.description,
+    scoreTable: accordionData?.scoreTable,
+  };
+  accordionProps;
+
   return (
     <>
       <Header text={resultsHeader} variant="h2" />
       <UpperParagraphContainer>
         <Paragraph>{resultsDescription}</Paragraph>
       </UpperParagraphContainer>
-      {accordionData?.title &&
-        accordionData?.summary &&
-        accordionData?.description &&
-        typeof assessmentScore === "number" &&
-        assessmentSeverity && (
-          <Accordion
-            title={accordionData.label}
-            type={accordionData.type}
-            summary={accordionData.summary}
-            description={accordionData.description.raw}
-            scoreTable={accordionData.scoreTable}
-            score={{ assessmentScore, maxScore, assessmentSeverity }}
-          />
-        )}
+      {shouldAccordionRender && (
+        <Accordion
+          title={accordionData.label}
+          type={accordionData.type}
+          summary={accordionData.summary}
+          description={accordionData.description}
+          scoreTable={accordionData.scoreTable}
+          score={{ assessmentScore, maxScore, assessmentSeverity }}
+        />
+      )}
       <BottomParagraphContainer>
         <IconContainer>
           <CropOriginalIcon />
