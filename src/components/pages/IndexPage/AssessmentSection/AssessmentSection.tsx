@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import * as React from "react";
 import {
   AssessmentButtonType,
@@ -8,7 +7,12 @@ import { Header } from "../../../Header";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
 import { Paragraph } from "../../../Paragraph";
-import { AssessmentQuestionWrapperStyled } from "./AssessmentSection.styles";
+import {
+  AssessmentQuestionBoxStyled,
+  AssessmentQuestionParaStyled,
+  AssessmentQuestionStyled,
+  AssessmentQuestionWrapperStyled,
+} from "./AssessmentSection.styles";
 
 const AssessmentSection = (props: ContentfulHomePage) => {
   const {
@@ -18,23 +22,28 @@ const AssessmentSection = (props: ContentfulHomePage) => {
   } = props;
 
   return (
-    <Box>
+    <AssessmentQuestionStyled>
       <Header text={assessmentSectionHeader} variant="h2" />
       <Paragraph>{assessmentSectionSubheader}</Paragraph>
       {assessmentButtons.map((button: AssessmentButtonType) => {
         const link = `/assessments/${button.assessmentPage.title.toLocaleLowerCase()}`;
         return (
           <AssessmentQuestionWrapperStyled key={button.buttonText}>
-            <Paragraph id="scroll">{button.assessmentDescription}</Paragraph>
-            <Box key={button.buttonText}>
+            <AssessmentQuestionParaStyled
+              className="assessment-desc"
+              id="scroll"
+            >
+              {button.assessmentDescription}
+            </AssessmentQuestionParaStyled>
+            <AssessmentQuestionBoxStyled key={button.buttonText}>
               <LinkStyled to={link}>
                 <MultiButton version="assessment" label={button.buttonText} />
               </LinkStyled>
-            </Box>
+            </AssessmentQuestionBoxStyled>
           </AssessmentQuestionWrapperStyled>
         );
       })}
-    </Box>
+    </AssessmentQuestionStyled>
   );
 };
 

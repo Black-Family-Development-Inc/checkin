@@ -8,10 +8,15 @@ export type ResourcesTypes = {
   crisisLinePhoneNumber: string;
   articlesDescription: string;
   allArticles: AllArticles[];
+  assessmentType: string;
   assessmentSeverity?: string;
 };
 
 type AllArticles = {
   type: string;
+  label: string;
+  icon: {
+    url: string;
+  };
   articles: Articles[];
 };
