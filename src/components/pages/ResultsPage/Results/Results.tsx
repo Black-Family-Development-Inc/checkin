@@ -33,6 +33,7 @@ const Results = ({
         assessmentSeverity && (
           <Accordion
             title={accordionData.label}
+            type={accordionData.type}
             summary={accordionData.summary}
             description={accordionData.description.raw}
             scoreTable={accordionData.scoreTable}

@@ -10,7 +10,7 @@ export type ResultsTypes = {
 
 export type AccordionData = {
   title?: string;
-  type: string;
+  type?: string;
   label?: string;
   severity?: string;
   summary?: string;

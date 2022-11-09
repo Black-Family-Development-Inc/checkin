@@ -1,6 +1,12 @@
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Button, CardActions, CardContent, Collapse } from "@mui/material";
+import {
+  Button,
+  CardActions,
+  CardContent,
+  Collapse,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
 import React from "react";
 import { Paragraph } from "../Paragraph";
@@ -14,9 +20,11 @@ import { AccordionPropTypes } from "./Accordion-types";
 
 const Accordion = ({
   title,
+  type,
   summary,
   score,
   description,
+  scoreTable,
 }: AccordionPropTypes) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -55,6 +63,14 @@ const Accordion = ({
             {score?.assessmentSeverity}-Symptoms]
           </ScoreStyled>
           <Paragraph>{description}</Paragraph>
+          {scoreTable && (
+            <Typography>
+              {type} ({title})
+            </Typography>
+          )}
+          {scoreTable?.map((table) => {
+            return <li key={`table-${table}`}>{table}</li>;
+          })}
         </CardContent>
       </Collapse>
     </CardStyled>
