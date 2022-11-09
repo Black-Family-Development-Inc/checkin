@@ -9,8 +9,8 @@ import {
 } from "./AssessmentStepper-types";
 
 export const stepperPages = {
-  universal: "Universal Question" as StepperPagesType,
-  assessment: "Assessment Questions" as StepperPagesType,
+  universal: "Universal Check-in" as StepperPagesType,
+  assessment: "Detailed Check-in" as StepperPagesType,
   results: "Results & Resources" as StepperPagesType,
 };
 
