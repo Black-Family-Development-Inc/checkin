@@ -60,9 +60,7 @@ const AssessmentStepper = ({
             completed={step.isComplete}
             disabled={!step.isComplete}
           >
-            <NavStepLabelStyled key={idx} sx={{ marginTop: "8px" }}>
-              {step.label}
-            </NavStepLabelStyled>
+            <NavStepLabelStyled key={idx}>{step.label}</NavStepLabelStyled>
           </Step>
         ))}
       </NavStepperStyled>
