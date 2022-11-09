@@ -56,7 +56,7 @@ const ResultsPage = ({
   };
   const assessmentSeverity = determineAssessmentSeverity()?.severity;
   const accordionData = allAccordionContents?.find(
-    (accordion) => accordion.type === assessmentType,
+    (accordion: { type: string }) => accordion.type === assessmentType,
   );
 
   const resultsSectionProps = {
