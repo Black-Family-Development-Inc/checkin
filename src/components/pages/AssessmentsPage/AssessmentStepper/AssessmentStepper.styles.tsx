@@ -15,7 +15,7 @@ export const NavStepperStyled = styled(Stepper)({
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     maxWidth: maxWidths.tablet.content,
     ".MuiStepConnector-root": {
-      left: "calc(-50% + 38px)",
+      left: "calc(-50% + 40px)",
       right: "calc(50% + 40px)",
     },
   },
