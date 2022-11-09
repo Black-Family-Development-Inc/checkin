@@ -9,17 +9,23 @@ export const ContainerStyled = styled(Box)({
   flexDirection: "column",
   boxSizing: "border-box",
   height: 371,
-  padding: "77px 48px 36px",
+  padding: "120px 44px 80px",
   backgroundColor: color.purple.four,
   margin: "0",
   position: "relative",
-  marginTop: "11px",
-  marginBottom: "36px",
+  marginTop: "56px",
+  marginBottom: "56px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    height: 310,
+    height: 347,
+    marginTop: "80px",
+    marginBottom: "80px",
+    padding: "125px 85px 80px",
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
-    height: 296,
+    height: 326,
+    marginTop: "104px",
+    marginBottom: "104px",
+    padding: "120px 80px 80px",
   },
 });
 
