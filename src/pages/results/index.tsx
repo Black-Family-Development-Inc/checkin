@@ -37,6 +37,7 @@ const ResultsPage = ({
     crisisLineDescription,
     crisisLineButtonText,
     crisisLinePhoneNumber,
+    crisisHotlineButton,
     articlesDescription,
     allArticles,
     retakeDescription,
@@ -76,6 +77,7 @@ const ResultsPage = ({
     crisisLineDescription,
     crisisLineButtonText,
     crisisLinePhoneNumber,
+    crisisHotlineButton,
     articlesDescription,
     allArticles,
     assessmentType,
@@ -151,6 +153,10 @@ export const query = graphql`
       crisisLineButtonText
       crisisLinePhoneNumber
       articlesDescription
+      crisisHotlineButton {
+        text
+        phoneNumber
+      }
       allArticles {
         type
         label
