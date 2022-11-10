@@ -1,7 +1,7 @@
 import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import Stepper from "@mui/material/Stepper";
 import React from "react";
+import { NavStepLabelStyled } from "./AssessmentStepper.styles";
+import { NavStepperStyled } from "./AssessmentStepper.styles";
 import {
   AssessmentStepperPropTypes,
   StepperPagesType,
@@ -9,8 +9,8 @@ import {
 } from "./AssessmentStepper-types";
 
 export const stepperPages = {
-  universal: "Universal Question" as StepperPagesType,
-  assessment: "Assessment Questions" as StepperPagesType,
+  universal: "Universal Check-in" as StepperPagesType,
+  assessment: "Detailed Check-in" as StepperPagesType,
   results: "Results & Resources" as StepperPagesType,
 };
 
@@ -58,7 +58,7 @@ const AssessmentStepper = ({
 
   return (
     <>
-      <Stepper
+      <NavStepperStyled
         sx={{ marginBottom: 5 }}
         activeStep={currentStep}
         alternativeLabel
@@ -70,10 +70,10 @@ const AssessmentStepper = ({
             completed={step.isComplete}
             disabled={!step.isComplete}
           >
-            <StepLabel key={idx}>{step.label}</StepLabel>
+            <NavStepLabelStyled key={idx}>{step.label}</NavStepLabelStyled>
           </Step>
         ))}
-      </Stepper>
+      </NavStepperStyled>
     </>
   );
 };

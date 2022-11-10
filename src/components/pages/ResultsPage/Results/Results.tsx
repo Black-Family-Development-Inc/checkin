@@ -20,30 +20,44 @@ const Results = ({
   assessmentSeverity,
   maxScore,
 }: ResultsTypes) => {
+  const shouldAccordionRender =
+    accordionData?.title &&
+    accordionData?.summary &&
+    accordionData?.description &&
+    typeof assessmentScore === "number" &&
+    assessmentSeverity;
+
+  const accordionProps = {
+    assessmentScore,
+    assessmentSeverity,
+    title: accordionData?.label,
+    summary: accordionData?.summary,
+    description: accordionData?.description,
+    scoreTable: accordionData?.scoreTable,
+  };
+  accordionProps;
+
   return (
     <>
       <Header text={resultsHeader} variant="h2" />
       <UpperParagraphContainer>
         <Paragraph>{resultsDescription}</Paragraph>
       </UpperParagraphContainer>
-      {accordionData?.title &&
-        accordionData?.summary &&
-        accordionData?.description &&
-        typeof assessmentScore === "number" &&
-        assessmentSeverity && (
-          <Accordion
-            key={accordionData?.id}
-            title={accordionData?.label}
-            summary={accordionData?.summary}
-            description={accordionData?.description?.raw}
-            scoreTable={accordionData?.scoreTable}
-          >
-            <Paragraph>
-              Score: {assessmentScore}/{maxScore} [{assessmentSeverity}
-              -Symptoms]
-            </Paragraph>
-          </Accordion>
-        )}
+      {shouldAccordionRender && (
+        <Accordion
+          assessmentScore={assessmentScore}
+          assessmentSeverity={assessmentSeverity}
+          title={accordionData?.label}
+          summary={accordionData?.summary}
+          description={accordionData?.description}
+          scoreTable={accordionData?.scoreTable}
+        >
+          <Paragraph>
+            Score: {assessmentScore}/{maxScore} [{assessmentSeverity}
+            -Symptoms]
+          </Paragraph>
+        </Accordion>
+      )}
       <BottomParagraphContainer>
         <IconContainer>
           <CropOriginalIcon />
