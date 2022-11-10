@@ -1,6 +1,5 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
-import { Header } from "../../components/Header";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
 import {
@@ -37,6 +36,7 @@ const ResultsPage = ({
     crisisLineDescription,
     crisisLineButtonText,
     crisisLinePhoneNumber,
+    crisisHotlineButton,
     articlesDescription,
     allArticles,
     retakeDescription,
@@ -76,6 +76,7 @@ const ResultsPage = ({
     crisisLineDescription,
     crisisLineButtonText,
     crisisLinePhoneNumber,
+    crisisHotlineButton,
     articlesDescription,
     allArticles,
     assessmentType,
@@ -102,11 +103,8 @@ const ResultsPage = ({
       startingPage={startingPage as StepperPagesType}
       assessmentTitle={assessmentType}
     >
-      <Header text={resultsHeader} variant="h2" />
       {assessmentScore > -1 ? (
         <>
-          <p>Score: {assessmentScore}</p>
-          <p>Severity: {assessmentSeverity}</p>
           <Results {...resultsSectionProps} />
           <Resources {...resourcesSectionProps} />
           <Retake {...retakeSectionProps} />
@@ -133,7 +131,6 @@ export const query = graphql`
       resultsHeader
       resultsDescription
       allAccordionContents {
-        id
         title
         type
         label
@@ -151,6 +148,10 @@ export const query = graphql`
       crisisLineButtonText
       crisisLinePhoneNumber
       articlesDescription
+      crisisHotlineButton {
+        text
+        phoneNumber
+      }
       allArticles {
         type
         label
