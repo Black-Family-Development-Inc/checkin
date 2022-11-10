@@ -9,10 +9,6 @@ export const AssessmentPageStyled = styled(Box)({
   padding: "10px",
 });
 
-export const AssessmentHeaderContainer = styled(Box)({
-  width: "350px",
-});
-
 export const QuestionStyled = styled(Box)({
   display: "flex",
   justifyContent: "space-between",

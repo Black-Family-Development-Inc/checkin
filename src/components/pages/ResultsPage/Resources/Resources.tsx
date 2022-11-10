@@ -1,5 +1,5 @@
 import React from "react";
-// import ArticleList from "../../../ArticleList/ArticleList";
+import ArticleTabs from "../../../ArticleTabs/ArticleTabs";
 import { Header } from "../../../Header";
 import MultiButton from "../../../MultiButton/MultiButton";
 import { Paragraph } from "../../../Paragraph";
@@ -14,11 +14,11 @@ const Resources = ({
   crisisHotlineButton,
   articlesDescription,
   allArticles,
+  assessmentType,
   assessmentSeverity,
 }: ResourcesTypes) => {
   const shouldRenderCrisisButton =
     assessmentSeverity === "Severe" || assessmentSeverity === "Severe Level";
-  console.log(allArticles); // console logging articles for when they're added as a tabbed component
   return (
     <>
       <Header text={resourcesHeader} variant="h2" />
@@ -39,9 +39,9 @@ const Resources = ({
           />
         </div>
       )}
+
       <Paragraph paragraph>{articlesDescription}</Paragraph>
-      {/* <ArticleList articles={allArticles} /> */}
-      <hr />
+      <ArticleTabs allArticles={allArticles} assessmentType={assessmentType} />
     </>
   );
 };

@@ -22,7 +22,6 @@ const ResultsPage = ({
   const {
     assessmentScore,
     severityRubric,
-    triggered,
     startingPage,
     assessmentType,
     maxScore,
@@ -59,7 +58,7 @@ const ResultsPage = ({
   };
   const assessmentSeverity = determineAssessmentSeverity()?.severity;
   const accordionData = allAccordionContents?.find(
-    (accordion) => accordion.type === assessmentType,
+    (accordion: { type: string }) => accordion.type === assessmentType,
   );
 
   const resultsSectionProps = {
@@ -81,6 +80,7 @@ const ResultsPage = ({
     crisisHotlineButton,
     articlesDescription,
     allArticles,
+    assessmentType,
     retakeDescription,
     assessmentSeverity,
   };
@@ -109,8 +109,6 @@ const ResultsPage = ({
         <>
           <p>Score: {assessmentScore}</p>
           <p>Severity: {assessmentSeverity}</p>
-          <p>Did you trip a trigger question: {triggered ? "Yes" : "No"}</p>
-          {/* remove above line concerning trigger question once its properly used */}
           <Results {...resultsSectionProps} />
           <Resources {...resourcesSectionProps} />
           <Retake {...retakeSectionProps} />
@@ -161,8 +159,11 @@ export const query = graphql`
       }
       allArticles {
         type
+        label
+        icon {
+          url
+        }
         articles {
-          id
           title
           source
           link

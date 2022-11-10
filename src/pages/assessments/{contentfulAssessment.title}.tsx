@@ -1,4 +1,4 @@
-import { FormControl } from "@mui/material";
+import { Box } from "@mui/material";
 import { graphql, navigate, PageProps } from "gatsby";
 import React, { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
@@ -7,7 +7,6 @@ import {
   AssessmentPrevNext,
 } from "../../components/pages/AssessmentsPage";
 import {
-  AssessmentHeaderContainer,
   AssessmentPageStyled,
   QuestionStyled,
 } from "../../components/pages/AssessmentsPage/AssessmentPage/AssessmentPage.styles";
@@ -15,6 +14,7 @@ import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentS
 import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
 import { Paragraph } from "../../components/Paragraph";
 import { AssessmentLayout } from "../../layouts/AssessmentLayout";
+import { StyledFormControl } from "../../layouts/AssessmentLayout/AssessmentLayout.styles";
 import {
   AssessmentLocationState,
   AssessmentPageProps,
@@ -89,7 +89,7 @@ const AssessmentPage = ({
       assessmentTitle={title}
     >
       <AssessmentPageStyled>
-        <AssessmentHeaderContainer>
+        <Box>
           <Header text={pageTitle + " Assessment"} variant="h2" />
           {headings && (
             <Paragraph sx={{ fontWeight: 500 }}>
@@ -105,9 +105,9 @@ const AssessmentPage = ({
               {currentQuestionIdx + 1}/{questions.length}
             </Paragraph>
           </QuestionStyled>
-        </AssessmentHeaderContainer>
+        </Box>
 
-        <FormControl>
+        <StyledFormControl>
           <AssessmentAnswers
             answers={answers}
             currentQuestion={currentQuestion}
@@ -124,7 +124,7 @@ const AssessmentPage = ({
             resultsDisabled={resultsDisabled}
             nextDisabled={nextDisabled}
           />
-        </FormControl>
+        </StyledFormControl>
       </AssessmentPageStyled>
     </AssessmentLayout>
   );

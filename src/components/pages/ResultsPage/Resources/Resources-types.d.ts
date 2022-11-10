@@ -9,6 +9,7 @@ export type ResourcesTypes = {
   crisisHotlineButton: ButtonPhoneNumber;
   articlesDescription: string;
   allArticles: AllArticles[];
+  assessmentType: string;
   assessmentSeverity?: string;
 };
 
@@ -19,5 +20,9 @@ type ButtonPhoneNumber = {
 
 type AllArticles = {
   type: string;
+  label: string;
+  icon: {
+    url: string;
+  };
   articles: Articles[];
 };
