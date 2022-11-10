@@ -1,6 +1,7 @@
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Button, CardActions, CardContent, Collapse } from "@mui/material";
+import { Box, Button, CardActions, CardContent, Collapse } from "@mui/material";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
 import * as React from "react";
 import { Paragraph } from "../Paragraph";
 import {
@@ -38,7 +39,7 @@ export default function Accordion(props: AccordionPropTypes) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           {props.children}
-          <Paragraph>{props.description}</Paragraph>
+          <Box>{renderRichText(props.description)}</Box>
         </CardContent>
       </Collapse>
     </CardStyled>
