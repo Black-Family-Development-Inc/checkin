@@ -33,7 +33,7 @@ const Error = () => {
             label="BFDI Homepage"
             link="https://www.blackfamilydevelopment.org/"
           />
-        }
+        }{" "}
         to learn more about what we do.
       </Paragraph>
     </>
