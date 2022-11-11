@@ -130,16 +130,22 @@ export const PreviousStyled = styled(Button)({
 });
 
 export const NavButtonStyled = styled(Button)({
-  color: "#3D348B",
+  color: color.purple.two,
   fontFamily: "Roboto",
   fontWeight: 500,
   fontSize: "14px",
-  letterSpacing: ".15px",
+  letterSpacing: "0.1px",
   lineHeight: "16px",
-  height: "30px",
-  padding: "0 8px 0 0",
-  margin: "45px 0 32px 0",
+  height: "48px",
+  padding: "0",
+  margin: "0",
   textTransform: "none",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    fontSize: "16px",
+    lineHeight: "19px",
+    letterSpacing: "0.15px",
+    margin: " 0",
+  },
 });
 
 export const ResultsPageSmallStyled = styled(Button)({

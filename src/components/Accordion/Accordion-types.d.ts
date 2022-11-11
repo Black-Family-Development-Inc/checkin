@@ -1,8 +1,19 @@
+import {
+  ContentfulRichTextGatsbyReference,
+  RenderRichTextData,
+} from "gatsby-source-contentful/rich-text";
+
 export type AccordionPropTypes = {
-  key?: string;
   title?: string;
+  type?: string;
   summary?: string;
-  description?: string;
+  description: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+  assessmentScore?: number;
+  assessmentSeverity?: string;
   scoreTable?: string[];
-  children?: JSX.Element;
+  score?: {
+    assessmentScore: number;
+    maxScore: number;
+    assessmentSeverity: string;
+  };
 };

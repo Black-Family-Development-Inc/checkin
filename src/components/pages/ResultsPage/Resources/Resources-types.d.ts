@@ -6,13 +6,23 @@ export type ResourcesTypes = {
   crisisLineDescription: string;
   crisisLineButtonText: string;
   crisisLinePhoneNumber: string;
+  crisisHotlineButton: ButtonPhoneNumber;
   articlesDescription: string;
   allArticles: AllArticles[];
   assessmentSeverity?: string;
   shouldRenderCrisisInfo: boolean;
 };
 
+type ButtonPhoneNumber = {
+  text: string;
+  phoneNumber: string;
+};
+
 export type AllArticles = {
   type: string;
+  label: string;
+  icon: {
+    url: string;
+  };
   articles: Articles[];
 };

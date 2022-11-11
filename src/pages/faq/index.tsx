@@ -24,9 +24,9 @@ const FaqPage = ({
         const { title, description } = accordion;
         return (
           <Accordion
-            key={accordion.id}
             title={title}
-            description={description.raw}
+            description={description}
+            key={accordion.title}
           />
         );
       })}
@@ -46,6 +46,9 @@ export const query = graphql`
       faqAccordion {
         id
         title
+        description {
+          raw
+        }
         description {
           raw
         }

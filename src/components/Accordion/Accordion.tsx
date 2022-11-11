@@ -1,17 +1,34 @@
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Button, CardActions, CardContent, Collapse } from "@mui/material";
-import * as React from "react";
+import {
+  Box,
+  Button,
+  CardActions,
+  CardContent,
+  Collapse,
+  Typography,
+} from "@mui/material";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { useState } from "react";
+import React from "react";
 import { Paragraph } from "../Paragraph";
 import {
   AccordionHeaderContainerStyled,
   CardStyled,
+  ScoreStyled,
   SummaryContainer,
 } from "./Accordion.styles";
 import { AccordionPropTypes } from "./Accordion-types";
 
-export default function Accordion(props: AccordionPropTypes) {
-  const [expanded, setExpanded] = React.useState(false);
+const Accordion = ({
+  title,
+  type,
+  summary,
+  score,
+  description,
+  scoreTable,
+}: AccordionPropTypes) => {
+  const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -20,10 +37,10 @@ export default function Accordion(props: AccordionPropTypes) {
     <CardStyled square={true}>
       <AccordionHeaderContainerStyled>
         <Paragraph sx={{ fontWeight: 700, margin: "31px 0 31px 16px" }}>
-          {props.title}
+          {title}
         </Paragraph>
         <SummaryContainer>
-          <Paragraph>{props.summary}</Paragraph>
+          <Paragraph>{summary}</Paragraph>
         </SummaryContainer>
         <CardActions>
           <Button onClick={handleExpandClick}>
@@ -35,12 +52,33 @@ export default function Accordion(props: AccordionPropTypes) {
           </Button>
         </CardActions>
       </AccordionHeaderContainerStyled>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          {props.children}
-          <Paragraph>{props.description}</Paragraph>
+
+      <Collapse
+        in={expanded}
+        timeout="auto"
+        unmountOnExit
+        sx={{ padding: "24px 16px 0 16px" }}
+      >
+        <CardContent sx={{ padding: 0 }}>
+          {score && (
+            <ScoreStyled>
+              Score {score?.assessmentScore}/{score?.maxScore} [
+              {score?.assessmentSeverity}-Symptoms]
+            </ScoreStyled>
+          )}
+          <Box>{renderRichText(description)}</Box>
+          {scoreTable && (
+            <Typography>
+              {type} ({title})
+            </Typography>
+          )}
+          {scoreTable?.map((table) => {
+            return <li key={`table-${table}`}>{table}</li>;
+          })}
         </CardContent>
       </Collapse>
     </CardStyled>
   );
-}
+};
+
+export default Accordion;

@@ -31,6 +31,23 @@ const Results = ({
   otherResourcesHeader,
   shouldRenderCrisisInfo,
 }: ResultsTypes) => {
+  const shouldAccordionRender =
+    accordionData?.title &&
+    accordionData?.summary &&
+    accordionData?.description &&
+    typeof assessmentScore === "number" &&
+    assessmentSeverity;
+
+  const accordionProps = {
+    assessmentScore,
+    assessmentSeverity,
+    title: accordionData?.label,
+    summary: accordionData?.summary,
+    description: accordionData?.description,
+    scoreTable: accordionData?.scoreTable,
+  };
+  accordionProps;
+
   const crisisWarning = triggered
     ? `${crisisWarningMessage} (${crisisWarningPhoneNumber})%0D%0A%0D%0A`
     : "";
@@ -74,21 +91,16 @@ const Results = ({
       <UpperParagraphContainer>
         <Paragraph>{resultsDescription}</Paragraph>
       </UpperParagraphContainer>
-      {accordionData?.title &&
-        accordionData?.summary &&
-        accordionData?.description &&
-        typeof assessmentScore === "number" &&
-        assessmentSeverity && (
-          <Accordion
-            key={accordionData?.id}
-            title={accordionData?.label}
-            summary={accordionData?.summary}
-            description={accordionData?.description?.raw}
-            scoreTable={accordionData?.scoreTable}
-          >
-            <Paragraph>{scoreAndSeverity}</Paragraph>
-          </Accordion>
-        )}
+      {shouldAccordionRender && (
+        <Accordion
+          title={accordionData.label}
+          type={accordionData.type}
+          summary={accordionData.summary}
+          description={accordionData.description}
+          scoreTable={accordionData.scoreTable}
+          score={{ assessmentScore, maxScore, assessmentSeverity }}
+        />
+      )}
       <BottomParagraphContainer>
         <IconContainer>
           <CropOriginalIcon />
