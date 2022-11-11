@@ -45,18 +45,13 @@ const Results = ({
       </UpperParagraphContainer>
       {shouldAccordionRender && (
         <Accordion
-          assessmentScore={assessmentScore}
-          assessmentSeverity={assessmentSeverity}
-          title={accordionData?.label}
-          summary={accordionData?.summary}
-          description={accordionData?.description}
-          scoreTable={accordionData?.scoreTable}
-        >
-          <Paragraph>
-            Score: {assessmentScore}/{maxScore} [{assessmentSeverity}
-            -Symptoms]
-          </Paragraph>
-        </Accordion>
+          title={accordionData.label}
+          type={accordionData.type}
+          summary={accordionData.summary}
+          description={accordionData.description}
+          scoreTable={accordionData.scoreTable}
+          score={{ assessmentScore, maxScore, assessmentSeverity }}
+        />
       )}
       <BottomParagraphContainer>
         <IconContainer>

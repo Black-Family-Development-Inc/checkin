@@ -14,9 +14,8 @@ export type ResultsTypes = {
 };
 
 export type AccordionData = {
-  id?: string;
   title?: string;
-  type: string;
+  type?: string;
   label?: string;
   severity?: string;
   summary?: string;
