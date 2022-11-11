@@ -32,6 +32,9 @@ export const ListItemIconStyled = styled(ListItemIcon)({
 export const ListItemTextStyled = styled(ListItemText)({
   span: {
     fontWeight: 700,
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   },
   p: {
     fontSize: 14,
