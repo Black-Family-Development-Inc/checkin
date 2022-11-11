@@ -58,12 +58,12 @@ const ResultsPage = ({
   };
   const assessmentSeverity = determineAssessmentSeverity()?.severity;
   const accordionData = allAccordionContents?.find(
-    (accordion: { type: string }) => accordion.type === assessmentType,
+    (accordion) => accordion.type === assessmentType,
   );
-  const crisisWarningPhoneNumber = "1-844-773-4673";
   const crisisWarningMessage =
     "Because of your response, BFDI is here to help you right away. " +
     "Please contact one of our caring staff at 1-844-SEE-HOPE";
+  const crisisWarningPhoneNumber = "1-844-773-4673";
   const shouldRenderCrisisInfo =
     assessmentSeverity === "Severe" || assessmentSeverity === "Severe Level";
 

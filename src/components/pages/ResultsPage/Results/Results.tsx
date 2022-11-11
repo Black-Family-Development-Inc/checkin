@@ -98,7 +98,7 @@ const Results = ({
           summary={accordionData.summary}
           description={accordionData.description}
           scoreTable={accordionData.scoreTable}
-          score={{ assessmentScore, maxScore, assessmentSeverity }}
+          scoreAndSeverity={scoreAndSeverity}
         />
       )}
       <BottomParagraphContainer>
