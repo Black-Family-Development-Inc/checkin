@@ -9,6 +9,7 @@ export type ResourcesTypes = {
   articlesDescription: string;
   allArticles: AllArticles[];
   assessmentSeverity?: string;
+  shouldRenderCrisisInfo: boolean;
 };
 
 export type AllArticles = {

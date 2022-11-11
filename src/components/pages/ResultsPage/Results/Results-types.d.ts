@@ -1,4 +1,9 @@
+import { AllArticles } from "../Resources/Resources-types";
+
 export type ResultsTypes = {
+  triggered: boolean;
+  crisisWarningMessage: string;
+  crisisWarningPhoneNumber: string;
   resultsHeader: string;
   resultsDescription: string;
   allAccordionContents?: AccordionData[];
@@ -6,6 +11,14 @@ export type ResultsTypes = {
   assessmentScore: number;
   assessmentSeverity?: string;
   maxScore: number;
+  bookAppointmentButtonText: string;
+  bookAppointmentPhoneNumber: string;
+  crisisLineButtonText: string;
+  crisisLinePhoneNumber: string;
+  assessmentType: string;
+  allArticles: AllArticles[];
+  otherResourcesHeader: string;
+  shouldRenderCrisisInfo: boolean;
 };
 
 export type AccordionData = {

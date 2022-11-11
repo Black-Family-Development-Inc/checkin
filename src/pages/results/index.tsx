@@ -1,4 +1,3 @@
-// import { Email } from "@mui/icons-material";
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import { Header } from "../../components/Header";
@@ -10,7 +9,6 @@ import {
   Results,
   Retake,
 } from "../../components/pages/ResultsPage";
-// import { EmailLink } from "../../components/pages/ResultsPage/EmailLink";
 import AssessmentLayout from "../../layouts/AssessmentLayout/AssessmentLayout";
 import {
   ResultsPageLocationState,
@@ -24,6 +22,7 @@ const ResultsPage = ({
   const {
     assessmentScore,
     severityRubric,
+    triggered,
     startingPage,
     assessmentType,
     maxScore,
@@ -61,29 +60,33 @@ const ResultsPage = ({
   const accordionData = allAccordionContents?.find(
     (accordion: { type: string }) => accordion.type === assessmentType,
   );
-  // const scoreAndSeverity = `Score: ${assessmentScore}/${maxScore} [${assessmentSeverity}
-  //   -Symptoms]`;
+  const crisisWarningPhoneNumber = "1-844-773-4673";
+  const crisisWarningMessage =
+    "Because of your response, BFDI is here to help you right away. " +
+    "Please contact one of our caring staff at 1-844-SEE-HOPE";
+  const shouldRenderCrisisInfo =
+    assessmentSeverity === "Severe" || assessmentSeverity === "Severe Level";
 
   const resultsSectionProps = {
-    resultsDescription,
+    triggered,
+    crisisWarningMessage,
+    crisisWarningPhoneNumber,
     resultsHeader,
+    resultsDescription,
+    resourcesHeader,
     accordionData,
     assessmentScore,
     assessmentSeverity,
     maxScore,
+    bookAppointmentButtonText,
+    bookAppointmentPhoneNumber,
+    crisisLineButtonText,
+    crisisLinePhoneNumber,
+    assessmentType,
+    allArticles,
+    otherResourcesHeader,
+    shouldRenderCrisisInfo,
   };
-
-  // const emailLinkProps = {
-  //   resultsHeader,
-  //   scoreAndSeverity,
-  //   accordionData,
-  //   bookAppointmentButtonText,
-  //   bookAppointmentPhoneNumber,
-  //   crisisLineButtonText,
-  //   crisisLinePhoneNumber,
-  //   assessmentType,
-  //   allArticles,
-  // };
   const resourcesSectionProps = {
     resourcesHeader,
     bookAppointmentDescription,
@@ -95,7 +98,7 @@ const ResultsPage = ({
     articlesDescription,
     allArticles,
     retakeDescription,
-    assessmentSeverity,
+    shouldRenderCrisisInfo,
   };
   const retakeSectionProps = {
     assessmentType,
@@ -124,7 +127,6 @@ const ResultsPage = ({
           <p>Severity: {assessmentSeverity}</p>
           <Results {...resultsSectionProps} />
           <Resources {...resourcesSectionProps} />
-          {/* <EmailLink {...emailLinkProps} /> */}
           <Retake {...retakeSectionProps} />
           <OtherResources {...otherResourcesProps} />
         </>

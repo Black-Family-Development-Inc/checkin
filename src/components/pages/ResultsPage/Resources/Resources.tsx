@@ -15,10 +15,8 @@ const Resources = ({
   crisisLinePhoneNumber,
   articlesDescription,
   allArticles,
-  assessmentSeverity,
+  shouldRenderCrisisInfo,
 }: ResourcesTypes) => {
-  const shouldRenderCrisisButton =
-    assessmentSeverity === "Severe" || assessmentSeverity === "Severe Level";
   console.log(allArticles); // console logging articles for when they're added as a tabbed component
   return (
     <>
@@ -30,7 +28,7 @@ const Resources = ({
         phoneNumber={bookAppointmentPhoneNumber}
         label={bookAppointmentButtonText}
       />
-      {shouldRenderCrisisButton && (
+      {shouldRenderCrisisInfo && (
         <div>
           <Paragraph paragraph>{crisisLineDescription}</Paragraph>
           <MultiButton
