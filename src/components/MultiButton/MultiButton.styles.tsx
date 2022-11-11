@@ -131,6 +131,8 @@ export const PreviousStyled = styled(Button)({
 
 export const NavButtonStyled = styled(Button)({
   color: color.purple.two,
+  display: "flex",
+  alignItems: "flex-start",
   fontFamily: "Roboto",
   fontWeight: 500,
   fontSize: "14px",
