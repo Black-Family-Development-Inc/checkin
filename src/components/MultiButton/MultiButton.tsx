@@ -1,3 +1,4 @@
+import { Link } from "@mui/material";
 import React from "react";
 import {
   AllArticlesStyled,
@@ -61,6 +62,7 @@ const MultiButton = (props: MultiButtonPropType) => {
         {props.label}
       </PhoneNumberStyled>
     ),
+    phoneNumberBasic: <Link href={props.link}>{props.label}</Link>,
     allArticles: (
       <AllArticlesStyled to={props.link || ""}>{props.label}</AllArticlesStyled>
     ),
@@ -72,6 +74,11 @@ const MultiButton = (props: MultiButtonPropType) => {
       >
         {props.label}
       </ExternalLinkStyled>
+    ),
+    externalLinkBasic: (
+      <Link href={props.link} target="_blank" rel="noopener noreferrer">
+        {props.label}
+      </Link>
     ),
   };
   return buttons[props.version as keyof typeof buttons];

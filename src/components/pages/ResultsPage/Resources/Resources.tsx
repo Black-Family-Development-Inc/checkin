@@ -11,8 +11,7 @@ const Resources = ({
   bookAppointmentButtonText,
   bookAppointmentPhoneNumber,
   crisisLineDescription,
-  crisisLineButtonText,
-  crisisLinePhoneNumber,
+  crisisHotlineButton,
   articlesDescription,
   allArticles,
   assessmentType,
@@ -35,8 +34,8 @@ const Resources = ({
           <Paragraph paragraph>{crisisLineDescription}</Paragraph>
           <MultiButton
             version="phoneNumber"
-            phoneNumber={crisisLinePhoneNumber}
-            label={crisisLineButtonText}
+            phoneNumber={crisisHotlineButton.phoneNumber}
+            label={crisisHotlineButton.text}
           />
         </div>
       )}

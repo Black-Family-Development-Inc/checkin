@@ -22,11 +22,16 @@ const FaqPage = ({
       <Header text={headerText} variant="h2" />
       <Paragraph>{subHeader}</Paragraph>
       <CardBox>
-        {contentfulFaqPage.faqAccordion.map(
-          ({ id, title, description }: FaqAccordion) => (
-            <Accordion key={id} title={title} description={description} />
-          ),
-        )}
+        {contentfulFaqPage.faqAccordion.map((accordion: FaqAccordion) => {
+          const { title, description } = accordion;
+          return (
+            <Accordion
+              title={title}
+              description={description}
+              key={accordion.title}
+            />
+          );
+        })}
       </CardBox>
     </DefaultLayout>
   );

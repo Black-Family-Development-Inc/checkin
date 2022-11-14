@@ -7,7 +7,6 @@ import {
   BottomParagraphContainer,
   EmailExternalLinkStyled,
   IconContainer,
-  ResultScoreParagraphStyled,
   TextContainer,
   UpperParagraphContainer,
 } from "./Results.styles";
@@ -46,18 +45,13 @@ const Results = ({
       </UpperParagraphContainer>
       {shouldAccordionRender && (
         <Accordion
-          assessmentScore={assessmentScore}
-          assessmentSeverity={assessmentSeverity}
-          title={accordionData?.label}
-          summary={accordionData?.summary}
-          description={accordionData?.description}
-          scoreTable={accordionData?.scoreTable}
-        >
-          <ResultScoreParagraphStyled>
-            Score: {assessmentScore}/{maxScore} [{assessmentSeverity}
-            -Symptoms]
-          </ResultScoreParagraphStyled>
-        </Accordion>
+          title={accordionData.label}
+          type={accordionData.type}
+          summary={accordionData.summary}
+          description={accordionData.description}
+          scoreTable={accordionData.scoreTable}
+          score={{ assessmentScore, maxScore, assessmentSeverity }}
+        />
       )}
       <BottomParagraphContainer>
         <IconContainer>

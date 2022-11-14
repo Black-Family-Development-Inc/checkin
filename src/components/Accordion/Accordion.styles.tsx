@@ -1,5 +1,12 @@
 import styled from "@emotion/styled";
-import { Box, Button, Card, CardActions, CardContent } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+} from "@mui/material";
 import { breakpoints, color } from "../../styles/theme";
 import { Paragraph } from "../Paragraph";
 
@@ -67,7 +74,7 @@ export const ActionButtonStyled = styled(Button)({
 export const CardContentStyled = styled(CardContent)({
   padding: "24px 16px",
   p: {
-    margin: "0px 0px 15px 0px",
+    margin: "0px",
     fontSize: "16px",
     fontWeight: "400",
     lineHeight: "18.75px",
@@ -77,4 +84,13 @@ export const CardContentStyled = styled(CardContent)({
       lineHeight: "21.09px",
     },
   },
+});
+
+export const ScoreStyled = styled(Typography)({
+  marginBottom: "24px",
+  fontFamily: "Roboto",
+  fontWeight: 500,
+  fontSize: "18px",
+  lineHeight: "21.09px",
+  letterSpacing: "0.15px",
 });
