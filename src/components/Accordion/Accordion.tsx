@@ -1,12 +1,16 @@
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Box, Button, CardActions, CardContent, Collapse } from "@mui/material";
+import { Box, Collapse } from "@mui/material";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import * as React from "react";
 import { Paragraph } from "../Paragraph";
 import {
   AccordionHeaderContainerStyled,
+  ActionButtonStyled,
+  CardActionStyled,
+  CardContentStyled,
   CardStyled,
+  ParagraphStyled,
   SummaryContainer,
 } from "./Accordion.styles";
 import { AccordionPropTypes } from "./Accordion-types";
@@ -17,30 +21,33 @@ export default function Accordion(props: AccordionPropTypes) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
   return (
     <CardStyled square={true}>
       <AccordionHeaderContainerStyled>
-        <Paragraph sx={{ fontWeight: 700, margin: "31px 0 31px 16px" }}>
-          {props.title}
-        </Paragraph>
-        <SummaryContainer>
-          <Paragraph>{props.summary}</Paragraph>
-        </SummaryContainer>
-        <CardActions>
-          <Button onClick={handleExpandClick}>
+        <ParagraphStyled>{props.title}</ParagraphStyled>
+        {props.summary ? (
+          <SummaryContainer>
+            <Paragraph>{props.summary}</Paragraph>
+          </SummaryContainer>
+        ) : (
+          ""
+        )}
+        <CardActionStyled>
+          <ActionButtonStyled onClick={handleExpandClick}>
             {expanded ? (
               <ExpandLessIcon aria-expanded={expanded} aria-label="show more" />
             ) : (
               <ExpandMoreIcon aria-expanded={expanded} aria-label="show less" />
             )}
-          </Button>
-        </CardActions>
+          </ActionButtonStyled>
+        </CardActionStyled>
       </AccordionHeaderContainerStyled>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
+        <CardContentStyled>
           {props.children}
           <Box>{renderRichText(props.description)}</Box>
-        </CardContent>
+        </CardContentStyled>
       </Collapse>
     </CardStyled>
   );

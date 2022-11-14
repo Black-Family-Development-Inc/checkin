@@ -5,6 +5,7 @@ import { Header } from "../../components/Header";
 import NavButton from "../../components/NavButton/NavButton";
 import { Paragraph } from "../../components/Paragraph";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
+import { CardBox } from "./Faq.styles";
 import { FaqAccordion, FaqPagePropTypes } from "./FaqPage-types";
 
 const FaqPage = ({
@@ -20,11 +21,13 @@ const FaqPage = ({
       <NavButton label="Home" link="/" />
       <Header text={headerText} variant="h2" />
       <Paragraph>{subHeader}</Paragraph>
-      {contentfulFaqPage.faqAccordion.map(
-        ({ id, title, description }: FaqAccordion) => (
-          <Accordion key={id} title={title} description={description} />
-        ),
-      )}
+      <CardBox>
+        {contentfulFaqPage.faqAccordion.map(
+          ({ id, title, description }: FaqAccordion) => (
+            <Accordion key={id} title={title} description={description} />
+          ),
+        )}
+      </CardBox>
     </DefaultLayout>
   );
 };

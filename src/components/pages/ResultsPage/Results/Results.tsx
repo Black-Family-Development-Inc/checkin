@@ -7,6 +7,7 @@ import {
   BottomParagraphContainer,
   EmailExternalLinkStyled,
   IconContainer,
+  ResultScoreParagraphStyled,
   TextContainer,
   UpperParagraphContainer,
 } from "./Results.styles";
@@ -52,10 +53,10 @@ const Results = ({
           description={accordionData?.description}
           scoreTable={accordionData?.scoreTable}
         >
-          <Paragraph>
+          <ResultScoreParagraphStyled>
             Score: {assessmentScore}/{maxScore} [{assessmentSeverity}
             -Symptoms]
-          </Paragraph>
+          </ResultScoreParagraphStyled>
         </Accordion>
       )}
       <BottomParagraphContainer>
