@@ -3,9 +3,9 @@ import React from "react";
 import Accordion from "../../components/Accordion/Accordion";
 import { Header } from "../../components/Header";
 import NavButton from "../../components/NavButton/NavButton";
+import { CardBox } from "../../components/pages/FaqPage/Faq.styles";
 import { Paragraph } from "../../components/Paragraph";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
-import { CardBox } from "./Faq.styles";
 import { FaqAccordion, FaqPagePropTypes } from "./FaqPage-types";
 
 const FaqPage = ({
