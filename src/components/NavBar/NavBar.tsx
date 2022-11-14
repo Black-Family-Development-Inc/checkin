@@ -23,7 +23,7 @@ const NavBar = () => {
           </NavBarSVG>
 
           <NavBarLink to="/">
-            <NavBarText>Black Family Development, Inc.</NavBarText>
+            <NavBarText>Hope is Here at BFDI</NavBarText>
           </NavBarLink>
         </NavBarLogoContainer>
 
