@@ -45,6 +45,10 @@ const UniversalAssessmentPage = ({
 
 export default UniversalAssessmentPage;
 
+export const Head = () => {
+  return <title>Hope is Here at BFDI - Universal Check-In</title>;
+};
+
 export const query = graphql`
   query {
     contentfulUniversalQuestionPage {

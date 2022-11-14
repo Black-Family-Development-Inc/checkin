@@ -57,7 +57,7 @@ const ResultsPage = ({
   };
   const assessmentSeverity = determineAssessmentSeverity()?.severity;
   const accordionData = allAccordionContents?.find(
-    (accordion: { type: string }) => accordion.type === assessmentType,
+    (accordion) => accordion.type === assessmentType,
   );
 
   const resultsSectionProps = {
@@ -124,6 +124,10 @@ const ResultsPage = ({
 };
 
 export default ResultsPage;
+
+export const Head = () => {
+  return <title>Hope is Here at BFDI - Results</title>;
+};
 
 export const query = graphql`
   query {

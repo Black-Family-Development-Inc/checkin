@@ -90,6 +90,10 @@ const UniversalQuestionResultsPage = ({
 
 export default UniversalQuestionResultsPage;
 
+export const Head = () => {
+  return <title>Hope is Here at BFDI - Universal Check-In Results</title>;
+};
+
 export const query = graphql`
   query ($title: String!) {
     contentfulUniversalQuestionResultsPage(title: { eq: $title }) {

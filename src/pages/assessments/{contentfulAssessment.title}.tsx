@@ -132,6 +132,10 @@ const AssessmentPage = ({
 
 export default AssessmentPage;
 
+export const Head = () => {
+  return <title>Hope is Here at BFDI - Assessment</title>;
+};
+
 export const query = graphql`
   query AssessmentPage($title: String!) {
     contentfulAssessment(title: { eq: $title }) {

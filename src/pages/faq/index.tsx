@@ -36,6 +36,10 @@ const FaqPage = ({
 
 export default FaqPage;
 
+export const Head = () => {
+  return <title>Hope is Here at BFDI - FAQ</title>;
+};
+
 export const query = graphql`
   query {
     contentfulFaqPage(title: { eq: "Frequently Asked Questions" }) {

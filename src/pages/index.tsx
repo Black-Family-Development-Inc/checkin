@@ -10,19 +10,21 @@ import { IndexPageTypes } from "./IndexPage-types";
 
 const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
   return (
-    <>
-      <DefaultLayout>
-        <IntroSection {...data.contentfulHomePage} />
-        <AssessmentInstructions {...data.contentfulHomePage} />
-        <AssessmentSection {...data.contentfulHomePage} />
-        <UniversalBottom {...data.contentfulHomePage} />
-        <TestimonialSection {...data.contentfulHomePage.testimonialSection} />
-      </DefaultLayout>
-    </>
+    <DefaultLayout>
+      <IntroSection {...data.contentfulHomePage} />
+      <AssessmentInstructions {...data.contentfulHomePage} />
+      <AssessmentSection {...data.contentfulHomePage} />
+      <UniversalBottom {...data.contentfulHomePage} />
+      <TestimonialSection {...data.contentfulHomePage.testimonialSection} />
+    </DefaultLayout>
   );
 };
 
 export default IndexPage;
+
+export const Head = () => {
+  return <title>Hope is Here at BFDI - Home</title>;
+};
 
 export const query = graphql`
   query HomePage {
