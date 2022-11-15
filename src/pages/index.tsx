@@ -5,7 +5,7 @@ import { IntroSection } from "../components/pages/IndexPage/IntroSection";
 import AssessmentInstructions from "../components/pages/IndexPage/IntroSection/AssessmentInstructions";
 import UniversalBottom from "../components/pages/IndexPage/UniversalBottom/UniversalBottom";
 import { TestimonialSection } from "../components/Testimonial";
-import { setHeadTitle } from "../hooks/setHeadTitle";
+import { setHeadTitle } from "../globalFunctions/setHeadTitle";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
 

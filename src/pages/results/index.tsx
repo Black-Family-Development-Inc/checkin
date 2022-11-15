@@ -8,7 +8,7 @@ import {
   Results,
   Retake,
 } from "../../components/pages/ResultsPage";
-import { setHeadTitle } from "../../hooks/setHeadTitle";
+import { setHeadTitle } from "../../globalFunctions/setHeadTitle";
 import AssessmentLayout from "../../layouts/AssessmentLayout/AssessmentLayout";
 import {
   ResultsPageLocationState,

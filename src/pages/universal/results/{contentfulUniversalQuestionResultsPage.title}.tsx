@@ -9,7 +9,7 @@ import {
   FlexCenterContainer,
 } from "../../../components/pages/UniversalQuestions/UniversalQuestionsResultsPage.styles";
 import { Paragraph } from "../../../components/Paragraph";
-import { setHeadTitle } from "../../../hooks/setHeadTitle";
+import { setHeadTitle } from "../../../globalFunctions/setHeadTitle";
 import { AssessmentLayout } from "../../../layouts/AssessmentLayout";
 import { UniversalQuestionResultsPagePropTypes } from "./UniversalQuestionResultsPage-types";
 

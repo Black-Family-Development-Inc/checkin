@@ -13,7 +13,7 @@ import {
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
 import { Paragraph } from "../../components/Paragraph";
-import { setHeadTitle } from "../../hooks/setHeadTitle";
+import { setHeadTitle } from "../../globalFunctions/setHeadTitle";
 import { AssessmentLayout } from "../../layouts/AssessmentLayout";
 import { StyledFormControl } from "../../layouts/AssessmentLayout/AssessmentLayout.styles";
 import {
