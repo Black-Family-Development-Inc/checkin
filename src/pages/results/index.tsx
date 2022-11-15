@@ -8,6 +8,7 @@ import {
   Results,
   Retake,
 } from "../../components/pages/ResultsPage";
+import { setHeadTitle } from "../../globalFunctions/setHeadTitle";
 import AssessmentLayout from "../../layouts/AssessmentLayout/AssessmentLayout";
 import {
   ResultsPageLocationState,
@@ -143,6 +144,8 @@ const ResultsPage = ({
 };
 
 export default ResultsPage;
+
+export const Head = () => setHeadTitle("Results");
 
 export const query = graphql`
   query {
