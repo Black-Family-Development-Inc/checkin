@@ -55,10 +55,11 @@ const Results = ({
   const assessmentSpecificArticles = allArticles.find(
     (element) => (element.type = assessmentType),
   )?.articles;
-  let symptomsDescription;
+  let symptomsDescription = "";
   if (accordionData?.description !== undefined) {
-    symptomsDescription = JSON.parse(accordionData?.description?.raw).content[0]
-      .content[0].value;
+    symptomsDescription =
+      JSON.parse(accordionData?.description?.raw).content[0].content[0].value +
+      "%0D%0A%0D%0A";
   }
   const crisisLineSection = shouldRenderCrisisInfo
     ? `${crisisLineButtonText}: ${crisisLinePhoneNumber}%0D%0A`
@@ -74,7 +75,7 @@ const Results = ({
   ${crisisWarning}
   ${resultsHeader}:%0D%0A
   ${scoreAndSeverity}%0D%0A%0D%0A
-  ${symptomsDescription}%0D%0A%0D%0A
+  ${symptomsDescription}
   Direct Assistance:%0D%0A
   ${crisisLineSection}
   ${bookAppointmentButtonText}: ${bookAppointmentPhoneNumber}%0D%0A%0D%0A
