@@ -1,5 +1,6 @@
-import { Link, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import React from "react";
+import MultiButton from "../MultiButton/MultiButton";
 import { FooterStyled } from "./Footer.styles";
 
 const Footer = () => {
@@ -10,9 +11,11 @@ const Footer = () => {
       <Typography>
         Call BFDI for support: 1-877-SEE-HOPE (844-733-4673)
       </Typography>
-      <Link href="https://www.blackfamilydevelopment.org/">
-        BFDI Main Website
-      </Link>
+      <MultiButton
+        version="externalLinkBasic"
+        link="https://www.blackfamilydevelopment.org/"
+        label="BFDI Main Website"
+      />
     </FooterStyled>
   );
 };
