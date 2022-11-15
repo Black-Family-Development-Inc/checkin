@@ -5,6 +5,7 @@ import { IntroSection } from "../components/pages/IndexPage/IntroSection";
 import AssessmentInstructions from "../components/pages/IndexPage/IntroSection/AssessmentInstructions";
 import UniversalBottom from "../components/pages/IndexPage/UniversalBottom/UniversalBottom";
 import { TestimonialSection } from "../components/Testimonial";
+import { setHeadTitle } from "../hooks/setHeadTitle";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
 
@@ -22,9 +23,7 @@ const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
 
 export default IndexPage;
 
-export const Head = () => {
-  return <title>Hope is Here at BFDI - Home</title>;
-};
+export const Head = () => setHeadTitle("Home");
 
 export const query = graphql`
   query HomePage {

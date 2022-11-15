@@ -8,6 +8,7 @@ import {
   Results,
   Retake,
 } from "../../components/pages/ResultsPage";
+import { setHeadTitle } from "../../hooks/setHeadTitle";
 import AssessmentLayout from "../../layouts/AssessmentLayout/AssessmentLayout";
 import {
   ResultsPageLocationState,
@@ -125,9 +126,7 @@ const ResultsPage = ({
 
 export default ResultsPage;
 
-export const Head = () => {
-  return <title>Hope is Here at BFDI - Results</title>;
-};
+export const Head = () => setHeadTitle("Results");
 
 export const query = graphql`
   query {

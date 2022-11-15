@@ -9,6 +9,7 @@ import {
   FlexCenterContainer,
 } from "../../../components/pages/UniversalQuestions/UniversalQuestionsResultsPage.styles";
 import { Paragraph } from "../../../components/Paragraph";
+import { setHeadTitle } from "../../../hooks/setHeadTitle";
 import { AssessmentLayout } from "../../../layouts/AssessmentLayout";
 import { UniversalQuestionResultsPagePropTypes } from "./UniversalQuestionResultsPage-types";
 
@@ -90,9 +91,7 @@ const UniversalQuestionResultsPage = ({
 
 export default UniversalQuestionResultsPage;
 
-export const Head = () => {
-  return <title>Hope is Here at BFDI - Universal Check-In Results</title>;
-};
+export const Head = () => setHeadTitle("Universal Check-In Results");
 
 export const query = graphql`
   query ($title: String!) {
