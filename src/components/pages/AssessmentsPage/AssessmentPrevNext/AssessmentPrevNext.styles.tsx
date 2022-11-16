@@ -4,6 +4,7 @@ export const PrevNextContainerStyled = styled(Box)({
   display: "flex",
   alignItems: "center",
   justifyContent: "flex-end",
+  marginBottom: 60,
   padding: "10px 0",
   width: "100%",
 });
