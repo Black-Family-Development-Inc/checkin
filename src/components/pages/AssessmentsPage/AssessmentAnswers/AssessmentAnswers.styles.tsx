@@ -13,6 +13,7 @@ export const AnswerButtonGroupStyled = styled(ButtonGroup)({
   maxWidth: maxWidths.mobile.buttons,
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     maxWidth: maxWidths.tablet.buttons,
+    marginBottom: 36,
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     maxWidth: maxWidths.desktop.buttons,

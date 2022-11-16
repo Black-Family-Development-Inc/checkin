@@ -24,6 +24,7 @@ export const NavStepperStyled = styled(Stepper)({
   },
   marginLeft: 0,
   marginRight: 0,
+  marginBottom: 67,
   height: 64,
 });
 
