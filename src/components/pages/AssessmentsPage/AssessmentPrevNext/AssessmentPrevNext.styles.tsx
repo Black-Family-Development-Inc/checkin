@@ -11,4 +11,7 @@ export const PrevNextContainerStyled = styled(Box)({
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     marginBottom: 68,
   },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    marginBottom: 84,
+  },
 });
