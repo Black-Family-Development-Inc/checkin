@@ -9,6 +9,7 @@ export const LinkStyled = styled(Link)({
 export const FlexCenterContainer = styled(Box)({
   display: "flex",
   justifyContent: "center",
+  padding: 0,
 });
 
 export const DividerStyled = styled(Divider)({

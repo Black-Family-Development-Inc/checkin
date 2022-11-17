@@ -7,8 +7,8 @@ import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentS
 import {
   LayoutContainerStyled,
   LayoutContainerWrapper,
-} from "../DefaultLayout/DefaultLayout.styles";
-import { NavButtonContainerStyled } from "./AssessmentLayout.styles";
+  NavButtonContainerStyled,
+} from "./AssessmentLayout.styles";
 import { AssessmentLayoutPropTypes } from "./AssessmentLayout-types";
 
 const AssessmentLayout = ({
