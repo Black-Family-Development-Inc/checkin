@@ -17,7 +17,7 @@ import { MultiButtonPropType } from "./MultiButton-types";
 const MultiButton = (props: MultiButtonPropType) => {
   const buttons = {
     universal: <PrimaryStyled>{props.label}</PrimaryStyled>,
-    assessment: (
+    secondary: (
       <SecondaryStyled onClick={props.onClick}>{props.label}</SecondaryStyled>
     ),
     answer: (
