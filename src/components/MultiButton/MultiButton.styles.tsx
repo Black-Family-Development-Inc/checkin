@@ -38,6 +38,7 @@ const secondaryButtonStyles: Object = {
   color: color.purple.two,
   border: [`2px solid ${color.purple.two}`],
   backgroundColor: color.purple.four,
+  padding: "11.5px 14px",
   ":hover": {
     backgroundColor: color.purple.three,
   },
