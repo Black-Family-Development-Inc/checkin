@@ -28,6 +28,7 @@ const Resources = ({
         version="phoneNumber"
         phoneNumber={bookAppointmentPhoneNumber}
         label={bookAppointmentButtonText}
+        type="dark"
       />
       {shouldRenderCrisisButton && (
         <div>
@@ -36,6 +37,7 @@ const Resources = ({
             version="phoneNumber"
             phoneNumber={crisisHotlineButton.phoneNumber}
             label={crisisHotlineButton.text}
+            type="dark"
           />
         </div>
       )}

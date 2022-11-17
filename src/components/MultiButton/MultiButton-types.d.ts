@@ -16,6 +16,7 @@ type Versions =
   | "previous"
   | "results"
   | "answer"
+  | "universalAnswer"
   | "universal"
   | "retake"
   | "startOver"
