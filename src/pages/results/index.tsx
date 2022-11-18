@@ -1,5 +1,5 @@
 import { graphql, PageProps } from "gatsby";
-import React from "react";
+import React, { useState } from "react";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
 import {
@@ -25,7 +25,10 @@ const ResultsPage = ({
     startingPage,
     assessmentType,
     maxScore,
+    triggered,
   } = state || {};
+  const [alertOpen, setAlertOpen] = useState(triggered || false);
+
   const {
     resultsHeader,
     resultsDescription,
@@ -103,6 +106,15 @@ const ResultsPage = ({
       currentPage={stepperPages.results}
       startingPage={startingPage as StepperPagesType}
       assessmentTitle={assessmentType}
+      isAlertOpen={alertOpen}
+      handleAlert={setAlertOpen}
+      alertMSG={
+        <>
+          Because of your response, BFDI is here to help you right away. Please
+          contact one of our caring staff at 1-844-SEE-HOPE (
+          <a href="tel:1-844-773-4673">1-844-773-4673</a>).
+        </>
+      }
     >
       {assessmentScore > -1 ? (
         <>

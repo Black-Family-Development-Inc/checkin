@@ -14,6 +14,7 @@ const AssessmentAnswers = ({
   currentQuestionIdx,
   usersSavedQuestions,
   setUsersSavedQuestions,
+  handleAlert,
 }: AssessmentAnswersProps) => {
   const getAppropriateAnswers = () => {
     if (currentQuestion.questionType === "custom" && currentQuestion.answers) {
@@ -26,6 +27,7 @@ const AssessmentAnswers = ({
   };
 
   const handleAnswerClick = ({ text, score }: AnswerOption) => {
+    handleAlert(false);
     const triggered = currentQuestion.triggerAnswer === text;
 
     const updatedSavedQuestions = usersSavedQuestions.map((saved) => {

@@ -7,4 +7,6 @@ export type AssessmentPrevNextProps = {
   handleResultsClick: () => void;
   resultsDisabled: boolean;
   nextDisabled: boolean;
+  handleAlert: (prop) => void;
+  alertOpen: boolean;
 };
