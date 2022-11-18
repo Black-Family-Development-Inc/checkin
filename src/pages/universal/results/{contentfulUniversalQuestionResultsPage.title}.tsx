@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import { Header } from "../../../components/Header";
@@ -58,33 +59,47 @@ const UniversalQuestionResultsPage = ({
       currentPage={stepperPages.universal}
       startingPage={stepperPages.universal}
     >
-      <Header text={header} variant="h2" />
-      <Paragraph>{pageDescription}</Paragraph>
+      <Box sx={{ marginTop: "56px" }}>
+        <Header text={header} variant="h2" />
+        <Box sx={{ marginBottom: "40px" }}>
+          <Paragraph>{pageDescription}</Paragraph>
+        </Box>
 
-      <FlexCenterContainer>{getDynamicButton()}</FlexCenterContainer>
+        <FlexCenterContainer>{getDynamicButton()}</FlexCenterContainer>
 
-      <FlexCenterContainer>
-        <DividerStyled />
-      </FlexCenterContainer>
+        <FlexCenterContainer>
+          <DividerStyled />
+        </FlexCenterContainer>
 
-      <Paragraph>{firstStaticButtonDescription}</Paragraph>
-      <FlexCenterContainer>
-        <LinkStyled
-          to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}
-        >
-          <MultiButton version="answer" label={firstStaticButton?.buttonText} />
-        </LinkStyled>
-      </FlexCenterContainer>
+        <Box sx={{ marginBottom: "24px" }}>
+          <Paragraph>{firstStaticButtonDescription}</Paragraph>
+        </Box>
+        <FlexCenterContainer>
+          <LinkStyled
+            to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}
+          >
+            <MultiButton
+              version="answer"
+              label={firstStaticButton?.buttonText}
+            />
+          </LinkStyled>
+        </FlexCenterContainer>
 
-      <Paragraph>{secondStaticButtonDescription}</Paragraph>
-      <FlexCenterContainer>
-        <MultiButton
-          version="phoneNumber"
-          label="Call BFDI"
-          phoneNumber={secondStaticButton?.phoneNumber}
-          type="light"
-        />
-      </FlexCenterContainer>
+        <Box sx={{ margin: "40px 0 24px 0" }}>
+          <Paragraph>{secondStaticButtonDescription}</Paragraph>
+        </Box>
+
+        <FlexCenterContainer>
+          <Box sx={{ marginBottom: "56px" }}>
+            <MultiButton
+              version="phoneNumber"
+              label="Call BFDI"
+              phoneNumber={secondStaticButton?.phoneNumber}
+              type="light"
+            />
+          </Box>
+        </FlexCenterContainer>
+      </Box>
     </AssessmentLayout>
   );
 };

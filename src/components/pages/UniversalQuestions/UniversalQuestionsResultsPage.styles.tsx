@@ -13,7 +13,7 @@ export const FlexCenterContainer = styled(Box)({
 });
 
 export const DividerStyled = styled(Divider)({
-  width: "343px",
+  width: "100%",
   margin: "48px 0",
   height: "1px",
 });

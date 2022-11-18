@@ -15,7 +15,7 @@ export const LayoutContainerWrapper = styled(Box)({
   flexDirection: "column",
   alignItems: "center",
   background: color.teal.five,
-
+  padding: "0 16px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {},
   [`@media(min-width: ${breakpoints.desktop}px)`]: {},
 });

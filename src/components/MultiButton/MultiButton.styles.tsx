@@ -23,7 +23,7 @@ const generalButtonStyles: Object = {
     border: [`2px solid ${color.purple.two}`],
   },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    width: maxWidths.tablet.buttons,
+    maxWidth: maxWidths.tablet.buttons,
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     width: maxWidths.tablet.buttons,
@@ -163,7 +163,6 @@ export const PhoneNumberStyled = styled(MuiLink, {
   justifyContent: "center",
   color: props.type === "dark" ? "white" : "black",
   height: 40,
-  marginBottom: 32,
   padding: 0,
 }));
 
