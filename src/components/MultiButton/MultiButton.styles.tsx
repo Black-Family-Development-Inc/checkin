@@ -172,7 +172,6 @@ export const PhoneNumberStyled = styled(MuiLink, {
   alignItems: "center",
   justifyContent: "center",
   color: props.type === "dark" ? color.white : color.purple.two,
-  marginBottom: 32,
   padding: 0,
   border: props.type === "dark" ? "none" : `2px solid ${color.purple.two}`,
   ":hover": {
