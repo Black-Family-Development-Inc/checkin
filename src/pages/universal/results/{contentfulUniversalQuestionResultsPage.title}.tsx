@@ -6,12 +6,12 @@ import MultiButton from "../../../components/MultiButton/MultiButton";
 import { LinkStyled } from "../../../components/MultiButton/MultiButton.styles";
 import { stepperPages } from "../../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import {
-  BottomParagraphStyled,
-  CallBFDIStyled,
+  BottomParagraphSpacing,
+  CallBFDISpacing,
   DividerStyled,
   FlexCenterContainer,
-  MiddleParagraphStyled,
-  TopParagraphStyled,
+  MiddleParagraphSpacing,
+  TopParagraphSpacing,
 } from "../../../components/pages/UniversalQuestions/UniversalQuestionsResultsPage.styles";
 import { Paragraph } from "../../../components/Paragraph";
 import { setHeadTitle } from "../../../globalFunctions/setHeadTitle";
@@ -65,9 +65,9 @@ const UniversalQuestionResultsPage = ({
     >
       <Box sx={{ marginTop: "56px" }}>
         <Header text={header} variant="h2" />
-        <TopParagraphStyled>
+        <TopParagraphSpacing>
           <Paragraph>{pageDescription}</Paragraph>
-        </TopParagraphStyled>
+        </TopParagraphSpacing>
 
         <FlexCenterContainer>{getDynamicButton()}</FlexCenterContainer>
 
@@ -75,9 +75,9 @@ const UniversalQuestionResultsPage = ({
           <DividerStyled />
         </FlexCenterContainer>
 
-        <MiddleParagraphStyled>
+        <MiddleParagraphSpacing>
           <Paragraph>{firstStaticButtonDescription}</Paragraph>
-        </MiddleParagraphStyled>
+        </MiddleParagraphSpacing>
 
         <FlexCenterContainer>
           <LinkStyled
@@ -90,19 +90,19 @@ const UniversalQuestionResultsPage = ({
           </LinkStyled>
         </FlexCenterContainer>
 
-        <BottomParagraphStyled>
+        <BottomParagraphSpacing>
           <Paragraph>{secondStaticButtonDescription}</Paragraph>
-        </BottomParagraphStyled>
+        </BottomParagraphSpacing>
 
         <FlexCenterContainer>
-          <CallBFDIStyled>
+          <CallBFDISpacing>
             <MultiButton
               version="phoneNumber"
               label="Call BFDI"
               phoneNumber={secondStaticButton?.phoneNumber}
               type="light"
             />
-          </CallBFDIStyled>
+          </CallBFDISpacing>
         </FlexCenterContainer>
       </Box>
     </AssessmentLayout>

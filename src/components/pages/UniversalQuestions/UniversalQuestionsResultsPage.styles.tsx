@@ -19,25 +19,25 @@ export const DividerStyled = styled(Divider)({
   height: "1px",
 });
 
-export const TopParagraphStyled = styled(Box)({
+export const TopParagraphSpacing = styled(Box)({
   marginBottom: "40px",
 });
 
-export const MiddleParagraphStyled = styled(Box)({
+export const MiddleParagraphSpacing = styled(Box)({
   marginBottom: "24px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     marginBottom: "32px",
   },
 });
 
-export const BottomParagraphStyled = styled(Box)({
+export const BottomParagraphSpacing = styled(Box)({
   margin: "40px 0 24px 0",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     margin: "40px 0 32px 0",
   },
 });
 
-export const CallBFDIStyled = styled(Box)({
+export const CallBFDISpacing = styled(Box)({
   marginBottom: "56px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     marginBottom: "88px",
