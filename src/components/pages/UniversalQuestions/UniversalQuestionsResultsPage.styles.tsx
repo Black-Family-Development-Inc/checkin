@@ -1,6 +1,7 @@
 import { Box, Divider } from "@mui/material";
 import { styled } from "@mui/system";
 import { Link } from "gatsby";
+import { breakpoints } from "../../../styles/theme";
 
 export const LinkStyled = styled(Link)({
   textDecorationLine: "none",
@@ -24,12 +25,21 @@ export const TopParagraphStyled = styled(Box)({
 
 export const MiddleParagraphStyled = styled(Box)({
   marginBottom: "24px",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    marginBottom: "32px",
+  },
 });
 
 export const BottomParagraphStyled = styled(Box)({
   margin: "40px 0 24px 0",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    margin: "40px 0 32px 0",
+  },
 });
 
-export const BottomButtonStyled = styled(Box)({
-  margin: "",
+export const CallBFDIStyled = styled(Box)({
+  marginBottom: "56px",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    marginBottom: "88px",
+  },
 });

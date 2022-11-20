@@ -7,6 +7,7 @@ import { LinkStyled } from "../../../components/MultiButton/MultiButton.styles";
 import { stepperPages } from "../../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import {
   BottomParagraphStyled,
+  CallBFDIStyled,
   DividerStyled,
   FlexCenterContainer,
   MiddleParagraphStyled,
@@ -94,14 +95,14 @@ const UniversalQuestionResultsPage = ({
         </BottomParagraphStyled>
 
         <FlexCenterContainer>
-          <Box sx={{ marginBottom: "56px" }}>
+          <CallBFDIStyled>
             <MultiButton
               version="phoneNumber"
               label="Call BFDI"
               phoneNumber={secondStaticButton?.phoneNumber}
               type="light"
             />
-          </Box>
+          </CallBFDIStyled>
         </FlexCenterContainer>
       </Box>
     </AssessmentLayout>
