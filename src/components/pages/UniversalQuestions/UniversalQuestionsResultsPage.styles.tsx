@@ -17,3 +17,19 @@ export const DividerStyled = styled(Divider)({
   margin: "48px 0",
   height: "1px",
 });
+
+export const TopParagraphStyled = styled(Box)({
+  marginBottom: "40px",
+});
+
+export const MiddleParagraphStyled = styled(Box)({
+  marginBottom: "24px",
+});
+
+export const BottomParagraphStyled = styled(Box)({
+  margin: "40px 0 24px 0",
+});
+
+export const BottomButtonStyled = styled(Box)({
+  margin: "",
+});

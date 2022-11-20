@@ -6,8 +6,11 @@ import MultiButton from "../../../components/MultiButton/MultiButton";
 import { LinkStyled } from "../../../components/MultiButton/MultiButton.styles";
 import { stepperPages } from "../../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import {
+  BottomParagraphStyled,
   DividerStyled,
   FlexCenterContainer,
+  MiddleParagraphStyled,
+  TopParagraphStyled,
 } from "../../../components/pages/UniversalQuestions/UniversalQuestionsResultsPage.styles";
 import { Paragraph } from "../../../components/Paragraph";
 import { setHeadTitle } from "../../../globalFunctions/setHeadTitle";
@@ -61,9 +64,9 @@ const UniversalQuestionResultsPage = ({
     >
       <Box sx={{ marginTop: "56px" }}>
         <Header text={header} variant="h2" />
-        <Box sx={{ marginBottom: "40px" }}>
+        <TopParagraphStyled>
           <Paragraph>{pageDescription}</Paragraph>
-        </Box>
+        </TopParagraphStyled>
 
         <FlexCenterContainer>{getDynamicButton()}</FlexCenterContainer>
 
@@ -71,9 +74,10 @@ const UniversalQuestionResultsPage = ({
           <DividerStyled />
         </FlexCenterContainer>
 
-        <Box sx={{ marginBottom: "24px" }}>
+        <MiddleParagraphStyled>
           <Paragraph>{firstStaticButtonDescription}</Paragraph>
-        </Box>
+        </MiddleParagraphStyled>
+
         <FlexCenterContainer>
           <LinkStyled
             to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}
@@ -85,9 +89,9 @@ const UniversalQuestionResultsPage = ({
           </LinkStyled>
         </FlexCenterContainer>
 
-        <Box sx={{ margin: "40px 0 24px 0" }}>
+        <BottomParagraphStyled>
           <Paragraph>{secondStaticButtonDescription}</Paragraph>
-        </Box>
+        </BottomParagraphStyled>
 
         <FlexCenterContainer>
           <Box sx={{ marginBottom: "56px" }}>
