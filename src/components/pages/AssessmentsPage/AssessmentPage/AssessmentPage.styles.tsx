@@ -13,10 +13,10 @@ export const AssessmentPageStyled = styled(Box)({
 export const QuestionStyled = styled(Box)({
   display: "flex",
   justifyContent: "space-between",
-  marginBottom: "21px",
-  marginTop: "36px",
+  marginTop: 40,
+  marginBottom: 22,
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    marginTop: 48,
+    marginTop: 56,
     marginBottom: 28,
   },
 });
