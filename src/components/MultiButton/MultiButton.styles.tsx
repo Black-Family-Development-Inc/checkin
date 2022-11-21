@@ -88,9 +88,11 @@ export const AnswerStyled = styled(Button, {
   },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     maxWidth: maxWidths.tablet.buttons,
+    margin: "12px 0",
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     maxWidth: maxWidths.desktop.buttons,
+    margin: "16px 0",
   },
 }));
 
