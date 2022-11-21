@@ -14,7 +14,7 @@ export const QuestionStyled = styled(Box)({
   display: "flex",
   justifyContent: "space-between",
   marginTop: 40,
-  marginBottom: 22,
+  marginBottom: 24,
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     marginTop: 56,
     marginBottom: 28,
