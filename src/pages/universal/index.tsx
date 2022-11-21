@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { graphql, Link, PageProps } from "gatsby";
 import React from "react";
 import { Header } from "../../components/Header";
@@ -16,6 +17,8 @@ const UniversalAssessmentPage = ({
     },
   },
 }: PageProps<UniversalQuestionPageProps>) => {
+  const [questionDescription, question] = description.split("\n");
+
   return (
     <>
       <AssessmentLayout
@@ -24,20 +27,27 @@ const UniversalAssessmentPage = ({
       >
         <Header text={header} variant="h2" />
 
-        <Paragraph>{description}</Paragraph>
+        <Paragraph>{questionDescription}</Paragraph>
+        <Paragraph
+          sx={{ fontWeight: 500, paddingTop: "40px", paddingBottom: "32px" }}
+        >
+          {question}
+        </Paragraph>
 
-        {buttons.map(({ label, universalResultPage }) => (
-          <Link
-            key={label}
-            to={`/universal/results/${universalResultPage.title.toLocaleLowerCase()}`}
-            state={{
-              assessment: universalResultPage.title,
-              startingPage: stepperPages.universal,
-            }}
-          >
-            <MultiButton version="answer" label={label} />
-          </Link>
-        ))}
+        <Box className="button-container">
+          {buttons.map(({ label, universalResultPage }) => (
+            <Link
+              key={label}
+              to={`/universal/results/${universalResultPage.title.toLocaleLowerCase()}`}
+              state={{
+                assessment: universalResultPage.title,
+                startingPage: stepperPages.universal,
+              }}
+            >
+              <MultiButton version="answer" label={label} />
+            </Link>
+          ))}
+        </Box>
       </AssessmentLayout>
     </>
   );
