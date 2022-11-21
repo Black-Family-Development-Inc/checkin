@@ -6,7 +6,7 @@ import { breakpoints, color, maxWidths } from "../../../../styles/theme";
 export const NavStepperStyled = styled(Stepper)({
   marginLeft: 0,
   marginRight: 0,
-  marginBottom: 67,
+  marginBottom: 46,
   height: 64,
   ".MuiStepConnector-line": {
     borderColor: color.gray.two,
@@ -24,7 +24,7 @@ export const NavStepperStyled = styled(Stepper)({
     },
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
-    marginBottom: 87,
+    marginBottom: 90,
     maxWidth: maxWidths.desktop.content,
   },
 });
