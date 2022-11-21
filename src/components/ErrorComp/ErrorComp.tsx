@@ -5,7 +5,7 @@ import { ImageStyled } from "../Image/img.styles";
 import MultiButton from "../MultiButton/MultiButton";
 import { Paragraph } from "../Paragraph";
 
-const Error = () => {
+const ErrorComp = () => {
   return (
     <>
       <Header variant="h1" text="Oops!" />
@@ -40,4 +40,4 @@ const Error = () => {
   );
 };
 
-export default Error;
+export default ErrorComp;
