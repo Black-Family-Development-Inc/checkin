@@ -7,12 +7,6 @@ export const LinkStyled = styled(Link)({
   textDecorationLine: "none",
 });
 
-export const FlexCenterContainer = styled(Box)({
-  display: "flex",
-  justifyContent: "center",
-  padding: 0,
-});
-
 export const DividerStyled = styled(Divider)({
   width: "100%",
   margin: "48px 0",
@@ -37,7 +31,9 @@ export const BottomParagraphSpacing = styled(Box)({
   },
 });
 
-export const CallBFDISpacing = styled(Box)({
+export const CallBFDIContainer = styled(Box)({
+  display: "flex",
+  justifyContent: "center",
   marginBottom: "56px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     marginBottom: "88px",

@@ -7,9 +7,8 @@ import { LinkStyled } from "../../../components/MultiButton/MultiButton.styles";
 import { stepperPages } from "../../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import {
   BottomParagraphSpacing,
-  CallBFDISpacing,
+  CallBFDIContainer,
   DividerStyled,
-  FlexCenterContainer,
   MiddleParagraphSpacing,
   TopParagraphSpacing,
 } from "../../../components/pages/UniversalQuestions/UniversalQuestionsResultsPage.styles";
@@ -69,40 +68,35 @@ const UniversalQuestionResultsPage = ({
           <Paragraph>{pageDescription}</Paragraph>
         </TopParagraphSpacing>
 
-        <FlexCenterContainer>{getDynamicButton()}</FlexCenterContainer>
+        {getDynamicButton()}
 
-        <FlexCenterContainer>
-          <DividerStyled />
-        </FlexCenterContainer>
+        <DividerStyled />
 
         <MiddleParagraphSpacing>
           <Paragraph>{firstStaticButtonDescription}</Paragraph>
         </MiddleParagraphSpacing>
-        <FlexCenterContainer>
-          <LinkStyled
-            to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}
-          >
-            <MultiButton
-              version="secondary"
-              label={firstStaticButton?.buttonText}
-            />
-          </LinkStyled>
-        </FlexCenterContainer>
+
+        <LinkStyled
+          to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}
+        >
+          <MultiButton
+            version="secondary"
+            label={firstStaticButton?.buttonText}
+          />
+        </LinkStyled>
 
         <BottomParagraphSpacing>
           <Paragraph>{secondStaticButtonDescription}</Paragraph>
         </BottomParagraphSpacing>
 
-        <FlexCenterContainer>
-          <CallBFDISpacing>
-            <MultiButton
-              version="phoneNumber"
-              label="Call BFDI"
-              phoneNumber={secondStaticButton?.phoneNumber}
-              type="light"
-            />
-          </CallBFDISpacing>
-        </FlexCenterContainer>
+        <CallBFDIContainer>
+          <MultiButton
+            version="phoneNumber"
+            label="Call BFDI"
+            phoneNumber={secondStaticButton?.phoneNumber}
+            type="light"
+          />
+        </CallBFDIContainer>
       </Box>
     </AssessmentLayout>
   );
