@@ -78,13 +78,12 @@ const UniversalQuestionResultsPage = ({
         <MiddleParagraphSpacing>
           <Paragraph>{firstStaticButtonDescription}</Paragraph>
         </MiddleParagraphSpacing>
-
         <FlexCenterContainer>
           <LinkStyled
             to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}
           >
             <MultiButton
-              version="answer"
+              version="secondary"
               label={firstStaticButton?.buttonText}
             />
           </LinkStyled>
