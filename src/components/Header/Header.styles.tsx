@@ -12,14 +12,15 @@ export const HeaderStyled = styled(Typography)((props: HeaderStyledProps) => ({
   width: "100%",
 
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    fontSize: "34px",
+    fontSize: `${props.error ? 48 : 34}px`,
     lineHeight: "40.29px",
     letterSpacing: "0.25px",
-    marginBottom: "16px",
+    marginBottom: `${props.error ? 48 : 16}px`,
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     fontSize: "48px",
     lineHeight: "56.88px",
     letterSpacing: 0,
+    marginBottom: `${props.error ? 56 : 16}px`,
   },
 }));

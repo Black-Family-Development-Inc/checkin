@@ -8,7 +8,6 @@ export const TypographyStyled = styled(Typography)({
   lineHeight: "18.75px",
   letterSpacing: "0.15px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    fontSize: 18,
     lineHeight: "21.09px",
   },
 });
