@@ -13,7 +13,7 @@ import {
 
 const NavBar = () => {
   return (
-    <NavBarContainerStyled id="scroll">
+    <NavBarContainerStyled>
       <NavBarContentStyled>
         <NavBarLogoContainer>
           <NavBarSVG>

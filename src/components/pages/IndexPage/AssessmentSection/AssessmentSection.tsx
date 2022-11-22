@@ -23,16 +23,13 @@ const AssessmentSection = (props: ContentfulHomePage) => {
 
   return (
     <AssessmentQuestionStyled>
-      <Header text={assessmentSectionHeader} variant="h2" />
+      <Header text={assessmentSectionHeader} variant="h2" id="scroll" />
       <Paragraph>{assessmentSectionSubheader}</Paragraph>
       {assessmentButtons.map((button: AssessmentButtonType) => {
         const link = `/assessments/${button.assessmentPage.title.toLocaleLowerCase()}`;
         return (
           <AssessmentQuestionWrapperStyled key={button.buttonText}>
-            <AssessmentQuestionParaStyled
-              className="assessment-desc"
-              id="scroll"
-            >
+            <AssessmentQuestionParaStyled className="assessment-desc">
               {button.assessmentDescription}
             </AssessmentQuestionParaStyled>
             <AssessmentQuestionBoxStyled key={button.buttonText}>
