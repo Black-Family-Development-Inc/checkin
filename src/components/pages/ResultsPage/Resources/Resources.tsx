@@ -15,10 +15,8 @@ const Resources = ({
   articlesDescription,
   allArticles,
   assessmentType,
-  assessmentSeverity,
+  shouldRenderCrisisInfo,
 }: ResourcesTypes) => {
-  const shouldRenderCrisisButton =
-    assessmentSeverity === "Severe" || assessmentSeverity === "Severe Level";
   return (
     <>
       <Header text={resourcesHeader} variant="h2" />
@@ -29,7 +27,7 @@ const Resources = ({
         phoneNumber={bookAppointmentPhoneNumber}
         label={bookAppointmentButtonText}
       />
-      {shouldRenderCrisisButton && (
+      {shouldRenderCrisisInfo && (
         <div>
           <Paragraph paragraph>{crisisLineDescription}</Paragraph>
           <MultiButton
