@@ -13,6 +13,7 @@ import {
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
 import { Paragraph } from "../../components/Paragraph";
+import { setHeadTitle } from "../../globalFunctions/setHeadTitle";
 import { AssessmentLayout } from "../../layouts/AssessmentLayout";
 import { StyledFormControl } from "../../layouts/AssessmentLayout/AssessmentLayout.styles";
 import {
@@ -131,6 +132,8 @@ const AssessmentPage = ({
 };
 
 export default AssessmentPage;
+
+export const Head = () => setHeadTitle("Assessment");
 
 export const query = graphql`
   query AssessmentPage($title: String!) {

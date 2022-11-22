@@ -5,24 +5,25 @@ import { IntroSection } from "../components/pages/IndexPage/IntroSection";
 import AssessmentInstructions from "../components/pages/IndexPage/IntroSection/AssessmentInstructions";
 import UniversalBottom from "../components/pages/IndexPage/UniversalBottom/UniversalBottom";
 import { TestimonialSection } from "../components/Testimonial";
+import { setHeadTitle } from "../globalFunctions/setHeadTitle";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
 import { IndexPageTypes } from "./IndexPage-types";
 
 const IndexPage = ({ data }: PageProps<IndexPageTypes>) => {
   return (
-    <>
-      <DefaultLayout>
-        <IntroSection {...data.contentfulHomePage} />
-        <AssessmentInstructions {...data.contentfulHomePage} />
-        <AssessmentSection {...data.contentfulHomePage} />
-        <UniversalBottom {...data.contentfulHomePage} />
-        <TestimonialSection {...data.contentfulHomePage.testimonialSection} />
-      </DefaultLayout>
-    </>
+    <DefaultLayout>
+      <IntroSection {...data.contentfulHomePage} />
+      <AssessmentInstructions {...data.contentfulHomePage} />
+      <AssessmentSection {...data.contentfulHomePage} />
+      <UniversalBottom {...data.contentfulHomePage} />
+      <TestimonialSection {...data.contentfulHomePage.testimonialSection} />
+    </DefaultLayout>
   );
 };
 
 export default IndexPage;
+
+export const Head = () => setHeadTitle("Home");
 
 export const query = graphql`
   query HomePage {

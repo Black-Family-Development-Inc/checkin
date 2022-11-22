@@ -21,7 +21,7 @@ const Accordion = ({
   title,
   type,
   summary,
-  score,
+  scoreAndSeverity,
   description,
   scoreTable,
 }: AccordionPropTypes) => {
@@ -55,12 +55,7 @@ const Accordion = ({
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContentStyled sx={{ padding: 0 }}>
-          {score && (
-            <ScoreStyled>
-              Score {score?.assessmentScore}/{score?.maxScore} [
-              {score?.assessmentSeverity}-Symptoms]
-            </ScoreStyled>
-          )}
+          {scoreAndSeverity && <ScoreStyled>{scoreAndSeverity}</ScoreStyled>}
           <Box>{renderRichText(description)}</Box>
           {scoreTable && (
             <Typography>

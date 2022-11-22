@@ -8,6 +8,7 @@ import {
   Results,
   Retake,
 } from "../../components/pages/ResultsPage";
+import { setHeadTitle } from "../../globalFunctions/setHeadTitle";
 import AssessmentLayout from "../../layouts/AssessmentLayout/AssessmentLayout";
 import {
   ResultsPageLocationState,
@@ -21,6 +22,7 @@ const ResultsPage = ({
   const {
     assessmentScore,
     severityRubric,
+    triggered,
     startingPage,
     assessmentType,
     maxScore,
@@ -57,16 +59,34 @@ const ResultsPage = ({
   };
   const assessmentSeverity = determineAssessmentSeverity()?.severity;
   const accordionData = allAccordionContents?.find(
-    (accordion: { type: string }) => accordion.type === assessmentType,
+    (accordion) => accordion.type === assessmentType,
   );
+  const crisisWarningMessage =
+    "Because of your response, BFDI is here to help you right away. " +
+    "Please contact one of our caring staff at 1-844-SEE-HOPE";
+  const crisisWarningPhoneNumber = "1-844-773-4673";
+  const shouldRenderCrisisInfo =
+    assessmentSeverity === "Severe" || assessmentSeverity === "Severe Level";
 
   const resultsSectionProps = {
-    resultsDescription,
+    triggered,
+    crisisWarningMessage,
+    crisisWarningPhoneNumber,
     resultsHeader,
+    resultsDescription,
+    resourcesHeader,
     accordionData,
     assessmentScore,
     assessmentSeverity,
     maxScore,
+    bookAppointmentButtonText,
+    bookAppointmentPhoneNumber,
+    crisisLineButtonText,
+    crisisLinePhoneNumber,
+    assessmentType,
+    allArticles,
+    otherResourcesHeader,
+    shouldRenderCrisisInfo,
   };
   const resourcesSectionProps = {
     resourcesHeader,
@@ -81,7 +101,7 @@ const ResultsPage = ({
     allArticles,
     assessmentType,
     retakeDescription,
-    assessmentSeverity,
+    shouldRenderCrisisInfo,
   };
   const retakeSectionProps = {
     assessmentType,
@@ -124,6 +144,8 @@ const ResultsPage = ({
 };
 
 export default ResultsPage;
+
+export const Head = () => setHeadTitle("Results");
 
 export const query = graphql`
   query {

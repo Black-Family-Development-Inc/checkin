@@ -5,6 +5,7 @@ env:
   PROJECT_ID: bfdi-afac
   SITE_NAME: ${{ secrets.SITE_NAME_DEV }}
 on:
+  workflow_dispatch:
   push:
     branches:
       - dev

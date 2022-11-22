@@ -9,6 +9,7 @@ import {
   FlexCenterContainer,
 } from "../../../components/pages/UniversalQuestions/UniversalQuestionsResultsPage.styles";
 import { Paragraph } from "../../../components/Paragraph";
+import { setHeadTitle } from "../../../globalFunctions/setHeadTitle";
 import { AssessmentLayout } from "../../../layouts/AssessmentLayout";
 import { UniversalQuestionResultsPagePropTypes } from "./UniversalQuestionResultsPage-types";
 
@@ -71,7 +72,10 @@ const UniversalQuestionResultsPage = ({
         <LinkStyled
           to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}
         >
-          <MultiButton version="answer" label={firstStaticButton?.buttonText} />
+          <MultiButton
+            version="secondary"
+            label={firstStaticButton?.buttonText}
+          />
         </LinkStyled>
       </FlexCenterContainer>
 
@@ -89,6 +93,8 @@ const UniversalQuestionResultsPage = ({
 };
 
 export default UniversalQuestionResultsPage;
+
+export const Head = () => setHeadTitle("Universal Check-In Results");
 
 export const query = graphql`
   query ($title: String!) {
