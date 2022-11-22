@@ -105,6 +105,9 @@ export const NextAndResultStyled = styled(Button)({
   ...primaryButtonStyles,
   width: "120px",
   alignSelf: "end",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    width: "172px",
+  },
 });
 
 export const PreviousStyled = styled(Button)({
