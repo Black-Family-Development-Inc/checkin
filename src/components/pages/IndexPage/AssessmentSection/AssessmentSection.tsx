@@ -22,8 +22,8 @@ const AssessmentSection = (props: ContentfulHomePage) => {
   } = props;
 
   return (
-    <AssessmentQuestionStyled>
-      <Header text={assessmentSectionHeader} variant="h2" id="scroll" />
+    <AssessmentQuestionStyled id="scroll">
+      <Header text={assessmentSectionHeader} variant="h2" />
       <Paragraph>{assessmentSectionSubheader}</Paragraph>
       {assessmentButtons.map((button: AssessmentButtonType) => {
         const link = `/assessments/${button.assessmentPage.title.toLocaleLowerCase()}`;

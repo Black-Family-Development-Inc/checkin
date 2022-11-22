@@ -3,12 +3,10 @@ import { HR } from "../HR";
 import { HeaderStyled } from "./Header.styles";
 import { HeaderPropTypes } from "./Header-types";
 
-const Header = ({ text, variant, id }: HeaderPropTypes) => {
+const Header = ({ text, variant }: HeaderPropTypes) => {
   return (
     <>
-      <HeaderStyled variant={variant} id={id}>
-        {text}
-      </HeaderStyled>
+      <HeaderStyled variant={variant}>{text}</HeaderStyled>
       <HR />
     </>
   );
