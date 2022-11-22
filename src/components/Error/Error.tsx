@@ -1,24 +1,39 @@
 import React from "react";
 import ErrorSVG from "../../images/Error_page.svg";
-import { Header } from "../Header";
+import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
+import { HeaderStyled } from "../Header/Header.styles";
 import { ImageStyled } from "../Image/img.styles";
 import MultiButton from "../MultiButton/MultiButton";
 import { Paragraph } from "../Paragraph";
+import { BoxStyled } from "../Testimonial/TestimonialSection.styles";
 
 const Error = () => {
   return (
-    <>
-      <Header variant="h1" text="Oops!" />
-      <Paragraph>Well, this was unexpected...</Paragraph>
+    <DefaultLayout>
+      <HeaderStyled error variant="h1">
+        Oops!
+      </HeaderStyled>
 
-      <ImageStyled src={ErrorSVG} />
+      <Paragraph
+        sx={{
+          fontSize: 20,
+          margin: "0 0 40px",
+        }}
+      >
+        Well, this was unexpected...
+      </Paragraph>
 
-      <Paragraph>
+      <BoxStyled>
+        <ImageStyled error src={ErrorSVG} />
+      </BoxStyled>
+
+      <Paragraph sx={{ fontWeight: 500, margin: "40px 0 20px" }}>
         An error has occurred and we're working to fix the problem! We'll be up
         and running shortly.
       </Paragraph>
 
-      <Paragraph>
+      <Paragraph sx={{ fontWeight: 500, margin: "0 0 56px" }}>
+        If you are in crisis and need immediate help. Please call{" "}
         {
           <MultiButton
             version="phoneNumberBasic"
@@ -36,7 +51,7 @@ const Error = () => {
         }{" "}
         to learn more about what we do.
       </Paragraph>
-    </>
+    </DefaultLayout>
   );
 };
 

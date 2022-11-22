@@ -5,7 +5,6 @@ import { breakpoints, color } from "../../styles/theme";
 export const TypographyStyled = styled(Typography)({
   color: color.gray.one,
   fontFamily: "Roboto",
-  fontSize: "16px",
   lineHeight: "18.75px",
   letterSpacing: "0.15px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
