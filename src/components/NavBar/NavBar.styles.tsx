@@ -70,6 +70,9 @@ export const NavBarText = styled(Typography)({
 
 export const NavBarLink = styled(Link)({
   ...textStyles,
+  display: "flex",
+  height: "48px",
+  alignItems: "center",
   textDecoration: "none",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     fontSize: "18px",
