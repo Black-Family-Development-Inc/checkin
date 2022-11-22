@@ -4,6 +4,7 @@ import Accordion from "../../components/Accordion/Accordion";
 import { Header } from "../../components/Header";
 import NavButton from "../../components/NavButton/NavButton";
 import { Paragraph } from "../../components/Paragraph";
+import { setHeadTitle } from "../../globalFunctions/setHeadTitle";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
 import { FaqAccordion, FaqPagePropTypes } from "./FaqPage-types";
 
@@ -35,6 +36,8 @@ const FaqPage = ({
 };
 
 export default FaqPage;
+
+export const Head = () => setHeadTitle("FAQ");
 
 export const query = graphql`
   query {

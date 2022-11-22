@@ -37,7 +37,7 @@ const AssessmentSection = (props: ContentfulHomePage) => {
             </AssessmentQuestionParaStyled>
             <AssessmentQuestionBoxStyled key={button.buttonText}>
               <LinkStyled to={link}>
-                <MultiButton version="assessment" label={button.buttonText} />
+                <MultiButton version="secondary" label={button.buttonText} />
               </LinkStyled>
             </AssessmentQuestionBoxStyled>
           </AssessmentQuestionWrapperStyled>
