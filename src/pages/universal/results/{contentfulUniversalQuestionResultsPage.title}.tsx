@@ -72,7 +72,10 @@ const UniversalQuestionResultsPage = ({
         <LinkStyled
           to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}
         >
-          <MultiButton version="answer" label={firstStaticButton?.buttonText} />
+          <MultiButton
+            version="secondary"
+            label={firstStaticButton?.buttonText}
+          />
         </LinkStyled>
       </FlexCenterContainer>
 
