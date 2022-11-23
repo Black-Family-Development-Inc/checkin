@@ -47,7 +47,7 @@ const AssessmentLayout = ({
   return (
     <>
       <NavBar />
-      <LayoutContainerWrapper>
+      <LayoutContainerWrapper isAssessmentLayout>
         <LayoutContainerStyled>
           <Box sx={{ position: "relative" }}>
             <Alert

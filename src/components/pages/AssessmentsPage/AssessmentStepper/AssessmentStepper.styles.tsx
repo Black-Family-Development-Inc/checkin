@@ -4,6 +4,10 @@ import Stepper from "@mui/material/Stepper";
 import { breakpoints, color, maxWidths } from "../../../../styles/theme";
 
 export const NavStepperStyled = styled(Stepper)({
+  marginLeft: 0,
+  marginRight: 0,
+  marginBottom: 46,
+  height: 64,
   ".MuiStepConnector-line": {
     borderColor: color.gray.two,
   },
@@ -13,6 +17,7 @@ export const NavStepperStyled = styled(Stepper)({
     right: "calc(50% + 36px)",
   },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    marginBottom: 76,
     maxWidth: maxWidths.tablet.content,
     ".MuiStepConnector-root": {
       left: "calc(-50% + 40px)",
@@ -20,11 +25,9 @@ export const NavStepperStyled = styled(Stepper)({
     },
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    marginBottom: 94,
     maxWidth: maxWidths.desktop.content,
   },
-  marginLeft: 0,
-  marginRight: 0,
-  height: 64,
 });
 
 export const NavStepLabelStyled = styled(StepLabel)({

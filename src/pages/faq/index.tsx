@@ -3,6 +3,7 @@ import React from "react";
 import Accordion from "../../components/Accordion/Accordion";
 import { Header } from "../../components/Header";
 import NavButton from "../../components/NavButton/NavButton";
+import { CardBox } from "../../components/pages/FaqPage/Faq.styles";
 import { Paragraph } from "../../components/Paragraph";
 import { setHeadTitle } from "../../globalFunctions/setHeadTitle";
 import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
@@ -21,16 +22,18 @@ const FaqPage = ({
       <NavButton label="Home" link="/" />
       <Header text={headerText} variant="h2" />
       <Paragraph>{subHeader}</Paragraph>
-      {contentfulFaqPage.faqAccordion.map((accordion: FaqAccordion) => {
-        const { title, description } = accordion;
-        return (
-          <Accordion
-            title={title}
-            description={description}
-            key={accordion.title}
-          />
-        );
-      })}
+      <CardBox>
+        {contentfulFaqPage.faqAccordion.map((accordion: FaqAccordion) => {
+          const { title, description } = accordion;
+          return (
+            <Accordion
+              title={title}
+              description={description}
+              key={accordion.title}
+            />
+          );
+        })}
+      </CardBox>
     </DefaultLayout>
   );
 };
