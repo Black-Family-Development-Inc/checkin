@@ -1,20 +1,17 @@
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import {
-  Box,
-  Button,
-  CardActions,
-  CardContent,
-  Collapse,
-  Typography,
-} from "@mui/material";
+import { Box, Collapse, Typography } from "@mui/material";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { useState } from "react";
 import React from "react";
 import { Paragraph } from "../Paragraph";
 import {
   AccordionHeaderContainerStyled,
+  ActionButtonStyled,
+  CardActionStyled,
+  CardContentStyled,
   CardStyled,
+  ParagraphStyled,
   ScoreStyled,
   SummaryContainer,
 } from "./Accordion.styles";
@@ -33,33 +30,31 @@ const Accordion = ({
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
   return (
     <CardStyled square={true}>
       <AccordionHeaderContainerStyled>
-        <Paragraph sx={{ fontWeight: 700, margin: "31px 0 31px 16px" }}>
-          {title}
-        </Paragraph>
-        <SummaryContainer>
-          <Paragraph>{summary}</Paragraph>
-        </SummaryContainer>
-        <CardActions>
-          <Button onClick={handleExpandClick}>
+        <ParagraphStyled>{title}</ParagraphStyled>
+        {summary ? (
+          <SummaryContainer>
+            <Paragraph>{summary}</Paragraph>
+          </SummaryContainer>
+        ) : (
+          ""
+        )}
+        <CardActionStyled>
+          <ActionButtonStyled onClick={handleExpandClick}>
             {expanded ? (
               <ExpandLessIcon aria-expanded={expanded} aria-label="show more" />
             ) : (
               <ExpandMoreIcon aria-expanded={expanded} aria-label="show less" />
             )}
-          </Button>
-        </CardActions>
+          </ActionButtonStyled>
+        </CardActionStyled>
       </AccordionHeaderContainerStyled>
 
-      <Collapse
-        in={expanded}
-        timeout="auto"
-        unmountOnExit
-        sx={{ padding: "24px 16px 0 16px" }}
-      >
-        <CardContent sx={{ padding: 0 }}>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContentStyled sx={{ padding: 0 }}>
           {scoreAndSeverity && <ScoreStyled>{scoreAndSeverity}</ScoreStyled>}
           <Box>{renderRichText(description)}</Box>
           {scoreTable && (
@@ -70,7 +65,7 @@ const Accordion = ({
           {scoreTable?.map((table) => {
             return <li key={`table-${table}`}>{table}</li>;
           })}
-        </CardContent>
+        </CardContentStyled>
       </Collapse>
     </CardStyled>
   );
