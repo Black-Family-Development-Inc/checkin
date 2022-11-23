@@ -22,9 +22,13 @@ export const LayoutContainerWrapper = styled(Box)({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  padding: "0 16px",
-  [`@media(min-width: ${breakpoints.tablet}px)`]: {},
-  [`@media(min-width: ${breakpoints.desktop}px)`]: {},
+  padding: "40px 16px 0 16px",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    padding: "46.5px 16px 0 16px",
+  },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    padding: "62.5px 16px 0 16px",
+  },
 });
 
 export const LayoutContainerStyled = styled(Box)({
