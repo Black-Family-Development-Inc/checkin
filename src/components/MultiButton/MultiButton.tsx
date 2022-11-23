@@ -3,22 +3,22 @@ import React from "react";
 import {
   AllArticlesStyled,
   AnswerStyled,
-  AssessmentStyled,
   ExternalLinkStyled,
   NavButtonStyled,
   NextAndResultStyled,
   PhoneNumberStyled,
   PreviousStyled,
+  PrimaryStyled,
   ResultsPageSmallStyled,
-  UniversalStyled,
+  SecondaryStyled,
 } from "./MultiButton.styles";
 import { MultiButtonPropType } from "./MultiButton-types";
 
 const MultiButton = (props: MultiButtonPropType) => {
   const buttons = {
-    universal: <UniversalStyled>{props.label}</UniversalStyled>,
-    assessment: (
-      <AssessmentStyled onClick={props.onClick}>{props.label}</AssessmentStyled>
+    universal: <PrimaryStyled>{props.label}</PrimaryStyled>,
+    secondary: (
+      <SecondaryStyled onClick={props.onClick}>{props.label}</SecondaryStyled>
     ),
     answer: (
       <AnswerStyled
@@ -28,6 +28,9 @@ const MultiButton = (props: MultiButtonPropType) => {
       >
         {props.label}
       </AnswerStyled>
+    ),
+    universalAnswer: (
+      <SecondaryStyled onClick={props.onClick}>{props.label}</SecondaryStyled>
     ),
     next: (
       <NextAndResultStyled onClick={props.onClick}>

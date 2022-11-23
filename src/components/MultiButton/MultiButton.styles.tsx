@@ -9,44 +9,57 @@ const generalButtonStyles: Object = {
   minHeight: "48px",
   fontSize: "18px",
   fontWeight: 600,
-  color: color.purple.two,
-  border: [`2px solid ${color.purple.two}`],
-  backgroundColor: color.purple.four,
   borderRadius: "8px",
   lineHeight: "21.09px",
   letterSpacing: "0.46px",
   fontFamily: "Roboto",
   textTransform: "none",
   textDecorationLine: "none",
-  ":hover": {
-    backgroundColor: color.purple.three,
-    border: [`2px solid ${color.purple.two}`],
-  },
+};
+
+const generalButtonWidths: Object = {
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     width: maxWidths.tablet.buttons,
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
-    width: maxWidths.tablet.buttons,
+    width: maxWidths.desktop.buttons,
   },
 };
 
-export const StyledBox = styled(Box)({
-  width: "100%",
-  display: "flex",
-  justifyContent: "center",
-});
-
-export const AssessmentStyled = styled(Button)({
-  ...generalButtonStyles,
-});
-
-export const UniversalStyled = styled(Button)({
-  ...generalButtonStyles,
+const primaryButtonStyles: Object = {
   color: color.white,
   backgroundColor: color.purple.two,
   ":hover": {
     backgroundColor: color.purple.one,
   },
+};
+
+const secondaryButtonStyles: Object = {
+  color: color.purple.two,
+  border: [`2px solid ${color.purple.two}`],
+  backgroundColor: color.purple.four,
+  padding: "11.5px 14px",
+  ":hover": {
+    backgroundColor: color.purple.three,
+  },
+};
+
+export const PrimaryStyled = styled(Button)({
+  ...generalButtonStyles,
+  ...generalButtonWidths,
+  ...primaryButtonStyles,
+});
+
+export const SecondaryStyled = styled(Button)({
+  ...generalButtonStyles,
+  ...generalButtonWidths,
+  ...secondaryButtonStyles,
+});
+
+export const StyledBox = styled(Box)({
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
 });
 
 export const LinkStyled = styled(Link)({
@@ -67,7 +80,7 @@ export const AnswerStyled = styled(Button, {
   ...generalButtonStyles,
   width: "100%",
   maxWidth: maxWidths.mobile.buttons,
-  margin: "10px 0",
+  margin: "8px 0",
   color:
     props.usersCurrentAnswer === props.label ? color.white : color.teal.one,
   border:
@@ -88,25 +101,18 @@ export const AnswerStyled = styled(Button, {
   },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     maxWidth: maxWidths.tablet.buttons,
+    margin: "12px 0",
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     maxWidth: maxWidths.desktop.buttons,
+    margin: "16px 0",
   },
 }));
 
 export const NextAndResultStyled = styled(Button)({
+  ...generalButtonStyles,
+  ...primaryButtonStyles,
   width: "120px",
-  minHeight: "48px",
-  fontSize: "18px",
-  color: "white",
-  borderRadius: "8px",
-  backgroundColor: color.purple.two,
-  fontFamily: "Roboto",
-  fontWeight: 600,
-  textTransform: "none",
-  ":hover": {
-    backgroundColor: color.purple.one,
-  },
   alignSelf: "end",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     width: "172px",
@@ -114,15 +120,12 @@ export const NextAndResultStyled = styled(Button)({
 });
 
 export const PreviousStyled = styled(Button)({
+  ...generalButtonStyles,
   width: "55px",
-  height: "48px",
   fontSize: "14px",
   marginRight: "28px",
   color: color.purple.two,
-  borderRadius: "8px",
-  fontFamily: "Roboto",
   fontWeight: 500,
-  textTransform: "none",
   textDecorationLine: "underline",
   ":hover": {
     textDecorationLine: "underline",
@@ -130,51 +133,78 @@ export const PreviousStyled = styled(Button)({
 });
 
 export const NavButtonStyled = styled(Button)({
+  ...generalButtonStyles,
+  width: "fit-content",
   color: color.purple.two,
+  display: "flex",
+  alignItems: "flex-start",
   fontFamily: "Roboto",
   fontWeight: 500,
   fontSize: "14px",
   letterSpacing: "0.1px",
-  lineHeight: "16px",
-  height: "48px",
+  lineHeight: "16.41px",
   padding: "0",
   margin: "0",
-  textTransform: "none",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     fontSize: "16px",
     lineHeight: "19px",
     letterSpacing: "0.15px",
-    margin: " 0",
+    margin: "0",
   },
 });
 
 export const ResultsPageSmallStyled = styled(Button)({
   ...generalButtonStyles,
-  width: "162px",
+  ...secondaryButtonStyles,
+  width: "100%",
+});
+
+export const ResultsPageLeftLinkStyled = styled(Link)({
+  textDecoration: "none",
+  flex: 1,
+  marginRight: "8px",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    marginRight: "12px",
+  },
+});
+
+export const ResultsPageRightLinkStyled = styled(Link)({
+  textDecoration: "none",
+  flex: 1,
+  marginLeft: "8px",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    marginRight: "12px",
+  },
 });
 
 export const PhoneNumberStyled = styled(MuiLink, {
   shouldForwardProp: (prop) => preventDomList(prop),
 })<PhoneNumberStyledProps>((props) => ({
   ...generalButtonStyles,
-  background: props.type === "dark" ? "black" : "#E6E1E5",
+  ...generalButtonWidths,
+  background: props.type === "dark" ? color.purple.two : color.purple.four,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  color: props.type === "dark" ? "white" : "black",
-  height: 40,
-  marginBottom: 32,
+  color: props.type === "dark" ? color.white : color.purple.two,
   padding: 0,
+  border: props.type === "dark" ? "none" : `2px solid ${color.purple.two}`,
+  ":hover": {
+    backgroundColor:
+      props.type === "dark" ? color.purple.one : color.purple.three,
+    border: props.type === "dark" ? "none" : [`2px solid ${color.purple.two}`],
+    color: props.type === "dark" ? color.white : color.purple.two,
+  },
 }));
 
 export const ExternalLinkStyled = styled(MuiLink)({
   ...generalButtonStyles,
+  ...generalButtonWidths,
+  ...primaryButtonStyles,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   padding: 0,
-  color: "white",
-  backgroundColor: "black",
 });
 
 export const AllArticlesStyled = styled(Link)``;

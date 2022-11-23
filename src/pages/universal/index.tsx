@@ -1,7 +1,8 @@
-import { graphql, Link, PageProps } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import React from "react";
 import { Header } from "../../components/Header";
 import MultiButton from "../../components/MultiButton/MultiButton";
+import { LinkStyled } from "../../components/MultiButton/MultiButton.styles";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { Paragraph } from "../../components/Paragraph";
 import { setHeadTitle } from "../../globalFunctions/setHeadTitle";
@@ -28,7 +29,7 @@ const UniversalAssessmentPage = ({
         <Paragraph>{description}</Paragraph>
 
         {buttons.map(({ label, universalResultPage }) => (
-          <Link
+          <LinkStyled
             key={label}
             to={`/universal/results/${universalResultPage.title.toLocaleLowerCase()}`}
             state={{
@@ -36,8 +37,8 @@ const UniversalAssessmentPage = ({
               startingPage: stepperPages.universal,
             }}
           >
-            <MultiButton version="answer" label={label} />
-          </Link>
+            <MultiButton version="universalAnswer" label={label} />
+          </LinkStyled>
         ))}
       </AssessmentLayout>
     </>
