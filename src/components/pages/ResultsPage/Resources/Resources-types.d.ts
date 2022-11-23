@@ -9,8 +9,8 @@ export type ResourcesTypes = {
   crisisHotlineButton: ButtonPhoneNumber;
   articlesDescription: string;
   allArticles: AllArticles[];
-  assessmentType: string;
   assessmentSeverity?: string;
+  shouldRenderCrisisInfo: boolean;
 };
 
 type ButtonPhoneNumber = {
@@ -18,7 +18,7 @@ type ButtonPhoneNumber = {
   phoneNumber: string;
 };
 
-type AllArticles = {
+export type AllArticles = {
   type: string;
   label: string;
   icon: {
