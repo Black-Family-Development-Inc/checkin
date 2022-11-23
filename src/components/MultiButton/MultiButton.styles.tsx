@@ -78,8 +78,9 @@ export const AnswerStyled = styled(Button, {
   shouldForwardProp: (prop) => preventDomList(prop),
 })<AnswerStyledProps>((props) => ({
   ...generalButtonStyles,
-  ...generalButtonWidths,
-  margin: "10px 0",
+  width: "100%",
+  maxWidth: maxWidths.mobile.buttons,
+  margin: "8px 0",
   color:
     props.usersCurrentAnswer === props.label ? color.white : color.teal.one,
   border:
@@ -97,6 +98,14 @@ export const AnswerStyled = styled(Button, {
       props.usersCurrentAnswer === props.label
         ? "0"
         : `2px solid ${color.teal.two}`,
+  },
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    maxWidth: maxWidths.tablet.buttons,
+    margin: "12px 0",
+  },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    maxWidth: maxWidths.desktop.buttons,
+    margin: "16px 0",
   },
 }));
 
@@ -127,6 +136,9 @@ export const NavButtonStyled = styled(Button)({
   ...generalButtonStyles,
   width: "fit-content",
   color: color.purple.two,
+  display: "flex",
+  alignItems: "flex-start",
+  fontFamily: "Roboto",
   fontWeight: 500,
   fontSize: "14px",
   letterSpacing: "0.1px",
