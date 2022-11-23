@@ -11,9 +11,5 @@ export type AccordionPropTypes = {
   assessmentScore?: number;
   assessmentSeverity?: string;
   scoreTable?: string[];
-  score?: {
-    assessmentScore: number;
-    maxScore: number;
-    assessmentSeverity: string;
-  };
+  scoreAndSeverity?: string;
 };
