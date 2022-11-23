@@ -8,14 +8,14 @@ export const AnswerButtonGroupStyled = styled(ButtonGroup)({
   alignItems: "center",
   justifyContent: "center",
   alignSelf: "center",
+  marginBottom: 20,
   width: "100%",
   maxWidth: maxWidths.mobile.buttons,
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    width: "100%",
     maxWidth: maxWidths.tablet.buttons,
+    marginBottom: 36,
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
-    width: "100%",
     maxWidth: maxWidths.desktop.buttons,
   },
 });
