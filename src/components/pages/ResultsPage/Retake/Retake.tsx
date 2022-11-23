@@ -1,6 +1,10 @@
 import React from "react";
 import MultiButton from "../../../MultiButton/MultiButton";
-import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
+import {
+  ResultsPageLeftLinkStyled,
+  ResultsPageRightLinkStyled,
+} from "../../../MultiButton/MultiButton.styles";
+// import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
 import { Paragraph } from "../../../Paragraph";
 import { TestimonialSection } from "../../../Testimonial";
 import { RetakeAndStartOverStyled } from "./Retake.styles";
@@ -19,12 +23,14 @@ const RetakeSection = ({
     <>
       <Paragraph>{retakeDescription}</Paragraph>
       <RetakeAndStartOverStyled>
-        <LinkStyled to={retakeButtonLink + assessmentType?.toLowerCase()}>
+        <ResultsPageLeftLinkStyled
+          to={retakeButtonLink + assessmentType?.toLowerCase()}
+        >
           <MultiButton version="retake" label={retakeButtonText} />
-        </LinkStyled>
-        <LinkStyled to={startOverButtonLink}>
+        </ResultsPageLeftLinkStyled>
+        <ResultsPageRightLinkStyled to={startOverButtonLink}>
           <MultiButton version="startOver" label={startOverButtonText} />
-        </LinkStyled>
+        </ResultsPageRightLinkStyled>
       </RetakeAndStartOverStyled>
       <TestimonialSection {...testimonialSection} />
     </>
