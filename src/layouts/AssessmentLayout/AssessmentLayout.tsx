@@ -42,7 +42,7 @@ const AssessmentLayout = ({
   return (
     <>
       <NavBar />
-      <LayoutContainerWrapper isAssessmentLayout className="assessment">
+      <LayoutContainerWrapper isAssessmentLayout>
         <LayoutContainerStyled>
           <NavButtonContainerStyled>{getNavButton()}</NavButtonContainerStyled>
           <AssessmentStepper
