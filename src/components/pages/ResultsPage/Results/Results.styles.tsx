@@ -1,5 +1,6 @@
 import { Box, Link } from "@mui/material";
 import { styled } from "@mui/system";
+import { Paragraph } from "../../../Paragraph";
 
 export const UpperParagraphContainer = styled(Box)({
   marginTop: "12px",
@@ -31,4 +32,8 @@ export const TextContainer = styled(Box)({
 export const EmailExternalLinkStyled = styled(Link)({
   color: "black",
   textDecorationColor: "black",
+});
+
+export const ResultScoreParagraphStyled = styled(Paragraph)({
+  fontWeight: "500 !important",
 });
