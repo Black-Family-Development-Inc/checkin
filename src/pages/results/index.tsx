@@ -22,13 +22,12 @@ const ResultsPage = ({
   const {
     assessmentScore,
     severityRubric,
-    triggered,
+    triggered = false,
     startingPage,
     assessmentType,
     maxScore,
-    triggered,
   } = state || {};
-  const [alertOpen, setAlertOpen] = useState(triggered || false);
+  const [alertOpen, setAlertOpen] = useState(triggered);
 
   const {
     resultsHeader,
