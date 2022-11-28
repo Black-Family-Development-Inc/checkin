@@ -128,9 +128,11 @@ const ResultsPage = ({
       handleAlert={setAlertOpen}
       alertMSG={
         <>
-          Because of your response, BFDI is here to help you right away. Please
-          contact one of our caring staff at 1-844-SEE-HOPE (
-          <a href="tel:1-844-773-4673">1-844-773-4673</a>).
+          {crisisWarningMessage} (
+          <a href={`tel:${crisisWarningPhoneNumber}`}>
+            {crisisWarningPhoneNumber}
+          </a>
+          ).
         </>
       }
     >
