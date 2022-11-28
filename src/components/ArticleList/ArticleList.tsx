@@ -23,7 +23,11 @@ const ArticleList = ({ articles, icon }: ArticleListType) => {
               <ListItemIconStyled>
                 <img src={icon.url} alt="icon" />
               </ListItemIconStyled>
-              <ListItemTextStyled primary={title} secondary={`${source} -`} />
+              <ListItemTextStyled
+                primary={title}
+                secondary={`${source} -`}
+                title={title}
+              />
             </ListItemStyled>
             {articles.length !== index + 1 && <Divider />}
           </LinkStyled>
