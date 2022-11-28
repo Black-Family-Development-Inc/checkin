@@ -6,6 +6,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
+import { breakpoints } from "../../styles/theme";
 
 export const ListStyled = styled(List)({
   marginBottom: 38,
@@ -21,19 +22,35 @@ export const ListItemStyled = styled(ListItem)({
   alignItems: "flex-start",
   justifyContent: "flex-start",
   padding: 0,
+  margin: "16px 0",
 });
 
 export const ListItemIconStyled = styled(ListItemIcon)({
-  marginTop: 4,
-  marginRight: 8,
+  marginTop: "3px",
+  marginRight: "12px",
   minWidth: 0,
 });
 
 export const ListItemTextStyled = styled(ListItemText)({
+  margin: 0,
   span: {
     fontWeight: 700,
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    fontSize: "16px",
+    lineHeight: "19px",
+    [`@media(min-width: ${breakpoints.tablet}px)`]: {
+      fontSize: "18px",
+      lineHeight: "21px",
+    },
   },
   p: {
-    fontSize: 14,
+    fontSize: "14px",
+    lineHeight: "16px",
+    [`@media(min-width: ${breakpoints.tablet}px)`]: {
+      fontSize: "16px",
+      lineHeight: "19px",
+    },
   },
 });
