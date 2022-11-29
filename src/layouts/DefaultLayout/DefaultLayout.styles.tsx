@@ -1,36 +1,50 @@
 import styled from "@emotion/styled";
 import { breakpoints, color, maxWidths } from "../../styles/theme";
-import { LayoutContainerWrapperTypes } from "./DefaultLayout-types.d";
 
-export const LayoutContainerWrapper = styled.div(
-  (props: LayoutContainerWrapperTypes) => ({
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: `${props.isAssessmentLayout ? "32px" : "88px"} 6px 0px`,
-    background: color.teal.five,
-
+export const LayoutContainerWrapper = styled.div({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  padding: "80px 16px 0px",
+  background: color.teal.five,
+  ".button-container": {
+    width: maxWidths.mobile.buttons,
+    margin: "0 auto",
+    a: {
+      marginBottom: "16px",
+    },
+  },
+  "&.nav-button": {
+    paddingTop: "40px",
+  },
+  "&.error": {
+    paddingTop: "56px",
+  },
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    padding: "88px 112px 0px",
     ".button-container": {
-      width: maxWidths.mobile.buttons,
-      margin: "0 auto",
-      a: {
-        marginBottom: "16px",
-      },
+      width: maxWidths.tablet.buttons,
     },
-    [`@media(min-width: ${breakpoints.tablet}px)`]: {
-      padding: `${props.isAssessmentLayout ? "46px" : "88px"} 102px 0px`,
-      ".button-container": {
-        width: maxWidths.tablet.buttons,
-      },
+    "&.nav-button": {
+      paddingTop: "46px",
     },
-    [`@media(min-width: ${breakpoints.desktop}px)`]: {
-      padding: `${props.isAssessmentLayout ? "62px" : "104px"} 152px 0px`,
-      ".button-container": {
-        width: maxWidths.desktop.buttons,
-      },
+    "&.error": {
+      paddingTop: "80px",
     },
-  }),
-);
+  },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    padding: "104px 162px 0px",
+    ".button-container": {
+      width: maxWidths.desktop.buttons,
+    },
+    "&.nav-button": {
+      paddingTop: "62px",
+    },
+    "&.error": {
+      paddingTop: "104px",
+    },
+  },
+});
 
 export const LayoutContainerStyled = styled("div")({
   background: color.teal.five,

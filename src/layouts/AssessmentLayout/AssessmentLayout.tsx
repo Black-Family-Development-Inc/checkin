@@ -1,15 +1,9 @@
 import React from "react";
-import Footer from "../../components/Footer/Footer";
-import NavBar from "../../components/NavBar/NavBar";
 import NavButton from "../../components/NavButton/NavButton";
 import { AssessmentStepper } from "../../components/pages/AssessmentsPage";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
-import {
-  AssessmentLayoutContainer,
-  LayoutContainerStyled,
-  LayoutContainerWrapper,
-  NavButtonContainerStyled,
-} from "./AssessmentLayout.styles";
+import DefaultLayout from "../DefaultLayout/DefaultLayout";
+import { NavButtonContainerStyled } from "./AssessmentLayout.styles";
 import { AssessmentLayoutPropTypes } from "./AssessmentLayout-types";
 
 const AssessmentLayout = ({
@@ -41,20 +35,14 @@ const AssessmentLayout = ({
   };
 
   return (
-    <AssessmentLayoutContainer>
-      <NavBar />
-      <LayoutContainerWrapper>
-        <LayoutContainerStyled>
-          <NavButtonContainerStyled>{getNavButton()}</NavButtonContainerStyled>
-          <AssessmentStepper
-            currentPage={currentPage}
-            startingPage={startingPageProp}
-          />
-          {children}
-        </LayoutContainerStyled>
-      </LayoutContainerWrapper>
-      <Footer />
-    </AssessmentLayoutContainer>
+    <DefaultLayout variant="nav-button">
+      <NavButtonContainerStyled>{getNavButton()}</NavButtonContainerStyled>
+      <AssessmentStepper
+        currentPage={currentPage}
+        startingPage={startingPageProp}
+      />
+      {children}
+    </DefaultLayout>
   );
 };
 

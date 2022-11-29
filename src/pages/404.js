@@ -6,7 +6,7 @@ const NotFoundPage = () => {
   return (
     <main>
       <title>Page Not found</title>
-      <DefaultLayout>
+      <DefaultLayout variant="error">
         <ErrorComp />
       </DefaultLayout>
     </main>
