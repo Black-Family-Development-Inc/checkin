@@ -5,6 +5,8 @@ import { breakpoints } from "../../styles/theme";
 export const LinkStyled = styled(Link)({
   textDecorationLine: "none",
   height: "48px",
+  marginTop: "24px",
+  marginBottom: "10px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     marginTop: "32px",
   },

@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import { Header } from "../../../components/Header";
@@ -5,8 +6,11 @@ import MultiButton from "../../../components/MultiButton/MultiButton";
 import { LinkStyled } from "../../../components/MultiButton/MultiButton.styles";
 import { stepperPages } from "../../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import {
+  BottomParagraphSpacing,
+  CallBFDIContainer,
   DividerStyled,
-  FlexCenterContainer,
+  MiddleParagraphSpacing,
+  TopParagraphSpacing,
 } from "../../../components/pages/UniversalQuestions/UniversalQuestionsResultsPage.styles";
 import { Paragraph } from "../../../components/Paragraph";
 import { setHeadTitle } from "../../../globalFunctions/setHeadTitle";
@@ -58,17 +62,20 @@ const UniversalQuestionResultsPage = ({
       currentPage={stepperPages.universal}
       startingPage={stepperPages.universal}
     >
-      <Header text={header} variant="h2" />
-      <Paragraph>{pageDescription}</Paragraph>
+      <Box sx={{ marginTop: "56px" }}>
+        <Header text={header} variant="h2" />
+        <TopParagraphSpacing>
+          <Paragraph>{pageDescription}</Paragraph>
+        </TopParagraphSpacing>
 
-      <FlexCenterContainer>{getDynamicButton()}</FlexCenterContainer>
+        {getDynamicButton()}
 
-      <FlexCenterContainer>
         <DividerStyled />
-      </FlexCenterContainer>
 
-      <Paragraph>{firstStaticButtonDescription}</Paragraph>
-      <FlexCenterContainer>
+        <MiddleParagraphSpacing>
+          <Paragraph>{firstStaticButtonDescription}</Paragraph>
+        </MiddleParagraphSpacing>
+
         <LinkStyled
           to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}
         >
@@ -77,17 +84,20 @@ const UniversalQuestionResultsPage = ({
             label={firstStaticButton?.buttonText}
           />
         </LinkStyled>
-      </FlexCenterContainer>
 
-      <Paragraph>{secondStaticButtonDescription}</Paragraph>
-      <FlexCenterContainer>
-        <MultiButton
-          version="phoneNumber"
-          label="Call BFDI"
-          phoneNumber={secondStaticButton?.phoneNumber}
-          type="light"
-        />
-      </FlexCenterContainer>
+        <BottomParagraphSpacing>
+          <Paragraph>{secondStaticButtonDescription}</Paragraph>
+        </BottomParagraphSpacing>
+
+        <CallBFDIContainer>
+          <MultiButton
+            version="phoneNumber"
+            label="Call BFDI"
+            phoneNumber={secondStaticButton?.phoneNumber}
+            type="light"
+          />
+        </CallBFDIContainer>
+      </Box>
     </AssessmentLayout>
   );
 };
