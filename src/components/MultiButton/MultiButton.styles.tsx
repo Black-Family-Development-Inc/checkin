@@ -19,7 +19,7 @@ const generalButtonStyles: Object = {
 
 const generalButtonWidths: Object = {
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    width: maxWidths.tablet.buttons,
+    maxWidth: maxWidths.tablet.buttons,
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     width: maxWidths.desktop.buttons,

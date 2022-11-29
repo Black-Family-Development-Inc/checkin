@@ -5,10 +5,11 @@ import NavButton from "../../components/NavButton/NavButton";
 import { AssessmentStepper } from "../../components/pages/AssessmentsPage";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import {
+  AssessmentLayoutContainer,
   LayoutContainerStyled,
   LayoutContainerWrapper,
-} from "../DefaultLayout/DefaultLayout.styles";
-import { NavButtonContainerStyled } from "./AssessmentLayout.styles";
+  NavButtonContainerStyled,
+} from "./AssessmentLayout.styles";
 import { AssessmentLayoutPropTypes } from "./AssessmentLayout-types";
 
 const AssessmentLayout = ({
@@ -40,9 +41,9 @@ const AssessmentLayout = ({
   };
 
   return (
-    <>
+    <AssessmentLayoutContainer>
       <NavBar />
-      <LayoutContainerWrapper isAssessmentLayout>
+      <LayoutContainerWrapper>
         <LayoutContainerStyled>
           <NavButtonContainerStyled>{getNavButton()}</NavButtonContainerStyled>
           <AssessmentStepper
@@ -53,7 +54,7 @@ const AssessmentLayout = ({
         </LayoutContainerStyled>
       </LayoutContainerWrapper>
       <Footer />
-    </>
+    </AssessmentLayoutContainer>
   );
 };
 
