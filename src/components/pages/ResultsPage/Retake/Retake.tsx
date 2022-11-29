@@ -1,13 +1,13 @@
 import React from "react";
 import MultiButton from "../../../MultiButton/MultiButton";
-import {
-  ResultsPageLeftLinkStyled,
-  ResultsPageRightLinkStyled,
-} from "../../../MultiButton/MultiButton.styles";
-// import { LinkStyled } from "../../../MultiButton/MultiButton.styles";
 import { Paragraph } from "../../../Paragraph";
 import { TestimonialSection } from "../../../Testimonial";
-import { RetakeAndStartOverStyled } from "./Retake.styles";
+import {
+  LeftLinkStyled,
+  ParagraphSpacing,
+  RetakeAndStartOverContainer,
+  RightLinkStyled,
+} from "./Retake.styles";
 import { RetakeTypes } from "./Retake-types";
 
 const RetakeSection = ({
@@ -21,17 +21,17 @@ const RetakeSection = ({
 }: RetakeTypes) => {
   return (
     <>
-      <Paragraph>{retakeDescription}</Paragraph>
-      <RetakeAndStartOverStyled>
-        <ResultsPageLeftLinkStyled
-          to={retakeButtonLink + assessmentType?.toLowerCase()}
-        >
+      <ParagraphSpacing>
+        <Paragraph>{retakeDescription}</Paragraph>
+      </ParagraphSpacing>
+      <RetakeAndStartOverContainer>
+        <LeftLinkStyled to={retakeButtonLink + assessmentType?.toLowerCase()}>
           <MultiButton version="retake" label={retakeButtonText} />
-        </ResultsPageLeftLinkStyled>
-        <ResultsPageRightLinkStyled to={startOverButtonLink}>
+        </LeftLinkStyled>
+        <RightLinkStyled to={startOverButtonLink}>
           <MultiButton version="startOver" label={startOverButtonText} />
-        </ResultsPageRightLinkStyled>
-      </RetakeAndStartOverStyled>
+        </RightLinkStyled>
+      </RetakeAndStartOverContainer>
       <TestimonialSection {...testimonialSection} />
     </>
   );

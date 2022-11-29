@@ -159,24 +159,6 @@ export const ResultsPageSmallStyled = styled(Button)({
   width: "100%",
 });
 
-export const ResultsPageLeftLinkStyled = styled(Link)({
-  textDecoration: "none",
-  flex: 1,
-  marginRight: "8px",
-  [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    marginRight: "12px",
-  },
-});
-
-export const ResultsPageRightLinkStyled = styled(Link)({
-  textDecoration: "none",
-  flex: 1,
-  marginLeft: "8px",
-  [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    marginRight: "12px",
-  },
-});
-
 export const PhoneNumberStyled = styled(MuiLink, {
   shouldForwardProp: (prop) => preventDomList(prop),
 })<PhoneNumberStyledProps>((props) => ({
