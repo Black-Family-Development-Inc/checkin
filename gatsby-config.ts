@@ -44,10 +44,10 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Black Family Development, Inc`,
-        short_name: `BFDI`,
+        name: `Hope is Here at BFDI`,
+        short_name: `Hope Is Here`,
         // eslint-disable-next-line max-len
-        description: `A Progressive Web App contantaing forms to fill out for self-evaluating mental health status.`,
+        description: `Check in on your mental health with BFDI’s Hope is Here app.`,
         start_url: `/`,
         background_color: `#f7f0eb`,
         theme_color: `#a2466c`,
