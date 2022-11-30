@@ -6,7 +6,7 @@ const serverError = () => {
   return (
     <main>
       <title>Server Error</title>
-      <DefaultLayout>
+      <DefaultLayout variant="error">
         <ErrorComp />
       </DefaultLayout>
     </main>

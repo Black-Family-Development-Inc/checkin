@@ -1,15 +1,10 @@
 import Box from "@mui/material/Box/Box";
 import React from "react";
 import { Alert } from "../../components/Alert";
-import Footer from "../../components/Footer/Footer";
-import NavBar from "../../components/NavBar/NavBar";
 import NavButton from "../../components/NavButton/NavButton";
 import { AssessmentStepper } from "../../components/pages/AssessmentsPage";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
-import {
-  LayoutContainerStyled,
-  LayoutContainerWrapper,
-} from "../DefaultLayout/DefaultLayout.styles";
+import DefaultLayout from "../DefaultLayout/DefaultLayout";
 import { NavButtonContainerStyled } from "./AssessmentLayout.styles";
 import { AssessmentLayoutPropTypes } from "./AssessmentLayout-types";
 
@@ -45,30 +40,21 @@ const AssessmentLayout = ({
   };
 
   return (
-    <>
-      <NavBar />
-      <LayoutContainerWrapper isAssessmentLayout>
-        <LayoutContainerStyled>
-          <Box sx={{ position: "relative" }}>
-            <Alert
-              alertMSG={alertMSG}
-              isOpen={isAlertOpen}
-              handleAlert={handleAlert}
-            />
-            <NavButtonContainerStyled>
-              {getNavButton()}
-            </NavButtonContainerStyled>
-
-            <AssessmentStepper
-              currentPage={currentPage}
-              startingPage={startingPageProp}
-            />
-          </Box>
-          {children}
-        </LayoutContainerStyled>
-      </LayoutContainerWrapper>
-      <Footer />
-    </>
+    <DefaultLayout variant="nav-button">
+      <Box sx={{ position: "relative" }}>
+        <Alert
+          alertMSG={alertMSG}
+          isOpen={isAlertOpen}
+          handleAlert={handleAlert}
+        />
+        <NavButtonContainerStyled>{getNavButton()}</NavButtonContainerStyled>
+        <AssessmentStepper
+          currentPage={currentPage}
+          startingPage={startingPageProp}
+        />
+      </Box>
+      {children}
+    </DefaultLayout>
   );
 };
 
