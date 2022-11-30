@@ -8,7 +8,7 @@ import MultiButton from "../MultiButton/MultiButton";
 import { Paragraph } from "../Paragraph";
 import { BoxStyled } from "../Testimonial/TestimonialSection.styles";
 
-const Error = () => {
+const ErrorComp = () => {
   return (
     <DefaultLayout>
       <HeaderStyled error variant="h1">
@@ -83,4 +83,4 @@ const Error = () => {
   );
 };
 
-export default Error;
+export default ErrorComp;
