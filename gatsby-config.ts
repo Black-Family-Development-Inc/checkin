@@ -1,4 +1,5 @@
 require("dotenv").config();
+import { color } from "./src/styles/theme"
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
@@ -47,10 +48,10 @@ const config: GatsbyConfig = {
         name: `Hope is Here at BFDI`,
         short_name: `Hope Is Here`,
         // eslint-disable-next-line max-len
-        description: `Check in on your mental health with BFDI’s Hope is Here app.`,
+        description: `Check in on your mental health with BFDI's Hope is Here app.`,
         start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
+        background_color: `${color.teal.five}`,
+        theme_color: `${color.purple.two}`,
         display: `standalone`,
         icon: `src/images/icon.png`,
         icons: [
