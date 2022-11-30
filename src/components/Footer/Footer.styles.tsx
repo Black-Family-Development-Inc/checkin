@@ -8,6 +8,7 @@ export const FooterStyled = styled("footer")({
   ".footer-link": {
     marginBottom: "17px",
     display: "inline-block",
+    height: "48px",
   },
 
   p: {
