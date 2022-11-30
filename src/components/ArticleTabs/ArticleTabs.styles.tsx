@@ -11,6 +11,9 @@ export const TabsStyled = styled(Tabs)({
     borderRadius: "4px 4px 0 0",
     backgroundColor: color.teal.two,
     minHeight: "32px",
+    [`@media(max-width: 374px)`]: {
+      minHeight: "50px",
+    },
   },
   ".MuiTab-root": {
     flex: 1,
@@ -21,10 +24,14 @@ export const TabsStyled = styled(Tabs)({
     letterSpacing: "0.1px",
     color: color.gray.one,
     fontWeight: 500,
-    height: "48px",
+    minHeight: "48px",
     transition: "color 0s linear .10s",
     zIndex: 1,
     justifyContent: "flex-end",
+    [`@media(max-width: 374px)`]: {
+      display: "flex",
+      justifyContent: "center",
+    },
   },
   ".MuiTab-root.Mui-selected": {
     color: color.white,
