@@ -10,7 +10,7 @@ import { BoxStyled } from "../Testimonial/TestimonialSection.styles";
 
 const ErrorComp = () => {
   return (
-    <DefaultLayout>
+    <DefaultLayout error>
       <HeaderStyled error variant="h1">
         Oops!
       </HeaderStyled>
