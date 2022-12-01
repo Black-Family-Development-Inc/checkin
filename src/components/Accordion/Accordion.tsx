@@ -1,9 +1,9 @@
-import { INLINES } from "@contentful/rich-text-types";
+import { Block, Inline, INLINES } from "@contentful/rich-text-types";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Box, Collapse, Typography } from "@mui/material";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import React from "react";
 import MultiButton from "../MultiButton/MultiButton";
 import { Paragraph } from "../Paragraph";
@@ -35,7 +35,7 @@ const Accordion = ({
 
   const options = {
     renderNode: {
-      [INLINES.HYPERLINK]: (node: any, children: any) => {
+      [INLINES.HYPERLINK]: (node: Block | Inline, children: ReactNode) => {
         const { uri } = node.data;
         return (
           <MultiButton
