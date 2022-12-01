@@ -1,5 +1,6 @@
 import React from "react";
 import ErrorSVG from "../../images/Error_page.svg";
+import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
 import { breakpoints } from "../../styles/theme";
 import { HeaderStyled } from "../Header/Header.styles";
 import { ImageStyled } from "../Image/img.styles";
@@ -9,7 +10,7 @@ import { BoxStyled } from "../Testimonial/TestimonialSection.styles";
 
 const ErrorComp = () => {
   return (
-    <>
+    <DefaultLayout variant="error">
       <HeaderStyled error variant="h1">
         Oops!
       </HeaderStyled>
@@ -78,7 +79,7 @@ const ErrorComp = () => {
         }{" "}
         to learn more about what we do.
       </Paragraph>
-    </>
+    </DefaultLayout>
   );
 };
 
