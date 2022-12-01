@@ -53,12 +53,12 @@ const ArticleTabs = ({ allArticles, assessmentType }: ArticleTabsProps) => {
       <TabHRStyled />
 
       {allArticles &&
-        allArticles.map((article) => {
+        allArticles.map((article, i: number) => {
           return (
             <TabPanel
               selectedTab={selectedTab}
               tab={article.type}
-              key={`article-${article.type}`}
+              key={`article-${article.type} - ${i}`}
             >
               <ArticleList articles={article.articles} icon={article.icon} />
             </TabPanel>

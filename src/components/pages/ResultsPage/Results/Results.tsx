@@ -52,8 +52,9 @@ const Results = ({
     ? `${crisisWarningMessage} (${crisisWarningPhoneNumber})%0D%0A%0D%0A`
     : "";
   const scoreAndSeverity = `Score: ${assessmentScore}/${maxScore} [${assessmentSeverity}-Symptoms]`;
+
   const assessmentSpecificArticles = allArticles.find(
-    (element) => (element.type = assessmentType),
+    (element) => element.type === assessmentType,
   )?.articles;
   let symptomsDescription = "";
   if (accordionData?.description !== undefined) {
