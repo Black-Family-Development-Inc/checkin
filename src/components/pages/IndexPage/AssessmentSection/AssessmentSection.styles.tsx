@@ -33,6 +33,7 @@ export const AssessmentQuestionBoxStyled = styled(Box)({
 
 export const AssessmentQuestionStyled = styled(Box)({
   marginBottom: "56px",
+  scrollMarginTop: "-1px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     marginBottom: "80px",
   },

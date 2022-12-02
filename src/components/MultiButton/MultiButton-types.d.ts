@@ -11,11 +11,12 @@ export type MultiButtonPropType = {
 };
 
 type Versions =
-  | "assessment"
+  | "secondary"
   | "next"
   | "previous"
   | "results"
   | "answer"
+  | "universalAnswer"
   | "universal"
   | "retake"
   | "startOver"
