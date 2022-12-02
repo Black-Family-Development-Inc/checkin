@@ -5,7 +5,7 @@ export const LayoutContainerWrapper = styled.div({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  padding: "80px 16px 0px",
+  padding: "80px 16px 80px",
   background: color.teal.five,
   ".button-container": {
     maxWidth: maxWidths.mobile.buttons,
@@ -21,7 +21,7 @@ export const LayoutContainerWrapper = styled.div({
     paddingTop: "56px",
   },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    padding: "88px 112px 0px",
+    padding: "88px 112px 88px",
     ".button-container": {
       maxWidth: maxWidths.tablet.buttons,
     },
@@ -33,7 +33,7 @@ export const LayoutContainerWrapper = styled.div({
     },
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
-    padding: "104px 162px 0px",
+    padding: "104px 162px 104px",
     ".button-container": {
       maxWidth: maxWidths.desktop.buttons,
     },
