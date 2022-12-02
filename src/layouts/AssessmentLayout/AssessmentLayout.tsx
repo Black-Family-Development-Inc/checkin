@@ -1,4 +1,6 @@
+import Box from "@mui/material/Box/Box";
 import React from "react";
+import { Alert } from "../../components/Alert";
 import NavButton from "../../components/NavButton/NavButton";
 import { AssessmentStepper } from "../../components/pages/AssessmentsPage";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
@@ -11,6 +13,9 @@ const AssessmentLayout = ({
   currentPage,
   startingPage,
   assessmentTitle,
+  isAlertOpen = false,
+  handleAlert,
+  alertMSG,
 }: AssessmentLayoutPropTypes) => {
   const startingPageProp = startingPage || "";
 
@@ -36,11 +41,18 @@ const AssessmentLayout = ({
 
   return (
     <DefaultLayout variant="nav-button">
-      <NavButtonContainerStyled>{getNavButton()}</NavButtonContainerStyled>
-      <AssessmentStepper
-        currentPage={currentPage}
-        startingPage={startingPageProp}
-      />
+      <Box sx={{ position: "relative" }}>
+        <Alert
+          alertMSG={alertMSG}
+          isOpen={isAlertOpen}
+          handleAlert={handleAlert}
+        />
+        <NavButtonContainerStyled>{getNavButton()}</NavButtonContainerStyled>
+        <AssessmentStepper
+          currentPage={currentPage}
+          startingPage={startingPageProp}
+        />
+      </Box>
       {children}
     </DefaultLayout>
   );
