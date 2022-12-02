@@ -7,7 +7,7 @@ export const AssessmentPageStyled = styled(Box)({
   alignItems: "center",
   justifyContent: "center",
   flexDirection: "column",
-  padding: "10px",
+  padding: "10px 0",
 });
 
 export const QuestionStyled = styled(Box)({

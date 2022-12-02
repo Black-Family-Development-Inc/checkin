@@ -8,13 +8,17 @@ import {
 
 type DefaultLayoutPropTypes = {
   children: ReactNode;
+  variant?: "home" | "nav-button" | "error";
 };
 
-const DefaultLayout = ({ children }: DefaultLayoutPropTypes) => {
+const DefaultLayout = ({
+  children,
+  variant = "home",
+}: DefaultLayoutPropTypes) => {
   return (
     <>
       <NavBar />
-      <LayoutContainerWrapper>
+      <LayoutContainerWrapper className={variant}>
         <LayoutContainerStyled>{children}</LayoutContainerStyled>
       </LayoutContainerWrapper>
       <Footer />
