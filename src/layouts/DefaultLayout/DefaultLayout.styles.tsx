@@ -7,11 +7,15 @@ export const LayoutContainerWrapper = styled.div(
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: `${props.isAssessmentLayout ? "40px" : "88px"} 6px 0px`,
+    padding: `${
+      props.isAssessmentLayout ? "40px" : props.error ? "56px" : "88px"
+    } 6px 0px`,
     background: color.teal.five,
 
     [`@media(min-width: ${breakpoints.tablet}px)`]: {
-      padding: `${props.isAssessmentLayout ? "46px" : "88px"} 102px 0px`,
+      padding: `${
+        props.isAssessmentLayout ? "46px" : props.error ? "80px" : "88px"
+      } 102px 0px`,
     },
     [`@media(min-width: ${breakpoints.desktop}px)`]: {
       padding: `${props.isAssessmentLayout ? "62px" : "104px"} 152px 0px`,
