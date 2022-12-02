@@ -5,11 +5,12 @@ export const LayoutContainerWrapper = styled.div({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  padding: "80px 16px 0px",
+  padding: "80px 16px 0",
   background: color.teal.five,
   ".button-container": {
-    width: maxWidths.mobile.buttons,
+    maxWidth: maxWidths.mobile.buttons,
     margin: "0 auto",
+    paddingBottom: "80px",
     a: {
       marginBottom: "16px",
     },
@@ -21,9 +22,10 @@ export const LayoutContainerWrapper = styled.div({
     paddingTop: "56px",
   },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    padding: "88px 112px 0px",
+    padding: "88px 112px 0",
     ".button-container": {
-      width: maxWidths.tablet.buttons,
+      maxWidth: maxWidths.tablet.buttons,
+      paddingBottom: "88px",
     },
     "&.nav-button": {
       paddingTop: "46px",
@@ -33,9 +35,10 @@ export const LayoutContainerWrapper = styled.div({
     },
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
-    padding: "104px 162px 0px",
+    padding: "104px 162px 0",
     ".button-container": {
-      width: maxWidths.desktop.buttons,
+      maxWidth: maxWidths.desktop.buttons,
+      paddingBottom: "104px",
     },
     "&.nav-button": {
       paddingTop: "62px",
