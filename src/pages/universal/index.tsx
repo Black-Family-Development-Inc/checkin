@@ -35,7 +35,6 @@ const UniversalAssessmentPage = ({
         >
           {question}
         </Paragraph>
-
         <Box className="button-container">
           {buttons.map(({ label, universalResultPage }) => (
             <LinkStyled
