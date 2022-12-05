@@ -11,6 +11,7 @@ const AssessmentPrevNext = ({
   nextDisabled,
   resultsDisabled,
   handleResultsClick,
+  handleAlert,
 }: AssessmentPrevNextProps) => {
   const clamp = (num: number) =>
     Math.min(Math.max(num, 0), questionsLength - 1);
@@ -35,13 +36,17 @@ const AssessmentPrevNext = ({
           <MultiButton
             version="results"
             label="Submit"
-            onClick={resultsDisabled ? () => {} : handleResultsClick}
+            onClick={() =>
+              resultsDisabled ? handleAlert(true) : handleResultsClick()
+            }
           />
         ) : (
           <MultiButton
             version="next"
             label="Next"
-            onClick={nextDisabled ? () => {} : handleNextClick}
+            onClick={() =>
+              nextDisabled ? handleAlert(true) : handleNextClick()
+            }
           />
         )}
       </Box>
