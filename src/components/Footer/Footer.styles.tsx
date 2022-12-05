@@ -1,16 +1,19 @@
 import { styled } from "@mui/system";
-import { breakpoints, color } from "../../styles/theme";
+import { breakpoints, color, maxWidths } from "../../styles/theme";
 
 export const FooterStyled = styled("footer")({
-  padding: "32px 16px",
+  display: "flex",
+  justifyContent: "center",
+  height: "188px",
+  padding: "0 16px",
   background: color.purple.two,
   color: color.white,
-  ".footer-link": {
-    marginBottom: "17px",
-    display: "inline-block",
-    height: "48px",
-  },
+});
 
+export const FooterContentStyled = styled("div")({
+  paddingTop: "32px",
+  width: "100%",
+  maxWidth: maxWidths.mobile.content,
   p: {
     fontSize: "12px",
     fontWeight: "500",
@@ -23,11 +26,13 @@ export const FooterStyled = styled("footer")({
     fontSize: "12px",
     fontWeight: "500",
     textDecorationColor: color.white,
+    padding: "17px",
+    margin: "0 -17px",
   },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    padding: "32px 112px",
+    maxWidth: maxWidths.tablet.content,
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
-    padding: "32px 162px",
+    maxWidth: maxWidths.desktop.content,
   },
 });
