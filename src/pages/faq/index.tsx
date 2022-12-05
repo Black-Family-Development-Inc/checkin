@@ -18,7 +18,7 @@ const FaqPage = ({
   } = contentfulFaqPage;
 
   return (
-    <DefaultLayout>
+    <DefaultLayout variant="nav-button">
       <NavButton label="Home" link="/" />
       <Header text={headerText} variant="h2" />
       <Paragraph>{subHeader}</Paragraph>
