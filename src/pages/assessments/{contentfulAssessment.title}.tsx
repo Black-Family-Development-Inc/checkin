@@ -98,7 +98,7 @@ const AssessmentPage = ({
     >
       <AssessmentPageStyled>
         <Box>
-          <Header text={pageTitle + " Assessment"} variant="h2" />
+          <Header text={pageTitle + " Check-in"} variant="h2" />
           {headings && (
             <Paragraph sx={{ fontWeight: 500 }}>
               {headings[currentQuestion?.questionType]}
@@ -143,7 +143,7 @@ const AssessmentPage = ({
 
 export default AssessmentPage;
 
-export const Head = () => setHeadTitle("Assessment");
+export const Head = () => setHeadTitle("Check-in");
 
 export const query = graphql`
   query AssessmentPage($title: String!) {
