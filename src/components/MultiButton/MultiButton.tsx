@@ -79,7 +79,12 @@ const MultiButton = (props: MultiButtonPropType) => {
       </ExternalLinkStyled>
     ),
     externalLinkBasic: (
-      <Link href={props.link} target="_blank" rel="noopener noreferrer">
+      <Link
+        className={props.className}
+        href={props.link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {props.label}
       </Link>
     ),
