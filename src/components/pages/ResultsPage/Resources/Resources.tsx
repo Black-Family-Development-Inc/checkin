@@ -6,7 +6,6 @@ import MultiButton from "../../../MultiButton/MultiButton";
 import { Paragraph } from "../../../Paragraph";
 import {
   BottomParagraphSpacing,
-  ButtonContainer,
   UpperAndMiddleParagraphSpacing,
 } from "./Resources.styles";
 import { ResourcesTypes } from "./Resources-types";
@@ -30,27 +29,25 @@ const Resources = ({
         <Paragraph paragraph>{bookAppointmentDescription}</Paragraph>
       </UpperAndMiddleParagraphSpacing>
 
-      <ButtonContainer>
-        <MultiButton
-          version="phoneNumber"
-          phoneNumber={bookAppointmentPhoneNumber}
-          label={bookAppointmentButtonText}
-          type="dark"
-        />
-      </ButtonContainer>
+      <MultiButton
+        version="phoneNumber"
+        phoneNumber={bookAppointmentPhoneNumber}
+        label={bookAppointmentButtonText}
+        type="dark"
+      />
+
       {shouldRenderCrisisInfo && (
         <>
           <UpperAndMiddleParagraphSpacing>
             <Paragraph paragraph>{crisisLineDescription}</Paragraph>
           </UpperAndMiddleParagraphSpacing>
-          <ButtonContainer>
-            <MultiButton
-              version="phoneNumber"
-              phoneNumber={crisisHotlineButton.phoneNumber}
-              label={crisisHotlineButton.text}
-              type="dark"
-            />
-          </ButtonContainer>
+
+          <MultiButton
+            version="phoneNumber"
+            phoneNumber={crisisHotlineButton.phoneNumber}
+            label={crisisHotlineButton.text}
+            type="dark"
+          />
         </>
       )}
       <BottomParagraphSpacing>

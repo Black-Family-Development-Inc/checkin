@@ -11,13 +11,8 @@ export const UpperAndMiddleParagraphSpacing = styled(Box)({
 });
 
 export const BottomParagraphSpacing = styled(Box)({
-  margin: "48px 0 34px 0",
+  margin: "48px 0 34px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    margin: "56px 0 42px 0",
+    margin: "56px 0 42px",
   },
-});
-
-export const ButtonContainer = styled(Box)({
-  display: "flex",
-  justifyContent: "center",
 });

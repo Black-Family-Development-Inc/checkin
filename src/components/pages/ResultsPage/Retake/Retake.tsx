@@ -3,10 +3,9 @@ import MultiButton from "../../../MultiButton/MultiButton";
 import { Paragraph } from "../../../Paragraph";
 import { TestimonialSection } from "../../../Testimonial";
 import {
-  LeftLinkStyled,
+  LinkStyled,
   ParagraphSpacing,
   RetakeAndStartOverContainer,
-  RightLinkStyled,
 } from "./Retake.styles";
 import { RetakeTypes } from "./Retake-types";
 
@@ -25,12 +24,12 @@ const RetakeSection = ({
         <Paragraph>{retakeDescription}</Paragraph>
       </ParagraphSpacing>
       <RetakeAndStartOverContainer>
-        <LeftLinkStyled to={retakeButtonLink + assessmentType?.toLowerCase()}>
+        <LinkStyled to={retakeButtonLink + assessmentType?.toLowerCase()}>
           <MultiButton version="retake" label={retakeButtonText} />
-        </LeftLinkStyled>
-        <RightLinkStyled to={startOverButtonLink}>
+        </LinkStyled>
+        <LinkStyled to={startOverButtonLink}>
           <MultiButton version="startOver" label={startOverButtonText} />
-        </RightLinkStyled>
+        </LinkStyled>
       </RetakeAndStartOverContainer>
       <TestimonialSection {...testimonialSection} />
     </>

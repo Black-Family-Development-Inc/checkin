@@ -4,22 +4,22 @@ import { breakpoints } from "../../../../styles/theme";
 import { Paragraph } from "../../../Paragraph";
 
 export const UpperParagraphSpacing = styled(Box)({
-  margin: "12px 0 40px 0",
+  margin: "16px 0 40px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    margin: "24px 0 56px 0",
+    margin: "24px 0 56px",
   },
 });
 
 export const ScreenShotOrEmailContainer = styled(Box)({
   display: "flex",
   alignItems: "center",
-  margin: "42.5px 0 48.5px 0",
+  margin: "42.5px 0 58.5px",
   width: "100%",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    margin: "57.5px 0 81.5px 0",
+    margin: "57.5px 0 81.5px",
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
-    margin: "57.5px 0 105.5px 0",
+    margin: "57.5px 0 105.5px",
   },
 });
 
