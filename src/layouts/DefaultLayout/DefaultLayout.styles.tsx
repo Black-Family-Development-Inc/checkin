@@ -1,12 +1,15 @@
 import styled from "@emotion/styled";
-import { breakpoints, color, maxWidths } from "../../styles/theme";
+import background from "../../images/background.png";
+import { breakpoints, maxWidths } from "../../styles/theme";
 
 export const LayoutContainerWrapper = styled.div({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   padding: "80px 16px 0",
-  background: color.teal.five,
+  backgroundImage: `url(${background})`,
+  backgroundRepeat: "repeat-y",
+  backgroundSize: "100%",
   ".button-container": {
     maxWidth: maxWidths.mobile.buttons,
     margin: "0 auto",
@@ -50,7 +53,6 @@ export const LayoutContainerWrapper = styled.div({
 });
 
 export const LayoutContainerStyled = styled("div")({
-  background: color.teal.five,
   width: "100%",
   maxWidth: maxWidths.mobile.content,
   [`@media(min-width: ${breakpoints.desktop}px)`]: {

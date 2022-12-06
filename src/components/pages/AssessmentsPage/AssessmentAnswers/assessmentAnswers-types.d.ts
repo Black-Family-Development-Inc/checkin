@@ -14,4 +14,5 @@ export type AssessmentAnswersProps = {
   usersSavedQuestions: UsersSavedQuestion[];
   currentQuestionIdx: number;
   setUsersSavedQuestions: Dispatch<SetStateAction<UsersSavedQuestion[]>>;
+  handleAlert: (prop) => void;
 };
