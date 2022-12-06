@@ -13,7 +13,7 @@ const Footer = () => {
         </Typography>
         <Typography>
           Call BFDI for support: <a href="tel:844-733-4673"> 1-877-SEE-HOPE</a>{" "}
-          (844-733-467)
+          (844-733-4673)
         </Typography>
         <MultiButton
           className="footer-link"
