@@ -39,6 +39,7 @@ const AssessmentPage = ({
   const [usersSavedQuestions, setUsersSavedQuestions] = useState<
     UsersSavedQuestion[]
   >([]);
+  const [alertOpen, setAlertOpen] = useState(false);
 
   useEffect(() => {
     const unansweredQuestions = questions.map((question) => {
@@ -63,6 +64,7 @@ const AssessmentPage = ({
     usersSavedQuestions.some((question) => question.triggered);
 
   const navigateToResultsPage = () => {
+    setAlertOpen(false);
     const resultsPage = "/results/";
     const assessmentType = title;
     const maxScore = severityRubric[severityRubric.length - 1].max;
@@ -88,10 +90,15 @@ const AssessmentPage = ({
       currentPage={stepperPages.assessment as StepperPagesType}
       startingPage={startingPage}
       assessmentTitle={title}
+      isAlertOpen={alertOpen}
+      handleAlert={setAlertOpen}
+      alertMSG={
+        "Please choose an answer before proceeding to the next question."
+      }
     >
       <AssessmentPageStyled>
         <Box>
-          <Header text={pageTitle + " Assessment"} variant="h2" />
+          <Header text={pageTitle + " Check-in"} variant="h2" />
           {headings && (
             <Paragraph sx={{ fontWeight: 500 }}>
               {headings[currentQuestion?.questionType]}
@@ -115,6 +122,7 @@ const AssessmentPage = ({
             currentQuestionIdx={currentQuestionIdx}
             usersSavedQuestions={usersSavedQuestions}
             setUsersSavedQuestions={setUsersSavedQuestions}
+            handleAlert={setAlertOpen}
           />
 
           <AssessmentPrevNext
@@ -124,6 +132,8 @@ const AssessmentPage = ({
             handleResultsClick={navigateToResultsPage}
             resultsDisabled={resultsDisabled}
             nextDisabled={nextDisabled}
+            handleAlert={setAlertOpen}
+            alertOpen={alertOpen}
           />
         </StyledFormControl>
       </AssessmentPageStyled>
@@ -133,7 +143,7 @@ const AssessmentPage = ({
 
 export default AssessmentPage;
 
-export const Head = () => setHeadTitle("Assessment");
+export const Head = () => setHeadTitle("Check-in");
 
 export const query = graphql`
   query AssessmentPage($title: String!) {
