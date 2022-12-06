@@ -8,6 +8,7 @@ export type MultiButtonPropType = {
   phoneNumber?: string;
   link?: string;
   type?: "light" | "dark";
+  className?: string;
 };
 
 type Versions =
