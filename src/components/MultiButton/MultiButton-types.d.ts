@@ -1,6 +1,6 @@
 export type MultiButtonPropType = {
   version: Versions;
-  label: string;
+  label: ReactNode;
   onClick?: () => void;
   answer?: string;
   usersCurrentAnswer?: string;
