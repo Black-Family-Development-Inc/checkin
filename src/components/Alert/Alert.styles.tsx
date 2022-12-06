@@ -29,3 +29,7 @@ export const AlertStyled = styled(MuiAlert)({
     fontSize: "18px",
   },
 });
+
+export const AlertLink = styled.a`
+  color: ${color.purple.two};
+`;
