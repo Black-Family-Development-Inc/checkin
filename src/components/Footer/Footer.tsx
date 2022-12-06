@@ -12,7 +12,7 @@ const Footer = () => {
           Main Office: 2995 E Grand BLVD, Detroit, MI 48202
         </Typography>
         <Typography>
-          Call BFDI for support: <a href="tel:844-733-4673"> 1-877-SEE-HOPE</a>{" "}
+          Call BFDI for support: <a href="tel:844-733-4673"> 1-844-SEE-HOPE</a>{" "}
           (844-733-4673)
         </Typography>
         <MultiButton
