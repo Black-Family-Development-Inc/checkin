@@ -52,16 +52,16 @@ const config: GatsbyConfig = {
         background_color: `#f7f0eb`,
         theme_color: `#a2466c`,
         display: `standalone`,
-        icon: `src/images/icon.png`,
+        icon: `src/images/bfdi-logo-favicon.png`,
         icons: [
           {
-            src: `/favicons/icon.png`,
+            src: `/favicons/bfdi-logo-favicon.png`,
             sizes: `192x192`,
             type: `image/png`,
             purpose: `maskable`,
           },
           {
-            src: `/favicons/icon.png`,
+            src: `/favicons/bfdi-logo-favicon.png`,
             sizes: `512x512`,
             type: `image/png`,
           },
