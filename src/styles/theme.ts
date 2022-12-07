@@ -20,6 +20,7 @@ export const color = {
   anxiety: "#608B95",
   depression: "#656189",
   substance: "#52A6CA",
+  error: "#B62727",
 };
 
 export const breakpoints = {
