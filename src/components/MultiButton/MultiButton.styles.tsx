@@ -56,7 +56,7 @@ export const SecondaryStyled = styled(Button)({
   ...secondaryButtonStyles,
 });
 
-export const StyledBox = styled(Box)({
+export const FlexCenter = styled(Box)({
   width: "100%",
   display: "flex",
   justifyContent: "center",
