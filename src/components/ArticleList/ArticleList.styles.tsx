@@ -9,7 +9,6 @@ import {
 import { breakpoints } from "../../styles/theme";
 
 export const ListStyled = styled(List)({
-  marginBottom: 38,
   padding: 0,
 });
 

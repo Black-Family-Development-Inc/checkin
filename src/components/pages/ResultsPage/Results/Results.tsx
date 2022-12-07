@@ -4,11 +4,10 @@ import Accordion from "../../../Accordion/Accordion";
 import { Header } from "../../../Header";
 import { Paragraph } from "../../../Paragraph";
 import {
-  BottomParagraphContainer,
   EmailExternalLinkStyled,
   IconContainer,
-  TextContainer,
-  UpperParagraphContainer,
+  ScreenShotOrEmailContainer,
+  UpperParagraphSpacing,
 } from "./Results.styles";
 import { ResultsTypes } from "./Results-types";
 
@@ -52,8 +51,9 @@ const Results = ({
     ? `${crisisWarningMessage} (${crisisWarningPhoneNumber})%0D%0A%0D%0A`
     : "";
   const scoreAndSeverity = `Score: ${assessmentScore}/${maxScore} [${assessmentSeverity}-Symptoms]`;
+
   const assessmentSpecificArticles = allArticles.find(
-    (element) => (element.type = assessmentType),
+    (element) => element.type === assessmentType,
   )?.articles;
   let symptomsDescription = "";
   if (accordionData?.description !== undefined) {
@@ -89,9 +89,9 @@ const Results = ({
   return (
     <>
       <Header text={resultsHeader} variant="h2" />
-      <UpperParagraphContainer>
+      <UpperParagraphSpacing>
         <Paragraph>{resultsDescription}</Paragraph>
-      </UpperParagraphContainer>
+      </UpperParagraphSpacing>
       {shouldAccordionRender && (
         <Accordion
           title={accordionData.label}
@@ -102,22 +102,20 @@ const Results = ({
           scoreAndSeverity={scoreAndSeverity}
         />
       )}
-      <BottomParagraphContainer>
+      <ScreenShotOrEmailContainer>
         <IconContainer>
           <CropOriginalIcon />
         </IconContainer>
-        <TextContainer>
-          <Paragraph>
-            Take a screenshot or{" "}
-            <EmailExternalLinkStyled
-              href={`mailto:?subject=${accordionData?.label} Check-in Results and Resources&body=${emailBody}`}
-            >
-              Email
-            </EmailExternalLinkStyled>{" "}
-            your results.
-          </Paragraph>
-        </TextContainer>
-      </BottomParagraphContainer>
+        <Paragraph>
+          Take a screenshot or{" "}
+          <EmailExternalLinkStyled
+            href={`mailto:?subject=${accordionData?.label} Check-in Results and Resources&body=${emailBody}`}
+          >
+            Email
+          </EmailExternalLinkStyled>{" "}
+          your results.
+        </Paragraph>
+      </ScreenShotOrEmailContainer>
     </>
   );
 };

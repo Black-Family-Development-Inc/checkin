@@ -1,17 +1,26 @@
 import { Box, Link } from "@mui/material";
 import { styled } from "@mui/system";
+import { breakpoints } from "../../../../styles/theme";
 import { Paragraph } from "../../../Paragraph";
 
-export const UpperParagraphContainer = styled(Box)({
-  marginTop: "12px",
-  marginBottom: "16px",
+export const UpperParagraphSpacing = styled(Box)({
+  margin: "16px 0 40px",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    margin: "24px 0 56px",
+  },
 });
 
-export const BottomParagraphContainer = styled(Box)({
+export const ScreenShotOrEmailContainer = styled(Box)({
   display: "flex",
-  justifyContent: "center",
-  marginTop: "18.5px",
+  alignItems: "center",
+  margin: "42.5px 0 58.5px",
   width: "100%",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    margin: "57.5px 0 81.5px",
+  },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    margin: "57.5px 0 105.5px",
+  },
 });
 
 export const IconContainer = styled(Box)({
@@ -20,13 +29,6 @@ export const IconContainer = styled(Box)({
   alignItems: "center",
   marginRight: "15px",
   opacity: "0.52",
-});
-
-export const TextContainer = styled(Box)({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  color: "black",
 });
 
 export const EmailExternalLinkStyled = styled(Link)({
