@@ -1,6 +1,8 @@
+import { Box } from "@mui/material";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
 import React from "react";
 import { Header } from "../../../Header";
-import { Paragraph } from "../../../Paragraph";
+import { OtherResourcesContainer } from "./OtherResources.styles";
 import { OtherResourcesTypes } from "./OtherResources-types";
 
 const OtherResources = ({
@@ -8,12 +10,12 @@ const OtherResources = ({
   otherResourcesDescription,
 }: OtherResourcesTypes) => {
   return (
-    <>
+    <OtherResourcesContainer>
       <Header variant="h2" text={otherResourcesHeader} />
-      <Paragraph sx={{ margin: "12px 0px 36px" }}>
-        {otherResourcesDescription.raw}
-      </Paragraph>
-    </>
+      <Box sx={{ margin: "12px 0px 36px" }}>
+        {renderRichText(otherResourcesDescription)}
+      </Box>
+    </OtherResourcesContainer>
   );
 };
 

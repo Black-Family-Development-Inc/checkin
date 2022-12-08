@@ -1,26 +1,58 @@
 import styled from "@emotion/styled";
-import { breakpoints, color, maxWidths } from "../../styles/theme";
-import { LayoutContainerWrapperTypes } from "./DefaultLayout-types.d";
+import background from "../../images/background.png";
+import { breakpoints, maxWidths } from "../../styles/theme";
 
-export const LayoutContainerWrapper = styled.div(
-  (props: LayoutContainerWrapperTypes) => ({
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: `${props.isAssessmentLayout ? "40px" : "88px"} 6px 0px`,
-    background: color.teal.five,
-
-    [`@media(min-width: ${breakpoints.tablet}px)`]: {
-      padding: `${props.isAssessmentLayout ? "46px" : "88px"} 102px 0px`,
+export const LayoutContainerWrapper = styled.div({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  padding: "80px 16px 0",
+  backgroundImage: `url(${background})`,
+  backgroundRepeat: "repeat-y",
+  backgroundSize: "100%",
+  ".button-container": {
+    maxWidth: maxWidths.mobile.buttons,
+    margin: "0 auto",
+    paddingBottom: "80px",
+    a: {
+      marginBottom: "16px",
     },
-    [`@media(min-width: ${breakpoints.desktop}px)`]: {
-      padding: `${props.isAssessmentLayout ? "62px" : "104px"} 152px 0px`,
+  },
+  "&.nav-button": {
+    paddingTop: "40px",
+  },
+  "&.error": {
+    paddingTop: "56px",
+  },
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    padding: "88px 112px 0",
+    ".button-container": {
+      maxWidth: maxWidths.tablet.buttons,
+      paddingBottom: "88px",
     },
-  }),
-);
+    "&.nav-button": {
+      paddingTop: "46px",
+    },
+    "&.error": {
+      paddingTop: "80px",
+    },
+  },
+  [`@media(min-width: ${breakpoints.desktop}px)`]: {
+    padding: "104px 162px 0",
+    ".button-container": {
+      maxWidth: maxWidths.desktop.buttons,
+      paddingBottom: "104px",
+    },
+    "&.nav-button": {
+      paddingTop: "62px",
+    },
+    "&.error": {
+      paddingTop: "104px",
+    },
+  },
+});
 
 export const LayoutContainerStyled = styled("div")({
-  background: color.teal.five,
   width: "100%",
   maxWidth: maxWidths.mobile.content,
   [`@media(min-width: ${breakpoints.desktop}px)`]: {

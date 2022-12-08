@@ -19,7 +19,7 @@ function TabPanel(props: TabPanelProps) {
       id={`simple-tabpanel-${selectedTab}`}
       {...other}
     >
-      {tab === selectedTab && <Box sx={{ padding: "16px 0" }}>{children}</Box>}
+      {tab === selectedTab && <Box>{children}</Box>}
     </Box>
   );
 }
@@ -32,7 +32,7 @@ const ArticleTabs = ({ allArticles, assessmentType }: ArticleTabsProps) => {
   };
 
   return (
-    <Box sx={{ marginTop: "32px" }}>
+    <>
       <TabsStyled
         value={selectedTab}
         onChange={handleChange}
@@ -53,18 +53,18 @@ const ArticleTabs = ({ allArticles, assessmentType }: ArticleTabsProps) => {
       <TabHRStyled />
 
       {allArticles &&
-        allArticles.map((article) => {
+        allArticles.map((article, i: number) => {
           return (
             <TabPanel
               selectedTab={selectedTab}
               tab={article.type}
-              key={`article-${article.type}`}
+              key={`article-${article.type} - ${i}`}
             >
               <ArticleList articles={article.articles} icon={article.icon} />
             </TabPanel>
           );
         })}
-    </Box>
+    </>
   );
 };
 

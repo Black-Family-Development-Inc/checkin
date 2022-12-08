@@ -1,6 +1,6 @@
 export type MultiButtonPropType = {
   version: Versions;
-  label: string;
+  label: ReactNode;
   onClick?: () => void;
   answer?: string;
   usersCurrentAnswer?: string;
@@ -8,6 +8,7 @@ export type MultiButtonPropType = {
   phoneNumber?: string;
   link?: string;
   type?: "light" | "dark";
+  className?: string;
 };
 
 type Versions =

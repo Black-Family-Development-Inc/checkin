@@ -4,6 +4,7 @@ import {
   AllArticlesStyled,
   AnswerStyled,
   ExternalLinkStyled,
+  FlexCenter,
   NavButtonStyled,
   NextAndResultStyled,
   PhoneNumberStyled,
@@ -61,25 +62,34 @@ const MultiButton = (props: MultiButtonPropType) => {
       </NavButtonStyled>
     ),
     phoneNumber: (
-      <PhoneNumberStyled href={`tel:${props.phoneNumber}`} type={props.type}>
-        {props.label}
-      </PhoneNumberStyled>
+      <FlexCenter>
+        <PhoneNumberStyled href={`tel:${props.phoneNumber}`} type={props.type}>
+          {props.label}
+        </PhoneNumberStyled>
+      </FlexCenter>
     ),
     phoneNumberBasic: <Link href={props.link}>{props.label}</Link>,
     allArticles: (
       <AllArticlesStyled to={props.link || ""}>{props.label}</AllArticlesStyled>
     ),
     externalLink: (
-      <ExternalLinkStyled
+      <FlexCenter>
+        <ExternalLinkStyled
+          href={props.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {props.label}
+        </ExternalLinkStyled>
+      </FlexCenter>
+    ),
+    externalLinkBasic: (
+      <Link
+        className={props.className}
         href={props.link}
         target="_blank"
         rel="noopener noreferrer"
       >
-        {props.label}
-      </ExternalLinkStyled>
-    ),
-    externalLinkBasic: (
-      <Link href={props.link} target="_blank" rel="noopener noreferrer">
         {props.label}
       </Link>
     ),

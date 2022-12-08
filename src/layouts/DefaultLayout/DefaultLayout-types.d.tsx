@@ -1,3 +1,3 @@
 export type LayoutContainerWrapperTypes = {
-  isAssessmentLayout?: boolean;
+  variant: string;
 };

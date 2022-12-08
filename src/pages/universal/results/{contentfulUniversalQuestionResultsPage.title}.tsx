@@ -7,7 +7,7 @@ import { LinkStyled } from "../../../components/MultiButton/MultiButton.styles";
 import { stepperPages } from "../../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import {
   BottomParagraphSpacing,
-  CallBFDIContainer,
+  CallBFDISpacing,
   DividerStyled,
   MiddleParagraphSpacing,
   TopParagraphSpacing,
@@ -89,14 +89,14 @@ const UniversalQuestionResultsPage = ({
           <Paragraph>{secondStaticButtonDescription}</Paragraph>
         </BottomParagraphSpacing>
 
-        <CallBFDIContainer>
+        <CallBFDISpacing>
           <MultiButton
             version="phoneNumber"
             label="Call BFDI"
             phoneNumber={secondStaticButton?.phoneNumber}
             type="light"
           />
-        </CallBFDIContainer>
+        </CallBFDISpacing>
       </Box>
     </AssessmentLayout>
   );

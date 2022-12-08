@@ -1,5 +1,6 @@
 import { graphql, PageProps } from "gatsby";
-import React from "react";
+import React, { useState } from "react";
+import { AlertLink } from "../../components/Alert/Alert.styles";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
 import {
@@ -22,11 +23,13 @@ const ResultsPage = ({
   const {
     assessmentScore,
     severityRubric,
-    triggered,
+    triggered = false,
     startingPage,
     assessmentType,
     maxScore,
   } = state || {};
+  const [alertOpen, setAlertOpen] = useState(triggered);
+
   const {
     resultsHeader,
     resultsDescription,
@@ -122,6 +125,17 @@ const ResultsPage = ({
       currentPage={stepperPages.results}
       startingPage={startingPage as StepperPagesType}
       assessmentTitle={assessmentType}
+      isAlertOpen={alertOpen}
+      handleAlert={setAlertOpen}
+      alertMSG={
+        <>
+          {crisisWarningMessage} (
+          <AlertLink href={`tel:${crisisWarningPhoneNumber}`}>
+            {crisisWarningPhoneNumber}
+          </AlertLink>
+          ).
+        </>
+      }
     >
       {assessmentScore > -1 ? (
         <>

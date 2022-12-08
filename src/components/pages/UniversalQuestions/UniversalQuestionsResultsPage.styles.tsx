@@ -31,9 +31,7 @@ export const BottomParagraphSpacing = styled(Box)({
   },
 });
 
-export const CallBFDIContainer = styled(Box)({
-  display: "flex",
-  justifyContent: "center",
+export const CallBFDISpacing = styled(Box)({
   marginBottom: "56px",
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     marginBottom: "88px",
