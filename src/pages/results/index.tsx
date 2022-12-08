@@ -1,5 +1,6 @@
 import { graphql, PageProps } from "gatsby";
 import React, { useState } from "react";
+import { AlertLink } from "../../components/Alert/Alert.styles";
 import { stepperPages } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper";
 import { StepperPagesType } from "../../components/pages/AssessmentsPage/AssessmentStepper/AssessmentStepper-types";
 import {
@@ -129,9 +130,9 @@ const ResultsPage = ({
       alertMSG={
         <>
           {crisisWarningMessage} (
-          <a href={`tel:${crisisWarningPhoneNumber}`}>
+          <AlertLink href={`tel:${crisisWarningPhoneNumber}`}>
             {crisisWarningPhoneNumber}
-          </a>
+          </AlertLink>
           ).
         </>
       }

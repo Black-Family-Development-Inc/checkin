@@ -1,6 +1,6 @@
-import MuiAlert from "@mui/material/Alert";
 import Collapse from "@mui/material/Collapse";
 import React from "react";
+import { AlertStyled } from "./Alert.styles";
 import { AlertProps } from "./Alert-types";
 
 const Alert = ({ alertMSG, isOpen, handleAlert }: AlertProps) => {
@@ -9,8 +9,7 @@ const Alert = ({ alertMSG, isOpen, handleAlert }: AlertProps) => {
       in={isOpen}
       sx={{ position: "absolute", zIndex: 6, width: "100%" }}
     >
-      <MuiAlert
-        sx={{}}
+      <AlertStyled
         elevation={6}
         severity="error"
         onClose={() => {
@@ -18,7 +17,7 @@ const Alert = ({ alertMSG, isOpen, handleAlert }: AlertProps) => {
         }}
       >
         {alertMSG}
-      </MuiAlert>
+      </AlertStyled>
     </Collapse>
   );
 };

@@ -4,7 +4,7 @@ import {
   AnswerTypes,
 } from "../../../../pages/assessments/AssessmentPage-types";
 import MultiButton from "../../../MultiButton/MultiButton";
-import { StyledBox } from "../../../MultiButton/MultiButton.styles";
+import { FlexCenter } from "../../../MultiButton/MultiButton.styles";
 import { AnswerButtonGroupStyled } from "./AssessmentAnswers.styles";
 import { AssessmentAnswersProps } from "./assessmentAnswers-types";
 
@@ -43,14 +43,14 @@ const AssessmentAnswers = ({
   return (
     <AnswerButtonGroupStyled>
       {getAppropriateAnswers()?.map((answer: AnswerOption) => (
-        <StyledBox key={answer.text}>
+        <FlexCenter key={answer.text}>
           <MultiButton
             version="answer"
             label={answer.text}
             onClick={() => handleAnswerClick(answer)}
             usersCurrentAnswer={usersCurrentAnswer}
           />
-        </StyledBox>
+        </FlexCenter>
       ))}
     </AnswerButtonGroupStyled>
   );

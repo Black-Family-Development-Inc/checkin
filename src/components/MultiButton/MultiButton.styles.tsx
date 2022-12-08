@@ -56,7 +56,7 @@ export const SecondaryStyled = styled(Button)({
   ...secondaryButtonStyles,
 });
 
-export const StyledBox = styled(Box)({
+export const FlexCenter = styled(Box)({
   width: "100%",
   display: "flex",
   justifyContent: "center",
@@ -157,24 +157,6 @@ export const ResultsPageSmallStyled = styled(Button)({
   ...generalButtonStyles,
   ...secondaryButtonStyles,
   width: "100%",
-});
-
-export const ResultsPageLeftLinkStyled = styled(Link)({
-  textDecoration: "none",
-  flex: 1,
-  marginRight: "8px",
-  [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    marginRight: "12px",
-  },
-});
-
-export const ResultsPageRightLinkStyled = styled(Link)({
-  textDecoration: "none",
-  flex: 1,
-  marginLeft: "8px",
-  [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    marginRight: "12px",
-  },
 });
 
 export const PhoneNumberStyled = styled(MuiLink, {

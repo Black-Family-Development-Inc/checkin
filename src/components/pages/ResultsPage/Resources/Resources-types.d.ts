@@ -9,6 +9,7 @@ export type ResourcesTypes = {
   crisisHotlineButton: ButtonPhoneNumber;
   articlesDescription: string;
   allArticles: AllArticles[];
+  assessmentType: string;
   assessmentSeverity?: string;
   shouldRenderCrisisInfo: boolean;
 };
