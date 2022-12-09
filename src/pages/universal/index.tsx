@@ -44,6 +44,7 @@ const UniversalAssessmentPage = ({
                 assessment: universalResultPage.title,
                 startingPage: stepperPages.universal,
               }}
+              tabIndex={-1}
             >
               <MultiButton version="universalAnswer" label={label} />
             </LinkStyled>

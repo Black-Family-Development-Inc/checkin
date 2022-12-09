@@ -6,7 +6,7 @@ import { NavButtonPropTypes } from "./NavButton-types";
 
 const NavButton = ({ label, link, startingPage }: NavButtonPropTypes) => {
   return (
-    <LinkStyled to={link} state={{ startingPage }}>
+    <LinkStyled to={link} state={{ startingPage }} tabIndex={-1}>
       <MultiButton version="navButton" label={label}>
         <ArrowBackIcon className="nav-icon" />
       </MultiButton>

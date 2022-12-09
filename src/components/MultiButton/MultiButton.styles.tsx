@@ -164,6 +164,7 @@ export const PhoneNumberStyled = styled(MuiLink, {
 })<PhoneNumberStyledProps>((props) => ({
   ...generalButtonStyles,
   ...generalButtonWidths,
+  boxSizing: "border-box",
   background: props.type === "dark" ? color.purple.two : color.purple.four,
   display: "flex",
   alignItems: "center",
