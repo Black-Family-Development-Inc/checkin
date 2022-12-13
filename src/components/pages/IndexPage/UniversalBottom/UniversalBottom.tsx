@@ -20,7 +20,7 @@ const UniversalBottom = ({
         {universalBottomSubHeader}
       </ParagraphWrapperStyled>
       <ButtonContainerStyled>
-        <LinkStyled to={assessment.title.toLowerCase()}>
+        <LinkStyled to={assessment.title.toLowerCase()} tabIndex={-1}>
           <MultiButton version="universal" label={assessmentButtonLabel} />
         </LinkStyled>
       </ButtonContainerStyled>

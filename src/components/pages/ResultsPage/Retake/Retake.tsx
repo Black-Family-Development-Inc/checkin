@@ -24,10 +24,13 @@ const RetakeSection = ({
         <Paragraph>{retakeDescription}</Paragraph>
       </ParagraphSpacing>
       <RetakeAndStartOverContainer>
-        <LinkStyled to={retakeButtonLink + assessmentType?.toLowerCase()}>
+        <LinkStyled
+          to={retakeButtonLink + assessmentType?.toLowerCase()}
+          tabIndex={-1}
+        >
           <MultiButton version="retake" label={retakeButtonText} />
         </LinkStyled>
-        <LinkStyled to={startOverButtonLink}>
+        <LinkStyled to={startOverButtonLink} tabIndex={-1}>
           <MultiButton version="startOver" label={startOverButtonText} />
         </LinkStyled>
       </RetakeAndStartOverContainer>

@@ -21,7 +21,7 @@ const IntroSection = ({
       <Header variant="h2" text={introSectionHeader} />
       <Paragraph>{introSectionSubheader}</Paragraph>
       <ButtonContainerStyled>
-        <LinkStyled to={assessment.title.toLowerCase()}>
+        <LinkStyled to={assessment.title.toLowerCase()} tabIndex={-1}>
           <MultiButton version="universal" label={assessmentButtonLabel} />
         </LinkStyled>
       </ButtonContainerStyled>

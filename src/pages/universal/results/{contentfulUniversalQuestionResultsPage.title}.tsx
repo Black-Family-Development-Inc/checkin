@@ -51,6 +51,7 @@ const UniversalQuestionResultsPage = ({
             : `/assessments/${dynamicButton.assessmentPage?.title.toLocaleLowerCase()}`
         }
         state={{ startingPage: stepperPages.universal }}
+        tabIndex={-1}
       >
         <MultiButton version="universal" label={dynamicButton?.buttonText} />
       </LinkStyled>
@@ -78,6 +79,7 @@ const UniversalQuestionResultsPage = ({
 
         <LinkStyled
           to={`/${firstStaticButton?.linkToPage.title.toLocaleLowerCase()}`}
+          tabIndex={-1}
         >
           <MultiButton
             version="secondary"

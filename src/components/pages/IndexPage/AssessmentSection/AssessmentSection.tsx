@@ -33,7 +33,7 @@ const AssessmentSection = (props: ContentfulHomePage) => {
               {button.assessmentDescription}
             </AssessmentQuestionParaStyled>
             <AssessmentQuestionBoxStyled key={button.buttonText}>
-              <LinkStyled to={link}>
+              <LinkStyled to={link} tabIndex={-1}>
                 <MultiButton version="secondary" label={button.buttonText} />
               </LinkStyled>
             </AssessmentQuestionBoxStyled>
