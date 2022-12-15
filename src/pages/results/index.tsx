@@ -67,7 +67,7 @@ const ResultsPage = ({
   const crisisWarningMessage =
     "Because of your response, BFDI is here to help you right away. " +
     "Please contact one of our caring staff at 1-844-SEE-HOPE";
-  const crisisWarningPhoneNumber = "1-844-773-4673";
+  const crisisWarningPhoneNumber = "1-844-733-4673";
   const shouldRenderCrisisInfo =
     assessmentSeverity === "Severe" || assessmentSeverity === "Severe Level";
 
