@@ -73,23 +73,21 @@ export const ActionButtonStyled = styled(Button)({
 
 export const CardContentStyled = styled(CardContent)({
   padding: "24px 16px",
-  p: {
-    margin: "0px",
-    fontSize: "16px",
-    fontWeight: "400",
-    lineHeight: "18.75px",
-    letterSpacing: "0.15px",
-    [`@media(min-width: ${breakpoints.tablet}px)`]: {
-      fontSize: "18px",
-      lineHeight: "21.09px",
-    },
+  margin: "0px",
+  fontSize: "16px",
+  fontWeight: "400",
+  lineHeight: "18.75px",
+  letterSpacing: "0.15px",
+  [`@media(min-width: ${breakpoints.tablet}px)`]: {
+    fontSize: "18px",
+    lineHeight: "21.09px",
   },
 });
 
 export const ScoreStyled = styled(Typography)({
   marginBottom: "24px",
   fontFamily: "Roboto",
-  fontWeight: 500,
+  fontWeight: "500",
   fontSize: "18px",
   lineHeight: "21.09px",
   letterSpacing: "0.15px",
