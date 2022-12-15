@@ -28,7 +28,6 @@ const Accordion = ({
   scoreTable,
 }: AccordionPropTypes) => {
   const [expanded, setExpanded] = useState(false);
-
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
