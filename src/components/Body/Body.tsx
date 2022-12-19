@@ -1,8 +1,9 @@
 import React from "react";
 import { BodyStyled } from "./Body.styles";
+import { BodyPropTypes } from "./Body-types";
 
-const Body = (props: any) => {
-  return <BodyStyled>{props.children}</BodyStyled>;
+const Body = ({ children }: BodyPropTypes) => {
+  return <BodyStyled>{children}</BodyStyled>;
 };
 
 export default Body;

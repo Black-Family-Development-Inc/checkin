@@ -1,8 +1,9 @@
 import React from "react";
 import { StyledPageContents } from "./PageContents.styles";
+import { PageContentPropTypes } from "./PageContents-types";
 
-const PageContents = (props: any) => {
-  return <StyledPageContents>{props.children}</StyledPageContents>;
+const PageContents = ({ children }: PageContentPropTypes) => {
+  return <StyledPageContents>{children}</StyledPageContents>;
 };
 
 export default PageContents;
