@@ -107,7 +107,5 @@
     "./gatsby-config.ts",
     "./plugins/**/*",
     "./gatsby-browser.tsx",
-    "./gatsby-ssr.tsx",
-    "./gatsby-shared.tsx"
   ]
 }
