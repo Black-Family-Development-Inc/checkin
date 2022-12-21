@@ -1,1 +1,1 @@
-export { wrapPageElement } from "./gatsby-shared";
+import "./src/styles/globalStyles.css";
