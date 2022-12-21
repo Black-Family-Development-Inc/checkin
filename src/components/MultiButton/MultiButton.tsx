@@ -1,5 +1,6 @@
 import { Link } from "@mui/material";
 import React from "react";
+import { color } from "../../styles/theme";
 import {
   AllArticlesStyled,
   AnswerStyled,
@@ -89,6 +90,7 @@ const MultiButton = (props: MultiButtonPropType) => {
         href={props.link}
         target="_blank"
         rel="noopener noreferrer"
+        sx={{ color: color.purple.two, textDecorationColor: color.purple.two }}
       >
         {props.label}
       </Link>

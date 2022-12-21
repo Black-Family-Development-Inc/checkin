@@ -5,7 +5,6 @@ import { breakpoints, color, maxWidths } from "../../styles/theme";
 import { AnswerStyledProps, PhoneNumberStyledProps } from "./MultiButton-types";
 
 const generalButtonStyles: Object = {
-  width: maxWidths.mobile.buttons,
   minHeight: "48px",
   fontSize: "18px",
   fontWeight: 600,
@@ -18,8 +17,9 @@ const generalButtonStyles: Object = {
 };
 
 const generalButtonWidths: Object = {
+  width: maxWidths.mobile.buttons,
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
-    maxWidth: maxWidths.tablet.buttons,
+    width: maxWidths.tablet.buttons,
   },
   [`@media(min-width: ${breakpoints.desktop}px)`]: {
     width: maxWidths.desktop.buttons,
@@ -66,6 +66,9 @@ export const LinkStyled = styled(Link)({
   display: "flex",
   justifyContent: "center",
   textDecoration: "none",
+  marginLeft: "auto",
+  marginRight: "auto",
+  ...generalButtonWidths,
 });
 
 const preventDomList = (prop: string | number | symbol) =>

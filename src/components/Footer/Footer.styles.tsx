@@ -6,6 +6,7 @@ export const FooterStyled = styled("footer")({
   justifyContent: "center",
   height: "188px",
   padding: "0 16px",
+  flexShrink: 0,
   background: color.purple.two,
   color: color.white,
 });
