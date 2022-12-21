@@ -1,6 +1,8 @@
 import React, { ReactNode } from "react";
+import Body from "../../components/Body/Body";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
+import PageContents from "../../components/PageContents/PageContents";
 import {
   LayoutContainerStyled,
   LayoutContainerWrapper,
@@ -16,13 +18,15 @@ const DefaultLayout = ({
   variant = "home",
 }: DefaultLayoutPropTypes) => {
   return (
-    <>
-      <NavBar />
-      <LayoutContainerWrapper className={variant}>
-        <LayoutContainerStyled>{children}</LayoutContainerStyled>
-      </LayoutContainerWrapper>
+    <Body>
+      <PageContents>
+        <NavBar />
+        <LayoutContainerWrapper className={variant}>
+          <LayoutContainerStyled>{children}</LayoutContainerStyled>
+        </LayoutContainerWrapper>
+      </PageContents>
       <Footer />
-    </>
+    </Body>
   );
 };
 

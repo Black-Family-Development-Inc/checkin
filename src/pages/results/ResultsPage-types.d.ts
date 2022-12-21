@@ -26,39 +26,6 @@ export type ResultsPageLocationState = {
   maxScore: number;
 };
 
-// export type OtherResourcesTypes = {
-//   title: string;
-//   bfdiLink: string;
-//   bfdiLinkText: string;
-//   bfdiResourcesParagraph: string;
-//   faqLink: string;
-//   faqLinkText: string;
-//   faqResourcesParagraph: string;
-// };
-
-// export type ResourcesTypes = {
-//   header: string;
-//   bfdiButtonDescription: string;
-//   bfdiButtonText: string;
-//   bfdiIntakeNumber: string;
-//   crisisLineButtonText: string;
-//   crisisLineDescription: string;
-//   crisisLineNumber: string;
-//   headingForArticles: string;
-//   allResourcesLink: string;
-//   allResourcesText: string;
-//   articles: ArticleType[];
-//   severity?: string;
-// };
-
-// export type ResultsPageResultsSection = {
-//   resultsHeaderText: string;
-//   resultsSummaryText: string;
-//   resultsAccordionData: ResultsAccordion[];
-//   assessmentScore?: number;
-//   assessmentSeverity?: string;
-// };
-
 type ResultsAccordion = {
   id: string;
   title: string;
