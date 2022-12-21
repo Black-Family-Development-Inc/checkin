@@ -147,6 +147,7 @@ export const NavButtonStyled = styled(Button)({
   margin: "0",
   ":hover": {
     background: "none",
+    textDecoration: "underline",
   },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     fontSize: "16px",
