@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import background from "../../images/background.png";
 import { breakpoints, maxWidths } from "../../styles/theme";
 
 export const LayoutContainerWrapper = styled.div({
@@ -7,9 +6,6 @@ export const LayoutContainerWrapper = styled.div({
   flexDirection: "column",
   alignItems: "center",
   padding: "80px 16px 0",
-  backgroundImage: `url(${background})`,
-  backgroundRepeat: "repeat-y",
-  backgroundSize: "100%",
   ".button-container": {
     maxWidth: maxWidths.mobile.buttons,
     margin: "0 auto",
