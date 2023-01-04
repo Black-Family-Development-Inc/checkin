@@ -90,6 +90,7 @@ const ResultsPage = ({
     allArticles,
     otherResourcesHeader,
     shouldRenderCrisisInfo,
+    path: location.href,
   };
   const resourcesSectionProps = {
     resourcesHeader,

@@ -29,6 +29,7 @@ const Results = ({
   allArticles,
   otherResourcesHeader,
   shouldRenderCrisisInfo,
+  path,
 }: ResultsTypes) => {
   const shouldAccordionRender =
     accordionData?.title &&
@@ -100,6 +101,7 @@ const Results = ({
           description={accordionData.description}
           scoreTable={accordionData.scoreTable}
           scoreAndSeverity={scoreAndSeverity}
+          path={path}
         />
       )}
       <ScreenShotOrEmailContainer>

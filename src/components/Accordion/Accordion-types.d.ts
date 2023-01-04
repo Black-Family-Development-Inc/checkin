@@ -12,4 +12,5 @@ export type AccordionPropTypes = {
   assessmentSeverity?: string;
   scoreTable?: string[];
   scoreAndSeverity?: string;
+  path?: string;
 };
