@@ -26,18 +26,19 @@ const Accordion = ({
   scoreAndSeverity,
   description,
   scoreTable,
-  path,
 }: AccordionPropTypes) => {
   const [expanded, setExpanded] = useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  const url = typeof window !== "undefined" ? window.location.href : "";
+
   useEffect(() => {
-    if (path?.includes("results")) {
+    if (url?.includes("results")) {
       setExpanded(true);
     }
-  }, [path]);
+  }, [url]);
 
   const options = {
     renderNode: {

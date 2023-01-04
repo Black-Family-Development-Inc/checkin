@@ -23,7 +23,6 @@ export type ResultsTypes = {
   allArticles: AllArticles[];
   otherResourcesHeader: string;
   shouldRenderCrisisInfo: boolean;
-  path: string;
 };
 
 export type AccordionData = {
