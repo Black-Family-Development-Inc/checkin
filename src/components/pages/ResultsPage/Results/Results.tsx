@@ -43,6 +43,7 @@ const Results = ({
     title: accordionData?.label,
     summary: accordionData?.summary,
     description: accordionData?.description,
+    scoreTableHeader: accordionData?.scoreTableHeader,
     scoreTable: accordionData?.scoreTable,
   };
   accordionProps;
@@ -95,9 +96,9 @@ const Results = ({
       {shouldAccordionRender && (
         <Accordion
           title={accordionData.label}
-          type={accordionData.type}
           summary={accordionData.summary}
           description={accordionData.description}
+          scoreTableHeader={accordionData.scoreTableHeader}
           scoreTable={accordionData.scoreTable}
           scoreAndSeverity={scoreAndSeverity}
         />

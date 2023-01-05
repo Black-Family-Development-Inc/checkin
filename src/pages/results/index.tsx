@@ -174,6 +174,7 @@ export const query = graphql`
         description {
           raw
         }
+        scoreTableHeader
         scoreTable
       }
       resourcesHeader

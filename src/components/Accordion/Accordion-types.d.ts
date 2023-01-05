@@ -10,6 +10,7 @@ export type AccordionPropTypes = {
   description: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   assessmentScore?: number;
   assessmentSeverity?: string;
+  scoreTableHeader?: string;
   scoreTable?: string[];
   scoreAndSeverity?: string;
 };
