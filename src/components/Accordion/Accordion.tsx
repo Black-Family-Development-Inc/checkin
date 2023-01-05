@@ -3,7 +3,7 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Box, Collapse, Typography } from "@mui/material";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import React from "react";
 import MultiButton from "../MultiButton/MultiButton";
 import { Paragraph } from "../Paragraph";
@@ -31,6 +31,14 @@ const Accordion = ({
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const url = typeof window !== "undefined" ? window.location.href : "";
+
+  useEffect(() => {
+    if (url?.includes("results")) {
+      setExpanded(true);
+    }
+  }, [url]);
 
   const options = {
     renderNode: {
