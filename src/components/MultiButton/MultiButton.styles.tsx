@@ -63,12 +63,12 @@ export const FlexCenter = styled(Box)({
 });
 
 export const LinkStyled = styled(Link)({
+  maxWidth: "fit-content",
   display: "flex",
   justifyContent: "center",
   textDecoration: "none",
   marginLeft: "auto",
   marginRight: "auto",
-  ...generalButtonWidths,
 });
 
 const preventDomList = (prop: string | number | symbol) =>
