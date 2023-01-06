@@ -21,10 +21,10 @@ import { AccordionPropTypes } from "./Accordion-types";
 
 const Accordion = ({
   title,
-  type,
   summary,
   scoreAndSeverity,
   description,
+  scoreTableHeader,
   scoreTable,
 }: AccordionPropTypes) => {
   const [expanded, setExpanded] = useState(false);
@@ -81,11 +81,7 @@ const Accordion = ({
         <CardContentStyled sx={{ padding: 0 }}>
           {scoreAndSeverity && <ScoreStyled>{scoreAndSeverity}</ScoreStyled>}
           <Box>{renderRichText(description, options)}</Box>
-          {scoreTable && (
-            <Typography>
-              {type} ({title})
-            </Typography>
-          )}
+          {scoreTable && <Typography>{scoreTableHeader}</Typography>}
           {scoreTable?.map((table) => {
             return <li key={`table-${table}`}>{table}</li>;
           })}

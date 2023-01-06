@@ -32,6 +32,7 @@ export type AccordionData = {
   severity?: string;
   summary?: string;
   description: RenderRichTextData<ContentfulRichTextGatsbyReference>;
+  scoreTableHeader: string;
   scoreTable: string[];
   maxScore: number;
   assessmentSeverity?: string;
