@@ -28,10 +28,16 @@ const AssessmentLayout = ({
       return <NavButton label="Universal Assessment" link={"/universal/"} />;
     }
     if (onResultsPage) {
-      return (
+      return assessmentTitle != null ? (
         <NavButton
           label="Assessment Questions"
           link={`/assessments/${assessmentTitle?.toLocaleLowerCase()}/`}
+          startingPage={startingPage}
+        />
+      ) : (
+        <NavButton
+          label="Assessment Questions"
+          link={`/universal/`}
           startingPage={startingPage}
         />
       );
