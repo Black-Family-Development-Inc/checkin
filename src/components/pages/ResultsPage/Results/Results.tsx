@@ -1,9 +1,11 @@
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
+import SmsFailedOutlinedIcon from "@mui/icons-material/SmsFailedOutlined";
 import React from "react";
 import Accordion from "../../../Accordion/Accordion";
 import { Header } from "../../../Header";
 import { Paragraph } from "../../../Paragraph";
 import {
+  DisclaimerContainer,
   EmailExternalLinkStyled,
   IconContainer,
   ScreenShotOrEmailContainer,
@@ -17,6 +19,7 @@ const Results = ({
   crisisWarningPhoneNumber,
   resultsHeader,
   resultsDescription,
+  resultsDisclaimer,
   accordionData,
   assessmentScore,
   assessmentSeverity,
@@ -117,6 +120,14 @@ const Results = ({
           your results.
         </Paragraph>
       </ScreenShotOrEmailContainer>
+      {resultsDisclaimer.resultsDisclaimer != null ? (
+        <DisclaimerContainer>
+          <IconContainer>
+            <SmsFailedOutlinedIcon />
+          </IconContainer>
+          <Paragraph>{resultsDisclaimer.resultsDisclaimer}</Paragraph>
+        </DisclaimerContainer>
+      ) : null}
     </>
   );
 };

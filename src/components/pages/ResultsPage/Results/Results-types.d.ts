@@ -10,6 +10,9 @@ export type ResultsTypes = {
   crisisWarningPhoneNumber: string;
   resultsHeader: string;
   resultsDescription: string;
+  resultsDisclaimer: {
+    resultsDisclaimer: string;
+  };
   allAccordionContents?: AccordionData[];
   accordionData?: AccordionData;
   assessmentScore: number;
