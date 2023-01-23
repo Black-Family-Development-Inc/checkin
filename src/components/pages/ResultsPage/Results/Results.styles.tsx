@@ -38,6 +38,8 @@ export const IconContainer = styled(Box)({
   opacity: "0.52",
 });
 
+export const DisclaimerContainerText = styled(Box)({});
+
 export const EmailExternalLinkStyled = styled(Link)({
   color: "black",
   textDecorationColor: "black",

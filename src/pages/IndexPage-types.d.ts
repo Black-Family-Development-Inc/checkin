@@ -10,8 +10,6 @@ export type ContentfulHomePage = {
   introSectionSubheader: string;
   introSectionImage: ContentfulImage;
   universalAssessmentButton: UniversalAssessmentButton;
-  testimonial: string;
-  testimonialParticipant: string;
   testimonialSection: TestimonialSectionType;
   assessmentInstructionsHeader: string;
   stepOneLabel: string;

@@ -169,7 +169,7 @@ export const query = graphql`
       resultsHeader
       resultsDescription
       resultsDisclaimer {
-        resultsDisclaimer
+        raw
       }
       allAccordionContents {
         title

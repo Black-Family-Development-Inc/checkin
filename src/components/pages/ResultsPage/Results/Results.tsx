@@ -1,11 +1,14 @@
+import { BLOCKS } from "@contentful/rich-text-types";
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
 import SmsFailedOutlinedIcon from "@mui/icons-material/SmsFailedOutlined";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
 import React from "react";
 import Accordion from "../../../Accordion/Accordion";
 import { Header } from "../../../Header";
 import { Paragraph } from "../../../Paragraph";
 import {
   DisclaimerContainer,
+  DisclaimerContainerText,
   EmailExternalLinkStyled,
   IconContainer,
   ScreenShotOrEmailContainer,
@@ -120,12 +123,26 @@ const Results = ({
           your results.
         </Paragraph>
       </ScreenShotOrEmailContainer>
-      {resultsDisclaimer.resultsDisclaimer != null ? (
+      {resultsDisclaimer != null ? (
         <DisclaimerContainer>
           <IconContainer>
             <SmsFailedOutlinedIcon />
           </IconContainer>
-          <Paragraph>{resultsDisclaimer.resultsDisclaimer}</Paragraph>
+          <DisclaimerContainerText>
+            {renderRichText(resultsDisclaimer, {
+              renderNode: {
+                [BLOCKS.PARAGRAPH]: (node, children) => (
+                  <Paragraph
+                    sx={{
+                      margin: "0 0 16px",
+                    }}
+                  >
+                    {children}
+                  </Paragraph>
+                ),
+              },
+            })}
+          </DisclaimerContainerText>
         </DisclaimerContainer>
       ) : null}
     </>
