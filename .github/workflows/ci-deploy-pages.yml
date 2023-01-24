@@ -1,5 +1,11 @@
 name: Deploy Gatsby site to Pages
 
+env:
+  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  SPACE_ID: ${{ secrets.SPACE_ID }}
+  PROJECT_ID: bfdi-afac
+  SITE_NAME: ${{ secrets.SITE_NAME_DEV }}
+
 on:
   # Runs on pushes targeting the default branch
   push:
