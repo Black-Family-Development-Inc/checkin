@@ -8,8 +8,9 @@ env:
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["dev"]
-  
+    branches:
+      - dev
+
   # Runs on Contentful webhook (e.g. entry publish)
   repository_dispatch:
     types: [publish-event]
@@ -50,7 +51,7 @@ jobs:
         uses: actions/configure-pages@v2
         with:
           static_site_generator: gatsby
-          # NOTE: 
+          # NOTE:
           # currently does not work with a TypeScript `gatsby-config` file,
           # so a pathPrefix must be manually added to that file
       - name: Restore cache
@@ -66,7 +67,7 @@ jobs:
         run: npm ci
       - name: Build with Gatsby
         env:
-          PREFIX_PATHS: 'true'
+          PREFIX_PATHS: "true"
         run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
