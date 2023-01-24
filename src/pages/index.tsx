@@ -31,8 +31,6 @@ export const query = graphql`
       title
       introSectionHeader
       introSectionSubheader
-      testimonial
-      testimonialParticipant
       universalBottomHeader
       universalBottomSubHeader
       universalAssessmentButton {
@@ -79,12 +77,6 @@ export const query = graphql`
         quoteImage {
           url
         }
-      }
-    }
-    allContentfulAssessment {
-      nodes {
-        id
-        title
       }
     }
   }

@@ -1,4 +1,4 @@
 export type OtherResourcesTypes = {
   otherResourcesHeader: string;
-  otherResourcesDescription: ContentfulRichTextGatsbyReference;
+  otherResourcesDescription: RenderRichTextData<ContentfulRichTextGatsbyReference>;
 };

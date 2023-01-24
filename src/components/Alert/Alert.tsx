@@ -13,7 +13,7 @@ const Alert = ({ alertMSG, isOpen, handleAlert }: AlertProps) => {
         elevation={6}
         severity="error"
         onClose={() => {
-          handleAlert(false);
+          handleAlert && handleAlert(false);
         }}
       >
         {alertMSG}
