@@ -1,6 +1,6 @@
 import { BLOCKS } from "@contentful/rich-text-types";
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
-import SmsFailedOutlinedIcon from "@mui/icons-material/SmsFailedOutlined";
+import { default as DisclaimerContainerIcon } from "@mui/icons-material/SmsFailedOutlined";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import React from "react";
 import Accordion from "../../../Accordion/Accordion";
@@ -126,7 +126,7 @@ const Results = ({
       {resultsDisclaimer != null ? (
         <DisclaimerContainer>
           <IconContainer>
-            <SmsFailedOutlinedIcon />
+            <DisclaimerContainerIcon />
           </IconContainer>
           <DisclaimerContainerText>
             {renderRichText(resultsDisclaimer, {
