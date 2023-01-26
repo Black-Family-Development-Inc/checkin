@@ -6,7 +6,7 @@ export type AssessmentLayoutPropTypes = {
   currentPage: StepperPagesType;
   startingPage?: StepperPagesType;
   assessmentTitle?: string;
-  isAlertOpen: boolean;
-  handleAlert: (prop) => void;
-  alertMSG: string | React.Fragment;
+  isAlertOpen?: boolean;
+  handleAlert?: (prop) => void;
+  alertMSG?: string | React.Fragment;
 };

@@ -2,7 +2,6 @@ import { TestimonialSectionType } from "../components/Testimonial/TestimonialSec
 
 export type IndexPageTypes = {
   contentfulHomePage: ContentfulHomePage;
-  allContentfulAssessments: AllContentfulAssessment;
 };
 
 export type ContentfulHomePage = {
@@ -52,10 +51,6 @@ export type GatsbyImageDataImages = {
 
 export type GatsbyImageDataImagesSrcSet = {
   srcSet: string;
-};
-
-export type AllContentfulAssessment = {
-  nodes: ContentfulAssessment[];
 };
 
 export type ContentfulAssessmentPage = {

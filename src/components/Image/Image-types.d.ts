@@ -1,3 +1,3 @@
 export type ImageStyledProps = {
-  error: boolean;
+  error?: boolean;
 };
