@@ -1,9 +1,14 @@
+import { BLOCKS } from "@contentful/rich-text-types";
 import CropOriginalIcon from "@mui/icons-material/CropOriginal";
+import { default as DisclaimerContainerIcon } from "@mui/icons-material/SmsFailedOutlined";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
 import React from "react";
 import Accordion from "../../../Accordion/Accordion";
 import { Header } from "../../../Header";
 import { Paragraph } from "../../../Paragraph";
 import {
+  DisclaimerContainer,
+  DisclaimerContainerText,
   EmailExternalLinkStyled,
   IconContainer,
   ScreenShotOrEmailContainer,
@@ -17,6 +22,7 @@ const Results = ({
   crisisWarningPhoneNumber,
   resultsHeader,
   resultsDescription,
+  resultsDisclaimer,
   accordionData,
   assessmentScore,
   assessmentSeverity,
@@ -117,6 +123,28 @@ const Results = ({
           your results.
         </Paragraph>
       </ScreenShotOrEmailContainer>
+      {resultsDisclaimer != null ? (
+        <DisclaimerContainer>
+          <IconContainer>
+            <DisclaimerContainerIcon />
+          </IconContainer>
+          <DisclaimerContainerText>
+            {renderRichText(resultsDisclaimer, {
+              renderNode: {
+                [BLOCKS.PARAGRAPH]: (node, children) => (
+                  <Paragraph
+                    sx={{
+                      margin: "0 0 16px",
+                    }}
+                  >
+                    {children}
+                  </Paragraph>
+                ),
+              },
+            })}
+          </DisclaimerContainerText>
+        </DisclaimerContainer>
+      ) : null}
     </>
   );
 };

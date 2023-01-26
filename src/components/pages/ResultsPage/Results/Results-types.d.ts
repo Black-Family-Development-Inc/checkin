@@ -10,6 +10,7 @@ export type ResultsTypes = {
   crisisWarningPhoneNumber: string;
   resultsHeader: string;
   resultsDescription: string;
+  resultsDisclaimer: RenderRichTextData<ContentfulRichTextGatsbyReference>;
   allAccordionContents?: AccordionData[];
   accordionData?: AccordionData;
   assessmentScore: number;

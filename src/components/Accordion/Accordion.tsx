@@ -82,9 +82,11 @@ const Accordion = ({
           {scoreAndSeverity && <ScoreStyled>{scoreAndSeverity}</ScoreStyled>}
           <Box>{renderRichText(description, options)}</Box>
           {scoreTable && <Typography>{scoreTableHeader}</Typography>}
-          {scoreTable?.map((table) => {
-            return <li key={`table-${table}`}>{table}</li>;
-          })}
+          <ul>
+            {scoreTable?.map((table) => {
+              return <li key={`table-${table}`}>{table}</li>;
+            })}
+          </ul>
         </CardContentStyled>
       </Collapse>
     </CardStyled>

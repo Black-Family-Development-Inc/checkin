@@ -154,7 +154,7 @@ export const NavButtonStyled = styled(Button)({
   },
   [`@media(min-width: ${breakpoints.tablet}px)`]: {
     fontSize: "16px",
-    lineHeight: "19px",
+    lineHeight: "24px",
     letterSpacing: "0.15px",
     margin: "0",
   },
