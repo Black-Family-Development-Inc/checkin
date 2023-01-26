@@ -33,6 +33,7 @@ const ResultsPage = ({
   const {
     resultsHeader,
     resultsDescription,
+    resultsDisclaimer,
     allAccordionContents,
     resourcesHeader,
     bookAppointmentDescription,
@@ -77,6 +78,7 @@ const ResultsPage = ({
     crisisWarningPhoneNumber,
     resultsHeader,
     resultsDescription,
+    resultsDisclaimer,
     resourcesHeader,
     accordionData,
     assessmentScore,
@@ -166,6 +168,9 @@ export const query = graphql`
     contentfulResultsPage(title: { eq: "Results Page" }) {
       resultsHeader
       resultsDescription
+      resultsDisclaimer {
+        raw
+      }
       allAccordionContents {
         title
         type

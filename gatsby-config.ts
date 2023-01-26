@@ -1,13 +1,12 @@
 require("dotenv").config();
-import { color } from "./src/styles/theme"
 import type { GatsbyConfig } from "gatsby";
+import { color } from "./src/styles/theme";
 
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `BFDI`,
     siteUrl: process.env.SITE_NAME,
   },
-  pathPrefix: "/BFDI",
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
@@ -18,14 +17,17 @@ const config: GatsbyConfig = {
       options: {
         spaceId: process.env.SPACE_ID,
         accessToken: process.env.ACCESS_TOKEN,
-        environment: process.env.ENVIRONMENT_ID ?? `master`
+        environment: process.env.ENVIRONMENT_ID ?? `master`,
       },
     },
     {
       resolve: `gatsby-omni-font-loader`,
       options: {
         enableListener: true,
-        preconnect: [`https://fonts.googleapis.com`, `https://fonts.gstatic.com`],
+        preconnect: [
+          `https://fonts.googleapis.com`,
+          `https://fonts.gstatic.com`,
+        ],
         web: [
           {
             name: `Inter`,
@@ -33,12 +35,12 @@ const config: GatsbyConfig = {
           },
           {
             name: `Roboto`,
-            file: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap%27);"
+            file: "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap%27);",
           },
           {
             name: `Rubik`,
-            file: "https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap%27);"
-          }
+            file: "https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap%27);",
+          },
         ],
       },
     },
