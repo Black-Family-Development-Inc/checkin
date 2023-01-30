@@ -9,7 +9,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches:
-      - dev
+      - main
 
   # Runs on Contentful webhook (e.g. entry publish)
   repository_dispatch:
