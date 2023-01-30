@@ -3,7 +3,7 @@ name: Check Pull Request
 env:
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
   SPACE_ID: ${{ secrets.SPACE_ID }}
-  SITE_NAME: ${{ secrets.SITE_NAME_DEV }}
+  SITE_NAME: ${{ secrets.SITE_NAME }}
 
 on:
   pull_request:

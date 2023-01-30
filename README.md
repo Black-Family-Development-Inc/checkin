@@ -6,7 +6,7 @@ This is a progressive web application using Gatbsy for Black Family Resource Dev
 
 ### Install
 
-```
+```bash
 npm install
 ```
 
@@ -14,7 +14,7 @@ npm install
 
 Create a file in the root directory with the following contents:
 
-```
+```text
 SITE_NAME = "http://localhost:8000"
 ACCESS_TOKEN=
 SPACE_ID=
@@ -25,7 +25,7 @@ You will need to fill in the `ACCESS_TOKEN` and `SPACE_ID` for Contentful access
 
 ### Run the Application Locally
 
-```
+```bash
 npm run start
 ```
 

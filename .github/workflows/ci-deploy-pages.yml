@@ -3,7 +3,7 @@ name: Deploy Gatsby site to Pages
 env:
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
   SPACE_ID: ${{ secrets.SPACE_ID }}
-  SITE_NAME: ${{ secrets.SITE_NAME_PAGES }}
+  SITE_NAME: ${{ secrets.SITE_NAME }}
 
 on:
   # Runs on pushes targeting the default branch
