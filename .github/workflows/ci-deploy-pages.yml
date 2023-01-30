@@ -54,15 +54,6 @@ jobs:
           # NOTE:
           # currently does not work with a TypeScript `gatsby-config` file,
           # so a pathPrefix must be manually added to that file
-      - name: Restore cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            public
-            .cache
-          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('public') }}
-          restore-keys: |
-            ${{ runner.os }}-gatsby-build-
       - name: Install dependencies
         run: npm ci
       - name: Build with Gatsby
