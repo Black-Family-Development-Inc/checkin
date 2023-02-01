@@ -4,7 +4,7 @@ env:
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
   SPACE_ID: ${{ secrets.SPACE_ID }}
   SITE_NAME: ${{ secrets.SITE_NAME }}
-  GOOGLE_ANALYTICS_TAG: ${{ secrets.SITE_NAME }}
+  GOOGLE_ANALYTICS_TAG: ${{ secrets.GOOGLE_ANALYTICS_TAG }}
 
 on:
   # Runs on pushes targeting the default branch
