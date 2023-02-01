@@ -18,6 +18,9 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [process.env.GOOGLE_ANALYTICS_TAG],
+        gtagConfig: {
+          send_page_view: true,
+        },
       },
     },
     {
