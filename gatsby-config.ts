@@ -82,7 +82,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
-        policy: [{ userAgent: `*`, disallow: [`/`] }],
+        policy: [{ userAgent: `*`, allow: `/` }],
       },
     },
   ],
